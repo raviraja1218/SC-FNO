@@ -3,7 +3,7 @@
 **Phase:** 1 — Dataset Synthesis and Baseline Numerical Simulation
 **Status:** COMPLETE
 **Gate 1:** PASS (16/16 criteria)
-**Final lock commit:** `9985392`
+**Final lock commit:** `ce4949b`
 **Report date:** 2026-10-30
 
 ---
@@ -16,7 +16,7 @@
 
 **Gate 1 status:** **PASS** — all 16 acceptance criteria verified in Step 1.5 Block F.
 
-**Phase 1 status:** **LOCKED** at commit `9985392`. Project is ready to proceed to Phase 2.
+**Phase 1 status:** **LOCKED** at commit `ce4949b`. Project is ready to proceed to Phase 2.
 
 ---
 
@@ -206,9 +206,9 @@ All forcing profiles stored separately from trajectories (`forcing.npy` per scen
 
 | Metric | Value |
 |--------|-------|
-| Total BDF wall time | **788.2 s** |
-| Mean per scenario | **394 ms** |
-| Median per scenario | **61.3 ms** |
+| Total BDF wall time | **700.6 s** |
+| Mean per scenario | **350 ms** |
+| Median per scenario | **35.3 ms** |
 | Min per scenario | 42 ms |
 | Max per scenario | 1.53 s |
 | p90 | 1.12 s |
@@ -297,11 +297,11 @@ Also generated (from Steps 1.2–1.4):
 
 ## 7. Final Declaration
 
-**Phase 1 is officially LOCKED at commit `9985392`.**
+**Phase 1 is officially LOCKED at commit `ce4949b`.**
 
 All ground-truth data was successfully generated. All numerical validation passes with margins exceeding the reviewer's thresholds. The dataset is locked via:
-- **Aggregate SHA-256:** `2ec2ebdb5ad5ed1a469e5ba842c5454c9223f40aa248025aef50f6d307cc84e5` (independently reproduced)
-- **Authoritative manifest SHA-256:** `9c2b17b48788472a18f0836535d1946bbd53037f4a806e284260071c1cf23075`
+- **Aggregate SHA-256:** `9049c7b42996fee7c08202703086bf0aebd513dbd1f77b1265ae546d6f241bf6` (independently reproduced)
+- **Authoritative manifest SHA-256:** `8cee83bb7de965880e21c3703f9db3a9f168bddb4b5f01584b9ecc3a99af412b`
 - **Phase 1 evidence manifest:** 243 artifacts, SHA-256 `2f39ef1d5ee1f4f79f87b3242c013bc53d75daf6b7036f1252989c25cb5787f6`
 
 **The project is ready to proceed to Phase 2 (Standard FNO Baseline).**
@@ -310,7 +310,7 @@ Phase 2 will use:
 - Dataset: `~/Research/Datasets/SC-FNO/raw/scenarios_2000/`
 - Split: 1,600 train / 200 val / 200 test (scenario-level)
 - Normalization: training-only z-score (10 variables)
-- Reference solver baseline: 788.2 s total / 394 ms mean / 61.3 ms median per transient (locked for Phase 5 speedup comparison)
+- Reference solver baseline: 700.6 s total / 350 ms mean / 35.3 ms median per transient (locked for Phase 5 speedup comparison, v4 physics)
 
 **No further changes to Phase 1 evidence are permitted. Phase 1 is CLOSED.**
 
@@ -318,9 +318,9 @@ Phase 2 will use:
 
 **End of Phase 1 Completion Report (Reviewer-Structured Format)**
 
-**Phase 1 lock commit:** `9985392`
+**Phase 1 lock commit:** `ce4949b`
 **Gate 1:** PASS (16/16 criteria, reviewer thresholds exceeded with wide margin)
 **Authoritative manifest:** `results/phase_1/phase_1_dataset_manifest.json`
-**Aggregate dataset SHA-256:** `2ec2ebdb5ad5ed1a469e5ba842c5454c9223f40aa248025aef50f6d307cc84e5`
+**Aggregate dataset SHA-256:** `9049c7b42996fee7c08202703086bf0aebd513dbd1f77b1265ae546d6f241bf6`
 **Phase 1 status:** **LOCKED — CLOSED**
 **Phase 2:** **AUTHORIZED**
