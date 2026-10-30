@@ -1,0 +1,71 @@
+{
+  "gate_1": "PASS",
+  "criteria_passed": 16,
+  "criteria_total": 16,
+  "checks": [
+    {
+      "criterion": "(1) 2,000 valid scenarios",
+      "passed": true
+    },
+    {
+      "criterion": "(2) 4 forcing families (500 each)",
+      "passed": true
+    },
+    {
+      "criterion": "(3) 9 output state variables",
+      "passed": true
+    },
+    {
+      "criterion": "(4) 200 output time points",
+      "passed": true
+    },
+    {
+      "criterion": "(5) Verified numerical solver (T1-T4)",
+      "passed": true
+    },
+    {
+      "criterion": "(6) No invalid numerical values",
+      "passed": true
+    },
+    {
+      "criterion": "(7) Verified 1600/200/200 scenario-level split",
+      "passed": true
+    },
+    {
+      "criterion": "(8) Training-only normalization",
+      "passed": true
+    },
+    {
+      "criterion": "(9) 7 scientific figures + validation reports",
+      "passed": true
+    },
+    {
+      "criterion": "(10) Complete provenance + SHA-256",
+      "passed": true
+    },
+    {
+      "criterion": "(11) Aggregate checksum independently reproduced",
+      "passed": true
+    },
+    {
+      "criterion": "(12) Steps 1.3 and 1.4 reconciled",
+      "passed": true
+    },
+    {
+      "criterion": "(13) Authoritative Phase 1 manifest",
+      "passed": true
+    },
+    {
+      "criterion": "(14) Phase 1 completion report",
+      "passed": true
+    },
+    {
+      "criterion": "(15) Manuscript Table 5 + limitations",
+      "passed": true
+    },
+    {
+      "criterion": "(16) Git working tree clean (excluding Block F outputs)",
+      "passed": true
+    }
+  ]
+}
