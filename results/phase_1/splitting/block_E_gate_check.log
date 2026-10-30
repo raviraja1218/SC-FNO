@@ -1,0 +1,44 @@
+
+=== STEP 1.4 BLOCK E GATE CHECK (CORRECTED) ===
+  [✓] 7 figures generated
+  [✓] exists: figure_03_reactivity_profiles.png
+  [✓] Figure 3: > 5 KB
+  [✓] Figure 3: > 20 KB (simple (5 profiles))
+  [✓] Figure 3: valid PNG (1375×744)
+  [✓] exists: figure_04_neutron_density.png
+  [✓] Figure 4: > 5 KB
+  [✓] Figure 4: > 50 KB (multi-panel)
+  [✓] Figure 4: valid PNG (1932×674)
+  [✓] exists: figure_05_precursor_evolution.png
+  [✓] Figure 5: > 5 KB
+  [✓] Figure 5: > 20 KB (simple (1 scenario, 6 lines))
+  [✓] Figure 5: valid PNG (1375×744)
+  [✓] exists: figure_06_fuel_temperature.png
+  [✓] Figure 6: > 5 KB
+  [✓] Figure 6: > 50 KB (multi-panel)
+  [✓] Figure 6: valid PNG (1932×674)
+  [✓] exists: figure_07_coolant_temperature.png
+  [✓] Figure 7: > 5 KB
+  [✓] Figure 7: > 50 KB (multi-panel)
+  [✓] Figure 7: valid PNG (1932×674)
+  [✓] exists: figure_08_state_distributions.png
+  [✓] Figure 8: > 5 KB
+  [✓] Figure 8: > 50 KB (multi-panel (2×5))
+  [✓] Figure 8: valid PNG (2494×1091)
+  [✓] exists: figure_09_dataset_split.png
+  [✓] Figure 9: > 5 KB
+  [✓] Figure 9: > 20 KB (simple (bar charts))
+  [✓] Figure 9: valid PNG (1932×680)
+  [✓] Representatives recorded in summary
+  [✓] generate_split_figures.py exists
+
+Block E (Step 1.4): PASS
+
+Figure inventory (with per-figure threshold met):
+  [✓] Figure 3: 226,504 bytes (min 20 KB, simple (5 profiles))
+  [✓] Figure 4: 125,419 bytes (min 50 KB, multi-panel)
+  [✓] Figure 5: 43,555 bytes (min 20 KB, simple (1 scenario, 6 lines))
+  [✓] Figure 6: 81,238 bytes (min 50 KB, multi-panel)
+  [✓] Figure 7: 92,329 bytes (min 50 KB, multi-panel)
+  [✓] Figure 8: 119,400 bytes (min 50 KB, multi-panel (2×5))
+  [✓] Figure 9: 40,531 bytes (min 20 KB, simple (bar charts))
