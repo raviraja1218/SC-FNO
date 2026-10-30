@@ -1,0 +1,26 @@
+{
+  "dataset_aggregate_sha256": "2ec2ebdb5ad5ed1a469e5ba842c5454c9223f40aa248025aef50f6d307cc84e5",
+  "n_scenarios": 2000,
+  "n_train": 1600,
+  "n_val": 200,
+  "n_test": 200,
+  "family_counts": {
+    "step": 500,
+    "ramp": 500,
+    "sinusoidal": 500,
+    "grf": 500
+  },
+  "split_file_checksums": {
+    "train_ids_sha256": "16ad4670eee9555aec237c94d2d241e90b74b50ce8ea57eb07efe209fe852834",
+    "validation_ids_sha256": "19b781283503b1a1cdb313dc68ce153086f18c25043f1ff5123e3cb3e3205bb6",
+    "test_ids_sha256": "a71514eacaee3d09f8c00b34b6070c61ae919a59e8208d6164903d5fed44ffb2",
+    "split_manifest_sha256": "229629f24e6ff10e36e52522b3fbb109ff918954fc1af6e6cb1990074c279b7e",
+    "normalization_statistics_sha256": "2c4ffd7502c75f731827933d2d979f1f728dca4fe413135b6ba0c98c60930d1a",
+    "normalization_report_sha256": "f8260ab140fd830618e32afc9f415a22b47ddecfe84208311ba9ac0301a9cd80",
+    "distribution_report_sha256": "c0816d1dfd354973f8c14d3c898b85148c1ee97e9d76547d61bec5b5505a3cd2",
+    "distribution_supplement_sha256": "d620470a1e83292d0b1131f4dc55adfbe2b4546154d00927e7d1510b461e67ab",
+    "scenario_extrema_sha256": "60ae6db8bb71f52f528341bfd21a42866218fc8e24f90c01fe1d50666c2c2208",
+    "per_family_fft_sha256": "60012877a8b1d4a12599beea83ec280ea9a44eff23de373aac2f632b43dcdf10",
+    "integrity_report_sha256": "9f59feb7669d285c8754ec1b37a50da795b3a4ddf361b27b34faef0e945f1ed3"
+  }
+}
