@@ -211,3 +211,42 @@ def test_T4_adiabatic_heating(th, init_state):
         f"Adiabatic dT_f/dt = {dTfdt:.6e} vs expected {expected:.6e}; "
         f"rel err {rel_err:.4%} exceeds 0.1%"
     )
+
+
+# ---------------- T5 — Negative step must decrease power ----------------
+def test_T5_negative_step_decreases_power(kin, th, init_state):
+    """SC-FNO-P0-DEFECT-003 regression test.
+
+    A negative step reactivity insertion through coupled_rhs MUST produce
+    a decreasing neutron density. Before the P0-DEFECT-003 fix,
+    coupled_rhs mis-interpreted C5, C6 as T_f, T_c in the feedback
+    calculation, generating a large spurious positive reactivity.
+    """
+    from data.solver import coupled_rhs
+
+    rho_ext = -0.05 * kin.beta_eff  # pilot_0001-like: -0.05 beta_eff
+
+    def rho_ext_fn(t):
+        return float(rho_ext)
+
+    def q_fn(t):
+        return 0.0
+
+    # Single RHS evaluation at t=0
+    dydt = coupled_rhs(0.0, init_state, kin, th, rho_ext_fn, q_fn, True)
+    dn_dt = float(dydt[0])
+
+    # With rho = -0.05 beta_eff at equilibrium, dn/dt should be negative
+    assert dn_dt < 0, (
+        f"P0-DEFECT-003 regression: dn/dt = {dn_dt:.6e} is not negative "
+        f"for rho_ext = {rho_ext:.6e} (=-0.05 beta_eff). "
+        f"This means feedback is spurious."
+    )
+
+    # And it should be of the right order of magnitude: -(0.05*beta_eff)/Lambda
+    expected_dn_dt = rho_ext / kin.Lambda * init_state[0]
+    rel_err = abs(dn_dt - expected_dn_dt) / abs(expected_dn_dt)
+    assert rel_err < 0.05, (
+        f"dn/dt = {dn_dt:.6e} vs expected ≈ {expected_dn_dt:.6e}; "
+        f"rel err {rel_err:.4%} exceeds 5%"
+    )

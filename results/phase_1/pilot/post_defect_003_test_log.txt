@@ -1,0 +1,33 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.22, pytest-9.2.0, pluggy-1.7.0 -- /home/raviraja/miniconda3/envs/sc_fno/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/raviraja/projects/SC-FNO
+plugins: platformdirs-4.12.4, mock-3.17.0, anyio-4.15.1, cov-7.1.0
+collecting ... collected 24 items
+
+tests/test_forcing.py::test_step_profile_before_after PASSED             [  4%]
+tests/test_forcing.py::test_ramp_profile_endpoints PASSED                [  8%]
+tests/test_forcing.py::test_sinusoidal_bounded PASSED                    [ 12%]
+tests/test_forcing.py::test_grf_reproducible PASSED                      [ 16%]
+tests/test_forcing.py::test_grf_different_seeds_differ PASSED            [ 20%]
+tests/test_forcing.py::test_grf_bounded PASSED                           [ 25%]
+tests/test_forcing.py::test_registry_has_100_scenarios PASSED            [ 29%]
+tests/test_forcing.py::test_registry_family_distribution PASSED          [ 33%]
+tests/test_forcing.py::test_registry_unique_ids PASSED                   [ 37%]
+tests/test_forcing.py::test_registry_creates_finite_forcing PASSED       [ 41%]
+tests/test_forcing.py::test_registry_reproducibility PASSED              [ 45%]
+tests/test_physics.py::test_kinetics_beta_consistency PASSED             [ 50%]
+tests/test_physics.py::test_equilibrium_precursors PASSED                [ 54%]
+tests/test_physics.py::test_pke_rhs_at_equilibrium_is_zero PASSED        [ 58%]
+tests/test_physics.py::test_th_rhs_at_equilibrium_is_zero PASSED         [ 62%]
+tests/test_physics.py::test_feedback_zero_at_reference PASSED            [ 66%]
+tests/test_pilot_runner.py::test_pilot_single_scenario[0] PASSED         [ 70%]
+tests/test_pilot_runner.py::test_pilot_single_scenario[25] PASSED        [ 75%]
+tests/test_pilot_runner.py::test_pilot_single_scenario[75] PASSED        [ 79%]
+tests/test_solver.py::test_T1_kinetic_equilibrium PASSED                 [ 83%]
+tests/test_solver.py::test_T2_prompt_jump PASSED                         [ 87%]
+tests/test_solver.py::test_T3_inhour PASSED                              [ 91%]
+tests/test_solver.py::test_T4_adiabatic_heating PASSED                   [ 95%]
+tests/test_solver.py::test_T5_negative_step_decreases_power PASSED       [100%]
+
+============================== 24 passed in 1.67s ==============================

@@ -1,0 +1,70 @@
+{
+  "block": "C",
+  "n_scenarios": 100,
+  "n_comparison_passed": 100,
+  "n_physical_passed": 0,
+  "n_failures": 100,
+  "all_passed": false,
+  "total_wall_s": 81.58608600900016,
+  "per_state_stats": {
+    "n": {
+      "n_scenarios": 100,
+      "n_passed": 100,
+      "max_abs_diff": 0.0007019025638896892,
+      "max_rel_l2": 1.517141842962085e-06
+    },
+    "C1": {
+      "n_scenarios": 100,
+      "n_passed": 100,
+      "max_abs_diff": 1.3786943100058124e-05,
+      "max_rel_l2": 7.352280705198603e-09
+    },
+    "C2": {
+      "n_scenarios": 100,
+      "n_passed": 100,
+      "max_abs_diff": 0.0004682395374402404,
+      "max_rel_l2": 5.7296477832038296e-08
+    },
+    "C3": {
+      "n_scenarios": 100,
+      "n_passed": 100,
+      "max_abs_diff": 0.0031034521889523603,
+      "max_rel_l2": 5.823815654694727e-07
+    },
+    "C4": {
+      "n_scenarios": 100,
+      "n_passed": 100,
+      "max_abs_diff": 0.00944623247050913,
+      "max_rel_l2": 1.5978383211764261e-06
+    },
+    "C5": {
+      "n_scenarios": 100,
+      "n_passed": 100,
+      "max_abs_diff": 0.00017932108266904834,
+      "max_rel_l2": 2.4902680682142334e-07
+    },
+    "C6": {
+      "n_scenarios": 100,
+      "n_passed": 100,
+      "max_abs_diff": 1.4470602252458775e-05,
+      "max_rel_l2": 5.7925792756868115e-08
+    },
+    "Tf": {
+      "n_scenarios": 100,
+      "n_passed": 0,
+      "max_abs_diff": 0.006406954315025359,
+      "max_rel_l2": 2.653871121613173e-07
+    },
+    "Tc": {
+      "n_scenarios": 100,
+      "n_passed": 0,
+      "max_abs_diff": 0.0034665292259887792,
+      "max_rel_l2": 4.812213900764365e-07
+    }
+  },
+  "thresholds": {
+    "kinetics_rel_max": 1e-06,
+    "thermal_abs_max_K": 1e-06,
+    "rel_l2_max": 1e-05
+  }
+}

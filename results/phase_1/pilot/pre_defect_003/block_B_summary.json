@@ -1,0 +1,25 @@
+{
+  "block": "B",
+  "n_scenarios": 100,
+  "n_success": 100,
+  "n_failures": 0,
+  "all_passed": true,
+  "total_wall_time_s": 57.76421612699983,
+  "sum_solver_wall_time_s": 57.56745643399972,
+  "solver_wall_stats": {
+    "mean_s": 0.5756745643399972,
+    "median_s": 0.29623845399999027,
+    "std_s": 0.3931612021197149,
+    "min_s": 0.2306007860001955,
+    "max_s": 1.4378315480000765,
+    "p90_s": 1.2246817495998357,
+    "p95_s": 1.3382434357500188
+  },
+  "t_grid": {
+    "n_points": 200,
+    "t_start": 0.0,
+    "t_end": 10.0
+  },
+  "state_vector_dim": 9,
+  "scenario_dirs": "/home/raviraja/Research/Datasets/SC-FNO/raw/pilot_100"
+}

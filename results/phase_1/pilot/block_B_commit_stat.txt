@@ -1,0 +1,15 @@
+commit 44b880a08437a6947aeb8df70de135b76870d3a5
+Author: Raviraja <raviraja1218@gmail.com>
+Date:   Fri Oct 30 07:45:29 2026 +0000
+
+    Phase 1.2 Block B: pilot solver runner — 100/100 scenarios solved (BDF, rtol=1e-8, atol=1e-10); 3/3 smoke tests pass
+
+ .gitignore                                       |   1 +
+ results/phase_1/pilot/block_B_run_log.txt        |  39 +++++
+ results/phase_1/pilot/block_B_smoke_test_log.txt |  12 ++
+ results/phase_1/pilot/block_B_solver_current.txt |  78 ++++++++++
+ results/phase_1/pilot/block_B_summary.json       |  25 +++
+ scripts/run_pilot.py                             | 187 +++++++++++++++++++++++
+ src/data/solver.py                               | 121 +++++++++++++++
+ tests/test_pilot_runner.py                       |  62 ++++++++
+ 8 files changed, 525 insertions(+)

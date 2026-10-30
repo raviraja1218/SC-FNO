@@ -1,0 +1,39 @@
+Running 100 pilot scenarios
+  RAW_DIR     = /home/raviraja/Research/Datasets/SC-FNO/raw/pilot_100
+  RESULTS_DIR = /home/raviraja/projects/SC-FNO/results/phase_1/pilot
+  [ 10/100] pilot_0010 (step): success=True, nfev=1010, wall=0.047s
+  [ 20/100] pilot_0020 (step): success=True, nfev=1108, wall=0.055s
+  [ 30/100] pilot_0030 (ramp): success=True, nfev=1228, wall=0.059s
+  [ 40/100] pilot_0040 (ramp): success=True, nfev=1094, wall=0.054s
+  [ 50/100] pilot_0050 (ramp): success=True, nfev=1180, wall=0.059s
+  [ 60/100] pilot_0060 (sinusoidal): success=True, nfev=22820, wall=1.108s
+  [ 70/100] pilot_0070 (sinusoidal): success=True, nfev=24080, wall=1.173s
+  [ 80/100] pilot_0080 (grf): success=True, nfev=26064, wall=1.275s
+  [ 90/100] pilot_0090 (grf): success=True, nfev=18170, wall=0.903s
+  [100/100] pilot_0100 (grf): success=True, nfev=9992, wall=0.522s
+
+{
+  "block": "B",
+  "n_scenarios": 100,
+  "n_success": 100,
+  "n_failures": 0,
+  "all_passed": true,
+  "total_wall_time_s": 38.02398072799997,
+  "sum_solver_wall_time_s": 37.79807730600078,
+  "solver_wall_stats": {
+    "mean_s": 0.37798077306000777,
+    "median_s": 0.06657672950007054,
+    "std_s": 0.3983221031329973,
+    "min_s": 0.043947923000132505,
+    "max_s": 1.2754862659999162,
+    "p90_s": 1.0111978431999207,
+    "p95_s": 1.1455891036499792
+  },
+  "t_grid": {
+    "n_points": 200,
+    "t_start": 0.0,
+    "t_end": 10.0
+  },
+  "state_vector_dim": 9,
+  "scenario_dirs": "/home/raviraja/Research/Datasets/SC-FNO/raw/pilot_100"
+}

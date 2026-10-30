@@ -37,11 +37,26 @@ def initial_state(kin: KineticsParameters, th: THParameters) -> np.ndarray:
 
 
 def coupled_rhs(t, y, kin, th, rho_ext_fn, q_fn, include_q):
-    """Full coupled RHS: [dn/dt, dC/dt, dT_f/dt, dT_c/dt]."""
+    """Full coupled RHS: [dn/dt, dC/dt, dT_f/dt, dT_c/dt].
+
+    SC-FNO-P0-DEFECT-003 fix: the previous implementation called
+    make_rho_total(rho_ext_fn, th) which returns a rho_total(t, y)
+    closure that reads y[-2], y[-1] as T_f, T_c. But pke_rhs passes
+    y[:kin.m+1] (=[n, C1..C6]) to that closure, so y[-2]=C5 and y[-1]=C6
+    were being misinterpreted as temperatures, producing huge spurious
+    positive feedback reactivity and physically impossible power/temperature
+    growth.
+
+    Fix: capture T_f, T_c from the full y here, then define rho_total_fn
+    that ignores its second argument and uses the captured temperatures.
+    """
     n = float(y[0])
-    rho_total_fn = make_rho_total(rho_ext_fn, th)
-    d_kin = pke_rhs(t, y[:kin.m + 1], kin, rho_total_fn, q_fn, include_q)
     T_f, T_c = float(y[-2]), float(y[-1])
+
+    def rho_total_fn(t_inner, _y_kin):
+        return float(rho_ext_fn(t_inner)) + feedback_reactivity(T_f, T_c, th)
+
+    d_kin = pke_rhs(t, y[:kin.m + 1], kin, rho_total_fn, q_fn, include_q)
     dT_f, dT_c = th_rhs(n, T_f, T_c, th)
     return np.concatenate((d_kin, [dT_f, dT_c]))
 
@@ -84,6 +99,7 @@ def solve_transient(rho_ext_fn: Callable[[float], float],
 from dataclasses import dataclass, field
 from typing import Optional
 import time as _time
+from physics.reactivity import feedback_reactivity
 
 
 @dataclass
@@ -132,6 +148,7 @@ def solve_one_scenario(spec,
         return coupled_rhs(t, y, kin, th, rho_ext_fn, q_fn, include_q)
 
     t0 = _time.perf_counter()
+    wall = 0.0  # initialize so the exception path can always reference it
     try:
         sol = solve_ivp(rhs, [float(t_grid[0]), float(t_grid[-1])], y0,
                         method=solver_method,
@@ -139,6 +156,7 @@ def solve_one_scenario(spec,
                         rtol=rtol, atol=atol)
         wall = _time.perf_counter() - t0
     except Exception as exc:  # pragma: no cover (diagnostic path)
+        wall = _time.perf_counter() - t0
         return PilotScenarioResult(
             scenario_id=getattr(spec, "scenario_id", "unknown"),
             family=getattr(spec, "family", "unknown"),

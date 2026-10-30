@@ -1,0 +1,15 @@
+{
+  "block": "A",
+  "timestamp": "2026-10-30T07:39:37.411405",
+  "n_scenarios": 100,
+  "family_counts": {
+    "step": 25,
+    "ramp": 25,
+    "sinusoidal": 25,
+    "grf": 25
+  },
+  "beta_eff": 0.006502,
+  "t_grid_points": 200,
+  "t_end": 10.0,
+  "manifest_sha256": "33cfa9533d257c1e300cc30af3436ea6b9845aa25513b63f3f6f0e6ce366f3b5"
+}
