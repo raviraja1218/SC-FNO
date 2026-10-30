@@ -1,0 +1,3 @@
+Canonical manifest SHA256 (data/manifests/): 33cfa9533d257c1e300cc30af3436ea6b9845aa25513b63f3f6f0e6ce366f3b5
+Repo copy SHA256 (results/phase_1/pilot/):   33cfa9533d257c1e300cc30af3436ea6b9845aa25513b63f3f6f0e6ce366f3b5
+Checksums match ✓
