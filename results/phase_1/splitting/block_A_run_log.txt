@@ -13,7 +13,7 @@ Validating 2000 scenarios
   "n_passed": 2000,
   "n_failures": 0,
   "all_passed": true,
-  "wall_time_s": 3.3440095079995444,
+  "wall_time_s": 0.7991931270007626,
   "family_counts": {
     "step": 500,
     "ramp": 500,
