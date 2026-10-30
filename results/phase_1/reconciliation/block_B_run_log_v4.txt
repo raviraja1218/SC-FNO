@@ -1,0 +1,31 @@
+============================================================
+Step 1.5 Block B — Independent checksum verification
+============================================================
+
+Recorded aggregate SHA-256: 2ec2ebdb5ad5ed1a469e5ba842c5454c9223f40aa248025aef50f6d307cc84e5
+
+[1] Independently recomputing aggregate SHA-256...
+  Recomputed: 2ec2ebdb5ad5ed1a469e5ba842c5454c9223f40aa248025aef50f6d307cc84e5
+  Match: PASS
+
+[2] Verifying split file checksums...
+  Found 11 recorded split checksums
+  train_ids.csv: PASS
+  validation_ids.csv: PASS
+  test_ids.csv: PASS
+  Overall: PASS (3/3)
+
+[3] Verifying 50 random per-scenario hashes...
+  Trajectories: 0/50 match
+  Forcings:     50/50 match
+  Times:        50/50 match
+
+[4] Validating aggregate_checksums.json structure...
+  Fields: PASS
+  Counts: PASS
+  Split checksums: PASS
+
+============================================================
+=== BLOCK B RESULT: FAIL ===
+  3/4 checks passed
+============================================================

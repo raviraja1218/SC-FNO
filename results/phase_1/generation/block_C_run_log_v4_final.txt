@@ -1,0 +1,146 @@
+============================================================
+RADAU CROSS-CHECK (200 scenarios)
+============================================================
+  [ 50/200] scenario_0491 cmp_passed=True
+  [100/200] scenario_0991 cmp_passed=True
+  [150/200] scenario_1491 cmp_passed=True
+  [200/200] scenario_1991 cmp_passed=True
+
+Radau wall time: 79.4s
+
+============================================================
+TOLERANCE SENSITIVITY SWEEP (40 scenarios)
+============================================================
+  [10/40] scenario_0451 (step)
+  [20/40] scenario_0951 (ramp)
+  [30/40] scenario_1451 (sinusoidal)
+  [40/40] scenario_1951 (grf)
+
+Tolerance sweep wall time: 27.1s
+
+{
+  "block": "C (Step 1.3)",
+  "radau": {
+    "n_scenarios": 200,
+    "n_rows": 1800,
+    "n_failures": 0,
+    "all_passed": false,
+    "wall_time_s": 79.35051281400047,
+    "per_state": {
+      "n": {
+        "n": 200,
+        "n_passed": 196,
+        "max_abs_diff": 1.5114217759570892e-06,
+        "max_rel_l2": 1.8042553700566256e-06
+      },
+      "C1": {
+        "n": 200,
+        "n_passed": 200,
+        "max_abs_diff": 7.860512596380431e-07,
+        "max_rel_l2": 3.744646856756442e-08
+      },
+      "C2": {
+        "n": 200,
+        "n_passed": 200,
+        "max_abs_diff": 5.18923889103462e-06,
+        "max_rel_l2": 8.755445564635043e-08
+      },
+      "C3": {
+        "n": 200,
+        "n_passed": 200,
+        "max_abs_diff": 3.859571236830561e-06,
+        "max_rel_l2": 2.386623096701569e-07
+      },
+      "C4": {
+        "n": 200,
+        "n_passed": 200,
+        "max_abs_diff": 4.521306479432496e-06,
+        "max_rel_l2": 3.75178120624647e-07
+      },
+      "C5": {
+        "n": 200,
+        "n_passed": 200,
+        "max_abs_diff": 4.30542445251092e-07,
+        "max_rel_l2": 2.5012087592479885e-07
+      },
+      "C6": {
+        "n": 200,
+        "n_passed": 200,
+        "max_abs_diff": 1.6092276855506071e-07,
+        "max_rel_l2": 5.758704534791045e-07
+      },
+      "Tf": {
+        "n": 200,
+        "n_passed": 200,
+        "max_abs_diff": 2.2513723706651945e-05,
+        "max_rel_l2": 8.839875106453648e-08
+      },
+      "Tc": {
+        "n": 200,
+        "n_passed": 200,
+        "max_abs_diff": 2.5651402211224195e-06,
+        "max_rel_l2": 9.713961115574038e-09
+      }
+    }
+  },
+  "tolerance": {
+    "n_scenarios": 40,
+    "n_rows": 360,
+    "n_failures": 0,
+    "all_passed": true,
+    "wall_time_s": 27.06436290000056,
+    "per_state": {
+      "n": {
+        "n": 40,
+        "n_passed": 40,
+        "max_rel_l2": 1.0248137657541329e-06
+      },
+      "C1": {
+        "n": 40,
+        "n_passed": 40,
+        "max_rel_l2": 4.185655785677175e-08
+      },
+      "C2": {
+        "n": 40,
+        "n_passed": 40,
+        "max_rel_l2": 9.31121571914623e-08
+      },
+      "C3": {
+        "n": 40,
+        "n_passed": 40,
+        "max_rel_l2": 2.3976407325933425e-07
+      },
+      "C4": {
+        "n": 40,
+        "n_passed": 40,
+        "max_rel_l2": 3.6891817045049604e-07
+      },
+      "C5": {
+        "n": 40,
+        "n_passed": 40,
+        "max_rel_l2": 2.516554297764401e-07
+      },
+      "C6": {
+        "n": 40,
+        "n_passed": 40,
+        "max_rel_l2": 4.4161565944566256e-07
+      },
+      "Tf": {
+        "n": 40,
+        "n_passed": 40,
+        "max_rel_l2": 8.908433235309172e-08
+      },
+      "Tc": {
+        "n": 40,
+        "n_passed": 40,
+        "max_rel_l2": 8.66923089173525e-09
+      }
+    }
+  },
+  "thresholds": {
+    "kinetics_rel_max": 1e-06,
+    "thermal_abs_max_K": 0.01,
+    "rel_l2_comparison_max": 1e-05,
+    "rel_l2_tolerance_max": 0.0001
+  }
+}

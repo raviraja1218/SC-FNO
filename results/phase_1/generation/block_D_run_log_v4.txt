@@ -1,0 +1,9 @@
+Validating 2000 scenarios
+  RAW_DIR = /home/raviraja/Research/Datasets/SC-FNO/raw/scenarios_2000
+
+Traceback (most recent call last):
+  File "/home/raviraja/projects/SC-FNO/scripts/validate_production.py", line 280, in <module>
+    main()
+  File "/home/raviraja/projects/SC-FNO/scripts/validate_production.py", line 94, in main
+    rho_max = float(forcing.max())
+NameError: name 'forcing' is not defined

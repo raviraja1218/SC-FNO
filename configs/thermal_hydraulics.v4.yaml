@@ -1,0 +1,31 @@
+# SC-FNO thermal-hydraulic parameters — version 4 (SUPERSEDES v3)
+# Supersedes: configs/thermal_hydraulics.v3.yaml
+# Reason: SC-FNO-P0-DEFECT-005 continued. v3 fixed fuel equilibrium
+#         but coolant was still not in equilibrium:
+#           dTc/dt(0) = +101.4 K/s (coolant heats from t=0)
+#         Root cause: m_dot = 3500 kg/s too small for P0 = 3e9 W.
+#         Coolant heat balance requires:
+#           P0 = 2 × m_dot × c_p_c × (Tc0 − T_in)
+#         With P0 = 3e9, c_p_c = 5500, Tc0 − T_in = 20 K:
+#           m_dot_required = 3e9 / (2 × 5500 × 20) = 13,636.36 kg/s
+#         All other fields identical to v3.
+
+fuel:
+  M_f: 27000.0
+  c_p_f: 300.0
+  f_f: 0.97
+coolant:
+  M_c: 4000.0
+  c_p_c: 5500.0
+  m_dot: 13636.36
+  T_in: 563.0
+heat_transfer:
+  U: 3060.0
+  A: 3000.0
+power:
+  P0: 3.0e9
+reactivity_feedback:
+  alpha_f: -3.0e-05
+  alpha_c: -0.0005
+  T_f_ref: 900.0
+  T_c_ref: 583.0

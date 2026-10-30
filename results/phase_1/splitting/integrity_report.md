@@ -4,7 +4,7 @@
 - Scenarios checked: 2000
 - Passed: 2000
 - Failed: 0
-- Wall time: 0.8 s
+- Wall time: 2.9 s
 
 ## Checks performed per scenario
 1. All 5 required files present

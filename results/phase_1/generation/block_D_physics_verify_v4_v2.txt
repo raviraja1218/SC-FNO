@@ -1,0 +1,35 @@
+
+=== POSITIVE STEP ANALYSIS (n=240) ===
+  Reached 95% of analytical prompt-jump ratio: 152/240 = 63.3%
+
+  Positive steps that FAILED the prompt-jump check (if any):
+    scenario_0005: amp=3.2237e-03 (0.496 β_eff), n_peak=1.732, theoretical=1.983, ratio=0.873
+    scenario_0017: amp=3.0925e-03 (0.476 β_eff), n_peak=1.687, theoretical=1.907, ratio=0.885
+    scenario_0024: amp=2.4380e-03 (0.375 β_eff), n_peak=1.488, theoretical=1.600, ratio=0.930
+    scenario_0033: amp=2.5289e-03 (0.389 β_eff), n_peak=1.513, theoretical=1.637, ratio=0.925
+    scenario_0038: amp=3.0230e-03 (0.465 β_eff), n_peak=1.664, theoretical=1.869, ratio=0.890
+    scenario_0039: amp=2.5893e-03 (0.398 β_eff), n_peak=1.530, theoretical=1.662, ratio=0.921
+    scenario_0043: amp=2.6364e-03 (0.405 β_eff), n_peak=1.544, theoretical=1.682, ratio=0.918
+    scenario_0046: amp=2.1710e-03 (0.334 β_eff), n_peak=1.417, theoretical=1.501, ratio=0.944
+    scenario_0064: amp=2.8865e-03 (0.444 β_eff), n_peak=1.620, theoretical=1.798, ratio=0.901
+    scenario_0075: amp=2.3354e-03 (0.359 β_eff), n_peak=1.460, theoretical=1.560, ratio=0.935
+
+=== NEGATIVE STEP ANALYSIS (n=260) ===
+  Showed power drop (n_end < 0.99): 244/260 = 93.8%
+
+  Negative steps that FAILED the drop check (if any):
+    scenario_0031: amp=-2.1321e-04 (-0.033 β_eff), n_end=0.9902
+    scenario_0036: amp=-8.2934e-05 (-0.013 β_eff), n_end=0.9962
+    scenario_0037: amp=-2.0794e-04 (-0.032 β_eff), n_end=0.9905
+    scenario_0110: amp=-9.2426e-05 (-0.014 β_eff), n_end=0.9958
+    scenario_0178: amp=-6.6309e-05 (-0.010 β_eff), n_end=0.9970
+    scenario_0197: amp=-9.1318e-05 (-0.014 β_eff), n_end=0.9958
+    scenario_0243: amp=-7.4072e-05 (-0.011 β_eff), n_end=0.9966
+    scenario_0272: amp=-1.9932e-04 (-0.031 β_eff), n_end=0.9909
+    scenario_0281: amp=-1.0025e-04 (-0.015 β_eff), n_end=0.9954
+    scenario_0310: amp=-5.5317e-06 (-0.001 β_eff), n_end=0.9998
+
+=== VERDICT ===
+  Positive steps with prompt jump: ✗ FAIL
+  Negative steps with power drop:  ✗ FAIL
+  Overall: ✗ PHYSICS STILL BROKEN

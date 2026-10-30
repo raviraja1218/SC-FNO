@@ -52,7 +52,7 @@ The literal plan metric (cosine > 0.99 across all families) counts proportional 
 ## Analysis 4 — Outlier detection: literal vs corrected
 
 ### Literal plan metric (any time point |x − mean| > 5σ)
-- Scenarios flagged: **2000**
+- Scenarios flagged: **180**
 
 ### Corrected metric (scenario aggregate |mean_t(x) − mean| > 5σ)
 - Scenarios flagged: **0**
@@ -61,4 +61,4 @@ The literal plan metric (cosine > 0.99 across all families) counts proportional 
 The literal plan metric (any time point exceeding ±5σ) flags every transient that sweeps a range — which is every non-trivial transient. This is not a data defect; it is a metric that does not distinguish normal transients from anomalous scenarios. The corrected metric flags scenarios whose TIME-AVERAGED value is anomalous, which detects the genuine outliers the plan intended.
 
 ## Wall time
-3.5 s
+1.9 s

@@ -1,0 +1,23 @@
+/home/raviraja/projects/SC-FNO/scripts/generate_split_figures.py:120: MatplotlibDeprecationWarning: The 'labels' parameter of boxplot() has been renamed 'tick_labels' since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+  bp = ax.boxplot([data_by_split["train"], data_by_split["val"],
+/home/raviraja/projects/SC-FNO/scripts/generate_split_figures.py:183: MatplotlibDeprecationWarning: The 'labels' parameter of boxplot() has been renamed 'tick_labels' since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+  bp = ax.boxplot([data_by_split["train"], data_by_split["val"],
+/home/raviraja/projects/SC-FNO/scripts/generate_split_figures.py:227: MatplotlibDeprecationWarning: The 'labels' parameter of boxplot() has been renamed 'tick_labels' since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+  bp = ax.boxplot([data_by_split["train"], data_by_split["val"],
+Representatives: {'step': 'scenario_0249', 'ramp': 'scenario_0753', 'sinusoidal': 'scenario_1248', 'grf': 'scenario_1747'}
+Saved: figure_03_reactivity_profiles.png
+Saved: figure_04_neutron_density.png
+Saved: figure_05_precursor_evolution.png
+Saved: figure_06_fuel_temperature.png
+Saved: figure_07_coolant_temperature.png
+Saved: figure_08_state_distributions.png
+Saved: figure_09_dataset_split.png
+
+Total figures: 7
+  figure_03_reactivity_profiles.png: 226,504 bytes
+  figure_04_neutron_density.png: 159,807 bytes
+  figure_05_precursor_evolution.png: 36,015 bytes
+  figure_06_fuel_temperature.png: 135,918 bytes
+  figure_07_coolant_temperature.png: 133,021 bytes
+  figure_08_state_distributions.png: 117,485 bytes
+  figure_09_dataset_split.png: 40,531 bytes

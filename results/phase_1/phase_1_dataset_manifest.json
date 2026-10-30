@@ -1,12 +1,12 @@
 {
   "phase": "1",
   "status": "LOCKED",
-  "timestamp": "2026-10-30T09:20:38.435565",
+  "timestamp": "2026-10-30T10:12:23.810550",
   "purpose": "Authoritative single reference for the frozen Phase 1 dataset. All downstream phases (2-5) must reference this manifest for dataset identity, split, normalization, and solver configuration.",
   "dataset": {
     "n_scenarios": 2000,
     "production_dir": "/home/raviraja/Research/Datasets/SC-FNO/raw/scenarios_2000",
-    "aggregate_sha256": "2ec2ebdb5ad5ed1a469e5ba842c5454c9223f40aa248025aef50f6d307cc84e5",
+    "aggregate_sha256": "9049c7b42996fee7c08202703086bf0aebd513dbd1f77b1265ae546d6f241bf6",
     "aggregate_reconciliation_status": "INDEPENDENTLY_VERIFIED",
     "family_counts": {
       "step": 500,
@@ -64,7 +64,7 @@
       "Tc"
     ],
     "near_zero_variance": [],
-    "statistics_sha256": "2c4ffd7502c75f731827933d2d979f1f728dca4fe413135b6ba0c98c60930d1a",
+    "statistics_sha256": "4e832aa5cdaa940cb2e07bf64c5741cc5124ad40242dd9532da231ff257f6727",
     "n_training_scenarios": 1600
   },
   "config_versions": {
@@ -107,7 +107,7 @@
       "description": "Dataset validation, split, normalization, distribution analysis"
     },
     "1.5": {
-      "lock_commit": "d32b343",
+      "lock_commit": "(this commit)",
       "description": "Final dataset lock, Gate 1 verification, Phase 1 closure"
     }
   },
@@ -135,33 +135,32 @@
   ],
   "gate_1": "PASS",
   "evidence_checksums": {
-    "dataset_checksums": "2c21250c406986a4fccdd8c87d344459ccce06eb0ff966b22591077730ca8a4c",
-    "aggregate_checksums": "65a096adc755a3e5e96009545cdc8d11949123523ba31f17d814644bb8dd49be",
+    "dataset_checksums": "6b67b5ccc8f2ee53fd706bbbaa3e507d7fcf33f306dcdfc5d31594f0a170036f",
+    "aggregate_checksums": "2c41a3b154d71c677e0a2f18f2937daef7990a736cf6f88f882569e993eb551f",
     "split_manifest": "229629f24e6ff10e36e52522b3fbb109ff918954fc1af6e6cb1990074c279b7e",
     "train_ids": "16ad4670eee9555aec237c94d2d241e90b74b50ce8ea57eb07efe209fe852834",
     "validation_ids": "19b781283503b1a1cdb313dc68ce153086f18c25043f1ff5123e3cb3e3205bb6",
     "test_ids": "a71514eacaee3d09f8c00b34b6070c61ae919a59e8208d6164903d5fed44ffb2",
-    "normalization_statistics": "2c4ffd7502c75f731827933d2d979f1f728dca4fe413135b6ba0c98c60930d1a",
-    "normalization_report": "f8260ab140fd830618e32afc9f415a22b47ddecfe84208311ba9ac0301a9cd80",
-    "distribution_report": "c0816d1dfd354973f8c14d3c898b85148c1ee97e9d76547d61bec5b5505a3cd2",
-    "distribution_supplement": "d620470a1e83292d0b1131f4dc55adfbe2b4546154d00927e7d1510b461e67ab",
-    "scenario_extrema": "60ae6db8bb71f52f528341bfd21a42866218fc8e24f90c01fe1d50666c2c2208",
+    "normalization_statistics": "4e832aa5cdaa940cb2e07bf64c5741cc5124ad40242dd9532da231ff257f6727",
+    "normalization_report": "31b4dbc4938a3646777a2bc2bbdefd29519208385737edae50f7ff325b2542e1",
+    "distribution_report": "420f97ec97513083215c0fc0a3f742e06fc8ab8e0f419861aebad140a2503d6d",
+    "distribution_supplement": "dd152c174e2d09d9cf8f4fa7078ec1ee1a7236b4c2054a7cd35de9ea1e2151b6",
+    "scenario_extrema": "709416b10c0ec18e16de030801045b51ac55321563d5f128f1df9f441cfae1b8",
     "per_family_fft": "60012877a8b1d4a12599beea83ec280ea9a44eff23de373aac2f632b43dcdf10",
-    "integrity_report": "9f59feb7669d285c8754ec1b37a50da795b3a4ddf361b27b34faef0e945f1ed3",
-    "step_1_3_manifest": "96aa9db35c387ef6e637ebf20cdec1864cc8d2d85625bb8cbe36432cf8637fad",
+    "integrity_report": "cc2447b9ff201ef5ed0593e5245fc47be265389db8041f956093f5bdf31003f1",
+    "step_1_3_manifest": "d70f739ec24e441d5c6fd3deb1a6ac3a54ef2d18b93b732d0405fbd0bcb5b353",
     "step_1_4_manifest": "8b7c53260e729aed863ebb3c59a7b7472f49119ea79385c1d3e718093d2e3496",
-    "aggregate_reconciliation": "03cd5dd593e3b04d2490147e57ff94c88594d0c89d5229a262a82a869aaeb7b7",
-    "reconciliation_report": "336eedc8e2e6ac8e415c7f931779dfbd210b58b5bd511d32d8d22c2a92aa19b1"
+    "aggregate_reconciliation": "470bb1642e82d60cbbe0bb18c2aa32a708c8d411ba63b631ae26831b64bc1f7a",
+    "reconciliation_report": "e099ea82ac4ec6f5f30b546c2e4fa5fbc3415c83b5798210355354ac0b0428e0"
   },
   "figures": {
     "figure_03_reactivity_profiles.png": "e1c76801ec6db11b689689603e87b9e4f1b9d02078f2f7dc7af44b8a1303108d",
-    "figure_04_neutron_density.png": "ee2aeb054c78f9f21bebb45801c12a7a7e27b16241685003368a31a0758bcc0c",
-    "figure_05_precursor_evolution.png": "f432a12ff16d965548f63c04aca4a8da83cc6b00217cffd2d492b0848ab2506a",
-    "figure_06_fuel_temperature.png": "198468cc2e775905cf2f61bcf64113aed54d122f710b0e43fb31b87a1822aa5c",
-    "figure_07_coolant_temperature.png": "caeac8ac62e246fe1a90aba6900296ca211f43866cfdaccf273200449d0cb6fd",
-    "figure_08_state_distributions.png": "e1fa74626e7f59e61550348aab8e06eaa2df073d2f14d0ec2c0b3d89ae6b1662",
+    "figure_04_neutron_density.png": "91edb40066472098c43de769a54643cbfc6bc2c9360052f3fe328f1412fe6060",
+    "figure_05_precursor_evolution.png": "459d8ff2d50837f68000d7ebf6910e1edbd9347853485388d9eecbc48169864c",
+    "figure_06_fuel_temperature.png": "d9a0eac3b9b331c042b2a072182729e1c20edcc6c6562eaf6255432c7162100b",
+    "figure_07_coolant_temperature.png": "8fa65ecca929f46b2458cf8f7b8b73df37c363dff54c8109e27809bf4e6505c3",
+    "figure_08_state_distributions.png": "6fb6e4424d4a2818ae11e228d6f991321c54a5a6bd7cf7dc254a4dff4f571156",
     "figure_09_dataset_split.png": "42e0792b5392076f7767491d3c70180e7662329a22abb9d87b854431bf52d638"
   },
-  "manifest_self_reference_note": "This manifest does not include its own SHA-256. The file phase_1_dataset_manifest.json is explicitly excluded from all checksum lists because writing its own checksum would change the file.",
-  "final_lock_commit": "d32b343"
+  "manifest_self_reference_note": "This manifest does not include its own SHA-256. The file phase_1_dataset_manifest.json is explicitly excluded from all checksum lists because writing its own checksum would change the file."
 }

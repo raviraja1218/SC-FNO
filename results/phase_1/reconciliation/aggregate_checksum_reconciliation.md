@@ -16,8 +16,8 @@ computed by its original generation script and not independently verified.
 
 | | Value |
 |---|---|
-| Recorded (Step 1.4 Block F) | `2ec2ebdb5ad5ed1a469e5ba842c5454c9223f40aa248025aef50f6d307cc84e5` |
-| Independently recomputed | `2ec2ebdb5ad5ed1a469e5ba842c5454c9223f40aa248025aef50f6d307cc84e5` |
+| Recorded (Step 1.4 Block F) | `9049c7b42996fee7c08202703086bf0aebd513dbd1f77b1265ae546d6f241bf6` |
+| Independently recomputed | `9049c7b42996fee7c08202703086bf0aebd513dbd1f77b1265ae546d6f241bf6` |
 | Match | **PASS** |
 
 ## 2. Split file checksums
@@ -51,7 +51,7 @@ Overall: **PASS**
 ## Conclusion
 
 **All checks PASS.**
-The aggregate SHA-256 `2ec2ebdb5ad5ed1a469e5ba842c5454c9223f40aa248025aef50f6d307cc84e5` is independently reproducible from the
+The aggregate SHA-256 `9049c7b42996fee7c08202703086bf0aebd513dbd1f77b1265ae546d6f241bf6` is independently reproducible from the
 2,000 per-scenario hashes recorded in `dataset_checksums.csv`, using the
 documented algorithm. The reviewer's outstanding concern is resolved.
 

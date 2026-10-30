@@ -1,0 +1,54 @@
+Split complete
+{
+  "counts": {
+    "train": 1600,
+    "val": 200,
+    "test": 200,
+    "total": 2000
+  },
+  "family_split": {
+    "step": {
+      "train": 400,
+      "val": 50,
+      "test": 50
+    },
+    "ramp": {
+      "train": 400,
+      "val": 50,
+      "test": 50
+    },
+    "sinusoidal": {
+      "train": 400,
+      "val": 50,
+      "test": 50
+    },
+    "grf": {
+      "train": 400,
+      "val": 50,
+      "test": 50
+    }
+  },
+  "split_sha256": {
+    "train_ids.csv": "16ad4670eee9555aec237c94d2d241e90b74b50ce8ea57eb07efe209fe852834",
+    "validation_ids.csv": "19b781283503b1a1cdb313dc68ce153086f18c25043f1ff5123e3cb3e3205bb6",
+    "test_ids.csv": "a71514eacaee3d09f8c00b34b6070c61ae919a59e8208d6164903d5fed44ffb2"
+  }
+}
+
+Parameter coverage (per family):
+  step:
+    train: [-0.0032, 0.0032] mean=-0.0001
+    val: [-0.0032, 0.0031] mean=-0.0001
+    test: [-0.0032, 0.0031] mean=-0.0002
+  ramp:
+    train: [-0.0019, 0.0019] mean=0.0001
+    val: [-0.0019, 0.0019] mean=0.0001
+    test: [-0.0019, 0.0019] mean=0.0001
+  sinusoidal:
+    train: [0.0510, 19.9790] mean=3.4205
+    val: [0.0535, 19.0294] mean=3.4133
+    test: [0.0506, 16.9853] mean=3.2391
+  grf:
+    train: [0.0508, 2.9973] mean=0.6878
+    val: [0.0519, 2.8847] mean=0.6885
+    test: [0.0503, 2.8185] mean=0.6563

@@ -1,6 +1,6 @@
 {
   "block": "D-supplement (Step 1.4)",
-  "wall_time_s": 3.538045020000027,
+  "wall_time_s": 1.9114448680011265,
   "per_family_fft": {
     "step": {
       "dominant_freq": 0.5
@@ -18,6 +18,6 @@
   "scenario_extrema_rows": 2000,
   "duplicate_literal": 106434,
   "duplicate_corrected": 17,
-  "outlier_literal": 2000,
+  "outlier_literal": 180,
   "outlier_corrected": 0
 }

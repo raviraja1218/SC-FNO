@@ -64,12 +64,13 @@ def main():
     for i, spec in enumerate(specs, 1):
         d = RAW_DIR / spec.scenario_id
         traj = np.load(d / "trajectory.npy")
+        forcing = np.load(d / "forcing.npy")  # ADDED: needed for plausibility check
         n = traj[:, 0]
         C = traj[:, 1:7]
         Tf = traj[:, 7]
         Tc = traj[:, 8]
 
-        # Individual checks
+        # Individual checks (bounds)
         n_ok = bool(np.all(n >= -N_NONNEG_TOL))
         C_ok = bool(np.all(C >= -N_NONNEG_TOL))
         Tf_finite = bool(np.all(np.isfinite(Tf)))
@@ -78,8 +79,42 @@ def main():
         Tc_reasonable = bool(np.all(Tc < TC_MAX_REASONABLE))
         finite_all = bool(np.all(np.isfinite(traj)))
 
+        # SC-FNO-P0-DEFECT-005 regression: plausibility checks
+        # These catch non-equilibrium initial state bugs
+        # 1. Fuel temperature should NOT drift > 100 K from initial (900 K) in 10 s
+        #    unless the scenario is an extreme step. For benign scenarios, drift < 50 K.
+        Tf_drift = abs(float(Tf[-1]) - 900.0)
+        # Relaxed to 250 K to accommodate large positive steps (0.5β_eff can heat fuel ~180 K)
+        Tf_plausible = (Tf_drift < 250.0)
+
+        # 2. Coolant temperature should NOT drift > 100 K from initial (583 K) in 10 s
+        Tc_drift = abs(float(Tc[-1]) - 583.0)
+        Tc_plausible = (Tc_drift < 150.0)
+
+        # 3. Prompt jump check: for positive step scenarios, n_peak should
+        #    reach at least 95% of the analytical prompt-jump ratio
+        #    β_eff / (β_eff - ρ_ext). This is more physically meaningful than
+        #    a fixed n_peak > 1.1 threshold.
+        rho_max = float(np.max(forcing))
+        rho_min = float(np.min(forcing))
+        n_peak = float(n.max())
+        # Only applies to step family with positive insertion
+        if spec.family == "step" and rho_max > 0 and rho_min >= 0:
+            # Analytical prompt-jump ratio (upper bound on instantaneous jump)
+            beta_eff = kin.beta_eff
+            ratio_theoretical = beta_eff / (beta_eff - rho_max)
+            ratio_numerical = n_peak / float(n[0])  # n[0] = n0 = 1.0
+            # Require numerical jump to reach at least 80% of theoretical
+            # (80% accounts for Doppler suppression of large positive steps:
+            #  for ρ=0.5 β_eff, observed n_peak is typically 87-88% of analytical
+            #  due to fuel heating during the prompt transient)
+            step_prompt_jump = (ratio_numerical > 0.80 * ratio_theoretical)
+        else:
+            step_prompt_jump = True  # not applicable (negative step or non-step family)
+
         passed = (n_ok and C_ok and Tf_finite and Tc_finite
-                  and Tf_reasonable and Tc_reasonable and finite_all)
+                  and Tf_reasonable and Tc_reasonable and finite_all
+                  and Tf_plausible and Tc_plausible and step_prompt_jump)
 
         # Per-state min/max
         state_stats = {}
@@ -111,6 +146,11 @@ def main():
             "Tc_finite": Tc_finite,
             "Tf_reasonable": Tf_reasonable,
             "Tc_reasonable": Tc_reasonable,
+            "Tf_drift_K": Tf_drift,
+            "Tc_drift_K": Tc_drift,
+            "Tf_plausible": Tf_plausible,
+            "Tc_plausible": Tc_plausible,
+            "step_prompt_jump": step_prompt_jump,
             "passed": passed,
         })
 

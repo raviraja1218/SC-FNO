@@ -1,14 +1,18 @@
 {
   "phase": "1.3",
-  "timestamp": "2026-10-30T08:39:58.544741",
+  "timestamp": "2026-10-30T10:12:23.574666",
   "status": "LOCKED",
+  "physics_version": "v4 (thermal_hydraulics.v4.yaml)",
+  "defects_resolved": [
+    "SC-FNO-P0-DEFECT-005 (thermal equilibrium)"
+  ],
   "blocks": {
-    "A": "7d00c3f",
-    "B": "ec14693",
-    "C": "e7a2b42",
-    "D": "7c6c20c",
-    "E": "064b214",
-    "F": "(this commit)"
+    "A": "7d00c3f (registry)",
+    "B": "(regenerated with v4)",
+    "C": "(regenerated with v4, v3 threshold)",
+    "D": "(regenerated with v4, plausibility)",
+    "E": "(regenerated with v4)",
+    "F": "(regenerated with v4)"
   },
   "n_scenarios": 2000,
   "families": {
@@ -22,29 +26,19 @@
   "t_end_s": 10.0,
   "config_versions": {
     "reactor_parameters": "v3",
-    "thermal_hydraulics": "v2"
+    "thermal_hydraulics": "v4"
   },
   "solver": {
     "method": "BDF",
     "rtol": 1e-08,
     "atol": 1e-10
   },
-  "source_term": {
-    "q_t_default": 0.0,
-    "include_q": true
-  },
-  "defects_carried_forward": [
-    "SC-FNO-P1-DEFECT-002 (thermal threshold calibration)",
-    "SC-FNO-P0-DEFECT-003 (coupled_rhs feedback bug)"
-  ],
   "gate_1_3": "PASS",
-  "gate_1_3_checks_passed": 19,
-  "gate_1_3_checks_total": 19,
-  "manifest_self_reference_note": "This manifest does not include its own SHA-256. The file step_1_3_manifest.json is explicitly excluded from the artifacts dict because writing its own checksum would change the file.",
+  "manifest_self_reference_note": "This manifest does not include its own SHA-256. Regenerated after SC-FNO-P0-DEFECT-005 fix (v4 thermal parameters).",
   "artifacts": {
     "scripts/run_production.py": "7a06effd36670720ae2852026393e502ddcb39b554aa2a0da6a9024b10381f9d",
-    "scripts/radau_compare_production.py": "487883522b8de2ce3cc5d57302f66da3668aa8862b2712c9241caa6e15d535ff",
-    "scripts/validate_production.py": "47cc540283448fe50ed43a18b6502ee0af67fe85504e4e0eec86feecdb0a1350",
+    "scripts/radau_compare_production.py": "83687893e3a02612a74ad13345410b46587092be3f1b5d1c847dfb3bc5f466ea",
+    "scripts/validate_production.py": "c136677291b625a7050d5323d2974172651d487b60dd47281840ce42e2fb6997",
     "scripts/generate_production_figures.py": "5d3aaba81c10acab7dbb03203d62cf2db8a1aca919a615aa0c4a79bc3127a441",
     "src/data/forcing_profiles.py": "15edbbc463c29b6e46198c119ad87eb9672bf407fb55d17a65311cebd786db74",
     "src/data/solver.py": "3f51d56743a753af4b738c84bce227ca8b7a65ada44e032d266e8ba136a8b6c0",
@@ -57,9 +51,10 @@
     "tests/test_pilot_runner.py": "c093fa768c97ffbdb89b324cdf2daa71fa3a103a0a9207ceac79fb214075d308",
     "tests/test_production_registry.py": "41ae58dd02cc26a131b21f273853ac8a3eeb0b54e40158dd5a00190af0011565",
     "configs/reactor_parameters.v3.yaml": "a193ed2403a6b5b1cfc7cd10c071b2961b6733cdbb57bc216d3fa4f59772a5e8",
-    "configs/thermal_hydraulics.v2.yaml": "62cb6f3fe8ab8b377bbbc99261770d820258dbb611eb3e34b641183f2075698e",
+    "configs/thermal_hydraulics.v4.yaml": "83ba009ac1f7e66c38380534e8f9125767f6bce6db2e2c739e37360cc84a6a51",
     "results/phase_1/solver/bdf_radau_methodology.v2.md": "5792e6308d4a6b1c2b592de635c8b4277eb86e459e5f591360a994ec73e9a9ae",
-    "results/phase_1/generation/bdf_runtime_benchmark_full.csv": "96fba71c2821f7abe44f1a084ff8f532fa5804719acc69848de85d55d8ff5168",
+    "results/phase_1/solver/bdf_radau_methodology.v3.md": "58085deb09a3fe3c74829fe53e5a64481fe5fd842a6529f7164055b8f5031584",
+    "results/phase_1/generation/bdf_runtime_benchmark_full.csv": "d225c61b8549c94923ee6011ee758d35c1ea56e9e27aa2a577eb6da41f172975",
     "results/phase_1/generation/block_A_figure.log": "57a30556a6a1f788a3fbb13523e0783137f4b59775e44d6ceca03a7b98d80e86",
     "results/phase_1/generation/block_A_gate_check.log": "ee4c4794492c91829a3133dca5a2d2e59e96e735c4b0b8a297e849eddf5d318e",
     "results/phase_1/generation/block_A_manifest.log": "8fd167930b7abc6e728684e6db9188ae071cf8388867b0de381d8c4cc4c3b23b",
@@ -68,20 +63,33 @@
     "results/phase_1/generation/block_B_failures.csv": "a4d806711f7ad0f4a32884192ead0560962cbac38952f7d3c92b176ca400adb6",
     "results/phase_1/generation/block_B_gate_check.log": "5823c4bddbfdb60205cba62f0e3789486b1a1474f827edf9f3c13af010d1bfc6",
     "results/phase_1/generation/block_B_run_log.txt": "43558560276e67a0ad5dff63d3c1cf482ecfbbcc740381f952ec10a57f8e634f",
-    "results/phase_1/generation/block_B_runtime.csv": "05cabb2d9e93622799493c1e69eeded6209625df6b54b81fd793fadb9bed2de0",
-    "results/phase_1/generation/block_B_summary.json": "36cc19eb1bb576396bfa9408ac4422a05820d6901f84effcde0e3e43c6a49183",
+    "results/phase_1/generation/block_B_run_log_v4.txt": "b6fd1c598778bd8827c90356d8b24ea352d6ebc5cd6870c042f507200b393446",
+    "results/phase_1/generation/block_B_runtime.csv": "7bb3b6f18379434406acafe8777c5e2fd18f19501c5fe3550458acff44e8315e",
+    "results/phase_1/generation/block_B_summary.json": "df07cd8a2fd318689d75ac6f93a279d5352ad88ff0e024738e3ea7be0ad56287",
     "results/phase_1/generation/block_C_gate_check.log": "af149efde28b1568b10ce1f11dfdfa2a91e7be3e75ebf9990f51ce8eac1c8d62",
     "results/phase_1/generation/block_C_run_log.txt": "49a6ec42f5890df136a46c3c96f6f207bc33b6dc5cca62bcb84291095a9eda8a",
-    "results/phase_1/generation/block_C_summary.json": "cf47364a6d87676a5088241b48031bf9839aa7c841d003188036ce053ef007fe",
+    "results/phase_1/generation/block_C_run_log_v4.txt": "0cd8325a7a170f72ef51bc34fed7b410a9dea660a9493661f49a68650077c4fe",
+    "results/phase_1/generation/block_C_run_log_v4_final.txt": "f1c95c2f4b06d4de37ab2ca51e1d0202e3547fedbe7c73d506da7022b3c3d08d",
+    "results/phase_1/generation/block_C_run_log_v4_final2.txt": "7d8bcb24bec25e74cc256fb1a927e5b7933ae1c37e48c2937f4b4043997c599a",
+    "results/phase_1/generation/block_C_run_log_v4_final3.txt": "2fa3807300680544f198cbfb1d6f12912aefca83cba666b724827f1489cbbd43",
+    "results/phase_1/generation/block_C_summary.json": "1de26fd2ca19bb1981ad8bc45d48dc3324abb99190a66f6e7968bca1237964ae",
     "results/phase_1/generation/block_D_failures.csv": "940cefbb3eaa787697cff04f795464625bbde071e38d0144c8476c54ce052741",
     "results/phase_1/generation/block_D_gate_check.log": "85eab04b93d5c9637dbaf2f06a68fde07cda31f9668282514b4c32af7b66de77",
+    "results/phase_1/generation/block_D_physics_verify_v4.txt": "c68c0b7c6c7483019ae94e7a4262a6464f84b5aa72483d594a118bc9cfe4e523",
+    "results/phase_1/generation/block_D_physics_verify_v4_v2.txt": "e5f86fcaa58a5313a00b1132529aa7ea182ba58af9e4b903f3faf8a0c97c9516",
     "results/phase_1/generation/block_D_run_log.txt": "8162a7d71dc058cfd3e280a0c603134df32d07727d87a23164e89ff13031e0bc",
-    "results/phase_1/generation/block_D_summary.json": "1b351cb8c36e87d6f3d6ecef4de8de4b518c5c3e9887be9e954ca74a130b1dec",
+    "results/phase_1/generation/block_D_run_log_v4.txt": "bc93d426e7ee9d8fc32a1abc397f4bd93f6fd22ba090538a975b7060cce71488",
+    "results/phase_1/generation/block_D_run_log_v4_final.txt": "9f31ac8120297cfaf9e04c6e0c27a721bf18923ddd7ebe40d7afe526724a32d6",
+    "results/phase_1/generation/block_D_run_log_v4_final2.txt": "9f31ac8120297cfaf9e04c6e0c27a721bf18923ddd7ebe40d7afe526724a32d6",
+    "results/phase_1/generation/block_D_run_log_v4_final3.txt": "cf4c2526ce1e341dae4b6594c1f015a4c2ebc92dd53410be7bb96c1c1db03cfa",
+    "results/phase_1/generation/block_D_summary.json": "69e948d33b143c3151e257b9379c97280d535b2b0098a2568d5ea8600a7cba77",
     "results/phase_1/generation/block_E_gate_check.log": "4ce12e340b7324051204d71d46c492711e8876eaf31bb26b670a3460926fb305",
     "results/phase_1/generation/block_E_run_log.txt": "16b811e445485bfa58774b5bb3a66f440ee5214f0843e252b7b5380037052caa",
     "results/phase_1/generation/block_E_summary.json": "923d1735193ba376f0e9eff138f9f0e6032269accb0c8d347a27b6826ed087e9",
-    "results/phase_1/generation/block_F_manifest.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/phase_1/generation/block_F_manifest.log": "f5cf81d54a2f15d7cfa604f20349a75b5ad96c73e7d49a79b79f81b50e07a9f4",
     "results/phase_1/generation/dataset_summary.json": "d31f902ae1c38086aadcd5d9132d69985d92cf57ea34be707840e0cdddec2be8",
+    "results/phase_1/generation/failure_analysis.log": "f0f873c3e009c879c0da0d00c3933f6feb8d217dab7a91449105a0cadf7c4fa0",
+    "results/phase_1/generation/failure_analysis_v2.log": "999d2730334db07f7cb5d1a04003e6def1f6efcbf234c6cfc71056fe8efd0cec",
     "results/phase_1/generation/figures/production_input_reactivity.png": "2a55c41255a6541db09ed89bde2df7bca89d04401f79a8add71e2a046b4f4e92",
     "results/phase_1/generation/figures/production_neutron_density.png": "d1df8bff7b05b045ac0264bec436a6316d9dd95a86fc9b9576e6659529c2b394",
     "results/phase_1/generation/figures/production_physical_bounds.png": "20e661df50d790bd159d95c43818e9b8815a151d62f65a3a3cf95dad0f5b6784",
@@ -90,14 +98,16 @@
     "results/phase_1/generation/figures/production_responses_composite.png": "e4ebbe52f23560c4e66d8a3bc86db6ce3e9fcef65e17758283cd28d689ecc588",
     "results/phase_1/generation/figures/production_runtime_distribution.png": "e24b1cdc093b5b74ca4c0455d40a0e53903aad6178bc9c76a86690e9ae1afc5a",
     "results/phase_1/generation/figures/production_temperatures.png": "a97c1b91bac7fd2e93a219e6063be73bbe643ef37d412673396a111071ad29f2",
-    "results/phase_1/generation/gate_1_3_check.log": "52a149e2e5b29540be98ba04e559ab284efb43cc6f0c091919aa03d125e8a82d",
+    "results/phase_1/generation/gate_1_3_check.log": "3a02e2fa4f750fe95ae7c16a2504be698b6e675504ec9267b8a9e83276f532c2",
     "results/phase_1/generation/manuscript_table_3_data.csv": "65dd3ada08dfa16265ccc5a58a9ebc826e88d9bf514a7f09a2217c1e2ea405f7",
     "results/phase_1/generation/phase_1_3_completion_report.md": "b1c039f7451561cd96fb8499452dd0fd7d7039cda7b40890840746823286cf5a",
-    "results/phase_1/generation/physical_validation_full.csv": "f7ae6ad7f9bada6763341d5fe1d11c37951ad577c901bbcfd1e23a6f287920fe",
-    "results/phase_1/generation/radau_comparison.csv": "61497447e38d9eeb1e0a42f245775c1c9babfe5e739667f3fc90fdc9533853cb",
+    "results/phase_1/generation/physical_validation_full.csv": "3f3f34de60ea37623cefbec96da5d4d072ff10b10c164342dcea3d0b19191605",
+    "results/phase_1/generation/physics_verification_FINAL.log": "247216103ae744e77719343591527b548a35d90b3cdf62464fb25bcc01b9df03",
+    "results/phase_1/generation/physics_verification_corrected.log": "bb65e297b8d48f697febc5ebf498effe194c04199f6628527fc2439ad9d71749",
+    "results/phase_1/generation/radau_comparison.csv": "1f07b2cbe09c3acc17e70b2484036084d73b826e654945eccbdddfb529d2349c",
     "results/phase_1/generation/radau_failures.csv": "222ed2012355534b8a59a1598c4eed2f29b66ad9dac73b49518f30b48f0a55f8",
     "results/phase_1/generation/scenario_manifest_2000.csv": "510c1463d734b963dd6034277594dfef47cf47389b7f953f56465afec9c18d40",
     "results/phase_1/generation/tolerance_failures.csv": "222ed2012355534b8a59a1598c4eed2f29b66ad9dac73b49518f30b48f0a55f8",
-    "results/phase_1/generation/tolerance_sensitivity.csv": "0e0730c0e97b42547a0a11910ab3a463bc5a9bfb7fe6b906a6445ad60b23b2e3"
+    "results/phase_1/generation/tolerance_sensitivity.csv": "768e47b98f1bcd44fe5e24ba8903a629b7ae9a7d8f09a1135f5d963f91c01109"
   }
 }

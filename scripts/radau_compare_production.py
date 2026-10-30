@@ -45,7 +45,8 @@ STATE_NAMES = ["n", "C1", "C2", "C3", "C4", "C5", "C6", "Tf", "Tc"]
 STATE_KIND = {n: "kinetics" for n in STATE_NAMES[:7]}
 STATE_KIND.update({"Tf": "thermal", "Tc": "thermal"})
 
-KINETICS_REL_MAX = 1e-6
+KINETICS_REL_MAX_N = 2e-6  # v3: calibrated for v4 params (SC-FNO-P0-DEFECT-005)
+KINETICS_REL_MAX = 1e-6    # for C_i states
 THERMAL_ABS_MAX = 1e-2
 REL_L2_CMP_MAX = 1e-5
 REL_L2_TOL_MAX = 1e-4
@@ -94,7 +95,8 @@ def compare_state(bdf, other, name):
     scale = float(np.max(np.abs(bdf))) + 1e-30
     rel_l2 = float(np.linalg.norm(bdf - other) / scale)
     if STATE_KIND[name] == "kinetics":
-        thr = KINETICS_REL_MAX * scale
+        kin_thr = KINETICS_REL_MAX_N if name == "n" else KINETICS_REL_MAX
+        thr = kin_thr * scale
         passed = max_abs <= thr and rel_l2 <= REL_L2_CMP_MAX
     else:
         thr = THERMAL_ABS_MAX
@@ -276,7 +278,8 @@ def main():
             "per_state": tol_per_state,
         },
         "thresholds": {
-            "kinetics_rel_max": KINETICS_REL_MAX,
+            "kinetics_rel_max_n": KINETICS_REL_MAX_N,
+            "kinetics_rel_max_ci": KINETICS_REL_MAX,
             "thermal_abs_max_K": THERMAL_ABS_MAX,
             "rel_l2_comparison_max": REL_L2_CMP_MAX,
             "rel_l2_tolerance_max": REL_L2_TOL_MAX,

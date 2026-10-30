@@ -1,0 +1,23 @@
+
+=== POSITIVE STEP SCENARIOS (240) ===
+  Show n_peak > 1.1 (prompt jump): 186/240 = 77.5%
+  Sample positive steps (should show rise):
+    scenario_0001: amp=1.1433e-03, n_peak=1.189, Tf_rise=17.7 K
+    scenario_0004: amp=1.9471e-03, n_peak=1.361, Tf_rise=30.2 K
+    scenario_0005: amp=3.2237e-03, n_peak=1.732, Tf_rise=50.2 K
+    scenario_0011: amp=5.7711e-04, n_peak=1.088, Tf_rise=8.9 K
+    scenario_0012: amp=7.5948e-04, n_peak=1.119, Tf_rise=11.7 K
+
+=== NEGATIVE STEP SCENARIOS (260) ===
+  Show n drop (n_end < 0.99): 244/260 = 93.8%
+  Sample negative steps (should show drop):
+    scenario_0002: amp=-1.8575e-03, n_end=0.9155
+    scenario_0003: amp=-1.2389e-03, n_end=0.9435
+    scenario_0006: amp=-2.3262e-03, n_end=0.8944
+    scenario_0007: amp=-2.7391e-03, n_end=0.8759
+    scenario_0008: amp=-2.0753e-03, n_end=0.9057
+
+=== VERDICT ===
+  Positive steps with prompt jump: ✗ FAIL (77.5% ≥ 90%)
+  Negative steps with power drop:  ✓ PASS (93.8% ≥ 90%)
+  Overall: ✗ PHYSICS STILL BROKEN

@@ -1,0 +1,27 @@
+# SC-FNO thermal-hydraulic parameters — version 3 (SUPERSEDES v2)
+# Supersedes: configs/thermal_hydraulics.v2.yaml
+# Reason: Phase 0 lock (SC-FNO-P0-DEFECT-005) had thermal parameters
+#         that violated equilibrium at the locked initial state:
+#         f_f*P0*n0 = 2.91e9 W, but UA*(Tf0-Tc0) = 4.755e9 W (1.63x imbalance)
+#         Fix: UA = f_f*P0/(Tf0-Tc0) = 9.180e6 W/K → U = 3060 W/(m^2*K) with A=3000
+# All other fields identical to v2.
+
+fuel:
+  M_f: 27000.0
+  c_p_f: 300.0
+  f_f: 0.97
+coolant:
+  M_c: 4000.0
+  c_p_c: 5500.0
+  m_dot: 3500.0
+  T_in: 563.0
+heat_transfer:
+  U: 3060.0
+  A: 3000.0
+power:
+  P0: 3.0e9
+reactivity_feedback:
+  alpha_f: -3.0e-05
+  alpha_c: -0.0005
+  T_f_ref: 900.0
+  T_c_ref: 583.0
