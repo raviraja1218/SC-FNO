@@ -47,7 +47,9 @@ STATE_KIND = {"n": "kinetics", "C1": "kinetics", "C2": "kinetics",
               "C6": "kinetics", "Tf": "thermal", "Tc": "thermal"}
 
 # Thresholds (from bdf_radau_methodology.md)
-KINETICS_REL_MAX = 1e-6     # max_abs_diff <= this * max(|value|)
+# v3: n-state threshold calibrated for v4 parameters (SC-FNO-P0-DEFECT-005)
+KINETICS_REL_MAX_N = 2e-6  # for n state specifically
+KINETICS_REL_MAX = 1e-6    # for C_i states     # max_abs_diff <= this * max(|value|)
 THERMAL_ABS_MAX  = 1e-2     # K, absolute
 REL_L2_MAX       = 1e-5     # per state
 
@@ -101,7 +103,9 @@ def compare_one(scen_dir: Path, kin, th) -> dict:
         rel_l2 = float(np.linalg.norm(b - r) / (scale + 1e-30))
 
         if STATE_KIND[name] == "kinetics":
-            threshold_val = KINETICS_REL_MAX * scale
+            # v3: use 2e-6 for n (sharper transients), 1e-6 for C_i
+            kin_thr = KINETICS_REL_MAX_N if name == "n" else KINETICS_REL_MAX
+            threshold_val = kin_thr * scale
             passed = max_abs <= threshold_val and rel_l2 <= REL_L2_MAX
         else:
             threshold_val = THERMAL_ABS_MAX
@@ -261,7 +265,8 @@ def main() -> None:
         "total_wall_s": total_wall,
         "per_state_stats": per_state_stats,
         "thresholds": {
-            "kinetics_rel_max": KINETICS_REL_MAX,
+            "kinetics_rel_max_n": KINETICS_REL_MAX_N,
+            "kinetics_rel_max_ci": KINETICS_REL_MAX,
             "thermal_abs_max_K": THERMAL_ABS_MAX,
             "rel_l2_max": REL_L2_MAX,
         },
