@@ -1,0 +1,9 @@
+{
+  "block": "C (Step 1.4)",
+  "n_training_scenarios": 1600,
+  "n_variables": 10,
+  "n_time_points": 200,
+  "near_zero_variance_variables": [],
+  "wall_time_s": 0.3703504309996788,
+  "source": "training only"
+}

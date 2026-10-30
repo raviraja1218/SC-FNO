@@ -1,0 +1,23 @@
+Loaded 1600 training scenarios
+  forcing shape: (1600, 200)
+  states shape:  (1600, 200, 9)
+  rho_ext: mean=9.558930e-07, std=1.287255e-03
+  n: mean=4.650604e-01, std=7.333972e-02
+  C1: mean=1.677488e+02, std=3.086287e+00
+  C2: mean=4.316970e+02, std=1.865764e+01
+  C3: mean=9.009010e+01, std=1.142449e+01
+  C4: mean=5.384085e+01, std=1.108300e+01
+  C5: mean=3.354758e+00, std=6.467293e-01
+  C6: mean=4.376901e-01, std=7.733740e-02
+  Tf: mean=7.042861e+02, std=3.370527e+01
+  Tc: mean=6.025165e+02, std=5.178714e+00
+
+{
+  "block": "C (Step 1.4)",
+  "n_training_scenarios": 1600,
+  "n_variables": 10,
+  "n_time_points": 200,
+  "near_zero_variance_variables": [],
+  "wall_time_s": 0.3703504309996788,
+  "source": "training only"
+}
