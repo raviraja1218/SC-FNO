@@ -1,0 +1,12 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.22, pytest-9.2.0, pluggy-1.7.0 -- /home/raviraja/miniconda3/envs/sc_fno/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/raviraja/projects/SC-FNO
+plugins: platformdirs-4.12.4, mock-3.17.0, anyio-4.15.1, cov-7.1.0
+collecting ... collected 3 items
+
+tests/test_pilot_runner.py::test_pilot_single_scenario[0] PASSED         [ 33%]
+tests/test_pilot_runner.py::test_pilot_single_scenario[25] PASSED        [ 66%]
+tests/test_pilot_runner.py::test_pilot_single_scenario[75] PASSED        [100%]
+
+============================== 3 passed in 2.34s ===============================

@@ -76,3 +76,124 @@ def solve_transient(rho_ext_fn: Callable[[float], float],
         "rtol": cfg.rtol,
         "atol": cfg.atol,
     }
+
+
+# ============================================================
+# Phase 1.2 Block B — batch-scenario wrapper
+# ============================================================
+from dataclasses import dataclass, field
+from typing import Optional
+import time as _time
+
+
+@dataclass
+class PilotScenarioResult:
+    """Container for one scenario's solver output and diagnostics."""
+    scenario_id: str
+    family: str
+    success: bool
+    message: str
+    t: np.ndarray                    # (n_t,)
+    rho_ext: np.ndarray              # (n_t,)
+    trajectory: np.ndarray           # (n_t, 9) -> [n, C1..C6, Tf, Tc]
+    nfev: int
+    njev: int
+    nlu: int
+    wall_time_s: float
+    rtol: float
+    atol: float
+    method: str
+    q_t_default: float
+    include_q: bool
+    config_versions: dict = field(default_factory=dict)
+
+
+def solve_one_scenario(spec,
+                       t_grid: np.ndarray,
+                       kin: KineticsParameters,
+                       th: THParameters,
+                       rho_ext_fn: Callable[[float], float],
+                       solver_method: str = "BDF",
+                       rtol: float = 1e-8,
+                       atol: float = 1e-10,
+                       q_t_default: float = 0.0,
+                       include_q: bool = True,
+                       config_versions: Optional[dict] = None) -> PilotScenarioResult:
+    """Solve one pilot scenario end-to-end. Purely additive wrapper around
+    solve_transient / coupled_rhs; does not change their behaviour."""
+    from scipy.integrate import solve_ivp
+
+    y0 = initial_state(kin, th)
+
+    def q_fn(t):
+        return q_t_default
+
+    def rhs(t, y):
+        return coupled_rhs(t, y, kin, th, rho_ext_fn, q_fn, include_q)
+
+    t0 = _time.perf_counter()
+    try:
+        sol = solve_ivp(rhs, [float(t_grid[0]), float(t_grid[-1])], y0,
+                        method=solver_method,
+                        t_eval=t_grid,
+                        rtol=rtol, atol=atol)
+        wall = _time.perf_counter() - t0
+    except Exception as exc:  # pragma: no cover (diagnostic path)
+        return PilotScenarioResult(
+            scenario_id=getattr(spec, "scenario_id", "unknown"),
+            family=getattr(spec, "family", "unknown"),
+            success=False,
+            message=f"Integration raised: {exc!r}",
+            t=t_grid.copy(),
+            rho_ext=np.asarray([rho_ext_fn(float(tt)) for tt in t_grid]),
+            trajectory=np.full((len(t_grid), 9), np.nan),
+            nfev=-1, njev=-1, nlu=-1,
+            wall_time_s=wall,
+            rtol=rtol, atol=atol,
+            method=solver_method,
+            q_t_default=q_t_default,
+            include_q=include_q,
+            config_versions=config_versions or {},
+        )
+
+    if not sol.success or sol.y.shape[1] != len(t_grid):
+        return PilotScenarioResult(
+            scenario_id=spec.scenario_id,
+            family=spec.family,
+            success=False,
+            message=f"solver failed: {sol.message}; got {sol.y.shape[1]}/{len(t_grid)} points",
+            t=t_grid.copy(),
+            rho_ext=np.asarray([rho_ext_fn(float(tt)) for tt in t_grid]),
+            trajectory=np.full((len(t_grid), 9), np.nan),
+            nfev=getattr(sol, "nfev", -1),
+            njev=getattr(sol, "njev", -1),
+            nlu=getattr(sol, "nlu", -1),
+            wall_time_s=wall,
+            rtol=rtol, atol=atol,
+            method=solver_method,
+            q_t_default=q_t_default,
+            include_q=include_q,
+            config_versions=config_versions or {},
+        )
+
+    traj = sol.y.T  # (n_t, 9)
+    rho_arr = np.asarray([rho_ext_fn(float(tt)) for tt in t_grid])
+
+    return PilotScenarioResult(
+        scenario_id=spec.scenario_id,
+        family=spec.family,
+        success=True,
+        message=sol.message,
+        t=t_grid.copy(),
+        rho_ext=rho_arr,
+        trajectory=traj,
+        nfev=int(sol.nfev),
+        njev=int(getattr(sol, "njev", 0)),
+        nlu=int(getattr(sol, "nlu", 0)),
+        wall_time_s=wall,
+        rtol=rtol, atol=atol,
+        method=solver_method,
+        q_t_default=q_t_default,
+        include_q=include_q,
+        config_versions=config_versions or {},
+    )

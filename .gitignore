@@ -51,3 +51,4 @@ Thumbs.db
 !results/phase_0/physics/parameter_registry.csv
 !results/phase_0/physics/parameter_provenance.md
 !results/phase_0/phase_0_manifest.json
+.gitignore.backup.*
