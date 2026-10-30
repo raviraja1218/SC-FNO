@@ -1,6 +1,7 @@
 {
   "phase": "phase_0",
-  "timestamp": "2026-10-30T05:29:19+00:00",
+  "timestamp": "2026-10-30T05:30:19+00:00",
+  "neuraloperator_import": "neuralop",
   "artifacts": {
     "configs/fno_baseline.yaml": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "configs/thermal_hydraulics.yaml": "320bfc4e647999845c59e5d752dc9709b95b8be0696efcb04e50a36fd251b6c9",
@@ -8,8 +9,10 @@
     "configs/reactor_parameters.yaml": "37c38c8bd1aeca9bbda1a8d5b9df0b74cae42602ad3f40796fddd2e663867b09",
     "results/phase_0/repository/repo_structure.txt": "b412bdeb00d1be80e7977a291a1da894c4997536ca1064f461ff89e5ba89ba87",
     "results/phase_0/repository/git_initial_log.txt": "fe0ca01a44d43d75b4e96dd54fa9a007c0984670bb16496ad5ec9bb0e85d532f",
+    "results/phase_0/repository/phase_0_commit.txt": "646d4a8357bc879b2d027f83fcc3267bc7bdace8bfaa71299cb9f793ee9439a5",
     "results/phase_0/repository/dataset_path.txt": "6078120d862dd6ca850b5fdc5e9d913153b248fcffaf1f9930f30141931e4c27",
     "results/phase_0/test_logs/precision_test.log": "90c575e439a84b4f4ae08cc432828646f8cce3f275902e53e7c9a37344b14963",
+    "results/phase_0/test_logs/neuraloperator_import_test.log": "6a020b7146c02474f30c299c087299d8159b275efff87e12f2abc8f9e9819dbf",
     "results/phase_0/test_logs/gpu_tensor_test.log": "2d6694500e7c90f1a1f1a6cea92253fc97b4d74ab9c96b4641cfaf5123a4d0c3",
     "results/phase_0/test_logs/path_test.log": "05937b89bd20f24a0c19d8dedb350314f80347b01c198d685d25afe777a92260",
     "results/phase_0/test_logs/cuda_fft_test.log": "25f2fe6fb0549ef93fc4611fb9f362a3867ccfd0536bb52564b158c7aca53497",
@@ -19,7 +22,7 @@
     "results/phase_0/environment/software_inventory.txt": "bb680be5ac42ead440f83fe3af268a2b3d42e0ff41a8ab0ff61ff1531e5b5782",
     "results/phase_0/infrastructure/gpu_report.txt": "f7f5f5ada4ece39614bdc1285287b8c39f83e990048ba34fed9bb895469b66c1",
     "results/phase_0/infrastructure/nvidia_smi_snapshot.txt": "09c1be8f99e4dc9fc0c1eb781c034f1d5d1674ada8a1a8516fb602c368ad0c97",
-    "results/phase_0/phase_0_manifest.json": "8ba1c5d75575b61a5d23f5e6dc04961410a02357040f6660a5ba1936d79edb68",
+    "results/phase_0/phase_0_manifest.json": "7790f3a8e54c3b9009c0509c9feeb252264fe5b10ffbea3ddbf9087a859e0aef",
     "results/phase_0/physics/parameter_registry.csv": "80f8f2c27b18ebf915e178cc3f566bb05f37c406753567a730e91922c355890c",
   }
 }
