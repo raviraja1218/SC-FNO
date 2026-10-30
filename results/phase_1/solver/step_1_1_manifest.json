@@ -1,0 +1,38 @@
+{
+  "phase": "1.1",
+  "timestamp": "2026-10-30T07:33:35.075898",
+  "phase_0_lock_reference": "e7e70c0",
+  "correction_id": "SC-FNO-P0-DEFECT-001",
+  "config_versions": {
+    "reactor_parameters": "v3",
+    "thermal_hydraulics": "v2"
+  },
+  "state_vector_dimension": 9,
+  "source_term_included": true,
+  "tests_passed": 4,
+  "artifacts": {
+    "tests/test_physics.py": "100a46f063858052a0b7d3d50299e9159d6845b8df2f28d37513ad7c7827f22f",
+    "tests/test_solver.py": "f7e960ab3cc560970602cb624d20d275b68b17192e46a86f1f72f8c1ca12e619",
+    "conftest.py": "cb64e9c142a905c45dcfce99b2902a2d03337ae9d7e207fb5acfe059a6feb343",
+    "src/physics/kinetics.py": "d482c39a606049120f43c0edd671d6e9056aeb5227d4c648245a0d622d099b24",
+    "src/physics/thermal_hydraulics.py": "2e360f801de7a4a21ff1efe5cfc98bc152eb8a238415810dd0a95f614d88157e",
+    "src/physics/reactivity.py": "4e46eea1af6553af616aeeaddb688b5b3f680ad8099d6541ba9dbdbda08eb800",
+    "src/data/solver.py": "82c531e9622a19666141783ea021a63d1cb6d40279143b653c3747630128bf6f",
+    "src/data/config_loader.py": "31f2ea0cfd43dd3ee9617d09600a13baab3c8d8661fd6a2f14675875fd5a7d4c",
+    "configs/reactor_parameters.v3.yaml": "a193ed2403a6b5b1cfc7cd10c071b2961b6733cdbb57bc216d3fa4f59772a5e8",
+    "configs/thermal_hydraulics.v2.yaml": "62cb6f3fe8ab8b377bbbc99261770d820258dbb611eb3e34b641183f2075698e",
+    "results/phase_1/solver/analytical_test_results.json": "14607c82020ca20ef380c5d6e468054711700fe390454ebba8d370c8a9c2d15f",
+    "results/phase_1/solver/analytical_test_results.log": "2365376983446accfa11dc655ac0a2dca15f1233f9e7186c77ed1dbd0ff710a3",
+    "results/phase_1/solver/api_signature_audit.log": "a47b3f559ab3666d82b7240f653be53bcbbe99e1326705fe82888269ddc6ba00",
+    "results/phase_1/solver/audit_phase0_modules.log": "76fcd91bcc4b81d28e770aeb13297f2d23373db7942a0dee761787afb8bb35dd",
+    "results/phase_1/solver/bdf_radau_methodology.md": "8eff4d3c30dca60293458efff645b69d34de8768950bbf1919a6a6f26192b099",
+    "results/phase_1/solver/phase_0_correction_verification.log": "29f60a27679c756c5a8aa6e68972682e273dd119e843bfc1ea033f44bc617c4b",
+    "results/phase_1/solver/phase_0_defect_capture.log": "235360026fe05b2f2f86bb7468f2f7bc1adb42f3cc98060ad267a397a0c9701d",
+    "results/phase_1/solver/phase_0_defect_pytest.log": "03fb5c598c5b292fc4e4a08d0b3e47dd4675aca0491c09f01b985d972cf1cf99",
+    "results/phase_1/solver/phase_0_defect_scope.log": "61a7a8e7decf3c212eb6147a13378c7805d25bf2f1fa3ac7dbe1209eb1704eae",
+    "results/phase_1/solver/solver_configuration.yaml": "c5e92a482a7e37bcd620776266c1ef15355c063e13a3aee534cbb375a31187e7",
+    "results/phase_1/solver/solver_specification.md": "85856afb5b02c64f5e7825586e418acee88fac59c61ea4b7249e6a31561741ff",
+    "results/phase_1/solver/solver_test_log.txt": "c6dceb4e08cd37b4fc14927c2d8b22a6b1df9549e5e27c94baa61d627c53dead",
+    "results/phase_1/solver/state_vector_audit.log": "201169828cd0b6e6e01e2a7831f6c79389ec5f07b26999e757b1583ba2115667"
+  }
+}

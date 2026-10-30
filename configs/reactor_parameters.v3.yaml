@@ -1,0 +1,47 @@
+# SC-FNO reactor parameters — version 3 (SUPERSEDES v2)
+# Supersedes: configs/reactor_parameters.v2.yaml (checksum 5c7639d4...)
+# Reason: Phase 0 lock had beta_eff=0.0065 quoted at 4 sig figs,
+#         while the 6-group beta_i table sums to 0.006502.
+#         beta_eff is now set equal to sum(beta_i) for internal consistency
+#         with the equations actually integrated by the solver.
+# Correction authorized by project owner; Phase 0 evidence preserved unchanged.
+# Downstream impact: negligible (~2e-6 absolute, 3.1e-4 relative change to beta_eff).
+# All other fields identical to v2.
+
+neutronics:
+  n_precursor_groups: 6
+  beta_eff: 0.006502
+  Lambda: 0.0001
+  precursor_groups:
+  - i: 1
+    beta_i: 0.000215
+    lambda_i: 0.0124
+  - i: 2
+    beta_i: 0.001424
+    lambda_i: 0.0305
+  - i: 3
+    beta_i: 0.001274
+    lambda_i: 0.111
+  - i: 4
+    beta_i: 0.002568
+    lambda_i: 0.301
+  - i: 5
+    beta_i: 0.000748
+    lambda_i: 1.14
+  - i: 6
+    beta_i: 0.000273
+    lambda_i: 3.01
+  external_source:
+    include_q_t: true
+    q_t_default: 0.0
+initial_state:
+  n0: 1.0
+  T_f0: 900.0
+  T_c0: 583.0
+simulation:
+  t_start: 0.0
+  t_end: 10.0
+  n_time_points: 200
+  solver: BDF
+  rtol: 1.0e-08
+  atol: 1.0e-10

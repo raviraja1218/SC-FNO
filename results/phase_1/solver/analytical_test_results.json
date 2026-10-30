@@ -1,0 +1,30 @@
+{
+  "phase": "1.1",
+  "config_versions": {
+    "reactor_parameters": "v3",
+    "thermal_hydraulics": "v2"
+  },
+  "beta_eff_locked": 0.006502,
+  "beta_eff_provenance": "sum(beta_i) \u2014 Phase 0 correction SC-FNO-P0-DEFECT-001",
+  "source_term_included": true,
+  "state_vector_dimension": 9,
+  "tests": {
+    "T1_kinetic_equilibrium": {
+      "status": "PASS",
+      "detail": "tests/test_solver.py::test_T1_kinetic_equilibrium PASSED                 [ 25%]"
+    },
+    "T2_prompt_jump": {
+      "status": "PASS",
+      "detail": "tests/test_solver.py::test_T2_prompt_jump PASSED                         [ 50%]"
+    },
+    "T3_inhour": {
+      "status": "PASS",
+      "detail": "tests/test_solver.py::test_T3_inhour PASSED                              [ 75%]"
+    },
+    "T4_adiabatic_heating": {
+      "status": "PASS",
+      "detail": "tests/test_solver.py::test_T4_adiabatic_heating PASSED                   [100%]"
+    }
+  },
+  "overall": "PASS"
+}

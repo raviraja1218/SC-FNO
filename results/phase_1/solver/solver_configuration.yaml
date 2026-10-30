@@ -1,0 +1,21 @@
+# Step 1.1 solver configuration
+state_vector:
+  order: [n, C1, C2, C3, C4, C5, C6, Tf, Tc]
+  dimension: 9
+
+config_versions:
+  reactor_parameters: v3   # beta_eff = sum(beta_i) = 0.006502 (P0 correction)
+  thermal_hydraulics: v2
+
+numerical_integration:
+  primary_method: BDF
+  cross_check_method: Radau
+  rtol: 1.0e-8
+  atol: 1.0e-10
+  internal_step: adaptive
+  output_grid_points: 200
+  default_t_end_s: 10.0
+
+source_term:
+  include_q_t: true
+  q_default: 0.0

@@ -1,0 +1,18 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.22, pytest-9.2.0, pluggy-1.7.0 -- /home/raviraja/miniconda3/envs/sc_fno/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/raviraja/projects/SC-FNO
+plugins: platformdirs-4.12.4, mock-3.17.0, anyio-4.15.1, cov-7.1.0
+collecting ... collected 9 items
+
+tests/test_physics.py::test_kinetics_beta_consistency PASSED             [ 11%]
+tests/test_physics.py::test_equilibrium_precursors PASSED                [ 22%]
+tests/test_physics.py::test_pke_rhs_at_equilibrium_is_zero PASSED        [ 33%]
+tests/test_physics.py::test_th_rhs_at_equilibrium_is_zero PASSED         [ 44%]
+tests/test_physics.py::test_feedback_zero_at_reference PASSED            [ 55%]
+tests/test_solver.py::test_T1_kinetic_equilibrium PASSED                 [ 66%]
+tests/test_solver.py::test_T2_prompt_jump PASSED                         [ 77%]
+tests/test_solver.py::test_T3_inhour PASSED                              [ 88%]
+tests/test_solver.py::test_T4_adiabatic_heating PASSED                   [100%]
+
+============================== 9 passed in 0.40s ===============================

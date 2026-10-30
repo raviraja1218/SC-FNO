@@ -4,6 +4,7 @@ import numpy as np
 import pytest
 from src.physics.kinetics import KineticsParameters, equilibrium_precursors, pke_rhs
 from src.physics.thermal_hydraulics import THParameters, th_rhs, feedback_reactivity
+from data.config_loader import load_config
 
 
 ROOT = os.path.expanduser('~/projects/SC-FNO')
@@ -11,13 +12,13 @@ ROOT = os.path.expanduser('~/projects/SC-FNO')
 
 @pytest.fixture
 def kin():
-    rp = yaml.safe_load(open(os.path.join(ROOT, 'configs/reactor_parameters.v2.yaml')))
+    rp = load_config('reactor_parameters')
     return KineticsParameters.from_yaml(rp)
 
 
 @pytest.fixture
 def th():
-    cfg = yaml.safe_load(open(os.path.join(ROOT, 'configs/thermal_hydraulics.v2.yaml')))
+    cfg = load_config('thermal_hydraulics')
     return THParameters.from_yaml(cfg)
 
 
