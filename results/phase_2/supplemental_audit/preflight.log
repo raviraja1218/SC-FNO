@@ -1,0 +1,9 @@
+=== Supplemental Audit Pre-Flight: 2026-10-30T16:56:01+00:00 ===
+(should be empty above)
+0c9dfd7ced7454342e09280b6307f83d42eea89e
+expected: 0c9dfd7...
+OK: results/phase_2/training/epoch_metrics.csv
+OK: results/phase_2/evaluation/predictions_summary.npz
+OK: results/phase_2/evaluation/scenario_level_metrics.csv
+OK: results/phase_2/evaluation/inference_benchmark.json
+OK: results/phase_2/closure/reproducibility.json

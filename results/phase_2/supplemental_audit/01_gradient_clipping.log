@@ -1,0 +1,46 @@
+=== epoch_metrics.csv columns ===
+['epoch', 'train_mse', 'val_mse', 'learning_rate', 'grad_norm_pre_clip', 'grad_norm_post_clip', 'grad_clip_active', 'epoch_time_s', 'peak_alloc_MB', 'peak_reserved_MB', 'is_best']
+Total epochs: 319
+
+=== Grad norm PRE-clip ===
+  min: 1.859278e-02
+  max: 3.682045e-01
+  mean: 5.213827e-02
+  median: 4.349814e-02
+
+=== Grad norm POST-clip ===
+  min: 1.859278e-02
+  max: 3.450237e-01
+  mean: 5.206561e-02
+  median: 4.349814e-02
+
+=== Clipping events: 1 / 319 epochs ===
+ epoch  grad_norm_pre_clip  grad_norm_post_clip  train_mse  val_mse
+     1            0.368204             0.345024   0.220341 0.122665
+
+=== Reconciliation ===
+⚠ pre-clip max (3.682045e-01) is below threshold (1.0)
+  → Clipping should never fire if threshold is the criterion
+
+Epochs with pre-clip > threshold: 0
+Epochs flagged as clipping active: 1
+Consistency: ✗ INCONSISTENT
+
+=== Where does 0.368 come from? ===
+  pre-clip max: 3.682045e-01
+  post-clip max: 3.450237e-01
+  pre-clip mean across epochs: 5.213827e-02
+  pre-clip median: 4.349814e-02
+
+  Could the reported '0.368' be a MEAN rather than MAX?
+  |mean - 0.368| = 3.1586e-01
+  |post mean - 0.368| = 3.1593e-01
+
+=== Interpretation ===
+  0.368 = mean pre-clip? False
+  0.368 = max pre-clip? True
+  0.368 = mean post-clip? False
+
+The reported 0.368 appears to be the max pre-clip norm. If so, and if the epoch_metrics.csv max matches, then the discrepancy must be in how 'clipping fired' was logged on epoch 1 (perhaps a local per-tensor threshold was checked instead of the global norm).
+
+=== Saved to results/phase_2/supplemental_audit/01_gradient_clipping_data.json ===

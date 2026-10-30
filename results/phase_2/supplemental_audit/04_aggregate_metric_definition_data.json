@@ -1,0 +1,16 @@
+{
+  "reported_value": 0.0009232,
+  "candidates": {
+    "A_median_over_1800_pairs": 0.00092321443799685,
+    "B_median_over_200_scen_means": 0.002307678490123613,
+    "C_mean_over_1800_pairs": 0.004219670835886278
+  },
+  "primary_population": "A_median_over_1800_pairs",
+  "primary_value": 0.00092321443799685,
+  "population_description": {
+    "A_median_over_1800_pairs": "Median of all 200 scenarios \u00d7 9 states = 1800 per-pair Rel L2 values",
+    "B_median_over_200_scen_means": "Median over 200 scenarios of the per-scenario mean Rel L2 across 9 states",
+    "C_mean_over_1800_pairs": "Mean of all 1800 per-pair Rel L2 values"
+  },
+  "recommendation": "Manuscript should state: 'Overall Rel L2 median = 9.2321e-04, computed as Median of all 200 scenarios \u00d7 9 states = 1800 per-pair Rel L2 values. Per-state and per-family breakdowns preserved (Table 4 + per_family_metrics_table.md).'"
+}

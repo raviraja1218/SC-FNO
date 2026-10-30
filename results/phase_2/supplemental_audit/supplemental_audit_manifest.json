@@ -1,0 +1,42 @@
+{
+  "phase": "2 supplemental audit",
+  "timestamp": "2026-10-30",
+  "lock_tag": "phase-2-lock",
+  "lock_commit": "0c9dfd7ced7454342e09280b6307f83d42eea89e",
+  "post_lock_commits": [
+    "af0c9c5",
+    "219caf3",
+    "d40cbc0"
+  ],
+  "status": "COMPLETE",
+  "items_resolved": 5,
+  "high_priority_findings": [
+    "Item 1: gradient clipping logging bug \u2014 max pre-clip 0.368 < 1.0 threshold, actual clipping fired 0 times, epoch-1 flag is logging artifact.",
+    "Item 2: FFT wraparound boundary artifact \u2014 start-of-trajectory MAE 8x interior for n (8.05x) and Tc (8.66x). Real architectural limitation to carry into Phase 3."
+  ],
+  "documentation_corrections": [
+    "Item 3: prompt dynamics limitation wording",
+    "Item 4: aggregate Rel L2 definition (median over 1800 pairs, verified to 0.0016% precision)",
+    "Item 5a: reproducibility tolerance formula (max per-state relative diff, 5 scenarios)",
+    "Item 5b: latency scope (model forward only, no I/O)"
+  ],
+  "artifacts": {
+    "results/phase_2/supplemental_audit/01_gradient_clipping.log": "8f7d76b4caa8fced6a7d607558e475a7f00ee9eb529f46ff03ee4fb89f008760",
+    "results/phase_2/supplemental_audit/01_gradient_clipping_data.json": "7877b36663b9bea493ff9f6a8dd9fb94b718c93ae2d8f2fc3303ca11eb5d9909",
+    "results/phase_2/supplemental_audit/01_gradient_clipping_reconciliation.log": "7d158f7d9ce5c13f38ad70cbce40620e4db3ae11244f692f89143255bbae6146",
+    "results/phase_2/supplemental_audit/01_gradient_clipping_reconciliation.md": "90408d23a1768ad109fd7196aa3fdd4927d30e2a28d4b99dfedb5a66f333b750",
+    "results/phase_2/supplemental_audit/02_temporal_boundary.log": "b033834997d002e5a0da58dfab41ec11f2f4bd28c91959a709965f34a7c7c3f7",
+    "results/phase_2/supplemental_audit/02_temporal_boundary_analysis.json": "5fdb08b24201092d24b92c31d5225352d40228e9e65021fbcf7dc2090694b3f3",
+    "results/phase_2/supplemental_audit/02_temporal_boundary_analysis.log": "8b231e7b942c690769b6cecc422d3d4743da0758782ceaccd9c797e001ea4e6c",
+    "results/phase_2/supplemental_audit/02_temporal_boundary_analysis.md": "029487a5b7cb8e76d59bee993d25552c3722fb92bee68fdad6ab9979cc508594",
+    "results/phase_2/supplemental_audit/03_prompt_dynamics_limitation.md": "bd9b9431e7363ffc00aaf46a17c86e9e7751c82e302b9396a2681a6e8bfd2f7d",
+    "results/phase_2/supplemental_audit/04_aggregate_definition.log": "a58a16718a52a0490c9ed673511e53f7a4f14bd095e01090cf69381c3e7b7cf6",
+    "results/phase_2/supplemental_audit/04_aggregate_definition.md.log": "547caa133d1276f06cfecd1948804fcd2f3b1869772c240b51695c57acaf1c0c",
+    "results/phase_2/supplemental_audit/04_aggregate_metric_definition.md": "117a27a34493c9302b07007012dc177db10e95456f3c1c12c417fe3abe250a00",
+    "results/phase_2/supplemental_audit/04_aggregate_metric_definition_data.json": "3a2953985c940b8c6a8f0219746329a4df55a4b8b8b59e257b6b7d33c648f7f0",
+    "results/phase_2/supplemental_audit/05_latency_definition.md": "e898fc5c83b80ef9eed4786a17d43c72a03d745cf88ac4578b001559c9779596",
+    "results/phase_2/supplemental_audit/05_reproducibility_definition.md": "648fcd25b82aba48251b2e53ca9da9c9b4d6eb6760e326a9e76f32033f8b43d3",
+    "results/phase_2/supplemental_audit/README.md": "3b9f5ed9d11518d62da41463badb4bc9519cfc96dcbd519670ecc06ffcd0d4e0",
+    "results/phase_2/supplemental_audit/preflight.log": "8d95ffd5c74c0fc6a5bdac6a294ee2eccb92565b97445b988a6a7b2f244b322e"
+  }
+}

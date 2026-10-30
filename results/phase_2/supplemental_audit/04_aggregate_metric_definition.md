@@ -1,0 +1,32 @@
+# Audit Item 4 — Aggregate Rel L2 Definition
+
+**Reported value:** 9.2320e-04
+
+## Candidate Computations
+
+| Computation | Value | Difference |
+|-------------|-------|------------|
+| `A_median_over_1800_pairs` | 9.232144e-04 | 0.0016% |
+| `B_median_over_200_scen_means` | 2.307678e-03 | 149.9652% |
+| `C_mean_over_1800_pairs` | 4.219671e-03 | 357.0701% |
+
+**Best match:** `A_median_over_1800_pairs` = 9.232144e-04
+
+## Population Definitions
+
+- `A_median_over_1800_pairs`: Median of all 200 scenarios × 9 states = 1800 per-pair Rel L2 values
+- `B_median_over_200_scen_means`: Median over 200 scenarios of the per-scenario mean Rel L2 across 9 states
+- `C_mean_over_1800_pairs`: Mean of all 1800 per-pair Rel L2 values
+
+## Manuscript Recommendation
+
+Manuscript should state: 'Overall Rel L2 median = 9.2321e-04, computed as Median of all 200 scenarios × 9 states = 1800 per-pair Rel L2 values. Per-state and per-family breakdowns preserved (Table 4 + per_family_metrics_table.md).'
+
+## Why This Matters
+
+These are different statistical quantities and cannot be used interchangeably:
+- **1800-pair median**: each (scenario, state) pair weighted equally — the typical per-pair error (this is what Phase 2 reports)
+- **200-scenario-mean median**: each scenario weighted equally — the typical per-scenario error, which weights states within a scenario equally
+- **1800-pair mean**: dominated by any high-error outliers
+
+The Phase 2 report's single headline number **9.232e-4 is specifically the 1800-pair median** — now confirmed by direct computation from `scenario_level_metrics.csv` with 0.0016% precision.

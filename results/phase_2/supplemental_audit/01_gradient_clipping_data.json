@@ -1,0 +1,25 @@
+{
+  "report_claim": {
+    "max_pre_clip_reported": 0.368,
+    "threshold": 1.0,
+    "fired_epochs_reported": 1
+  },
+  "actual_data": {
+    "max_pre_clip": 0.3682044530659914,
+    "mean_pre_clip": 0.052138273280148924,
+    "median_pre_clip": 0.0434981439076364,
+    "max_post_clip": 0.3450236736238002,
+    "mean_post_clip": 0.052065606244174036,
+    "n_epochs": 319,
+    "n_epochs_clip_fired": 1,
+    "n_epochs_pre_above_threshold": 0
+  },
+  "reconciliation": {
+    "0_368_is_mean_pre_clip": false,
+    "0_368_is_max_pre_clip": true,
+    "0_368_is_mean_post_clip": false,
+    "clipping_fires_consistent_with_threshold": false
+  },
+  "explanation": "The reported 0.368 appears to be the max pre-clip norm. If so, and if the epoch_metrics.csv max matches, then the discrepancy must be in how 'clipping fired' was logged on epoch 1 (perhaps a local per-tensor threshold was checked instead of the global norm).",
+  "correction": null
+}

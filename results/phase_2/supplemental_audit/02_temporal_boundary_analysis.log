@@ -1,0 +1,6 @@
+  File "/tmp/write_02_boundary_report.py", line 65
+    print(f"File size: {len('\\n'.join(lines))} chars")
+                                                      ^
+SyntaxError: f-string expression part cannot include a backslash
+=== 02_temporal_boundary_analysis.md written ===
+File size: 4339 chars

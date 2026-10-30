@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/tmp/write_04_report.py", line 4, in <module>
+    r = json.load(open(OUT / "04_aggregate_metric_definition_data.json"))
+FileNotFoundError: [Errno 2] No such file or directory: 'results/phase_2/supplemental_audit/04_aggregate_metric_definition_data.json'

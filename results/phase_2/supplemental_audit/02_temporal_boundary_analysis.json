@@ -1,0 +1,95 @@
+{
+  "results_per_state": {
+    "n": {
+      "start_region_mae": 0.03578671068507762,
+      "end_region_mae": 0.004569671402385625,
+      "interior_mae": 0.004443949949390096,
+      "overall_mae": 0.00601737405882425,
+      "start_over_interior_ratio": 8.052905881622074,
+      "end_over_interior_ratio": 1.028290474561439
+    },
+    "C1": {
+      "start_region_mae": 0.21674717579081818,
+      "end_region_mae": 0.21557244045380053,
+      "interior_mae": 0.10602657857125619,
+      "overall_mae": 0.11703990152636151,
+      "start_over_interior_ratio": 2.0442720939556787,
+      "end_over_interior_ratio": 2.0331924632362157
+    },
+    "C2": {
+      "start_region_mae": 1.3446578402036145,
+      "end_region_mae": 1.2621275041629494,
+      "interior_mae": 0.6364375870572201,
+      "overall_mae": 0.7031330955698262,
+      "start_over_interior_ratio": 2.1127882255054815,
+      "end_over_interior_ratio": 1.98311276679747
+    },
+    "C3": {
+      "start_region_mae": 0.9176131589286505,
+      "end_region_mae": 0.6717486181555904,
+      "interior_mae": 0.37657673198048225,
+      "overall_mae": 0.41838714763664603,
+      "start_over_interior_ratio": 2.4367229332061062,
+      "end_over_interior_ratio": 1.7838293264237226
+    },
+    "C4": {
+      "start_region_mae": 1.096075938902277,
+      "end_region_mae": 0.48718838129364134,
+      "interior_mae": 0.3291238017959616,
+      "overall_mae": 0.37537463762616136,
+      "start_over_interior_ratio": 3.330284631257945,
+      "end_over_interior_ratio": 1.4802587313198057
+    },
+    "C5": {
+      "start_region_mae": 0.07834607248701747,
+      "end_region_mae": 0.016275540623397998,
+      "interior_mae": 0.011821416723564012,
+      "overall_mae": 0.015370355706728385,
+      "start_over_interior_ratio": 6.6274689674755916,
+      "end_over_interior_ratio": 1.3767842724768713
+    },
+    "C6": {
+      "start_region_mae": 0.014329582687617576,
+      "end_region_mae": 0.003011041483059758,
+      "interior_mae": 0.0035215197122014136,
+      "overall_mae": 0.0040363989495151385,
+      "start_over_interior_ratio": 4.06914737349566,
+      "end_over_interior_ratio": 0.8550403601680993
+    },
+    "Tf": {
+      "start_region_mae": 4.13893153883159,
+      "end_region_mae": 0.8548097834220555,
+      "interior_mae": 0.6275633185155919,
+      "overall_mae": 0.8144940527767148,
+      "start_over_interior_ratio": 6.595241335362972,
+      "end_over_interior_ratio": 1.3621092218136355
+    },
+    "Tc": {
+      "start_region_mae": 0.313617728702551,
+      "end_region_mae": 0.052573381747850645,
+      "interior_mae": 0.036232543743758956,
+      "overall_mae": 0.050918844891903146,
+      "start_over_interior_ratio": 8.655691715174472,
+      "end_over_interior_ratio": 1.4509989174278273
+    }
+  },
+  "aggregate": {
+    "median_start_over_interior_ratio": 4.06914737349566,
+    "median_end_over_interior_ratio": 1.4509989174278273,
+    "max_start_over_interior_ratio": 8.655691715174472,
+    "max_end_over_interior_ratio": 2.0331924632362157
+  },
+  "boundary_flags": [
+    "n_start (ratio=8.05)",
+    "C1_start (ratio=2.04)",
+    "C1_end (ratio=2.03)",
+    "C2_start (ratio=2.11)",
+    "C3_start (ratio=2.44)",
+    "C4_start (ratio=3.33)",
+    "C5_start (ratio=6.63)",
+    "C6_start (ratio=4.07)",
+    "Tf_start (ratio=6.60)",
+    "Tc_start (ratio=8.66)"
+  ],
+  "interpretation": "Boundary error within 2\u00d7 of interior error is not flagged (FFT wraparound is not materially impacting accuracy). Boundary error >2\u00d7 interior error indicates a temporal boundary artifact worth noting for Phase 3."
+}

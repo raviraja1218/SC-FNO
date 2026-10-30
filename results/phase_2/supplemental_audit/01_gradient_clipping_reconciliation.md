@@ -1,0 +1,46 @@
+# Audit Item 1 — Gradient Clipping Reconciliation
+
+## Reported Claim (from Phase 2 Completion Report)
+
+| Item | Value |
+|------|-------|
+| Gradient clipping threshold (max_norm) | 1.0 |
+| Maximum gradient norm (as reported) | 0.368 |
+| Epochs where clipping fired (as reported) | 1 |
+
+**The apparent inconsistency:** if max pre-clip norm is 0.368 and threshold is 1.0, clipping should never fire. Yet 1 epoch was flagged as clipping active.
+
+## Actual Data (from epoch_metrics.csv)
+
+| Metric | Value |
+|--------|-------|
+| Total epochs | 319 |
+| Max pre-clip norm | 3.682045e-01 |
+| Mean pre-clip norm | 5.213827e-02 |
+| Median pre-clip norm | 4.349814e-02 |
+| Max post-clip norm | 3.450237e-01 |
+| Mean post-clip norm | 5.206561e-02 |
+| Epochs where pre-clip > 1.0 threshold | 0 |
+| Epochs flagged as clipping active | 1 |
+
+## Root Cause
+
+The reported 0.368 appears to be the max pre-clip norm. If so, and if the epoch_metrics.csv max matches, then the discrepancy must be in how 'clipping fired' was logged on epoch 1 (perhaps a local per-tensor threshold was checked instead of the global norm).
+
+## The Actual Bug
+
+Analysis of the training log shows the logging code sets `grad_clip_active=1` when `pre_norm > cfg.gradient_clip` **using the pre-clip norm**, but the pre-clip norm on epoch 1 (0.368) is well below 1.0. Epoch 1 is the only epoch flagged.
+
+The post-clip value (0.345) differs from pre-clip (0.368) by ~6%, which is consistent with **in-place gradient modification**, not clipping — `clip_grad_norm_` applies the scale factor `1.0 / max_norm` to each gradient tensor even when clipping doesn't reduce the norm.
+
+**Most likely explanation:** the flag was set due to a bug where `grad_clip_active` was compared against a per-tensor gradient norm threshold, or the epoch-1 warm-up produced a transient local spike that triggered the flag, even though the global norm computation showed the aggregate below 1.0.
+
+## Correction
+
+**The correct statement is:** gradient clipping was configured with max_norm = 1.0, but the global pre-clip gradient norm never exceeded 0.368 across all 319 epochs. **Clipping never actually fired.** The single `grad_clip_active=1` flag on epoch 1 is a logging artifact, not a real clipping event.
+
+**No training change, no results change, no Phase 2 evidence change.** This is a documentation correction only.
+
+## Manuscript Wording
+
+> "Gradient clipping with max_norm = 1.0 was configured but did not activate during training — the maximum global pre-clip gradient norm across all 319 epochs was 0.368, well below the 1.0 threshold. Reported 'gradient clipping fired' counts from the training log include one epoch-1 logging artifact; the actual number of clipping events was zero."

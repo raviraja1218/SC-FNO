@@ -1,0 +1,22 @@
+=== Per-state boundary vs interior MAE ===
+State |    start MAE |      end MAE |   interior MAE |  start/int |    end/int
+------------------------------------------------------------------------------------------
+   n |   3.5787e-02 |   4.5697e-03 |     4.4439e-03 |      8.053 |      1.028
+  C1 |   2.1675e-01 |   2.1557e-01 |     1.0603e-01 |      2.044 |      2.033
+  C2 |   1.3447e+00 |   1.2621e+00 |     6.3644e-01 |      2.113 |      1.983
+  C3 |   9.1761e-01 |   6.7175e-01 |     3.7658e-01 |      2.437 |      1.784
+  C4 |   1.0961e+00 |   4.8719e-01 |     3.2912e-01 |      3.330 |      1.480
+  C5 |   7.8346e-02 |   1.6276e-02 |     1.1821e-02 |      6.627 |      1.377
+  C6 |   1.4330e-02 |   3.0110e-03 |     3.5215e-03 |      4.069 |      0.855
+  Tf |   4.1389e+00 |   8.5481e-01 |     6.2756e-01 |      6.595 |      1.362
+  Tc |   3.1362e-01 |   5.2573e-02 |     3.6233e-02 |      8.656 |      1.451
+
+=== Aggregate ===
+Median start/interior ratio: 4.069
+Median end/interior ratio: 1.451
+Max start/interior ratio: 8.656
+Max end/interior ratio: 2.033
+
+Boundary flags (>2×): ['n_start (ratio=8.05)', 'C1_start (ratio=2.04)', 'C1_end (ratio=2.03)', 'C2_start (ratio=2.11)', 'C3_start (ratio=2.44)', 'C4_start (ratio=3.33)', 'C5_start (ratio=6.63)', 'C6_start (ratio=4.07)', 'Tf_start (ratio=6.60)', 'Tc_start (ratio=8.66)']
+
+Figure saved: reports/figures/phase_2/boundary_error_profile.png
