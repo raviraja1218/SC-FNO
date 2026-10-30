@@ -1,0 +1,16 @@
+  [PASS] train_file_exists
+  [PASS] train_sha256
+  [PASS] train_count_1600
+  [PASS] validation_file_exists
+  [PASS] validation_sha256
+  [PASS] validation_count_200
+  [PASS] test_file_exists
+  [PASS] test_sha256
+  [PASS] test_count_200
+  [PASS] train_val_no_overlap
+  [PASS] train_test_no_overlap
+  [PASS] val_test_no_overlap
+  [PASS] union_equals_2000
+  [PASS] all_split_ids_have_scenarios
+
+2.2.B: PASS

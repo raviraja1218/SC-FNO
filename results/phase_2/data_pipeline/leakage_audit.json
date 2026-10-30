@@ -1,0 +1,22 @@
+{
+  "checks": {
+    "no_train_val_overlap": true,
+    "no_train_test_overlap": true,
+    "no_val_test_overlap": true,
+    "split_union_equals_all": true,
+    "splits_disjoint_by_scenario_not_time": true,
+    "no_scenario_in_multiple_splits": true,
+    "normalization_training_only": true
+  },
+  "counts": {
+    "train": 1600,
+    "validation": 200,
+    "test": 200
+  },
+  "intersections": {
+    "train_val": 0,
+    "train_test": 0,
+    "val_test": 0
+  },
+  "all_passed": true
+}

@@ -1,0 +1,55 @@
+{
+  "checks": {
+    "file_exists": true,
+    "source_training_only": true,
+    "all_10_variables_present": true,
+    "all_have_mean_std": true,
+    "no_zero_std": true
+  },
+  "file_sha256": "4e832aa5cdaa940cb2e07bf64c5741cc5124ad40242dd9532da231ff257f6727",
+  "values_used": {
+    "rho_ext": {
+      "mean": 9.558930045696314e-07,
+      "std": 0.0012872545733984507
+    },
+    "n": {
+      "mean": 1.0016218682856395,
+      "std": 0.08406447315664085
+    },
+    "C1": {
+      "mean": 173.40834483646518,
+      "std": 0.6471224379421643
+    },
+    "C2": {
+      "mean": 467.0168790591532,
+      "std": 4.009488830265479
+    },
+    "C3": {
+      "mean": 114.86441743785197,
+      "std": 2.7416344759162627
+    },
+    "C4": {
+      "mean": 85.42416891144192,
+      "std": 3.396224193159085
+    },
+    "C5": {
+      "mean": 6.571627771322845,
+      "std": 0.35354237982847575
+    },
+    "C6": {
+      "mean": 0.9084326663398169,
+      "std": 0.05673977410351843
+    },
+    "Tf": {
+      "mean": 900.5170173724844,
+      "std": 17.94548679251279
+    },
+    "Tc": {
+      "mean": 583.0309021590647,
+      "std": 1.0504606742165183
+    }
+  },
+  "errors": [],
+  "all_passed": true,
+  "note": "File is loaded read-only. No recalculation performed. Raw .npy unchanged."
+}

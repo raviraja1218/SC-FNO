@@ -1,0 +1,21 @@
+  [PASS] train_len_1600
+  [PASS] val_len_200
+  [PASS] test_len_200
+  [PASS] input_shape_B16_1_200
+  [PASS] output_shape_B16_9_200
+  [PASS] dtype_float32_x
+  [PASS] dtype_float32_y
+  [PASS] batch_scenario_ids_unique
+  [PASS] input_output_pairing
+  [PASS] reproducible_ordering
+  [PASS] val_order_preserved
+  [PASS] gpu_transfer_ok
+  [PASS] train_finite
+  [PASS] val_finite
+  [PASS] test_finite
+  [PASS] normalized_input_mean_near_zero
+  [PASS] normalized_input_std_near_one
+  [PASS] normalized_output_mean_near_zero
+  [PASS] normalized_output_std_near_one
+
+2.2.D: PASS

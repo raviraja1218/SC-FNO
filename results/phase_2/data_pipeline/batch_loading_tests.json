@@ -1,0 +1,31 @@
+{
+  "checks": {
+    "train_len_1600": true,
+    "val_len_200": true,
+    "test_len_200": true,
+    "input_shape_B16_1_200": true,
+    "output_shape_B16_9_200": true,
+    "dtype_float32_x": true,
+    "dtype_float32_y": true,
+    "batch_scenario_ids_unique": true,
+    "input_output_pairing": true,
+    "reproducible_ordering": true,
+    "val_order_preserved": true,
+    "gpu_transfer_ok": true,
+    "train_finite": true,
+    "val_finite": true,
+    "test_finite": true,
+    "normalized_input_mean_near_zero": true,
+    "normalized_input_std_near_one": true,
+    "normalized_output_mean_near_zero": true,
+    "normalized_output_std_near_one": true
+  },
+  "errors": [],
+  "reconstruction_max_abs_err": 8.446978587515336e-11,
+  "train_x_mean": -6.866454960174906e-09,
+  "train_x_std": 1.0000015497207642,
+  "train_y_mean": 2.6889376840699697e-06,
+  "train_y_std": 1.0000001192092896,
+  "device": "cuda",
+  "all_passed": true
+}

@@ -1,0 +1,56 @@
+{
+  "phase": "2.2",
+  "timestamp": "2026-10-30",
+  "phase_1_lock_reference": "1d9b320",
+  "phase_1_aggregate": "9049c7b42996fee7c08202703086bf0aebd513dbd1f77b1265ae546d6f241bf6",
+  "phase_1_manifest_sha256": "993581ef514932c5f3c341ce176a401a5247ebe7217e83f70d3ebe26dd3cff12",
+  "normalization_file_sha256": "4e832aa5cdaa940cb2e07bf64c5741cc5124ad40242dd9532da231ff257f6727",
+  "architecture_checkpoint_sha256": "6e7bc42132dcb1e020ff1c7ef791e64a673580e7dcb88d623a8a11f435279d6d",
+  "step_2_1_lock": "55c2482",
+  "gate_2_2": "PASS",
+  "split_counts": {
+    "train": 1600,
+    "validation": 200,
+    "test": 200
+  },
+  "tensor_contract": {
+    "input": [
+      16,
+      1,
+      200
+    ],
+    "output": [
+      16,
+      9,
+      200
+    ],
+    "state_order": [
+      "n",
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "Tf",
+      "Tc"
+    ]
+  },
+  "artifacts": {
+    "results/phase_2/data_pipeline/batch_loading_tests.json": "bdc79b1bd0b4e9bcb17423573f1d5a734a30152c223b3311877ae0021a152202",
+    "results/phase_2/data_pipeline/batch_loading_tests.log": "9007bd20460d1bf5573fdfa136b5ab5af1bf297b4b9c3d62e41cea34c8fc2d26",
+    "results/phase_2/data_pipeline/data_pipeline_report.md": "e5c4d7e40713aebcc6cb1048878a60b6726e32562242a83634d2fab5050676c9",
+    "results/phase_2/data_pipeline/dataset_integrity.json": "6d01403fcd000f60f4e4a1daea561f857b67ed35dec6b16330d982447a6fb09f",
+    "results/phase_2/data_pipeline/dataset_integrity.log": "3a2e444d9c60d6a645dc661767278cafa024964a389ea58dfdf7da1529a9282c",
+    "results/phase_2/data_pipeline/gate22_report.log": "8abd93feeb732228fd37a4ed345d09135158c64c908f381284209725ad4a9ceb",
+    "results/phase_2/data_pipeline/leakage_audit.json": "e86ca7b582401b0d386cef3501028ae2689cab7a4c5decf212b04bf53f88a74d",
+    "results/phase_2/data_pipeline/leakage_audit.log": "d3418ae15752cf17c8c3a1e91f26d102c2f8a52e6c48c1f7301bdbadabfcc6f9",
+    "results/phase_2/data_pipeline/normalization_verification.json": "832b4c42752afccba11d4cc1eefc053a5140b51136b78aa94d7b09f1e81f7be7",
+    "results/phase_2/data_pipeline/normalization_verification.log": "3ca224c306a43c197a6c690268438b88a3b60ec8f024abd1bfb2ac03c5310af4",
+    "results/phase_2/data_pipeline/pipeline_prep.log": "7c5b173f0a97f906a6c5eb5a0196c1784b459498a61f54cab917021c804ef427",
+    "results/phase_2/data_pipeline/preflight.log": "00e849116f289f7c816f2d7a715dad23ed544e0399e63ec6f88346b2a087859f",
+    "results/phase_2/data_pipeline/split_verification.json": "bf12bce939604c9f5fe04c8fc769b0721e5253876c0f61d383083c354747eac6",
+    "results/phase_2/data_pipeline/split_verification.log": "8b6ac4acf2604657876677043673e68a48b6969cfa3a060189595da0b6a6e3cb",
+    "results/phase_2/data_pipeline/tensor_shape_report.json": "193e193462a63b36ad4393a4b8e7ec1a17e9aa5218384920a0e93b2621c763f0"
+  }
+}

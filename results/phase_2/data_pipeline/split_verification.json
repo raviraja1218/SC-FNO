@@ -1,0 +1,31 @@
+{
+  "checks": {
+    "train_file_exists": true,
+    "train_sha256": true,
+    "train_count_1600": true,
+    "validation_file_exists": true,
+    "validation_sha256": true,
+    "validation_count_200": true,
+    "test_file_exists": true,
+    "test_sha256": true,
+    "test_count_200": true,
+    "train_val_no_overlap": true,
+    "train_test_no_overlap": true,
+    "val_test_no_overlap": true,
+    "union_equals_2000": true,
+    "all_split_ids_have_scenarios": true
+  },
+  "counts": {
+    "train": 1600,
+    "validation": 200,
+    "test": 200
+  },
+  "hashes": {
+    "train": "16ad4670eee9555aec237c94d2d241e90b74b50ce8ea57eb07efe209fe852834",
+    "validation": "19b781283503b1a1cdb313dc68ce153086f18c25043f1ff5123e3cb3e3205bb6",
+    "test": "a71514eacaee3d09f8c00b34b6070c61ae919a59e8208d6164903d5fed44ffb2"
+  },
+  "family_breakdown": {},
+  "errors": [],
+  "all_passed": true
+}

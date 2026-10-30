@@ -1,0 +1,30 @@
+{
+  "input_shape_B16": [
+    16,
+    1,
+    200
+  ],
+  "output_shape_B16": [
+    16,
+    9,
+    200
+  ],
+  "state_order": [
+    "n",
+    "C1",
+    "C2",
+    "C3",
+    "C4",
+    "C5",
+    "C6",
+    "Tf",
+    "Tc"
+  ],
+  "dtype": "float32",
+  "splits": {
+    "train": 1600,
+    "validation": 200,
+    "test": 200
+  },
+  "verified": true
+}

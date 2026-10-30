@@ -1,0 +1,13 @@
+{
+  "checks": {
+    "manifest_sha256": true,
+    "aggregate_sha256": true,
+    "config_versions": true,
+    "scenario_count_2000": true,
+    "per_scenario_files_and_shapes": true
+  },
+  "errors": [],
+  "n_scenarios": 2000,
+  "sample_verified": 101,
+  "all_passed": true
+}

@@ -1,0 +1,7 @@
+  [PASS] manifest_sha256
+  [PASS] aggregate_sha256
+  [PASS] config_versions
+  [PASS] scenario_count_2000
+  [PASS] per_scenario_files_and_shapes
+
+2.2.A: PASS

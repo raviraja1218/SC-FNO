@@ -1,0 +1,3 @@
+Seeds reproducible: OK
+Prepared: results/phase_2/training
+Config: {'seed': 42, 'batch_size': 16, 'learning_rate': 0.001, 'max_epochs': 500, 'early_stopping_patience': 30, 'scheduler': 'cosine', 'gradient_clip': 1.0, 'device': 'cuda'}

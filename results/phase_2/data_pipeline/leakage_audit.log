@@ -1,0 +1,9 @@
+  [PASS] no_train_val_overlap
+  [PASS] no_train_test_overlap
+  [PASS] no_val_test_overlap
+  [PASS] split_union_equals_all
+  [PASS] splits_disjoint_by_scenario_not_time
+  [PASS] no_scenario_in_multiple_splits
+  [PASS] normalization_training_only
+
+2.2.E: PASS

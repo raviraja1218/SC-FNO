@@ -1,0 +1,9 @@
+=== Step 2.2 Pre-Flight: 2026-10-30T16:13:42+00:00 ===
+Phase 1 integrity: OK
+993581ef514932c5f3c341ce176a401a5247ebe7217e83f70d3ebe26dd3cff12  results/phase_1/phase_1_dataset_manifest.json
+Phase 1 ancestor: OK
+Step 2.1 ancestor: OK
+scenarios_2000: OK
+2000
+=== Architecture checkpoint SHA-256 (for Gate 2.5 closure) ===
+6e7bc42132dcb1e020ff1c7ef791e64a673580e7dcb88d623a8a11f435279d6d  results/phase_2/architecture/model_architecture_snapshot.pt

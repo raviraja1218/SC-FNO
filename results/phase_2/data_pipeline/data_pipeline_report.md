@@ -1,0 +1,96 @@
+# Step 2.2 — Data Pipeline Verification Report
+
+**Date:** 2026-10-30  
+**Phase 1 aggregate:** `9049c7b42996fee7c08202703086bf0aebd513dbd1f77b1265ae546d6f241bf6`  
+**Phase 1 lock:** `1d9b320`  
+**Step 2.1 lock:** `55c2482`  
+**Normalization file SHA-256:** `4e832aa5cdaa940cb2e07bf64c5741cc5124ad40242dd9532da231ff257f6727`  
+**Architecture checkpoint SHA-256 (for Gate 2.5):** `6e7bc42132dcb1e020ff1c7ef791e64a673580e7dcb88d623a8a11f435279d6d`
+
+## 2.2.A — Dataset Integrity
+
+- [PASS] `manifest_sha256`
+- [PASS] `aggregate_sha256`
+- [PASS] `config_versions`
+- [PASS] `scenario_count_2000`
+- [PASS] `per_scenario_files_and_shapes`
+
+## 2.2.B — Split Verification
+
+- [PASS] `train_file_exists`
+- [PASS] `train_sha256`
+- [PASS] `train_count_1600`
+- [PASS] `validation_file_exists`
+- [PASS] `validation_sha256`
+- [PASS] `validation_count_200`
+- [PASS] `test_file_exists`
+- [PASS] `test_sha256`
+- [PASS] `test_count_200`
+- [PASS] `train_val_no_overlap`
+- [PASS] `train_test_no_overlap`
+- [PASS] `val_test_no_overlap`
+- [PASS] `union_equals_2000`
+- [PASS] `all_split_ids_have_scenarios`
+
+## 2.2.C — Normalization Verification
+
+- [PASS] `file_exists`
+- [PASS] `source_training_only`
+- [PASS] `all_10_variables_present`
+- [PASS] `all_have_mean_std`
+- [PASS] `no_zero_std`
+
+## 2.2.D — Batch Loading Tests
+
+- [PASS] `train_len_1600`
+- [PASS] `val_len_200`
+- [PASS] `test_len_200`
+- [PASS] `input_shape_B16_1_200`
+- [PASS] `output_shape_B16_9_200`
+- [PASS] `dtype_float32_x`
+- [PASS] `dtype_float32_y`
+- [PASS] `batch_scenario_ids_unique`
+- [PASS] `input_output_pairing`
+- [PASS] `reproducible_ordering`
+- [PASS] `val_order_preserved`
+- [PASS] `gpu_transfer_ok`
+- [PASS] `train_finite`
+- [PASS] `val_finite`
+- [PASS] `test_finite`
+- [PASS] `normalized_input_mean_near_zero`
+- [PASS] `normalized_input_std_near_one`
+- [PASS] `normalized_output_mean_near_zero`
+- [PASS] `normalized_output_std_near_one`
+
+## 2.2.E — Leakage Audit
+
+- [PASS] `no_train_val_overlap`
+- [PASS] `no_train_test_overlap`
+- [PASS] `no_val_test_overlap`
+- [PASS] `split_union_equals_all`
+- [PASS] `splits_disjoint_by_scenario_not_time`
+- [PASS] `no_scenario_in_multiple_splits`
+- [PASS] `normalization_training_only`
+
+## Key Measured Values
+
+- Train/val/test lengths: **1600 / 200 / 200**
+- Input tensor: `[16, 1, 200]`  
+- Output tensor: `[16, 9, 200]`  
+- Input-output reconstruction max abs error: `8.446978587515336e-11`  
+- Normalized train x mean/std: `-0.0000` / `1.0000`  
+- Normalized train y mean/std: `0.0000` / `1.0000`  
+- Device: `cuda`
+
+## Critical Guarantees
+
+- Phase 1 aggregate SHA-256 unchanged: `9049c7b4...`
+- Split SHA-256 all match Phase 1 lock
+- Normalization source = training-only; no recalc
+- No cross-split scenario overlap (train ∩ val = train ∩ test = val ∩ test = ∅)
+- Union = 2,000 unique scenarios
+- Input-output pairing verified to <1e-4
+- Reproducible ordering with seed 42
+- Raw .npy untouched
+
+## GATE 2.2: PASS
