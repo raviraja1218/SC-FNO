@@ -1,0 +1,52 @@
+{
+  "B1": {
+    "batch_size": 1,
+    "warmup": 5,
+    "repeats": 20,
+    "sync": "before_and_after_each_repeat",
+    "timer": "time.perf_counter",
+    "mean_ms": 3.1439224498171825,
+    "median_ms": 3.058945501834387,
+    "min_ms": 2.9759660028503276,
+    "max_ms": 4.738937997899484,
+    "peak_alloc_MB": 9.442304,
+    "peak_reserved_MB": 23.068672
+  },
+  "B16": {
+    "batch_size": 16,
+    "warmup": 5,
+    "repeats": 20,
+    "sync": "before_and_after_each_repeat",
+    "timer": "time.perf_counter",
+    "mean_ms": 3.0415542500122683,
+    "median_ms": 3.0237899991334416,
+    "min_ms": 2.9658069979632273,
+    "max_ms": 3.1952959980117157,
+    "peak_alloc_MB": 12.540416,
+    "peak_reserved_MB": 25.165824
+  },
+  "B200": {
+    "batch_size": 200,
+    "warmup": 5,
+    "repeats": 5,
+    "sync": "before_and_after_each_repeat",
+    "timer": "time.perf_counter",
+    "mean_ms": 3.0954069981817156,
+    "median_ms": 3.104735995293595,
+    "min_ms": 3.0357569994521327,
+    "max_ms": 3.154179998091422,
+    "peak_alloc_MB": 51.051008,
+    "peak_reserved_MB": 67.108864
+  },
+  "speedup_vs_BDF": {
+    "BDF_mean_ms": 350.3,
+    "BDF_median_ms": 35.3,
+    "FNO_per_scenario_ms_B16": 0.1889868749458401,
+    "FNO_per_scenario_ms_B200": 0.015523679976467974,
+    "speedup_vs_BDF_mean_using_B16": 1853.5678739615598,
+    "speedup_vs_BDF_median_using_B16": 186.78545803837582,
+    "speedup_vs_BDF_mean_using_B200": 22565.525734298346,
+    "speedup_vs_BDF_median_using_B200": 2273.9453566107095,
+    "primary_metric": "speedup_vs_BDF_median_using_B200"
+  }
+}

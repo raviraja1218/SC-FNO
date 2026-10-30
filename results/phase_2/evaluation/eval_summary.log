@@ -1,0 +1,108 @@
+# Step 2.4 — Baseline Evaluation Summary
+
+**Date:** 2026-10-30
+
+**Checkpoint:** `fno_best.pt` (epoch 289, val MSE 6.666703e-02)  
+**Checkpoint SHA-256:** `24fce0bad8ec9c665649f6d73f4c56efd66f92667d95da3011d32dcbf4388889`
+
+## Test Set
+
+- Scenarios evaluated: **200** (all 200 test, untouched since Phase 1)
+- Timesteps per scenario: 200
+- Families: ['grf', 'ramp', 'sinusoidal', 'step']
+
+## Overall Metrics
+
+- MAE (mean over all 200×9×200 values): **2.7831e-01**
+- RMSE (mean): **3.9127e-01**
+- Relative L2 (median): **9.2321e-04**
+- Rel L2 skipped (near-zero denom): 0 of 1800
+
+## Per-State Metrics
+
+| State | MAE mean | RMSE mean | RelL2 median | Max abs |
+|-------|----------|-----------|--------------|---------|
+| C1 | 1.170e-01 | 1.364e-01 | 2.008e-04 | 1.593e+00 |
+| C2 | 7.031e-01 | 8.199e-01 | 4.538e-04 | 9.925e+00 |
+| C3 | 4.184e-01 | 4.926e-01 | 1.136e-03 | 6.918e+00 |
+| C4 | 3.754e-01 | 4.666e-01 | 1.705e-03 | 8.730e+00 |
+| C5 | 1.537e-02 | 2.858e-02 | 2.173e-03 | 8.860e-01 |
+| C6 | 4.036e-03 | 6.500e-03 | 3.816e-03 | 1.666e-01 |
+| Tc | 5.092e-02 | 9.494e-02 | 8.375e-05 | 2.645e+00 |
+| Tf | 8.145e-01 | 1.464e+00 | 8.203e-04 | 4.518e+01 |
+| n | 6.017e-03 | 1.236e-02 | 7.546e-03 | 5.849e-01 |
+
+## Per-Family Metrics
+
+| Family | MAE mean | RMSE mean | RelL2 median |
+|--------|----------|-----------|--------------|
+| grf | 2.765e-01 | 3.706e-01 | 2.058e-03 |
+| ramp | 2.066e-02 | 2.651e-02 | 2.115e-04 |
+| sinusoidal | 8.991e-02 | 1.348e-01 | 6.465e-04 |
+| step | 7.261e-01 | 1.033e+00 | 5.896e-03 |
+
+## Worst-Case Scenarios
+
+**Aggregate worst:** `scenario_0458` (family=step, relL2 mean=1.8516e-02)
+
+**Per-state worst:**
+- `n`: scenario_0290 (step), relL2=5.3008e-02
+- `C1`: scenario_0458 (step), relL2=4.8134e-03
+- `C2`: scenario_0458 (step), relL2=1.0897e-02
+- `C3`: scenario_0458 (step), relL2=2.7761e-02
+- `C4`: scenario_0458 (step), relL2=3.6169e-02
+- `C5`: scenario_0458 (step), relL2=2.2425e-02
+- `C6`: scenario_1989 (grf), relL2=4.3737e-02
+- `Tf`: scenario_0458 (step), relL2=7.9293e-03
+- `Tc`: scenario_0458 (step), relL2=8.1790e-04
+
+## Inference Benchmark
+
+| Batch | Median (ms) | Mean (ms) | Peak VRAM (MB) |
+|-------|-------------|-----------|----------------|
+| B1 | 3.059 | 3.144 | 9.44 |
+| B16 | 3.024 | 3.042 | 12.54 |
+| B200 | 3.105 | 3.095 | 51.05 |
+
+**Speedup vs Phase 1 BDF baseline:**
+- BDF median 35.3 ms, mean 350.3 ms
+- FNO per-scenario (B200 median): 0.015524 ms
+- **Speedup (median vs median): 2273.9×**
+- Speedup (mean vs median): 22565.5×
+- Primary metric: `speedup_vs_BDF_median_using_B200`
+
+## Timing Methodology (Reviewer Item C)
+
+- Warm-up: 5 iterations
+- Repeats: 20
+- Sync: `before_and_after_each_repeat`
+- Timer: `time.perf_counter`
+- Median primary (B200)
+
+## Required Figures
+
+- [✓] `f1_training_validation_loss.png`
+- [✓] `f2_neutron_density_prediction.png`
+- [✓] `f3_precursor_predictions.png`
+- [✓] `f4_fuel_temperature_prediction.png`
+- [✓] `f5_coolant_temperature_prediction.png`
+- [✓] `f6_statewise_error_comparison.png`
+- [✓] `worst_case_prediction.png`
+
+## Critical Guarantees
+
+- Test set untouched during Steps 2.1–2.3 ✅
+- Best checkpoint selected by validation MSE only ✅
+- Test set loaded for first time in Step 2.4 ✅
+- No model selection using test data ✅
+- All metrics from saved prediction arrays (reproducible) ✅
+- Near-zero denominator handling: rel_l2 undefined when ||y||_2 < 1e-8; count = 0 ✅
+- Timing methodology: warm-up + sync + repeats ✅
+- Phase 1, 2.1, 2.2, 2.3 evidence untouched ✅
+
+## Interpretive Note (per reviewer)
+
+These are measured test-set errors on the FNO baseline. They are not claims of physical fidelity. The purpose is to establish the **reference** against which Phase 3 SC-FNO improvements will be measured. Any state with high relative L2 (e.g., neutron density `n` at 7.55e-3) is a candidate for physics-informed improvement — but that determination belongs to Phase 3, not Step 2.4.
+
+
+=== evaluation_summary.md written ===

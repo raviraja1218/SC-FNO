@@ -1,0 +1,16 @@
+=== Step 2.4 Pre-Flight: 2026-10-30T16:31:24+00:00 ===
+Phase 1 integrity: OK
+ancestor 1d9b320: OK
+ancestor 55c2482: OK
+ancestor a5825b4: OK
+ancestor fec9fd7: OK
+a71514eacaee3d09f8c00b34b6070c61ae919a59e8208d6164903d5fed44ffb2  results/phase_1/splitting/test_ids.csv
+expected: a71514eacaee3d09f8c00b34b6070c61ae919a59e8208d6164903d5fed44ffb2
+24fce0bad8ec9c665649f6d73f4c56efd66f92667d95da3011d32dcbf4388889  models/baseline/fno_best.pt
+total 1448
+drwxr-xr-x 2 raviraja raviraja   4096 Oct 30 16:27 .
+drwxr-xr-x 3 raviraja raviraja   4096 Oct 30 16:17 ..
+-rw-r--r-- 1 raviraja raviraja 365818 Oct 30 16:27 fno_baseline.pt
+-rw-r--r-- 1 raviraja raviraja 365962 Oct 30 16:26 fno_best.pt
+-rw-r--r-- 1 raviraja raviraja 733414 Oct 30 16:27 training_state.pt
+test scenarios in split: 200

@@ -1,0 +1,18 @@
+{
+  "phase": "2.4",
+  "timestamp": "2026-10-30",
+  "step_2_3_lock": "fec9fd7",
+  "phase_1_aggregate": "9049c7b42996fee7c08202703086bf0aebd513dbd1f77b1265ae546d6f241bf6",
+  "test_split_sha256": "a71514eacaee3d09f8c00b34b6070c61ae919a59e8208d6164903d5fed44ffb2",
+  "checkpoint_sha256": "24fce0bad8ec9c665649f6d73f4c56efd66f92667d95da3011d32dcbf4388889",
+  "gate_2_4": "PASS",
+  "key_results": {
+    "n_test_scenarios": 200,
+    "overall_mae_mean": 0.2783079787491867,
+    "overall_rmse_mean": 0.3912742891104731,
+    "overall_rel_l2_median": 0.0009232144379968913,
+    "worst_aggregate_scenario": "scenario_0458",
+    "speedup_vs_BDF_median": 2273.9453566107095,
+    "speedup_vs_BDF_mean": 22565.525734298346
+  }
+}

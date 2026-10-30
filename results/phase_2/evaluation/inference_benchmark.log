@@ -1,0 +1,6 @@
+B1: median=3.06 ms  mean=3.14 ms  VRAM=9.4 MB
+B16: median=3.02 ms  mean=3.04 ms  VRAM=12.5 MB
+B200: median=3.10 ms  mean=3.10 ms  VRAM=51.1 MB
+
+Speedup (median vs median, B200): 2273.9x
+Speedup (mean vs median, B200):   22565.5x

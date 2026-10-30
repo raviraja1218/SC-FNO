@@ -1,0 +1,65 @@
+{
+  "n": {
+    "scenario_id": "scenario_0290",
+    "family": "step",
+    "rel_l2": 0.05300821867337746,
+    "mae": 0.01987694525402553,
+    "max_abs_err": 0.5257210422369667
+  },
+  "C1": {
+    "scenario_id": "scenario_0458",
+    "family": "step",
+    "rel_l2": 0.004813436141957271,
+    "mae": 0.7139812061426346,
+    "max_abs_err": 1.5740090909234539
+  },
+  "C2": {
+    "scenario_id": "scenario_0458",
+    "family": "step",
+    "rel_l2": 0.010896666469438729,
+    "mae": 4.296658950323603,
+    "max_abs_err": 9.8102515233154
+  },
+  "C3": {
+    "scenario_id": "scenario_0458",
+    "family": "step",
+    "rel_l2": 0.02776146133902291,
+    "mae": 2.5636537113733406,
+    "max_abs_err": 6.854036205487816
+  },
+  "C4": {
+    "scenario_id": "scenario_0458",
+    "family": "step",
+    "rel_l2": 0.036168980631966975,
+    "mae": 2.258645771295898,
+    "max_abs_err": 8.694626948423817
+  },
+  "C5": {
+    "scenario_id": "scenario_0458",
+    "family": "step",
+    "rel_l2": 0.022425405120864564,
+    "mae": 0.056989005162721665,
+    "max_abs_err": 0.8860158200451522
+  },
+  "C6": {
+    "scenario_id": "scenario_1989",
+    "family": "grf",
+    "rel_l2": 0.043737234833047804,
+    "mae": 0.029267396366957944,
+    "max_abs_err": 0.16664605785207753
+  },
+  "Tf": {
+    "scenario_id": "scenario_0458",
+    "family": "step",
+    "rel_l2": 0.007929343721164956,
+    "mae": 3.3116716375946305,
+    "max_abs_err": 45.18216671959726
+  },
+  "Tc": {
+    "scenario_id": "scenario_0458",
+    "family": "step",
+    "rel_l2": 0.0008179019369737264,
+    "mae": 0.24216760648192462,
+    "max_abs_err": 2.6454594474759006
+  }
+}

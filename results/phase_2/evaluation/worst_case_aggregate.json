@@ -1,0 +1,97 @@
+{
+  "scenario_id": "scenario_0458",
+  "family": "step",
+  "aggregate_rel_l2_mean": 0.01851606455044454,
+  "per_state_metrics": [
+    {
+      "scenario_id": "scenario_0458",
+      "family": "step",
+      "state": "n",
+      "mae": 0.01207686329959834,
+      "rmse": 0.029940105183229565,
+      "max_abs_err": 0.17592837748042356,
+      "rel_l2": 0.035077799717570905,
+      "rel_l2_defined": true
+    },
+    {
+      "scenario_id": "scenario_0458",
+      "family": "step",
+      "state": "C1",
+      "mae": 0.7139812061426346,
+      "rmse": 0.8270141074232966,
+      "max_abs_err": 1.5740090909234539,
+      "rel_l2": 0.004813436141957271,
+      "rel_l2_defined": true
+    },
+    {
+      "scenario_id": "scenario_0458",
+      "family": "step",
+      "state": "C2",
+      "mae": 4.296658950323603,
+      "rmse": 4.980756340952905,
+      "max_abs_err": 9.8102515233154,
+      "rel_l2": 0.010896666469438729,
+      "rel_l2_defined": true
+    },
+    {
+      "scenario_id": "scenario_0458",
+      "family": "step",
+      "state": "C3",
+      "mae": 2.5636537113733406,
+      "rmse": 2.9968619184980345,
+      "max_abs_err": 6.854036205487816,
+      "rel_l2": 0.02776146133902291,
+      "rel_l2_defined": true
+    },
+    {
+      "scenario_id": "scenario_0458",
+      "family": "step",
+      "state": "C4",
+      "mae": 2.258645771295898,
+      "rmse": 2.7724370432153824,
+      "max_abs_err": 8.694626948423817,
+      "rel_l2": 0.036168980631966975,
+      "rel_l2_defined": true
+    },
+    {
+      "scenario_id": "scenario_0458",
+      "family": "step",
+      "state": "C5",
+      "mae": 0.056989005162721665,
+      "rmse": 0.12733547451623978,
+      "max_abs_err": 0.8860158200451522,
+      "rel_l2": 0.022425405120864564,
+      "rel_l2_defined": true
+    },
+    {
+      "scenario_id": "scenario_0458",
+      "family": "step",
+      "state": "C6",
+      "mae": 0.006773001597386606,
+      "rmse": 0.01614090742425816,
+      "max_abs_err": 0.12934467463239163,
+      "rel_l2": 0.020753585875040823,
+      "rel_l2_defined": true
+    },
+    {
+      "scenario_id": "scenario_0458",
+      "family": "step",
+      "state": "Tf",
+      "mae": 3.3116716375946305,
+      "rmse": 6.77890185487529,
+      "max_abs_err": 45.18216671959726,
+      "rel_l2": 0.007929343721164956,
+      "rel_l2_defined": true
+    },
+    {
+      "scenario_id": "scenario_0458",
+      "family": "step",
+      "state": "Tc",
+      "mae": 0.24216760648192462,
+      "rmse": 0.47467373259688606,
+      "max_abs_err": 2.6454594474759006,
+      "rel_l2": 0.0008179019369737264,
+      "rel_l2_defined": true
+    }
+  ]
+}
