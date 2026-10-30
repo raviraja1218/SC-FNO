@@ -1,0 +1,27 @@
+Parameter,Value
+Architecture,1D temporal FNO
+Fourier layers,4
+Latent width,32
+Retained Fourier modes,16
+Input channels,1
+Output channels,9
+Temporal points,200
+Activation,gelu
+Total trainable parameters,50409
+  fno_blocks,45504
+  lifting,2208
+  projection,2697
+Optimizer,Adam
+Initial learning rate,0.001
+Scheduler,CosineAnnealingLR (T_max=500)
+Batch size,16
+Max epochs,500
+Early stopping patience,30
+Gradient clip max_norm,1.0
+Seed,42
+Precision,FP32
+Epochs completed,319
+Best epoch,289
+Best val MSE,0.06666702953729188
+Training wall time (min),8.39
+Peak VRAM training (MB),32.58

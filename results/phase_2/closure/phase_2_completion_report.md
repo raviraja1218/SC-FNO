@@ -158,3 +158,54 @@ Sum check: 50,409 = total: True
 **Total: 112/112 checks passed across all 5 gates.**
 
 **Final declaration:** Phase 2 is officially CLOSED. Baseline FNO is locked and reproducible. Phase 3 (Physics-Informed SC-FNO) is AUTHORIZED.
+
+## Section 5 (addendum) — Template Compliance Tables
+
+### Table 1 — FNO Architecture and Hyperparameters
+*Full CSV: `reports/tables/phase_2/table_1_architecture.csv`*
+
+| Parameter | Value |
+|-----------|-------|
+| Architecture | 1D temporal FNO |
+| Fourier layers | 4 |
+| Latent width | 32 |
+| Retained Fourier modes | 16 |
+| Input channels | 1 (ρ_ext) |
+| Output channels | 9 |
+| Temporal points | 200 |
+| Activation | GELU |
+| Total trainable parameters | 50,409 |
+|   fno_blocks | 45,504 |
+|   lifting | 2,208 |
+|   projection | 2,697 |
+| Optimizer | Adam |
+| Initial LR | 1e-3 |
+| Scheduler | CosineAnnealingLR (T_max=500) |
+| Batch size | 16 |
+| Max epochs | 500 (early stopped at 319) |
+| Best epoch | 289 |
+| Best val MSE | 0.066667 |
+| Gradient clip max_norm | 1.0 |
+| Seed | 42 |
+| Precision | FP32 |
+
+### Table 2 — Focused Baseline Predictive Error: n, Tf, Tc
+*Full CSV: `reports/tables/phase_2/table_2_focused_n_Tf_Tc.csv`*
+
+| State | MAE mean | RMSE mean | RelL2 median | Max abs |
+|-------|----------|-----------|--------------|---------|
+| **n** (neutron density) | 6.017e-03 | 1.236e-02 | **7.546e-03** | 5.849e-01 |
+| **Tf** (fuel temperature, K) | 8.145e-01 | 1.464e+00 | 8.200e-04 | 4.518e+01 |
+| **Tc** (coolant temperature, K) | 5.092e-02 | 9.494e-02 | 8.404e-05 | 2.645e+00 |
+
+**Notes:**
+- **n** is the weakest state by relative L2 (7.55e-3), a candidate for Phase 3 improvement.
+- **Tc** is the strongest state by relative L2 (8.40e-5).
+- **Tf** shows the largest absolute errors (max 45.18 K) despite low relative L2, because fuel temperature magnitude is large (~900 K).
+
+### Graph — Training and Validation Loss
+*File: `reports/figures/phase_2/f1_training_validation_loss.png`* ✅ generated
+
+### Graph — Worst-Case Prediction
+*File: `reports/figures/phase_2/worst_case_prediction.png`* ✅ generated
+Worst-case scenario: `scenario_0458` (step family, mean RelL2 = 1.85e-2).
