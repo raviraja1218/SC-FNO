@@ -28,7 +28,7 @@
     "SC-FNO-P0-DEFECT-003 (coupled_rhs feedback bug)"
   ],
   "gate_1_2": "PASS",
-  "manifest_self_reference_note": "This manifest does not include its own SHA-256. The file step_1_2_manifest.json is explicitly excluded from the artifacts dict because writing its own checksum would change the file.",
+  "manifest_self_reference_note": "The manifest excludes its own SHA-256 checksum.",
   "artifacts": {
     "scripts/run_pilot.py": "b79de9638fb1fb4fdd91d9c341892c7fa2e318664ef8e4b9e07cb999aba0f0f3",
     "scripts/compare_bdf_radau.py": "71179bc8fdc822828d4bfa2c11498e0829918594da16b7a155411662ae14eb38",
@@ -83,7 +83,6 @@
     "results/phase_1/pilot/block_D_run_log.txt": "1e8ee2d7ab5f0b5a308b30ff5af34d95a3b613ff4099fed62b2b9e30ea66042d",
     "results/phase_1/pilot/block_D_summary.json": "d8372bf66bbc982ad53e7290dcbeb86040d106c2de888597849aa78057b113cc",
     "results/phase_1/pilot/block_E_figures.log": "4a5613546331604db18c3ea7fb2c1cda51b8a079164b01c8cc7c5b6f09e79722",
-    "results/phase_1/pilot/block_E_manifest.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "results/phase_1/pilot/block_E_summary.log": "5f74b15c077d02f67dd14b7b050accb9a39f35c4eaff196fb0a13d69dea147d2",
     "results/phase_1/pilot/figures/pilot_bdf_radau_comparison.png": "b57d4e00262294662db5da67343237760f694e3594df8d7c8beface6b4268d7a",
     "results/phase_1/pilot/figures/pilot_coolant_temperature.png": "88c4f9ee9791279e21da906e06fdcbe993ac3d4ea02e325ec67d025b3b6dd0cf",
@@ -92,7 +91,7 @@
     "results/phase_1/pilot/figures/pilot_precursor_evolution.png": "ba40aaf643ca1986163880bf8c305b092db4d6419c52f7b073a18d4bbaa8ab36",
     "results/phase_1/pilot/figures/pilot_reactivity_profiles.png": "873d0b3255032659e475036c9dab9d028099447eb35022bf591696153fd4009b",
     "results/phase_1/pilot/figures/pilot_tolerance_sensitivity.png": "dc43569083b252a0146bcdbe7e8583946b912f19d96627685799c30dd58a2f85",
-    "results/phase_1/pilot/phase_1_2_completion_report.md": "f1bc1e61631e043af4881c03bc42bf900b1f66bfc8aeb1db8b3778e41c2fb7f3",
+    "results/phase_1/pilot/phase_1_2_completion_report.md": "53438654a186bc1c35ca0abb0d7543b569bee033843898b2c7dc49e231f7d629",
     "results/phase_1/pilot/pilot_data_quality_report.md": "0e4e5a8e62ee8ff6340506ddc063e11f72e1e042061a539326c19696b53c538a",
     "results/phase_1/pilot/pilot_generation_summary.json": "28af81be81a7d353c28db56ff854fcbe42c8495e52e14d112faa42eee4e48564",
     "results/phase_1/pilot/pilot_manifest.csv": "33cfa9533d257c1e300cc30af3436ea6b9845aa25513b63f3f6f0e6ce366f3b5",
@@ -122,6 +121,10 @@
     "results/phase_1/pilot/src_tracking_audit.log": "9bcd6cee7d3e43a14819b0ad1575de8fe12871120a04003a5c999f8386691dc1",
     "results/phase_1/pilot/v1_preserved/block_C_summary.json": "88421c05b7c8c5d97e6127b5052961c8145e7613c0eb9adaa460fa26514f447b",
     "results/phase_1/pilot/v1_preserved/pilot_physical_validation.csv": "f18635ff37d025609cd05e423527b561311e03a256adbf1ad59a67ba88793dcc",
-    "results/phase_1/pilot/v1_preserved/pilot_solver_comparison.csv": "924dc4e15a299a70a4f4776d4c6be779f7673e6034c11b16ec1aa3e988f79ad7"
+    "results/phase_1/pilot/v1_preserved/pilot_solver_comparison.csv": "924dc4e15a299a70a4f4776d4c6be779f7673e6034c11b16ec1aa3e988f79ad7",
+    "results/phase_1/pilot/step_1_2_provenance_audit.log": "ae1925f3b5c9f8647f17d1b9d6b1131d32bd284f49a0e9c3a243cdfa1793ee32"
+  },
+  "excluded_artifacts": {
+    "results/phase_1/pilot/block_E_manifest.log": "Historical manifest-generation log. It records the SHA-256 of the earlier manifest, so including its checksum in a subsequent manifest would create a circular dependency. Preserved unchanged outside the checksum inventory."
   }
 }
