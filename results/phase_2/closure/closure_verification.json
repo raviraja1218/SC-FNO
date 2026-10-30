@@ -1,0 +1,18 @@
+{
+  "gate_2_5": "PASS",
+  "checks": {
+    "architecture_reconstructs_50409": true,
+    "best_ckpt_loads_sha_match": true,
+    "re_inference_determinism": true,
+    "phase_1_aggregate_unchanged": true,
+    "all_phase_1_shas_match": true,
+    "speedup_three_quantities": true,
+    "per_family_table_present": true,
+    "metric_definitions_present": true,
+    "worst_case_table_present": true,
+    "vram_clarification_present": true,
+    "param_breakdown_attempted": true,
+    "completion_report_present": true
+  },
+  "all_passed": true
+}

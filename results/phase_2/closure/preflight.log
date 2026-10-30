@@ -1,0 +1,15 @@
+=== Step 2.5 Pre-Flight: 2026-10-30T16:35:16+00:00 ===
+Phase 1 integrity: OK
+ancestor 1d9b320: OK
+ancestor 55c2482: OK
+ancestor a5825b4: OK
+ancestor fec9fd7: OK
+ancestor dee0c47: OK
+=== Phase 2.1-2.4 key SHAs ===
+4e832aa5cdaa940cb2e07bf64c5741cc5124ad40242dd9532da231ff257f6727  results/phase_1/splitting/normalization_statistics.json
+16ad4670eee9555aec237c94d2d241e90b74b50ce8ea57eb07efe209fe852834  results/phase_1/splitting/train_ids.csv
+19b781283503b1a1cdb313dc68ce153086f18c25043f1ff5123e3cb3e3205bb6  results/phase_1/splitting/validation_ids.csv
+a71514eacaee3d09f8c00b34b6070c61ae919a59e8208d6164903d5fed44ffb2  results/phase_1/splitting/test_ids.csv
+6e7bc42132dcb1e020ff1c7ef791e64a673580e7dcb88d623a8a11f435279d6d  results/phase_2/architecture/model_architecture_snapshot.pt
+24fce0bad8ec9c665649f6d73f4c56efd66f92667d95da3011d32dcbf4388889  models/baseline/fno_best.pt
+=== Uncommitted changes check ===

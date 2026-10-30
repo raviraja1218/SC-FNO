@@ -1,0 +1,26 @@
+{
+  "single_scenario_latency_speedup": {
+    "bdf_median_ms": 35.3,
+    "fno_B1_median_ms": 3.058945501834387,
+    "speedup_x": 11.54,
+    "label": "single_scenario_latency",
+    "interpretation": "Per-scenario direct latency: BDF 35.30 ms vs FNO B1 3.059 ms \u2192 11.54\u00d7."
+  },
+  "batch_throughput": {
+    "fno_B200_total_median_ms": 3.104735995293595,
+    "scenarios_per_batch": 200,
+    "scenarios_per_second": 64418.0,
+    "label": "batch_throughput",
+    "interpretation": "At batch 200: ~64418 scenarios/sec on RTX 4050."
+  },
+  "batch_amortized_vs_bdf": {
+    "bdf_median_ms_per_scenario": 35.3,
+    "fno_per_scenario_ms_at_B200": 0.015524,
+    "speedup_x": 2273.9,
+    "label": "batch_amortized",
+    "interpretation": "Amortizing B200 across 200 scenarios gives 0.015524 ms/scenario \u2192 2273.9\u00d7 vs BDF. Throughput ratio, not latency."
+  },
+  "bdf_mean_for_reference_ms": 350.3,
+  "primary_for_manuscript": "single_scenario_latency_speedup",
+  "note": "The ~2274\u00d7 figure MUST always be labeled 'batch-amortized', never 'single-scenario latency'."
+}

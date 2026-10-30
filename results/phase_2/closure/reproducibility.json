@@ -1,0 +1,99 @@
+{
+  "checks": {
+    "architecture_reconstructs": true,
+    "param_count_50409": true,
+    "best_ckpt_sha256_matches": true,
+    "best_ckpt_loads": true,
+    "re_inference_determinism": true,
+    "phase_1_aggregate_unchanged": true,
+    "train_split_sha256": true,
+    "validation_split_sha256": true,
+    "test_split_sha256": true,
+    "normalization_sha256": true
+  },
+  "all_passed": true,
+  "tolerance": {
+    "type": "per_state_relative",
+    "threshold": 0.0001,
+    "denominator": "max(abs(pred), abs(stored)) per state per scenario"
+  },
+  "measured": {
+    "n_params": 50409,
+    "best_ckpt_sha256": "24fce0bad8ec9c665649f6d73f4c56efd66f92667d95da3011d32dcbf4388889",
+    "per_state_max_relative_diff": {
+      "n": 3.3908476289197475e-05,
+      "C1": 1.7347683022063286e-06,
+      "C2": 5.1752566327889795e-06,
+      "C3": 1.0832801574809638e-05,
+      "C4": 2.8247200760457462e-05,
+      "C5": 3.2645709073266015e-05,
+      "C6": 1.824714223096745e-05,
+      "Tf": 1.1511836356680425e-05,
+      "Tc": 7.577931514127737e-07
+    },
+    "per_scenario": [
+      {
+        "sid": "scenario_0458",
+        "n": 1.4121434474243545e-05,
+        "C1": 8.432095518165787e-07,
+        "C2": 9.03493401005535e-07,
+        "C3": 8.800483692138607e-06,
+        "C4": 2.8247200760457462e-05,
+        "C5": 4.3367762584198215e-06,
+        "C6": 1.3481846309645958e-05,
+        "Tf": 1.1511836356680425e-05,
+        "Tc": 7.577931514127737e-07
+      },
+      {
+        "sid": "scenario_0398",
+        "n": 2.7757306609701596e-05,
+        "C1": 5.566203708783235e-07,
+        "C2": 2.6399987205704125e-06,
+        "C3": 3.4648439675875022e-06,
+        "C4": 1.454053189678585e-06,
+        "C5": 1.6536205817728226e-05,
+        "C6": 1.4030324247643177e-06,
+        "Tf": 3.468742858795875e-06,
+        "Tc": 2.6838882976458813e-07
+      },
+      {
+        "sid": "scenario_0189",
+        "n": 1.19586514793965e-06,
+        "C1": 1.7347683022063286e-06,
+        "C2": 5.1752566327889795e-06,
+        "C3": 1.0832801574809638e-05,
+        "C4": 9.062635686987716e-06,
+        "C5": 3.2645709073266015e-05,
+        "C6": 1.2648131100136337e-05,
+        "Tf": 2.1446594336384165e-06,
+        "Tc": 5.694666987720983e-07
+      },
+      {
+        "sid": "scenario_0247",
+        "n": 3.3908476289197475e-05,
+        "C1": 8.52236219621993e-08,
+        "C2": 1.3395531645096908e-06,
+        "C3": 3.428556344760135e-07,
+        "C4": 7.462865826882071e-06,
+        "C5": 1.754799670183865e-05,
+        "C6": 1.824714223096745e-05,
+        "Tf": 2.66215434694024e-06,
+        "Tc": 1.1128248070384029e-07
+      },
+      {
+        "sid": "scenario_0167",
+        "n": 6.784989039709372e-06,
+        "C1": 7.505664713275569e-07,
+        "C2": 2.8287900263103867e-06,
+        "C3": 3.1972216225359503e-06,
+        "C4": 3.084869924817736e-06,
+        "C5": 7.6855269844741e-06,
+        "C6": 5.029837699749387e-06,
+        "Tf": 5.118389669372641e-06,
+        "Tc": 2.406324646716419e-07
+      }
+    ],
+    "normalization_sha256": "4e832aa5cdaa940cb2e07bf64c5741cc5124ad40242dd9532da231ff257f6727"
+  },
+  "note": "FP32 CUDA matmul/FFT are not bit-exact across process runs. Absolute tolerance is inappropriate for states with different physical scales. Relative tolerance 1e-4 confirms re-inference agrees with stored Step 2.4 predictions to FP32 noise level."
+}
