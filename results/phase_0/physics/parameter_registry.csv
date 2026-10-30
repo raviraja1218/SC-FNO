@@ -1,0 +1,31 @@
+parameter,symbol,value,unit,provenance,notes
+total_delayed_fraction,beta_eff,0.0065,dimensionless,"Keepin 1965 Table 1.1 (6-group U-235)",sum of beta_i
+prompt_generation_time,Lambda,1.0e-4,s,"CATS benchmark typical thermal",consistent with Schiassi 2021
+beta_group_1,beta_1,0.000215,dimensionless,Keepin 1965,6-group U-235 thermal
+beta_group_2,beta_2,0.001424,dimensionless,Keepin 1965,6-group U-235 thermal
+beta_group_3,beta_3,0.001274,dimensionless,Keepin 1965,6-group U-235 thermal
+beta_group_4,beta_4,0.002568,dimensionless,Keepin 1965,6-group U-235 thermal
+beta_group_5,beta_5,0.000748,dimensionless,Keepin 1965,6-group U-235 thermal
+beta_group_6,beta_6,0.000273,dimensionless,Keepin 1965,6-group U-235 thermal
+lambda_group_1,lambda_1,0.0124,1/s,Keepin 1965,6-group U-235 thermal
+lambda_group_2,lambda_2,0.0305,1/s,Keepin 1965,6-group U-235 thermal
+lambda_group_3,lambda_3,0.1110,1/s,Keepin 1965,6-group U-235 thermal
+lambda_group_4,lambda_4,0.3010,1/s,Keepin 1965,6-group U-235 thermal
+lambda_group_5,lambda_5,1.1400,1/s,Keepin 1965,6-group U-235 thermal
+lambda_group_6,lambda_6,3.0100,1/s,Keepin 1965,6-group U-235 thermal
+fuel_mass,M_f,27000.0,kg,"Hetrick 1993 Ch.2 typical PWR",large PWR core
+fuel_heat_capacity,c_p_f,300.0,"J/(kg·K)","Todreas & Kazimi Vol.I",UO2 mean value
+fuel_energy_fraction,f_f,0.97,dimensionless,"standard LWR value",gamma+kinetic deposited in fuel
+coolant_mass,M_c,4000.0,kg,typical PWR,primary coolant in core
+coolant_heat_capacity,c_p_c,5500.0,"J/(kg·K)","PWR water 15.5 MPa, 300 C",approximate
+coolant_mass_flow,m_dot,3500.0,kg/s,typical PWR,core mass flow rate
+inlet_temperature,T_in,563.0,K,typical PWR,~290 C
+heat_transfer_coefficient,U,5000.0,"W/(m²·K)","Todreas & Kazimi",effective fuel-clad-coolant
+heat_transfer_area,A,3000.0,m^2,typical PWR,total effective area
+nominal_power,P0,3.0e9,W,large PWR (3000 MWth),benchmark power scale
+doppler_coefficient,alpha_f,-3.0e-5,"(dk/k)/K","typical LWR",negative (Doppler broadening)
+moderator_coefficient,alpha_c,-5.0e-4,"(dk/k)/K","typical PWR",negative (moderator density)
+fuel_reference_temp,T_f_ref,900.0,K,nominal operating point,reference for feedback
+coolant_reference_temp,T_c_ref,583.0,K,nominal operating point,reference for feedback
+initial_power_fraction,n0,1.0,dimensionless,normalized,proportional to power
+simulation_end_time,t_end,10.0,s,default horizon,adjustable per scenario

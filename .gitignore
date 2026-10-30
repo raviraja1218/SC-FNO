@@ -20,12 +20,15 @@ models/*.pth
 models/**/*.pt
 models/**/*.pth
 
-# Results artifacts (keep reports, exclude raw outputs)
+# Results artifacts (exclude raw outputs and large files)
 results/**/*.h5
 results/**/*.npy
 results/**/*.npz
-results/**/*.csv
 results/**/*.pkl
+
+# Exclude CSVs by default BUT un-ignore Phase 0.4 required artifacts
+results/**/*.csv
+!results/phase_0/physics/parameter_registry.csv
 
 # Logs
 *.log
@@ -39,3 +42,6 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+
+# Required Phase 0 artifact — track despite results/**/*.csv rule
+!results/phase_0/physics/parameter_registry.csv
