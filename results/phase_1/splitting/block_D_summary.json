@@ -1,6 +1,6 @@
 {
   "block": "D (Step 1.4)",
-  "wall_time_s": 1.6871058529995935,
+  "wall_time_s": 2.0159291350000785,
   "n_scenarios": 2000,
   "fft_summary": {
     "n_freq_bins": 101,
@@ -8,8 +8,8 @@
     "freq_max": 10.0,
     "dominant_freq": 0.1
   },
-  "n_duplicate_pairs": 106434,
-  "n_outlier_flagged": 2000,
+  "n_duplicate_pairs": 17,
+  "n_outlier_flagged": 0,
   "ks_results": {
     "n": {
       "train_vs_val": {

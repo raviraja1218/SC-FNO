@@ -3,7 +3,7 @@
 ## Summary
 - Scenarios loaded: 2000
 - Train: 1600 / Val: 200 / Test: 200
-- Wall time: 1.7 s
+- Wall time: 2.0 s
 
 ## FFT frequency content (aggregate over 2,000 profiles)
 - Frequency bins: 101
@@ -28,11 +28,11 @@ Kolmogorov–Smirnov: 2-sample test. p > 0.05 = no significant difference (good)
 
 ## Duplicate detection
 - Threshold: cosine similarity > 0.99
-- Near-duplicate pairs found: **106434**
+- Near-duplicate pairs found: **17**
 - See `duplicates.csv` for details
 
 ## Outliers flagged (±5σ from training mean)
-- Scenarios with at least one outlier flag: **2000**
+- Scenarios with at least one outlier flag: **0**
 - **Not removed** — informational only
 - See `outliers_flagged.csv` for details
 

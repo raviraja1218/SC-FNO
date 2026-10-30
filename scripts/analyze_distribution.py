@@ -109,33 +109,66 @@ def ks_cross_split(train_vals, val_vals, test_vals):
     }
 
 
-def cosine_duplicates(forcing, ids, threshold=0.99):
-    """Find pairs of forcing profiles with cosine similarity > threshold."""
-    # Normalize each row
+def find_duplicates(forcing, ids, fam_arr, l2_thresh=1e-6, cos_thresh=0.9999):
+    """Find near-duplicate forcing profiles using family-appropriate metrics.
+
+    step, ramp: L2 distance on the profile. Two profiles with different
+                amplitudes have L2 > 0 (they're not duplicates even though
+                they're collinear). L2 threshold 1e-6 catches true duplicates.
+
+    sinusoidal, grf: cosine similarity > cos_thresh (very high to catch only
+                     near-identical shapes). cos_thresh=0.9999 is intentionally
+                     strict — proportional profiles in these families are rare.
+    """
+    n = len(ids)
+    pairs = []
+
+    # Step/ramp: L2 distance
+    for fam in ["step", "ramp"]:
+        idx = [i for i in range(n) if fam_arr[i] == fam]
+        for a in range(len(idx)):
+            for b in range(a + 1, len(idx)):
+                i, j = idx[a], idx[b]
+                d = float(np.linalg.norm(forcing[i] - forcing[j]))
+                if d < l2_thresh:
+                    pairs.append({
+                        "id_i": ids[i], "id_j": ids[j],
+                        "family": fam,
+                        "metric": "L2",
+                        "value": d,
+                    })
+
+    # Sinusoidal/GRF: cosine
     norms = np.linalg.norm(forcing, axis=1)
     norms[norms < 1e-30] = 1e-30
     normalized = forcing / norms[:, None]
-    # Gram matrix
-    sim = normalized @ normalized.T
-    # Get pairs above threshold, excluding diagonal and (i<j) to avoid duplicates
-    n = len(ids)
-    pairs = []
-    for i in range(n):
-        for j in range(i + 1, n):
-            if sim[i, j] > threshold:
-                pairs.append({
-                    "id_i": ids[i], "id_j": ids[j],
-                    "cosine": float(sim[i, j]),
-                })
+    for fam in ["sinusoidal", "grf"]:
+        idx = [i for i in range(n) if fam_arr[i] == fam]
+        for a in range(len(idx)):
+            for b in range(a + 1, len(idx)):
+                i, j = idx[a], idx[b]
+                sim = float(normalized[i] @ normalized[j])
+                if sim > cos_thresh:
+                    pairs.append({
+                        "id_i": ids[i], "id_j": ids[j],
+                        "family": fam,
+                        "metric": "cosine",
+                        "value": sim,
+                    })
+
     return pairs
 
 
 def flag_outliers(forcing, states, ids, fam_arr, threshold_sigma=5.0):
-    """Flag scenarios where any state exceeds ±threshold_sigma from training mean."""
-    # Use global training stats
-    train_mask = np.ones(len(ids), dtype=bool)  # placeholder; will filter below
-    # Simpler: use overall per-variable mean/std (post-split, "training-like")
-    # Better: use actual training split IDs
+    """Flag scenarios whose SCENARIO-LEVEL aggregate statistic is an outlier.
+
+    Metric: per-scenario MEAN of each state over time (aggregate).
+    Flag only if this aggregate exceeds ±threshold_sigma from training mean
+    of the same aggregate.
+
+    This avoids flagging every transient (which is normal behavior). True
+    outliers would be scenarios whose average behavior is anomalous.
+    """
     with (R / "train_ids.csv").open() as f:
         train_set = set(r["scenario_id"] for r in csv.DictReader(f))
 
@@ -143,33 +176,34 @@ def flag_outliers(forcing, states, ids, fam_arr, threshold_sigma=5.0):
     f_train = forcing[train_idx]
     s_train = states[train_idx]
 
-    # Per-variable train mean/std
-    train_stats = {"rho_ext": (float(np.mean(f_train)), float(np.std(f_train)))}
+    # Train aggregate stats: mean of each scenario's time-average
+    train_agg = {"rho_ext": np.mean(f_train, axis=1)}  # (n_train,)
     for j, name in enumerate(STATE_NAMES):
-        train_stats[name] = (
-            float(np.mean(s_train[:, :, j])),
-            float(np.std(s_train[:, :, j])),
-        )
+        train_agg[name] = np.mean(s_train[:, :, j], axis=1)
 
+    train_stats = {}
+    for name, agg in train_agg.items():
+        train_stats[name] = (float(np.mean(agg)), float(np.std(agg)))
+
+    # Check each scenario's aggregate
     flags = []
     for i, sid in enumerate(ids):
-        # Check each variable
         outliers = []
-        # forcing
+        # Forcing aggregate
         m, sd = train_stats["rho_ext"]
         sd_safe = max(sd, 1e-30)
-        z_max = float(np.max(np.abs(forcing[i] - m))) / sd_safe
-        if z_max > threshold_sigma:
-            outliers.append(f"rho_ext: z_max={z_max:.2f}")
+        f_agg = float(np.mean(forcing[i]))
+        z = abs(f_agg - m) / sd_safe
+        if z > threshold_sigma:
+            outliers.append(f"rho_ext: z={z:.2f}")
 
-        # states
         for j, name in enumerate(STATE_NAMES):
             m, sd = train_stats[name]
             sd_safe = max(sd, 1e-30)
-            z = np.abs(states[i, :, j] - m) / sd_safe
-            z_max = float(np.max(z))
-            if z_max > threshold_sigma:
-                outliers.append(f"{name}: z_max={z_max:.2f}")
+            agg_val = float(np.mean(states[i, :, j]))
+            z = abs(agg_val - m) / sd_safe
+            if z > threshold_sigma:
+                outliers.append(f"{name}: z={z:.2f}")
 
         if outliers:
             flags.append({
@@ -228,7 +262,7 @@ def main():
 
     # --- 4. Duplicate detection
     print("Detecting near-duplicate forcing profiles...")
-    duplicates = cosine_duplicates(forcing, ids, threshold=0.99)
+    duplicates = find_duplicates(forcing, ids, fam_arr, l2_thresh=1e-6, cos_thresh=0.9999)
 
     # --- 5. Outlier flagging (do NOT remove)
     print("Flagging outliers (±5σ)...")
@@ -247,7 +281,7 @@ def main():
 
     # Duplicates CSV
     with (R / "duplicates.csv").open("w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=["id_i", "id_j", "cosine"])
+        w = csv.DictWriter(f, fieldnames=["id_i", "id_j", "family", "metric", "value"])
         w.writeheader()
         w.writerows(duplicates)
 
