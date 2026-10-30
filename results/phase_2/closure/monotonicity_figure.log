@@ -1,0 +1,37 @@
+{
+  "n_epochs": 319,
+  "best_epoch": 289,
+  "best_val_mse": 0.0666670295372918,
+  "first_val_mse": 0.1226648196864586,
+  "reduction_first_to_best_x": 1.8399622802729363,
+  "raw": {
+    "n_increases": 148,
+    "pct_increases": 46.5,
+    "max_single_increase": 0.003682362350026294,
+    "max_single_increase_pct_of_best": 5.52
+  },
+  "moving_average_10ep": {
+    "segment": "epochs 10 to 289",
+    "start_value": 0.08643095729191998,
+    "end_value": 0.06688999183114407,
+    "reduction_x": 1.292,
+    "n_smoothed_increases": 88,
+    "max_smoothed_increase": 0.00026302848709747195,
+    "max_smoothed_increase_pct_of_best": 0.395
+  },
+  "best_so_far_curve": {
+    "strictly_monotonic_by_construction": true,
+    "n_new_minima": 52,
+    "first_value": 0.1226648196864586,
+    "last_value": 0.0666670295372918,
+    "reduction_x": 1.84
+  },
+  "stability": {
+    "n_nan": 0,
+    "n_inf": 0,
+    "max_train_mse_increase": 0.0023712099483235993
+  },
+  "interpretation": "Raw per-epoch val MSE fluctuates in 148/318 (46.5%) of consecutive-epoch comparisons, with maximum single-epoch increase 3.682e-03 (5.52% of best val MSE) \u2014 consistent with mini-batch SGD stochasticity. The 10-epoch moving average decays with reduction 1.292\u00d7; the best-so-far curve is strictly monotonic by construction with 52 new minima recorded. Convergence from 1.227e-01 to 6.667e-02 is a 1.84\u00d7 reduction."
+}
+
+Figure saved: reports/figures/phase_2/f1b_val_mse_moving_average.png

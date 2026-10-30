@@ -1,0 +1,45 @@
+=== Raw validation MSE curve ===
+Epochs: 319, best at epoch 289 = 6.666703e-02
+Raw increases (val[i+1] > val[i]): 148 / 318 (46.5%)
+Max single-epoch increase: 3.682362e-03
+First epoch val: 1.226648e-01, best epoch val: 6.666703e-02, reduction: 1.840×
+
+=== 5-epoch moving average ===
+  Segment: epochs 5 → 289
+  Increases in smoothed curve: 104 (NOT monotonic ✗)
+  Smoothed start: 9.367393e-02, end: 6.687733e-02, reduction 1.401×
+  Max increase: 6.005017e-04
+
+=== 10-epoch moving average ===
+  Segment: epochs 10 → 289
+  Increases in smoothed curve: 88 (NOT monotonic ✗)
+  Smoothed start: 8.643096e-02, end: 6.688999e-02, reduction 1.292×
+  Max increase: 2.630285e-04
+
+=== 15-epoch moving average ===
+  Segment: epochs 15 → 289
+  Increases in smoothed curve: 79 (NOT monotonic ✗)
+  Smoothed start: 8.343710e-02, end: 6.689673e-02, reduction 1.247×
+  Max increase: 1.469923e-04
+
+=== 20-epoch moving average ===
+  Segment: epochs 20 → 289
+  Increases in smoothed curve: 58 (NOT monotonic ✗)
+  Smoothed start: 8.155556e-02, end: 6.690783e-02, reduction 1.219×
+  Max increase: 1.044806e-04
+
+=== 25-epoch moving average ===
+  Segment: epochs 25 → 289
+  Increases in smoothed curve: 44 (NOT monotonic ✗)
+  Smoothed start: 8.032489e-02, end: 6.691751e-02, reduction 1.200×
+  Max increase: 2.444227e-05
+
+=== 30-epoch moving average ===
+  Segment: epochs 30 → 289
+  Increases in smoothed curve: 35 (NOT monotonic ✗)
+  Smoothed start: 7.926395e-02, end: 6.693149e-02, reduction 1.184×
+  Max increase: 3.596479e-05
+
+=== Analysis saved to results/phase_2/closure/val_mse_smoothing_analysis.json ===
+
+⚠ No window is strictly monotonic. Using window 10 with violation count reported.
