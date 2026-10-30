@@ -88,3 +88,61 @@ Post-fix, all 100 trajectories:
 Step 1.2 completion authorizes Step 1.3: full-scale generation of 2,000 scenarios.
 The locked artifacts (Block A manifest, Block B–D evidence, two defect corrections)
 form the fixed scientific reference for Step 1.3.
+
+---
+
+## Addendum: Step 1.1 Lock Preservation Audit
+
+Added after reviewer provenance review on 2026-10-30.
+
+### Complete change inventory since Step 1.1 lock (e5b5628 → 9eed1a6)
+
+**Step 1.1 source files modified: 2 (both documented)**
+
+| File | Change | Documentation |
+|------|--------|---------------|
+| `src/data/solver.py` | `coupled_rhs` fixed for SC-FNO-P0-DEFECT-003 (+24 lines changed) | SC-FNO-P0-DEFECT-003_audit.md |
+| `tests/test_solver.py` | T5 regression test added (+39 lines) | SC-FNO-P0-DEFECT-003_audit.md |
+
+**Step 1.1 source files NOT modified (verified via `git diff --stat`):**
+
+- `tests/test_physics.py` — unchanged
+- `src/physics/kinetics.py` — unchanged
+- `src/physics/thermal_hydraulics.py` — unchanged
+- `src/physics/reactivity.py` — unchanged
+- `configs/reactor_parameters.v3.yaml` — unchanged
+- `configs/thermal_hydraulics.v2.yaml` — unchanged
+- `results/phase_1/solver/bdf_radau_methodology.md` (v1) — unchanged
+  (v2 methodology was created as a NEW file)
+
+### Supersession relationship
+
+- Step 1.1 lock `e5b5628` is preserved as historical record
+- `src/data/solver.py` had a genuine bug (SC-FNO-P0-DEFECT-003) that was
+  undetected in Step 1.1's tests T1–T4 (they exercise `pke_rhs` directly,
+  not `coupled_rhs`)
+- The fix was applied in commit `959451b` (Phase 1.2 Block C) with:
+  - Full audit in `SC-FNO-P0-DEFECT-003_audit.md`
+  - Pre-fix source preserved in `pre_defect_003/coupled_rhs_before.txt`
+  - New regression test T5 that would catch this class of bug
+- No Step 1.1 physics modules or configs were touched
+- No Step 1.1 evidence was deleted or overwritten
+
+### Git ancestry
+
+- `git merge-base --is-ancestor e5b5628 9eed1a6` → exit 0
+- Step 1.2 final commit `9eed1a6` descends from Step 1.1 lock `e5b5628`
+- Full commit chain is intact
+
+### Manifest integrity
+
+- 93 artifacts with SHA-256 checksums
+- Self-reference excluded (documented in manifest)
+- Corrected `solver.py` checksum: `3f51d56743a753af...`
+- Corrected `test_solver.py` checksum: `1b256aaa87b25b41...`
+- Unchanged Step 1.1 physics files have original checksums:
+  - `kinetics.py`: `d482c39a60604912...`
+  - `thermal_hydraulics.py`: `2e360f801de7a4a2...`
+  - `reactivity.py`: `4e46eea1af6553af...`
+
+**Provenance verified. Step 1.2 is formally closed.**
