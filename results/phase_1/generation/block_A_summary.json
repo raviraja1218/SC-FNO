@@ -1,0 +1,25 @@
+{
+  "block": "A (Step 1.3)",
+  "timestamp": "2026-10-30T08:10:34.670937",
+  "n_scenarios": 2000,
+  "family_counts": {
+    "step": 500,
+    "ramp": 500,
+    "sinusoidal": 500,
+    "grf": 500
+  },
+  "allocation": "500/500/500/500 (step/ramp/sinusoidal/grf)",
+  "beta_eff": 0.006502,
+  "t_grid_points": 200,
+  "t_end_s": 10.0,
+  "config_versions": {
+    "reactor_parameters": "v3",
+    "thermal_hydraulics": "v2"
+  },
+  "canonical_manifest": "/home/raviraja/Research/Datasets/SC-FNO/manifests/scenario_manifest_2000.csv",
+  "canonical_sha256": "510c1463d734b963dd6034277594dfef47cf47389b7f953f56465afec9c18d40",
+  "repo_manifest": "results/phase_1/generation/scenario_manifest_2000.csv",
+  "repo_sha256": "510c1463d734b963dd6034277594dfef47cf47389b7f953f56465afec9c18d40",
+  "manifests_identical": true,
+  "solver_checksum_at_block_start": "3f51d56743a753af..."
+}

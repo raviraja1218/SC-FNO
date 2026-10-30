@@ -179,3 +179,108 @@ def generate_forcing(spec: ScenarioSpec, t_grid: np.ndarray) -> np.ndarray:
         return grf_profile(t_grid, p["amplitude_scale"],
                            p["length_scale"], spec.seed)
     raise ValueError(f"Unknown family: {spec.family}")
+
+
+# ---------------------------------------------------------------- production registry
+def build_production_registry(beta_eff: float,
+                              t_grid: np.ndarray,
+                              n_total: int = 2000,
+                              per_family: int = 500) -> list[ScenarioSpec]:
+    """Build 2,000 production scenarios: 500 per family (Step 1.3 Block A).
+
+    Parameter ranges per approved Step 1.3 plan:
+      - Step:       amplitude uniform in [-0.5, +0.5] * beta_eff, t_insert = 0
+      - Ramp:       amplitude uniform in [-0.3, +0.3] * beta_eff,
+                    duration log-uniform in [0.5, 5.0] s, t_start = 0
+      - Sinusoidal: amplitude uniform in [0.05, 0.30] * beta_eff,
+                    omega log-uniform in [0.05, 20] rad/s, phase uniform [0, 2pi)
+      - GRF:        length_scale log-uniform in [0.05, 3.0] s,
+                    amplitude_scale uniform in [0.02, 0.25] * beta_eff
+
+    Seeds:
+      - All scenarios: seed = 2000 + idx (1..n_total)
+      - GRF forcing additionally uses seed = 3000 + idx
+    """
+    assert per_family * 4 == n_total, f"{per_family}*4={per_family*4} != {n_total}"
+
+    specs: list[ScenarioSpec] = []
+    idx = 0
+
+    # Deterministic sampling rng for parameters (separate from GRF sampling)
+    rng = np.random.default_rng(seed=2024)
+
+    # --- Step: 500
+    for k in range(per_family):
+        idx += 1
+        amp = rng.uniform(-0.5, 0.5) * beta_eff
+        specs.append(ScenarioSpec(
+            scenario_id=f"scenario_{idx:04d}",
+            family="step",
+            params={"amplitude": float(amp), "t_insert": 0.0},
+            seed=2000 + idx,
+        ))
+
+    # --- Ramp: 500
+    for k in range(per_family):
+        idx += 1
+        amp = rng.uniform(-0.3, 0.3) * beta_eff
+        # log-uniform in [0.5, 5.0]: exp(uniform(ln 0.5, ln 5))
+        dur = float(np.exp(rng.uniform(np.log(0.5), np.log(5.0))))
+        specs.append(ScenarioSpec(
+            scenario_id=f"scenario_{idx:04d}",
+            family="ramp",
+            params={
+                "amplitude": float(amp),
+                "t_ramp_start": 0.0,
+                "ramp_duration": dur,
+            },
+            seed=2000 + idx,
+        ))
+
+    # --- Sinusoidal: 500
+    for k in range(per_family):
+        idx += 1
+        amp = rng.uniform(0.05, 0.30) * beta_eff
+        omega = float(np.exp(rng.uniform(np.log(0.05), np.log(20.0))))
+        phase = float(rng.uniform(0.0, 2.0 * np.pi))
+        specs.append(ScenarioSpec(
+            scenario_id=f"scenario_{idx:04d}",
+            family="sinusoidal",
+            params={
+                "amplitude": float(amp),
+                "omega": omega,
+                "phase": phase,
+            },
+            seed=2000 + idx,
+        ))
+
+    # --- GRF: 500
+    for k in range(per_family):
+        idx += 1
+        ell = float(np.exp(rng.uniform(np.log(0.05), np.log(3.0))))
+        amp_scale = rng.uniform(0.02, 0.25) * beta_eff
+        specs.append(ScenarioSpec(
+            scenario_id=f"scenario_{idx:04d}",
+            family="grf",
+            params={
+                "amplitude_scale": float(amp_scale),
+                "length_scale": ell,
+            },
+            seed=3000 + idx,  # GRF uses 3000-range seed for RNG
+        ))
+
+    assert len(specs) == n_total, f"Got {len(specs)} scenarios, expected {n_total}"
+
+    # Sanity checks
+    from collections import Counter
+    counts = Counter(s.family for s in specs)
+    assert counts == {"step": per_family, "ramp": per_family,
+                      "sinusoidal": per_family, "grf": per_family}, counts
+
+    # Unique IDs and unique seeds
+    ids = [s.scenario_id for s in specs]
+    seeds = [s.seed for s in specs]
+    assert len(set(ids)) == n_total, "duplicate scenario IDs"
+    assert len(set(seeds)) == n_total, "duplicate seeds"
+
+    return specs
