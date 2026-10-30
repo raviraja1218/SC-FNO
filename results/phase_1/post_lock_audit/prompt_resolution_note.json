@@ -1,0 +1,9 @@
+{
+  "prompt_resolution_analysis": {
+    "tau_prompt_seconds": 0.030759766225776686,
+    "output_grid_dt_seconds": 0.05,
+    "ratio_dt_to_tau_prompt": 1.6255,
+    "conclusion": "200-point output grid (dt=0.05s) is COARSER than prompt timescale (tau=0.031s). The stored trajectories represent the coarse output grid; BDF internally resolves fast dynamics via adaptive steps.",
+    "mitigation": "If full prompt resolution needed, generate a separate high-res diagnostic on one representative transient WITHOUT modifying locked dataset."
+  }
+}

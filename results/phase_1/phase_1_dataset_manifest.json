@@ -69,7 +69,7 @@
   },
   "config_versions": {
     "reactor_parameters": "v3",
-    "thermal_hydraulics": "v2"
+    "thermal_hydraulics": "v4"
   },
   "solver": {
     "method": "BDF",
@@ -86,7 +86,8 @@
     "src/physics/thermal_hydraulics.py": "2e360f801de7a4a21ff1efe5cfc98bc152eb8a238415810dd0a95f614d88157e",
     "src/physics/reactivity.py": "4e46eea1af6553af616aeeaddb688b5b3f680ad8099d6541ba9dbdbda08eb800",
     "configs/reactor_parameters.v3.yaml": "a193ed2403a6b5b1cfc7cd10c071b2961b6733cdbb57bc216d3fa4f59772a5e8",
-    "configs/thermal_hydraulics.v2.yaml": "62cb6f3fe8ab8b377bbbc99261770d820258dbb611eb3e34b641183f2075698e"
+    "configs/thermal_hydraulics.v2.yaml": "62cb6f3fe8ab8b377bbbc99261770d820258dbb611eb3e34b641183f2075698e",
+    "configs/thermal_hydraulics.v4.yaml": "83ba009ac1f7e66c38380534e8f9125767f6bce6db2e2c739e37360cc84a6a51"
   },
   "steps": {
     "1.1": {
@@ -131,6 +132,13 @@
       "status": "RESOLVED",
       "resolution_commit": "8580f83",
       "supplement_commit": "3bc3130"
+    },
+    {
+      "id": "SC-FNO-P0-DEFECT-005",
+      "description": "Thermal equilibrium: Phase 0 v2 params (U=5000, m_dot=3500) violated equilibrium at locked initial state",
+      "status": "RESOLVED",
+      "resolution_commit": "ce4949b",
+      "resolution_config": "configs/thermal_hydraulics.v4.yaml (U=3060, m_dot=13636.36)"
     }
   ],
   "gate_1": "PASS",
@@ -162,5 +170,7 @@
     "figure_08_state_distributions.png": "6fb6e4424d4a2818ae11e228d6f991321c54a5a6bd7cf7dc254a4dff4f571156",
     "figure_09_dataset_split.png": "42e0792b5392076f7767491d3c70180e7662329a22abb9d87b854431bf52d638"
   },
-  "manifest_self_reference_note": "This manifest does not include its own SHA-256. The file phase_1_dataset_manifest.json is explicitly excluded from all checksum lists because writing its own checksum would change the file."
+  "manifest_self_reference_note": "This manifest does not include its own SHA-256. The file phase_1_dataset_manifest.json is explicitly excluded from all checksum lists because writing its own checksum would change the file.",
+  "_last_updated": "2026-10-30T13:00:09.829016",
+  "_update_reason": "Post-lock audit: corrected config version from v2 to v4 (SC-FNO-P0-DEFECT-005)"
 }

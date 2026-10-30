@@ -73,6 +73,19 @@ $$M_c c_{p,c} \frac{dT_c(t)}{dt} = (1 - f_f) P_0 n(t) + UA(T_f(t) - T_c(t)) - 2 
 | $T_{f,\text{ref}}$ | 900 | K |
 | $T_{c,\text{ref}}$ | 583 | K |
 
+
+### 2.4 Explicit parameter changes from Phase 0 v2 to Phase 1 v4 (SC-FNO-P0-DEFECT-005)
+
+| Parameter | Phase 0 v2 (original) | Phase 1 v4 (corrected) | Change | Justification |
+|-----------|----------------------|------------------------|--------|---------------|
+| $U$ | 5,000 W/(m²·K) | **3,060 W/(m²·K)** | −39% | Enforce fuel equilibrium: $UA = f_f P_0 / (T_{f0} - T_{c0})$ |
+| $\dot{m}$ | 3,500 kg/s | **13,636.36 kg/s** | +290% | Enforce coolant equilibrium: $P_0 = 2 \dot{m} c_{p,c}(T_{c0} - T_{\text{in}})$ |
+| $\beta_{\text{eff}}$ | 0.0065 | 0.006502 | +0.03% | Internal consistency: $\beta_{\text{eff}} = \sum_i \beta_i$ (SC-FNO-P0-DEFECT-001) |
+
+**Root cause:** Phase 0 v2 violated thermal equilibrium at the locked initial state — fuel heating $f_f P_0 n_0 = 2.91 \times 10^9$ W ≪ heat transfer out $UA(T_{f0} - T_{c0}) = 4.755 \times 10^9$ W (1.63× imbalance). Fuel cooled from $t=0$, driving spurious positive Doppler feedback and power drops even for positive reactivity steps.
+
+**Governance:** Phase 0 v2 config files remain unchanged (verified). v3 and v4 are separately versioned with supersession headers. Original Phase 0 manifest still verifies.
+
 **Initial conditions:**
 
 | Quantity | Value |

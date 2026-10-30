@@ -1,0 +1,13 @@
+{
+  "forcing_interpolation": {
+    "method": "piecewise_linear",
+    "implementation": "np.interp(t, t_grid, rho_arr)",
+    "grid": "200 uniform points, [0, 10] s, dt=0.05 s",
+    "implications": [
+      "Smooth forcing: well captured",
+      "Step forcing: exactly captured at t=0",
+      "GRF with \u2113<0.05 s: undersampled sub-dt structure"
+    ],
+    "consistency": "Solver and stored data use same 200-point grid"
+  }
+}
