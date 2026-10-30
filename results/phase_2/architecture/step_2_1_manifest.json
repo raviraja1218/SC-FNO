@@ -1,0 +1,30 @@
+{
+  "phase": "2.1",
+  "timestamp": "2026-10-30",
+  "phase_1_lock_reference": "1d9b320",
+  "phase_1_aggregate": "9049c7b42996fee7c08202703086bf0aebd513dbd1f77b1265ae546d6f241bf6",
+  "gate_2_1": "PASS",
+  "artifacts": {
+    "results/phase_2/architecture/architecture_specification.json": "945265425e245394150e32e92803fdd1cb3e1bb75f13b3083504585acfd6cd4e",
+    "results/phase_2/architecture/architecture_summary.txt": "1cb18f5fadde60771b0f9594b46ee3da41a98c72eaa4a9b4d04863ac0421603d",
+    "results/phase_2/architecture/architecture_test_report.md": "7f487d7a8f5f873ca94f71a0c04bf59d082cc77597be64041edf779dac1bd11f",
+    "results/phase_2/architecture/backfill_architecture.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/phase_2/architecture/backfill_minimal.log": "bd9c9b03b8a27ac17b92009f940669c94b9d393f9fa48659d2d7275c95e87371",
+    "results/phase_2/architecture/backfill_v2.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/phase_2/architecture/checkpoint_size.json": "613c0639304a43c3397aa7d5ff7aa87e02325d95926c066afea4b591c383e60d",
+    "results/phase_2/architecture/checkpoint_size.log": "ec564c3fad38b023d414f07a478ead58088233b3e9db6dee891065e6157105a0",
+    "results/phase_2/architecture/dimension_verification.json": "15aec6e1001f78009c60bfddf66a72c6aabae2806751ff3b5a2f70a1c4115db8",
+    "results/phase_2/architecture/dimension_verification.log": "7111243295e8a89a61302d5aa36d544c581d565064855249ac8f95274468e1f7",
+    "results/phase_2/architecture/env_versions.json": "b2b53998a211742b8e321d39cf901c3cf2c7e1d76e5d7958d63bf2e90ded54f2",
+    "results/phase_2/architecture/env_versions.log": "177635e96af04621ea3b64a1c784fe131d736fa261b2ddedc8002bcf7b0ca3fe",
+    "results/phase_2/architecture/gpu_compatibility.json": "68b6cf4f8dce7b0c5cac29464b1029e7e6696bf54a23431292213175fb0d4887",
+    "results/phase_2/architecture/gpu_compatibility.log": "1241e54ee7308a04f509e38d32ae31a7aea6deb6a8bf988da479a59dd4df9e51",
+    "results/phase_2/architecture/input_channel_audit.json": "a3c24b122c614cda233a1b4f2587dd0af045f4b6bf288275717777a5d49e175b",
+    "results/phase_2/architecture/input_channel_audit.log": "05dd7fd4829b36dcce5bf6b8bc9859e4a16962ef921b37e6b7215b70ce2d2e76",
+    "results/phase_2/architecture/instantiation.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/phase_2/architecture/parameter_count.json": "e7324b087863cf37525874be5418022bac9756d648a31bec52972aaacb655c7b",
+    "results/phase_2/architecture/preflight.log": "4fb8248fe676a12563b812965db1e217b44afa3881f8c0d2a69c8fe5cf77de28",
+    "results/phase_2/architecture/test_report.log": "0737c6fd5268bd6d646e69a78676addda61e7d028a9b1e4deadcd5c1e92d051a"
+  },
+  "checkpoint_snapshot": "results/phase_2/architecture/model_architecture_snapshot.pt"
+}

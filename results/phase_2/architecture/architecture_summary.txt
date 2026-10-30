@@ -1,0 +1,2 @@
+FNO: n_modes=16, width=32, n_layers=4, in=1, out=9
+Total trainable params: 50,409

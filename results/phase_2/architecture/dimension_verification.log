@@ -1,0 +1,77 @@
+{
+  "device": "cuda",
+  "batches_tested": {
+    "B=1": {
+      "input_shape": [
+        1,
+        1,
+        200
+      ],
+      "output_shape": [
+        1,
+        9,
+        200
+      ],
+      "expected_output_shape": [
+        1,
+        9,
+        200
+      ],
+      "shape_ok": true,
+      "finite_ok": true,
+      "output_dtype": "torch.float32",
+      "backward_grad_count": 40,
+      "backward_all_finite": true,
+      "backward_any_nonzero": true
+    },
+    "B=4": {
+      "input_shape": [
+        4,
+        1,
+        200
+      ],
+      "output_shape": [
+        4,
+        9,
+        200
+      ],
+      "expected_output_shape": [
+        4,
+        9,
+        200
+      ],
+      "shape_ok": true,
+      "finite_ok": true,
+      "output_dtype": "torch.float32",
+      "backward_grad_count": 40,
+      "backward_all_finite": true,
+      "backward_any_nonzero": true
+    },
+    "B=16": {
+      "input_shape": [
+        16,
+        1,
+        200
+      ],
+      "output_shape": [
+        16,
+        9,
+        200
+      ],
+      "expected_output_shape": [
+        16,
+        9,
+        200
+      ],
+      "shape_ok": true,
+      "finite_ok": true,
+      "output_dtype": "torch.float32",
+      "backward_grad_count": 40,
+      "backward_all_finite": true,
+      "backward_any_nonzero": true
+    }
+  },
+  "all_passed": true
+}
+
+Dimension verification: PASS

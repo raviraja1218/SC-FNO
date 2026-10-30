@@ -1,0 +1,156 @@
+{
+  "sampled_scenarios": [
+    "scenario_0001",
+    "scenario_0041",
+    "scenario_0081",
+    "scenario_0121",
+    "scenario_0161",
+    "scenario_0201",
+    "scenario_0241",
+    "scenario_0281",
+    "scenario_0321",
+    "scenario_0361",
+    "scenario_0401",
+    "scenario_0441",
+    "scenario_0481",
+    "scenario_0521",
+    "scenario_0561",
+    "scenario_0601",
+    "scenario_0641",
+    "scenario_0681",
+    "scenario_0721",
+    "scenario_0761",
+    "scenario_0801",
+    "scenario_0841",
+    "scenario_0881",
+    "scenario_0921",
+    "scenario_0961",
+    "scenario_1001",
+    "scenario_1041",
+    "scenario_1081",
+    "scenario_1121",
+    "scenario_1161",
+    "scenario_1201",
+    "scenario_1241",
+    "scenario_1281",
+    "scenario_1321",
+    "scenario_1361",
+    "scenario_1401",
+    "scenario_1441",
+    "scenario_1481",
+    "scenario_1521",
+    "scenario_1561",
+    "scenario_1601",
+    "scenario_1641",
+    "scenario_1681",
+    "scenario_1721",
+    "scenario_1761",
+    "scenario_1801",
+    "scenario_1841",
+    "scenario_1881",
+    "scenario_1921",
+    "scenario_1961"
+  ],
+  "n_sampled": 50,
+  "per_family_counts": {
+    "step": 13,
+    "ramp": 12,
+    "sinusoidal": 13,
+    "grf": 12
+  },
+  "missing_metadata": [],
+  "parameters": {
+    "n0": {
+      "observed_values": [],
+      "status": "NOT_FOUND_IN_METADATA"
+    },
+    "T_f0": {
+      "observed_values": [],
+      "status": "NOT_FOUND_IN_METADATA"
+    },
+    "T_c0": {
+      "observed_values": [],
+      "status": "NOT_FOUND_IN_METADATA"
+    },
+    "beta_eff": {
+      "observed_values": [
+        0.006502
+      ],
+      "status": "CONSTANT"
+    },
+    "Lambda": {
+      "observed_values": [],
+      "status": "NOT_FOUND_IN_METADATA"
+    },
+    "U": {
+      "observed_values": [],
+      "status": "NOT_FOUND_IN_METADATA"
+    },
+    "A": {
+      "observed_values": [],
+      "status": "NOT_FOUND_IN_METADATA"
+    },
+    "m_dot": {
+      "observed_values": [],
+      "status": "NOT_FOUND_IN_METADATA"
+    },
+    "P0": {
+      "observed_values": [],
+      "status": "NOT_FOUND_IN_METADATA"
+    },
+    "f_f": {
+      "observed_values": [],
+      "status": "NOT_FOUND_IN_METADATA"
+    },
+    "M_f": {
+      "observed_values": [],
+      "status": "NOT_FOUND_IN_METADATA"
+    },
+    "c_p_f": {
+      "observed_values": [],
+      "status": "NOT_FOUND_IN_METADATA"
+    },
+    "M_c": {
+      "observed_values": [],
+      "status": "NOT_FOUND_IN_METADATA"
+    },
+    "c_p_c": {
+      "observed_values": [],
+      "status": "NOT_FOUND_IN_METADATA"
+    },
+    "T_in": {
+      "observed_values": [],
+      "status": "NOT_FOUND_IN_METADATA"
+    },
+    "alpha_f": {
+      "observed_values": [],
+      "status": "NOT_FOUND_IN_METADATA"
+    },
+    "alpha_c": {
+      "observed_values": [],
+      "status": "NOT_FOUND_IN_METADATA"
+    },
+    "T_f_ref": {
+      "observed_values": [],
+      "status": "NOT_FOUND_IN_METADATA"
+    },
+    "T_c_ref": {
+      "observed_values": [],
+      "status": "NOT_FOUND_IN_METADATA"
+    },
+    "include_q_t": {
+      "observed_values": [],
+      "status": "NOT_FOUND_IN_METADATA"
+    },
+    "q_t_default": {
+      "observed_values": [
+        0.0
+      ],
+      "status": "CONSTANT"
+    }
+  },
+  "input_channel_decision": "PROCEED_SINGLE_INPUT",
+  "rationale": "All observed initial-condition and reactor parameters are constant across sampled scenarios. Single-input-channel (rho_ext only) assumption is supported."
+}
+
+Input-channel decision: PROCEED_SINGLE_INPUT

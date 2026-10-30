@@ -1,0 +1,6 @@
+{
+  "checkpoint_path": "results/phase_2/architecture/model_architecture_snapshot.pt",
+  "checkpoint_size_bytes": 365902,
+  "checkpoint_size_MB": 0.366,
+  "total_params": 50409
+}

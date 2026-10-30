@@ -1,0 +1,10 @@
+=== Step 2.1 Pre-Flight: 2026-10-30T13:15:06+00:00 ===
+Phase 1 integrity: OK
+  aggregate: 9049c7b42996fee7...
+  configs: {'reactor_parameters': 'v3', 'thermal_hydraulics': 'v4'}
+993581ef514932c5f3c341ce176a401a5247ebe7217e83f70d3ebe26dd3cff12  results/phase_1/phase_1_dataset_manifest.json
+Phase 1 ancestor: OK
+scenarios_2000: OK
+Python: /home/raviraja/miniconda3/envs/sc_fno/bin/python
+Python 3.10.22
+NVIDIA GeForce RTX 4050 Laptop GPU, 6141 MiB, 610.88

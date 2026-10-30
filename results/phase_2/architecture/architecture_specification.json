@@ -1,0 +1,30 @@
+{
+  "config": {
+    "architecture": "1D temporal FNO",
+    "implementation_path": "A_neuralop_FNO",
+    "n_modes": 16,
+    "hidden_channels": 32,
+    "n_layers": 4,
+    "in_channels": 1,
+    "out_channels": 9,
+    "temporal_points": 200,
+    "activation": "gelu",
+    "positional_embedding": null,
+    "domain_padding": null
+  },
+  "kwargs_used": {
+    "n_modes": [
+      16
+    ],
+    "hidden_channels": 32,
+    "in_channels": 1,
+    "out_channels": 9,
+    "n_layers": 4,
+    "positional_embedding": null,
+    "domain_padding": null
+  },
+  "measured_total_trainable_params": 50409,
+  "model_class": "FNO",
+  "neuralop_version": "2.0.0",
+  "note": "Per-module breakdown skipped \u2014 named_children() hung under neuralop 2.0.0; total param count is authoritative."
+}

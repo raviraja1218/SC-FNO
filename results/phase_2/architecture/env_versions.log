@@ -1,0 +1,20 @@
+{
+  "python": "3.10.22",
+  "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "torch": "2.5.1+cu121",
+  "torch_cuda_version": "12.1",
+  "cuda_available": true,
+  "cuda_device_count": 1,
+  "cuda_device_name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "cuda_device_vram_MB": 6438.780928,
+  "neuralop": "2.0.0",
+  "numpy": "2.2.6",
+  "scipy": "1.15.3",
+  "matplotlib": "3.10.9",
+  "pyyaml": "6.0.3",
+  "nvidia_smi": "610.88, NVIDIA GeForce RTX 4050 Laptop GPU, 6141 MiB",
+  "fft_roundtrip_max_error": 1.1920928955078125e-06,
+  "fp32_cuda_ok": true
+}
+
+Env versions: PASS
