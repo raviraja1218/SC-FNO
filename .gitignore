@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Environment
+.env
+.venv/
+venv/
+
+# Data (symlinked — never track actual datasets)
+data/
+!data/.gitkeep
+
+# Models (large checkpoints)
+models/*.pt
+models/*.pth
+models/**/*.pt
+models/**/*.pth
+
+# Results artifacts (keep reports, exclude raw outputs)
+results/**/*.h5
+results/**/*.npy
+results/**/*.npz
+results/**/*.csv
+results/**/*.pkl
+
+# Logs
+*.log
+tensorboard/
+runs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
