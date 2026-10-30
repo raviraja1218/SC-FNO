@@ -1,22 +1,4 @@
 {
-  "phase": "phase_0",
-  "status": "locked",
-  "timestamp": "2026-10-30T05:32:04+00:00",
-  "gate_0": "PASSED",
-  "environment": {
-    "conda_env": "sc_fno",
-    "python": "3.10.22",
-    "torch": "2.5.1+cu121",
-    "cuda_available": true,
-    "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
-    "neuraloperator": "2.0.0 (import name: neuralop)"
-  },
-  "source_term_decision": {
-    "include_q_t": true,
-    "rationale": "Proposal formulation; default q_t=0 at high power"
-  },
-  "null_fields_remaining": 26,
-  "null_fields_note": "Physical parameter values to be populated before Phase 1 Step 1.1",
   "artifacts": {
     "configs/fno_baseline.yaml": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "configs/reactor_parameters.yaml": "37c38c8bd1aeca9bbda1a8d5b9df0b74cae42602ad3f40796fddd2e663867b09",
@@ -26,8 +8,6 @@
     "results/phase_0/environment/software_inventory.txt": "bb680be5ac42ead440f83fe3af268a2b3d42e0ff41a8ab0ff61ff1531e5b5782",
     "results/phase_0/infrastructure/gpu_report.txt": "f7f5f5ada4ece39614bdc1285287b8c39f83e990048ba34fed9bb895469b66c1",
     "results/phase_0/infrastructure/nvidia_smi_snapshot.txt": "09c1be8f99e4dc9fc0c1eb781c034f1d5d1674ada8a1a8516fb602c368ad0c97",
-    "results/phase_0/phase_0_manifest.json": "60574485ac34e5bbea2f46fe84e2923d2b4e00e253ddbedec0352f65ac85b6b5",
-    "results/phase_0/phase_0_manifest.json.tmp": "1902710d01ff27c0896b38cce21b259a354ba9cad4079552c93ecedbcdc448a4",
     "results/phase_0/physics/parameter_registry.csv": "80f8f2c27b18ebf915e178cc3f566bb05f37c406753567a730e91922c355890c",
     "results/phase_0/repository/dataset_path.txt": "6078120d862dd6ca850b5fdc5e9d913153b248fcffaf1f9930f30141931e4c27",
     "results/phase_0/repository/git_initial_log.txt": "fe0ca01a44d43d75b4e96dd54fa9a007c0984670bb16496ad5ec9bb0e85d532f",
@@ -40,5 +20,24 @@
     "results/phase_0/test_logs/path_test.log": "05937b89bd20f24a0c19d8dedb350314f80347b01c198d685d25afe777a92260",
     "results/phase_0/test_logs/precision_test.log": "90c575e439a84b4f4ae08cc432828646f8cce3f275902e53e7c9a37344b14963",
     "results/phase_0/test_logs/pytest_initial.log": "80b2d97d557de989bb3813313082aec513ccbe40a27ce0a69703cf776ee53ef8"
-  }
+  },
+  "environment": {
+    "conda_env": "sc_fno",
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "neuraloperator": "2.0.0 (import name: neuralop)",
+    "python": "3.10.22",
+    "torch": "2.5.1+cu121"
+  },
+  "gate_0": "PASSED",
+  "manifest_self_reference_note": "This manifest does not include its own checksum.",
+  "null_fields_note": "Physical parameter values to be populated before Phase 1 Step 1.1",
+  "null_fields_remaining": 26,
+  "phase": "phase_0",
+  "source_term_decision": {
+    "include_q_t": true,
+    "rationale": "Proposal formulation; default q_t=0 at high power"
+  },
+  "status": "locked",
+  "timestamp": "2026-10-30T05:32:22+00:00"
 }
