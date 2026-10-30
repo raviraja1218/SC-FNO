@@ -1,0 +1,44 @@
+property,value,source
+phase,1,phase_1_dataset_manifest.json
+n_scenarios,2000,manifest
+aggregate_sha256,2ec2ebdb5ad5ed1a469e5ba842c5454c9223f40aa248025aef50f6d307cc84e5,"Block F (Step 1.4), independently verified in Step 1.5 Block B"
+aggregate_reconciliation,INDEPENDENTLY_VERIFIED,Step 1.5 Block B
+n_families,4,manifest
+family_step,500,manifest
+family_ramp,500,manifest
+family_sinusoidal,500,manifest
+family_grf,500,manifest
+state_vector,"n,C1,C2,C3,C4,C5,C6,Tf,Tc",manifest
+state_vector_dim,9,manifest
+t_grid_points,200,manifest
+t_end_s,10.0,manifest
+split_seed,split_v1_2026,manifest
+split_train,1600,manifest
+split_val,200,manifest
+split_test,200,manifest
+split_per_family_train,400,manifest
+split_per_family_val,50,manifest
+split_per_family_test,50,manifest
+train_ids_sha256,16ad4670eee9555aec237c94d2d241e90b74b50ce8ea57eb07efe209fe852834,manifest
+validation_ids_sha256,19b781283503b1a1cdb313dc68ce153086f18c25043f1ff5123e3cb3e3205bb6,manifest
+test_ids_sha256,a71514eacaee3d09f8c00b34b6070c61ae919a59e8208d6164903d5fed44ffb2,manifest
+normalization_source,training only (1600 scenarios from train_ids.csv),manifest
+normalization_method,z-score: x_norm = (x - mean) / std,manifest
+normalization_n_variables,10,manifest
+normalization_near_zero,0,manifest
+solver_method,BDF,manifest
+solver_rtol,1e-08,manifest
+solver_atol,1e-10,manifest
+cross_check_method,Radau,manifest
+cross_check_sample,200,manifest
+reactor_parameters_version,v3,manifest
+thermal_hydraulics_version,v2,manifest
+integrity_validated,2000/2000,Block A (Step 1.4)
+physical_validation,2000/2000 pass,Step 1.3 Block D
+bdf_radau_sample_passed,200/200,Step 1.3 Block C
+tolerance_sample_passed,40/40,Step 1.3 Block C
+runtime_total_bdf_s,788.2,Step 1.3 Block B
+runtime_median_per_scenario_ms,61.3,Step 1.3 Block B
+defects_resolved,"3 (SC-FNO-P1-DEFECT-002, SC-FNO-P0-DEFECT-003, SC-FNO-P1-DEFECT-004)",manifest
+gate_1_status,PASS,manifest (verification in Step 1.5 Block F)
+lock_commit,1fa8b3f,Step 1.5 Block C (final lock in Block F)
