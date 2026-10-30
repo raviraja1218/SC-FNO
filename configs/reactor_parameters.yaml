@@ -1,0 +1,32 @@
+# Reactor Kinetics Parameters
+# Source: [document provenance — e.g., benchmark specification, textbook reference]
+# All units SI unless noted. Fill provenance before Phase 1 lock.
+
+neutronics:
+  n_precursor_groups: 6
+  beta_eff: null          # total effective delayed neutron fraction (dimensionless) — populate with source
+  Lambda: null            # prompt neutron generation time [s] — populate with source
+  precursor_groups:       # beta_i [-], lambda_i [1/s]
+    - {i: 1, beta_i: null, lambda_i: null}
+    - {i: 2, beta_i: null, lambda_i: null}
+    - {i: 3, beta_i: null, lambda_i: null}
+    - {i: 4, beta_i: null, lambda_i: null}
+    - {i: 5, beta_i: null, lambda_i: null}
+    - {i: 6, beta_i: null, lambda_i: null}
+  external_source:
+    include_q_t: true      # RESOLVED: include q(t) source term (proposal formulation)
+    q_t_default: 0.0       # negligible at high power; document per-scenario override
+
+initial_state:
+  n0: 1.0                  # normalized neutron density (proportional to power) [-]
+  C_i0: null               # equilibrium precursor concentrations — computed in Phase 1
+  T_f0: null               # initial fuel temperature [K]
+  T_c0: null               # initial coolant temperature [K]
+
+simulation:
+  t_start: 0.0             # [s]
+  t_end: null              # [s] — populate per benchmark scenario
+  n_time_points: 200       # coarse training grid
+  solver: BDF              # SciPy solve_ivp method
+  rtol: 1.0e-8
+  atol: 1.0e-10

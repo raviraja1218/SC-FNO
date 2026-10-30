@@ -1,0 +1,26 @@
+# Thermal-Hydraulic Parameters
+# Source: [document provenance — populate before Phase 1 lock]
+
+fuel:
+  M_f: null                # total fuel mass [kg]
+  c_p_f: null              # fuel specific heat capacity [J/(kg·K)]
+  f_f: null                # fraction of fission energy deposited in fuel [-]
+
+coolant:
+  M_c: null                # total coolant mass [kg]
+  c_p_c: null              # coolant specific heat capacity [J/(kg·K)]
+  m_dot: null              # coolant mass flow rate [kg/s]
+  T_in: null               # core inlet coolant temperature [K]
+
+heat_transfer:
+  U: null                  # overall convective heat transfer coefficient [W/(m²·K)]
+  A: null                  # effective heat transfer area [m²]
+
+power:
+  P0: null                 # nominal baseline power [W]
+
+reactivity_feedback:
+  alpha_f: null            # fuel temperature (Doppler) coefficient [Δk/k per K]
+  alpha_c: null            # coolant temperature coefficient [Δk/k per K]
+  T_f_ref: null            # reference fuel temperature [K]
+  T_c_ref: null            # reference coolant temperature [K]
