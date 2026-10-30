@@ -1,0 +1,116 @@
+{
+  "block": "D (Step 1.4)",
+  "wall_time_s": 1.6871058529995935,
+  "n_scenarios": 2000,
+  "fft_summary": {
+    "n_freq_bins": 101,
+    "freq_min": 0.1,
+    "freq_max": 10.0,
+    "dominant_freq": 0.1
+  },
+  "n_duplicate_pairs": 106434,
+  "n_outlier_flagged": 2000,
+  "ks_results": {
+    "n": {
+      "train_vs_val": {
+        "ks_stat": 0.014537499999999981,
+        "p_value": 5.883820420495239e-07
+      },
+      "train_vs_test": {
+        "ks_stat": 0.0068749999999999645,
+        "p_value": 0.0690693086281049
+      }
+    },
+    "C1": {
+      "train_vs_val": {
+        "ks_stat": 0.0018781250000000083,
+        "p_value": 0.9996037768978623
+      },
+      "train_vs_test": {
+        "ks_stat": 0.0007374999999999951,
+        "p_value": 1.0
+      }
+    },
+    "C2": {
+      "train_vs_val": {
+        "ks_stat": 0.0019750000000000045,
+        "p_value": 0.9990405720754281
+      },
+      "train_vs_test": {
+        "ks_stat": 0.0008750000000000008,
+        "p_value": 1.0
+      }
+    },
+    "C3": {
+      "train_vs_val": {
+        "ks_stat": 0.002887500000000015,
+        "p_value": 0.9274040648767223
+      },
+      "train_vs_test": {
+        "ks_stat": 0.0012093750000000056,
+        "p_value": 0.9999999993466165
+      }
+    },
+    "C4": {
+      "train_vs_val": {
+        "ks_stat": 0.0061312500000000325,
+        "p_value": 0.13744530157499402
+      },
+      "train_vs_test": {
+        "ks_stat": 0.0036218749999999966,
+        "p_value": 0.7379530636908479
+      }
+    },
+    "C5": {
+      "train_vs_val": {
+        "ks_stat": 0.018843749999999992,
+        "p_value": 2.130259141865543e-11
+      },
+      "train_vs_test": {
+        "ks_stat": 0.008474999999999983,
+        "p_value": 0.012031628606525714
+      }
+    },
+    "C6": {
+      "train_vs_val": {
+        "ks_stat": 0.014365625000000048,
+        "p_value": 8.378059375814946e-07
+      },
+      "train_vs_test": {
+        "ks_stat": 0.0075624999999999165,
+        "p_value": 0.0340842097359898
+      }
+    },
+    "Tf": {
+      "train_vs_val": {
+        "ks_stat": 0.019009374999999995,
+        "p_value": 1.3637437835500148e-11
+      },
+      "train_vs_test": {
+        "ks_stat": 0.008515624999999971,
+        "p_value": 0.011454995297622814
+      }
+    },
+    "Tc": {
+      "train_vs_val": {
+        "ks_stat": 0.016774999999999984,
+        "p_value": 4.0274805380145214e-09
+      },
+      "train_vs_test": {
+        "ks_stat": 0.007012499999999991,
+        "p_value": 0.06029444289233421
+      }
+    },
+    "rho_ext": {
+      "train_vs_val": {
+        "ks_stat": 0.02779999999999999,
+        "p_value": 2.636242304401255e-24
+      },
+      "train_vs_test": {
+        "ks_stat": 0.013940625000000012,
+        "p_value": 1.971656235961334e-06
+      }
+    }
+  },
+  "outlier_threshold_sigma": 5.0
+}
