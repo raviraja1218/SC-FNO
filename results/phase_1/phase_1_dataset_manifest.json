@@ -1,0 +1,166 @@
+{
+  "phase": "1",
+  "status": "LOCKED",
+  "timestamp": "2026-10-30T09:20:38.435565",
+  "purpose": "Authoritative single reference for the frozen Phase 1 dataset. All downstream phases (2-5) must reference this manifest for dataset identity, split, normalization, and solver configuration.",
+  "dataset": {
+    "n_scenarios": 2000,
+    "production_dir": "/home/raviraja/Research/Datasets/SC-FNO/raw/scenarios_2000",
+    "aggregate_sha256": "2ec2ebdb5ad5ed1a469e5ba842c5454c9223f40aa248025aef50f6d307cc84e5",
+    "aggregate_reconciliation_status": "INDEPENDENTLY_VERIFIED",
+    "family_counts": {
+      "step": 500,
+      "ramp": 500,
+      "sinusoidal": 500,
+      "grf": 500
+    },
+    "state_vector": [
+      "n",
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "Tf",
+      "Tc"
+    ],
+    "state_vector_dim": 9,
+    "t_grid_points": 200,
+    "t_end_s": 10.0
+  },
+  "split": {
+    "seed": "split_v1_2026",
+    "strategy": "deterministic stratified by canonical parameter per family",
+    "counts": {
+      "train": 1600,
+      "val": 200,
+      "test": 200,
+      "total": 2000
+    },
+    "per_family": {
+      "train": 400,
+      "val": 50,
+      "test": 50
+    },
+    "train_ids_sha256": "16ad4670eee9555aec237c94d2d241e90b74b50ce8ea57eb07efe209fe852834",
+    "validation_ids_sha256": "19b781283503b1a1cdb313dc68ce153086f18c25043f1ff5123e3cb3e3205bb6",
+    "test_ids_sha256": "a71514eacaee3d09f8c00b34b6070c61ae919a59e8208d6164903d5fed44ffb2"
+  },
+  "normalization": {
+    "source": "training only (1600 scenarios from train_ids.csv)",
+    "method": "z-score: x_norm = (x - mean) / std",
+    "n_variables": 10,
+    "variables": [
+      "rho_ext",
+      "n",
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "Tf",
+      "Tc"
+    ],
+    "near_zero_variance": [],
+    "statistics_sha256": "2c4ffd7502c75f731827933d2d979f1f728dca4fe413135b6ba0c98c60930d1a",
+    "n_training_scenarios": 1600
+  },
+  "config_versions": {
+    "reactor_parameters": "v3",
+    "thermal_hydraulics": "v2"
+  },
+  "solver": {
+    "method": "BDF",
+    "rtol": 1e-08,
+    "atol": 1e-10,
+    "cross_check_method": "Radau",
+    "cross_check_sample_size": 200
+  },
+  "source_checksums": {
+    "src/data/solver.py": "3f51d56743a753af4b738c84bce227ca8b7a65ada44e032d266e8ba136a8b6c0",
+    "src/data/forcing_profiles.py": "15edbbc463c29b6e46198c119ad87eb9672bf407fb55d17a65311cebd786db74",
+    "src/data/config_loader.py": "31f2ea0cfd43dd3ee9617d09600a13baab3c8d8661fd6a2f14675875fd5a7d4c",
+    "src/physics/kinetics.py": "d482c39a606049120f43c0edd671d6e9056aeb5227d4c648245a0d622d099b24",
+    "src/physics/thermal_hydraulics.py": "2e360f801de7a4a21ff1efe5cfc98bc152eb8a238415810dd0a95f614d88157e",
+    "src/physics/reactivity.py": "4e46eea1af6553af616aeeaddb688b5b3f680ad8099d6541ba9dbdbda08eb800",
+    "configs/reactor_parameters.v3.yaml": "a193ed2403a6b5b1cfc7cd10c071b2961b6733cdbb57bc216d3fa4f59772a5e8",
+    "configs/thermal_hydraulics.v2.yaml": "62cb6f3fe8ab8b377bbbc99261770d820258dbb611eb3e34b641183f2075698e"
+  },
+  "steps": {
+    "1.1": {
+      "lock_commit": "e5b5628",
+      "corrected_in": "959451b",
+      "description": "Solver verification: 4 analytical tests (T1-T4) + T5 regression"
+    },
+    "1.2": {
+      "lock_commit": "7049f3e",
+      "description": "100-scenario pilot: BDF + Radau cross-check + tolerance sensitivity"
+    },
+    "1.3": {
+      "lock_commit": "00d2819",
+      "description": "2,000-scenario production dataset generated"
+    },
+    "1.4": {
+      "lock_commit": "4306ce5",
+      "description": "Dataset validation, split, normalization, distribution analysis"
+    },
+    "1.5": {
+      "lock_commit": "(this commit)",
+      "description": "Final dataset lock, Gate 1 verification, Phase 1 closure"
+    }
+  },
+  "defects": [
+    {
+      "id": "SC-FNO-P1-DEFECT-002",
+      "description": "Thermal absolute threshold calibration (1e-6 K \u2192 1e-2 K)",
+      "status": "RESOLVED",
+      "resolution_commit": "959451b"
+    },
+    {
+      "id": "SC-FNO-P0-DEFECT-003",
+      "description": "coupled_rhs feedback bug (C5, C6 interpreted as Tf, Tc)",
+      "status": "RESOLVED",
+      "resolution_commit": "959451b",
+      "regression_test": "tests/test_solver.py::test_T5_negative_step_decreases_power"
+    },
+    {
+      "id": "SC-FNO-P1-DEFECT-004",
+      "description": "Block D metric artifacts (cosine on proportional profiles, per-time-point z-score)",
+      "status": "RESOLVED",
+      "resolution_commit": "8580f83",
+      "supplement_commit": "3bc3130"
+    }
+  ],
+  "gate_1": "PASS",
+  "evidence_checksums": {
+    "dataset_checksums": "2c21250c406986a4fccdd8c87d344459ccce06eb0ff966b22591077730ca8a4c",
+    "aggregate_checksums": "65a096adc755a3e5e96009545cdc8d11949123523ba31f17d814644bb8dd49be",
+    "split_manifest": "229629f24e6ff10e36e52522b3fbb109ff918954fc1af6e6cb1990074c279b7e",
+    "train_ids": "16ad4670eee9555aec237c94d2d241e90b74b50ce8ea57eb07efe209fe852834",
+    "validation_ids": "19b781283503b1a1cdb313dc68ce153086f18c25043f1ff5123e3cb3e3205bb6",
+    "test_ids": "a71514eacaee3d09f8c00b34b6070c61ae919a59e8208d6164903d5fed44ffb2",
+    "normalization_statistics": "2c4ffd7502c75f731827933d2d979f1f728dca4fe413135b6ba0c98c60930d1a",
+    "normalization_report": "f8260ab140fd830618e32afc9f415a22b47ddecfe84208311ba9ac0301a9cd80",
+    "distribution_report": "c0816d1dfd354973f8c14d3c898b85148c1ee97e9d76547d61bec5b5505a3cd2",
+    "distribution_supplement": "d620470a1e83292d0b1131f4dc55adfbe2b4546154d00927e7d1510b461e67ab",
+    "scenario_extrema": "60ae6db8bb71f52f528341bfd21a42866218fc8e24f90c01fe1d50666c2c2208",
+    "per_family_fft": "60012877a8b1d4a12599beea83ec280ea9a44eff23de373aac2f632b43dcdf10",
+    "integrity_report": "9f59feb7669d285c8754ec1b37a50da795b3a4ddf361b27b34faef0e945f1ed3",
+    "step_1_3_manifest": "96aa9db35c387ef6e637ebf20cdec1864cc8d2d85625bb8cbe36432cf8637fad",
+    "step_1_4_manifest": "8b7c53260e729aed863ebb3c59a7b7472f49119ea79385c1d3e718093d2e3496",
+    "aggregate_reconciliation": "03cd5dd593e3b04d2490147e57ff94c88594d0c89d5229a262a82a869aaeb7b7",
+    "reconciliation_report": "336eedc8e2e6ac8e415c7f931779dfbd210b58b5bd511d32d8d22c2a92aa19b1"
+  },
+  "figures": {
+    "figure_03_reactivity_profiles.png": "e1c76801ec6db11b689689603e87b9e4f1b9d02078f2f7dc7af44b8a1303108d",
+    "figure_04_neutron_density.png": "ee2aeb054c78f9f21bebb45801c12a7a7e27b16241685003368a31a0758bcc0c",
+    "figure_05_precursor_evolution.png": "f432a12ff16d965548f63c04aca4a8da83cc6b00217cffd2d492b0848ab2506a",
+    "figure_06_fuel_temperature.png": "198468cc2e775905cf2f61bcf64113aed54d122f710b0e43fb31b87a1822aa5c",
+    "figure_07_coolant_temperature.png": "caeac8ac62e246fe1a90aba6900296ca211f43866cfdaccf273200449d0cb6fd",
+    "figure_08_state_distributions.png": "e1fa74626e7f59e61550348aab8e06eaa2df073d2f14d0ec2c0b3d89ae6b1662",
+    "figure_09_dataset_split.png": "42e0792b5392076f7767491d3c70180e7662329a22abb9d87b854431bf52d638"
+  },
+  "manifest_self_reference_note": "This manifest does not include its own SHA-256. The file phase_1_dataset_manifest.json is explicitly excluded from all checksum lists because writing its own checksum would change the file."
+}
