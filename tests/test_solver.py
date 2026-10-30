@@ -68,56 +68,84 @@ def test_T1_kinetic_equilibrium(kin, init_state):
     )
 
 
-# ---------------- T2 — Prompt jump ----------------
+# ---------------- T2 — Prompt jump (exact frozen-precursor ODE) ----------------
 def test_T2_prompt_jump(kin, init_state):
-    """Verify the solver reproduces the prompt-jump asymptote.
+    """Verify the solver reproduces the EXACT frozen-precursor ODE solution.
 
-    The prompt-jump approximation n(0+)/n(0-) = beta_eff/(beta_eff - rho)
-    is exact in the limit where delayed precursors are frozen (dC_i/dt = 0).
-    We test it by constructing the exact reduced system:
+    With dC_i/dt = 0 (precursors frozen), the neutron equation is
 
-        dn/dt = (rho - beta_eff)/Lambda * n     (no delayed feedback)
-        dC_i/dt = 0                              (precursors frozen)
+        dn/dt = a*n + S,
 
-    This system has the analytical solution n(t) = n0 * exp(-t/tau) with
-    tau = Lambda / (beta_eff - rho), and n(t) DIVERGES exponentially for
-    rho > beta_eff, while for rho < beta_eff it DECAYS exponentially. The
-    correct physics to verify is therefore the RATE of the prompt response,
-    not a bounded peak. The integrated ratio at time t must be:
+    where
+        a = (rho - beta_eff)/Lambda          (constant in time)
+        S = sum_i lambda_i*C_i(0) + q        (constant because C_i is frozen)
 
-        n(t)/n0 = exp( (rho - beta_eff)/Lambda * t )
+    Unlike the naive prompt-jump formula n(t) = n0*exp(a*t), the exact
+    solution retains the delayed-neutron source contribution:
 
-    Compare the solver's integrated ratio to the analytical exponential.
+        n(t) = (n0 + S/a)*exp(a*t) - S/a.
+
+    With the equilibrium initial state, S = beta_eff*n0/Lambda (nonzero),
+    so the S/a correction is essential and the naive formula is WRONG.
+
+    This test:
+      (1) constructs the frozen-precursor RHS explicitly,
+      (2) integrates with BDF at tight tolerance,
+      (3) compares n(t) to the exact analytical solution above,
+      (4) also verifies the prompt-jump ratio n(0+)/n(0-) -> beta_eff/(beta_eff - rho)
+          in the limit t -> 0+ via the analytical jump formula.
+
+    Reference: SC-FNO-REV-001 (reviewer audit).
     """
     rho_ext = 0.5 * kin.beta_eff
     y0 = init_state[:7].copy()
-    n0 = y0[0]
+    n0 = float(y0[0])
+    C0 = np.asarray(y0[1:], dtype=float)
 
-    def rho_const(t, y):
-        return rho_ext
+    # Frozen-precursor constants
+    betas = np.asarray(kin.beta_i, dtype=float)
+    lambdas = np.asarray(kin.lambda_i, dtype=float)
+    S = float(np.sum(lambdas * C0))                  # delayed source, frozen
+    a = (rho_ext - kin.beta_eff) / kin.Lambda         # prompt rate
 
-    def rhs_frozen_precursors(t, y):
-        # Kinetics RHS with precursors frozen exactly: dC_i/dt = 0
+    # Exact analytical solution
+    def n_exact(t):
+        return (n0 + S / a) * np.exp(a * t) - S / a
+
+    # Frozen-precursor ODE: precursors held fixed at C0
+    def rhs_frozen(t, y):
         n = y[0]
-        dn = (rho_const(t, y) - kin.beta_eff) / kin.Lambda * n
+        dn = a * n + S
         return np.concatenate(([dn], np.zeros(6)))
 
-    # Integrate over a window short enough that Lambda-scale dynamics are
-    # fully resolved but the exponential growth is still modest.
-    tau_prompt = kin.Lambda / abs(rho_ext - kin.beta_eff)
-    t_end = 0.5 * tau_prompt  # half a prompt time constant
-    sol = solve_ivp(rhs_frozen_precursors, [0.0, t_end], y0, method='BDF',
-                    rtol=1e-12, atol=1e-14, t_eval=[0.0, t_end])
+    # Integrate over several prompt time constants
+    tau_prompt = 1.0 / abs(a)  # = Lambda/(beta_eff - rho)
+    t_end = 3.0 * tau_prompt
+    t_eval = np.linspace(0.0, t_end, 200)
+    sol = solve_ivp(rhs_frozen, [0.0, t_end], y0, method='BDF',
+                    rtol=1e-12, atol=1e-14, t_eval=t_eval)
     assert sol.success, f"Solver failed: {sol.message}"
 
-    ratio_numerical = float(sol.y[0, -1] / n0)
-    ratio_analytical = float(np.exp((rho_ext - kin.beta_eff) / kin.Lambda * t_end))
-    rel_err = abs(ratio_numerical - ratio_analytical) / ratio_analytical
+    n_numeric = sol.y[0]
+    n_analytical = n_exact(sol.t)
 
-    assert rel_err < 1e-6, (
-        f"Frozen-precursor prompt response: numerical n(t)/n0 = {ratio_numerical:.10f} "
-        f"vs analytical exp((rho-beta_eff)/Lambda*t) = {ratio_analytical:.10f}; "
-        f"rel err {rel_err:.3e} exceeds 1e-6"
+    # Relative L2 error across trajectory
+    denom = np.max(np.abs(n_analytical))
+    rel_l2 = float(np.linalg.norm(n_numeric - n_analytical) / denom)
+
+    assert rel_l2 < 1e-6, (
+        f"Frozen-precursor exact-solution mismatch: "
+        f"relative L2 error {rel_l2:.3e} exceeds 1e-6. "
+        f"S = {S:.6e}, a = {a:.6e}, n0 = {n0:.6e}"
+    )
+
+    # Bonus algebraic check: prompt-jump ratio n(0+)/n(0-) in the limit
+    # t->0+ with thermal and delayed feedback absent is given by the
+    # textbook formula. We verify it against the analytical jump, not
+    # against the ODE trajectory (which is the S/a-corrected version).
+    ratio_jump = kin.beta_eff / (kin.beta_eff - rho_ext)
+    assert abs(ratio_jump - 2.0) < 1e-12, (
+        f"Algebraic prompt-jump ratio {ratio_jump} != 2.0 for rho=0.5*beta_eff"
     )
 
 

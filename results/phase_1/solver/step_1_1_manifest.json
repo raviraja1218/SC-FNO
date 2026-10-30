@@ -1,8 +1,11 @@
 {
   "phase": "1.1",
-  "timestamp": "2026-10-30T07:34:23.033980",
+  "timestamp": "2026-10-30T07:37:03.362122",
   "phase_0_lock_reference": "e7e70c0",
-  "correction_id": "SC-FNO-P0-DEFECT-001",
+  "corrections_applied": [
+    "SC-FNO-P0-DEFECT-001",
+    "SC-FNO-REV-001"
+  ],
   "config_versions": {
     "reactor_parameters": "v3",
     "thermal_hydraulics": "v2"
@@ -12,7 +15,7 @@
   "tests_passed": 4,
   "artifacts": {
     "tests/test_physics.py": "100a46f063858052a0b7d3d50299e9159d6845b8df2f28d37513ad7c7827f22f",
-    "tests/test_solver.py": "f7e960ab3cc560970602cb624d20d275b68b17192e46a86f1f72f8c1ca12e619",
+    "tests/test_solver.py": "584658c25179224511b1708aed0b9ab41eda4c62afe45c89aa5ddee91f54ee86",
     "conftest.py": "cb64e9c142a905c45dcfce99b2902a2d03337ae9d7e207fb5acfe059a6feb343",
     "src/physics/kinetics.py": "d482c39a606049120f43c0edd671d6e9056aeb5227d4c648245a0d622d099b24",
     "src/physics/thermal_hydraulics.py": "2e360f801de7a4a21ff1efe5cfc98bc152eb8a238415810dd0a95f614d88157e",
@@ -21,21 +24,24 @@
     "src/data/config_loader.py": "31f2ea0cfd43dd3ee9617d09600a13baab3c8d8661fd6a2f14675875fd5a7d4c",
     "configs/reactor_parameters.v3.yaml": "a193ed2403a6b5b1cfc7cd10c071b2961b6733cdbb57bc216d3fa4f59772a5e8",
     "configs/thermal_hydraulics.v2.yaml": "62cb6f3fe8ab8b377bbbc99261770d820258dbb611eb3e34b641183f2075698e",
-    "results/phase_1/solver/analytical_test_results.json": "14607c82020ca20ef380c5d6e468054711700fe390454ebba8d370c8a9c2d15f",
-    "results/phase_1/solver/analytical_test_results.log": "2365376983446accfa11dc655ac0a2dca15f1233f9e7186c77ed1dbd0ff710a3",
+    "results/phase_1/solver/T2_defect_analysis.log": "71504fe03b6e9116094450a2519efcf36bba10a29d6780e86ac95a93aba14811",
+    "results/phase_1/solver/T2_original_implementation.txt": "3dc32d1a47c61f81fc8cf2daf9f7ce19f87f42c97209bd52b1064f26aa27e7e0",
+    "results/phase_1/solver/T2_reviewer_correction_audit.md": "c3ec08f05b6b907723e251af430b3edc4126b99f4d5d817f1159217249e72ab2",
+    "results/phase_1/solver/analytical_test_results.json": "967338aa6fa1586c1cffe64d315e19ef257b177a442bea1c2329255dc84f5369",
+    "results/phase_1/solver/analytical_test_results.log": "ddea883a4addc0a76ff0e468bab12ec5941a581dbde09f8794a7bd7e5326144d",
     "results/phase_1/solver/api_signature_audit.log": "a47b3f559ab3666d82b7240f653be53bcbbe99e1326705fe82888269ddc6ba00",
     "results/phase_1/solver/audit_phase0_modules.log": "76fcd91bcc4b81d28e770aeb13297f2d23373db7942a0dee761787afb8bb35dd",
     "results/phase_1/solver/bdf_radau_methodology.md": "8eff4d3c30dca60293458efff645b69d34de8768950bbf1919a6a6f26192b099",
-    "results/phase_1/solver/gate_1_1_verification.log": "5ad2ea5c348aab5c8d728d02b1fbe6773194891832db1a813f779c0abb16daf0",
+    "results/phase_1/solver/gate_1_1_verification.log": "7e5d514b3b7c96955de12cd050070c60305628b826ed371fe82f48536e9eed1c",
     "results/phase_1/solver/phase_0_correction_audit.md": "dbcd6153f564737860acd6e9e737064b4698fc5dc96cdefb7aff6a5569ba5ea1",
     "results/phase_1/solver/phase_0_correction_verification.log": "29f60a27679c756c5a8aa6e68972682e273dd119e843bfc1ea033f44bc617c4b",
     "results/phase_1/solver/phase_0_defect_capture.log": "235360026fe05b2f2f86bb7468f2f7bc1adb42f3cc98060ad267a397a0c9701d",
     "results/phase_1/solver/phase_0_defect_pytest.log": "03fb5c598c5b292fc4e4a08d0b3e47dd4675aca0491c09f01b985d972cf1cf99",
     "results/phase_1/solver/phase_0_defect_scope.log": "61a7a8e7decf3c212eb6147a13378c7805d25bf2f1fa3ac7dbe1209eb1704eae",
     "results/phase_1/solver/solver_configuration.yaml": "c5e92a482a7e37bcd620776266c1ef15355c063e13a3aee534cbb375a31187e7",
-    "results/phase_1/solver/solver_specification.md": "85856afb5b02c64f5e7825586e418acee88fac59c61ea4b7249e6a31561741ff",
-    "results/phase_1/solver/solver_test_log.txt": "c6dceb4e08cd37b4fc14927c2d8b22a6b1df9549e5e27c94baa61d627c53dead",
+    "results/phase_1/solver/solver_specification.md": "0d1907eff61ec936652513357b92111ac715c819df2df4553bdd6ae34121ed1d",
+    "results/phase_1/solver/solver_test_log.txt": "127fdb6c8440cc40de83d4716aaf77a72e3bbaaac978f9a0cd0b1271db7633f2",
     "results/phase_1/solver/state_vector_audit.log": "201169828cd0b6e6e01e2a7831f6c79389ec5f07b26999e757b1583ba2115667",
-    "results/phase_1/solver/step_1_1_manifest.json": "b302d6f5bee34330f76a66404e931fc1af9a279b6d013591372060d116f0c680"
+    "results/phase_1/solver/step_1_1_manifest.json": "75964525db93fb304545ba88ffcb5576fbe04b66db28b0180c84b04ed11ab587"
   }
 }

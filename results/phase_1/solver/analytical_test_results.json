@@ -8,6 +8,10 @@
   "beta_eff_provenance": "sum(beta_i) \u2014 Phase 0 correction SC-FNO-P0-DEFECT-001",
   "source_term_included": true,
   "state_vector_dimension": 9,
+  "corrections_applied": [
+    "SC-FNO-P0-DEFECT-001: beta_eff = sum(beta_i) via v3",
+    "SC-FNO-REV-001: T2 uses exact frozen-precursor ODE solution, not naive exponential"
+  ],
   "tests": {
     "T1_kinetic_equilibrium": {
       "status": "PASS",

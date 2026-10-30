@@ -1,0 +1,22 @@
+
+=== STEP 1.1 GATE CHECK (POST SC-FNO-REV-001) ===
+  [✓] T1 Kinetic equilibrium
+  [✓] T2 Prompt jump (exact)
+  [✓] T3 Inhour
+  [✓] T4 Adiabatic heating
+  [✓] exists: results/phase_1/solver/solver_specification.md
+  [✓] exists: results/phase_1/solver/solver_configuration.yaml
+  [✓] exists: results/phase_1/solver/analytical_test_results.json
+  [✓] exists: results/phase_1/solver/solver_test_log.txt
+  [✓] exists: results/phase_1/solver/bdf_radau_methodology.md
+  [✓] exists: results/phase_1/solver/phase_0_correction_audit.md
+  [✓] exists: results/phase_1/solver/T2_reviewer_correction_audit.md
+  [✓] exists: results/phase_1/solver/T2_original_implementation.txt
+  [✓] exists: results/phase_1/solver/T2_defect_analysis.log
+  [✓] exists: results/phase_1/solver/step_1_1_manifest.json
+  [✓] exists: configs/reactor_parameters.v3.yaml
+  [✓] exists: src/data/config_loader.py
+  [✓] exists: conftest.py
+  [✓] test_solver.py populated
+
+Gate 1.1: PASS
