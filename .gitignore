@@ -45,3 +45,8 @@ Thumbs.db
 
 # Required Phase 0 artifact — track despite results/**/*.csv rule
 !results/phase_0/physics/parameter_registry.csv
+
+# ---- Phase 0 physics artifacts (required for gate verification) ----
+!results/phase_0/physics/parameter_registry.csv
+!results/phase_0/physics/parameter_provenance.md
+!results/phase_0/phase_0_manifest.json
