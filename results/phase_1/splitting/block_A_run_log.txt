@@ -1,0 +1,24 @@
+Validating 2000 scenarios
+  RAW_DIR = /home/raviraja/Research/Datasets/SC-FNO/raw/scenarios_2000
+  Manifest scenarios: 2000
+
+  [ 500/2000] failures so far: 0
+  [1000/2000] failures so far: 0
+  [1500/2000] failures so far: 0
+  [2000/2000] failures so far: 0
+
+{
+  "block": "A (Step 1.4)",
+  "n_scenarios_checked": 2000,
+  "n_passed": 2000,
+  "n_failures": 0,
+  "all_passed": true,
+  "wall_time_s": 3.3440095079995444,
+  "family_counts": {
+    "step": 500,
+    "ramp": 500,
+    "sinusoidal": 500,
+    "grf": 500
+  },
+  "hashes_computed": 2000
+}
