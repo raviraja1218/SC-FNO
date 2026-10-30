@@ -1,6 +1,6 @@
 {
   "phase": "1.1",
-  "timestamp": "2026-10-30T07:37:03.362122",
+  "timestamp": "2026-10-30T07:38:19.352724",
   "phase_0_lock_reference": "e7e70c0",
   "corrections_applied": [
     "SC-FNO-P0-DEFECT-001",
@@ -13,6 +13,9 @@
   "state_vector_dimension": 9,
   "source_term_included": true,
   "tests_passed": 4,
+  "gate_checks_passed": 18,
+  "gate_checks_total": 18,
+  "manifest_self_reference_note": "This manifest does not include its own SHA-256 checksum. The file step_1_1_manifest.json is explicitly excluded from the artifacts dict because writing its own checksum would change the file after checksums are computed.",
   "artifacts": {
     "tests/test_physics.py": "100a46f063858052a0b7d3d50299e9159d6845b8df2f28d37513ad7c7827f22f",
     "tests/test_solver.py": "584658c25179224511b1708aed0b9ab41eda4c62afe45c89aa5ddee91f54ee86",
@@ -32,7 +35,7 @@
     "results/phase_1/solver/api_signature_audit.log": "a47b3f559ab3666d82b7240f653be53bcbbe99e1326705fe82888269ddc6ba00",
     "results/phase_1/solver/audit_phase0_modules.log": "76fcd91bcc4b81d28e770aeb13297f2d23373db7942a0dee761787afb8bb35dd",
     "results/phase_1/solver/bdf_radau_methodology.md": "8eff4d3c30dca60293458efff645b69d34de8768950bbf1919a6a6f26192b099",
-    "results/phase_1/solver/gate_1_1_verification.log": "7e5d514b3b7c96955de12cd050070c60305628b826ed371fe82f48536e9eed1c",
+    "results/phase_1/solver/gate_1_1_verification.log": "df9990c47a60e5dbfcc77620fdebc4f42e1540037f0ddd24cd3762124ff660f9",
     "results/phase_1/solver/phase_0_correction_audit.md": "dbcd6153f564737860acd6e9e737064b4698fc5dc96cdefb7aff6a5569ba5ea1",
     "results/phase_1/solver/phase_0_correction_verification.log": "29f60a27679c756c5a8aa6e68972682e273dd119e843bfc1ea033f44bc617c4b",
     "results/phase_1/solver/phase_0_defect_capture.log": "235360026fe05b2f2f86bb7468f2f7bc1adb42f3cc98060ad267a397a0c9701d",
@@ -41,7 +44,6 @@
     "results/phase_1/solver/solver_configuration.yaml": "c5e92a482a7e37bcd620776266c1ef15355c063e13a3aee534cbb375a31187e7",
     "results/phase_1/solver/solver_specification.md": "0d1907eff61ec936652513357b92111ac715c819df2df4553bdd6ae34121ed1d",
     "results/phase_1/solver/solver_test_log.txt": "127fdb6c8440cc40de83d4716aaf77a72e3bbaaac978f9a0cd0b1271db7633f2",
-    "results/phase_1/solver/state_vector_audit.log": "201169828cd0b6e6e01e2a7831f6c79389ec5f07b26999e757b1583ba2115667",
-    "results/phase_1/solver/step_1_1_manifest.json": "75964525db93fb304545ba88ffcb5576fbe04b66db28b0180c84b04ed11ab587"
+    "results/phase_1/solver/state_vector_audit.log": "201169828cd0b6e6e01e2a7831f6c79389ec5f07b26999e757b1583ba2115667"
   }
 }

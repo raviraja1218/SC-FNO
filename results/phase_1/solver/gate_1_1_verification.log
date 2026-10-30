@@ -1,5 +1,5 @@
 
-=== STEP 1.1 GATE CHECK (POST SC-FNO-REV-001) ===
+=== STEP 1.1 GATE CHECK (FINAL) ===
   [✓] T1 Kinetic equilibrium
   [✓] T2 Prompt jump (exact)
   [✓] T3 Inhour
@@ -19,4 +19,4 @@
   [✓] exists: conftest.py
   [✓] test_solver.py populated
 
-Gate 1.1: PASS
+Gate 1.1: 18/18 PASS
