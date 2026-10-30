@@ -236,7 +236,7 @@ All forcing profiles stored separately from trajectories (`forcing.npy` per scen
 
 **File:** `results/phase_1/reviewer_figures/graph_2_step_transient_multi_axis.png`
 
-**Contents:** Four-panel multi-axis plot for a positive step insertion scenario (`scenario_XXXX`, amplitude ~0.3 β_eff):
+**Contents:** Four-panel multi-axis plot for a positive step insertion scenario (regenerated with v4 physics) (`scenario_XXXX`, amplitude ~0.3 β_eff):
 
 - **Panel 1:** External reactivity $\rho_{\text{ext}}(t)$ (step at $t=0$) and total reactivity $\rho_{\text{total}}(t)$ (step + thermal feedback)
 - **Panel 2:** Neutron density $n(t)/n_0$ on log scale — showing the **prompt spike** followed by stabilization
