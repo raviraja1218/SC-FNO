@@ -324,3 +324,9 @@ Phase 2 will use:
 **Aggregate dataset SHA-256:** `9049c7b42996fee7c08202703086bf0aebd513dbd1f77b1265ae546d6f241bf6`
 **Phase 1 status:** **LOCKED — CLOSED**
 **Phase 2:** **AUTHORIZED**
+
+
+### 6.4 SC-FNO-P0-DEFECT-005 — Thermal equilibrium
+- **Problem:** Phase 0 locked parameters violated thermal equilibrium.
+- **Resolution:** v4 config (U=3060, m_dot=13636.36). All 2,000 scenarios regenerated.
+- **Commit:** `ce4949b`
