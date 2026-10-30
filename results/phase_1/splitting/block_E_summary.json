@@ -1,0 +1,40 @@
+{
+  "block": "E (Step 1.4)",
+  "n_figures": 7,
+  "figures": [
+    {
+      "name": "figure_03_reactivity_profiles.png",
+      "size_bytes": 226504
+    },
+    {
+      "name": "figure_04_neutron_density.png",
+      "size_bytes": 125419
+    },
+    {
+      "name": "figure_05_precursor_evolution.png",
+      "size_bytes": 43555
+    },
+    {
+      "name": "figure_06_fuel_temperature.png",
+      "size_bytes": 81238
+    },
+    {
+      "name": "figure_07_coolant_temperature.png",
+      "size_bytes": 92329
+    },
+    {
+      "name": "figure_08_state_distributions.png",
+      "size_bytes": 119400
+    },
+    {
+      "name": "figure_09_dataset_split.png",
+      "size_bytes": 40531
+    }
+  ],
+  "representatives": {
+    "step": "scenario_0249",
+    "ramp": "scenario_0753",
+    "sinusoidal": "scenario_1248",
+    "grf": "scenario_1747"
+  }
+}
