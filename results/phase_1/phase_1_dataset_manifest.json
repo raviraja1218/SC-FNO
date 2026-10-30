@@ -107,7 +107,7 @@
       "description": "Dataset validation, split, normalization, distribution analysis"
     },
     "1.5": {
-      "lock_commit": "(this commit)",
+      "lock_commit": "d32b343",
       "description": "Final dataset lock, Gate 1 verification, Phase 1 closure"
     }
   },
@@ -162,5 +162,6 @@
     "figure_08_state_distributions.png": "e1fa74626e7f59e61550348aab8e06eaa2df073d2f14d0ec2c0b3d89ae6b1662",
     "figure_09_dataset_split.png": "42e0792b5392076f7767491d3c70180e7662329a22abb9d87b854431bf52d638"
   },
-  "manifest_self_reference_note": "This manifest does not include its own SHA-256. The file phase_1_dataset_manifest.json is explicitly excluded from all checksum lists because writing its own checksum would change the file."
+  "manifest_self_reference_note": "This manifest does not include its own SHA-256. The file phase_1_dataset_manifest.json is explicitly excluded from all checksum lists because writing its own checksum would change the file.",
+  "final_lock_commit": "d32b343"
 }

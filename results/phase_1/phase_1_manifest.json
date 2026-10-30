@@ -2,7 +2,7 @@
   "phase": "1",
   "status": "LOCKED",
   "timestamp": "2026-10-30T09:24:27.938915",
-  "final_lock_commit": "PENDING_UPDATE_AFTER_COMMIT",
+  "final_lock_commit": "d32b343",
   "purpose": "This is the SHA-256 manifest of ALL Phase 1 evidence. It aggregates the checksums of every script, source module, test, config, evidence file, and figure produced during Phase 1 (Steps 1.1-1.5). Together with the authoritative phase_1_dataset_manifest.json, it provides complete provenance for Phase 1.",
   "authoritative_dataset_manifest": {
     "path": "results/phase_1/phase_1_dataset_manifest.json",
