@@ -11,7 +11,8 @@ __pycache__/
 venv/
 
 # Data (symlinked — never track actual datasets)
-data/
+# Root-level data/ only (symlink to external dataset). src/data/ is source.
+/data/
 !data/.gitkeep
 
 # Models (large checkpoints)
