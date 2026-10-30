@@ -1,0 +1,18 @@
+  [PASS] summary_exists
+  [PASS] best_val_checkpoint
+  [PASS] final_checkpoint
+  [PASS] training_state
+  [PASS] training_config
+  [PASS] epoch_metrics
+  [PASS] timing_report
+  [PASS] no_nan_in_losses
+  [PASS] best_val_mse_recorded
+  [PASS] best_epoch_recorded
+  [PASS] duration_recorded
+  [PASS] vram_recorded
+  [PASS] 3gb_assessed
+  [PASS] 60min_assessed
+  [PASS] timing_methodology
+  [PASS] epochs_completed_gt_zero
+
+2.3.E: PASS

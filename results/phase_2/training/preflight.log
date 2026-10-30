@@ -1,0 +1,10 @@
+=== Step 2.3 Pre-Flight: 2026-10-30T16:17:28+00:00 ===
+Phase 1 integrity: OK
+4e832aa5cdaa940cb2e07bf64c5741cc5124ad40242dd9532da231ff257f6727  results/phase_1/splitting/normalization_statistics.json
+6e7bc42132dcb1e020ff1c7ef791e64a673580e7dcb88d623a8a11f435279d6d  results/phase_2/architecture/model_architecture_snapshot.pt
+Phase 1 ancestor: OK
+Step 2.1 ancestor: OK
+Step 2.2 ancestor: OK
+Dataloader OK: x=[16, 1, 200], y=[16, 9, 200], B=16
+GPU: NVIDIA GeForce RTX 4050 Laptop GPU
+VRAM (MB): 6438.780928

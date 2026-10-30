@@ -1,0 +1,37 @@
+{
+  "phase": "2.3",
+  "timestamp": "2026-10-30",
+  "phase_1_lock": "1d9b320",
+  "phase_1_aggregate": "9049c7b42996fee7c08202703086bf0aebd513dbd1f77b1265ae546d6f241bf6",
+  "normalization_sha256": "4e832aa5cdaa940cb2e07bf64c5741cc5124ad40242dd9532da231ff257f6727",
+  "step_2_1_lock": "55c2482",
+  "architecture_checkpoint_sha256": "6e7bc42132dcb1e020ff1c7ef791e64a673580e7dcb88d623a8a11f435279d6d",
+  "step_2_2_lock": "a5825b4",
+  "gate_2_3": "PASS",
+  "key_results": {
+    "best_epoch": 289,
+    "epochs_completed": 319,
+    "best_val_mse": 0.06666702953729188,
+    "total_time_min": 8.391267741500027,
+    "peak_alloc_MB": 32.575488,
+    "under_3GB": true,
+    "under_60min": true,
+    "stability_event": "early_stop_epoch_319"
+  },
+  "artifacts": {
+    "results/phase_2/training/epoch_metrics.csv": "b21eb1903e505694bc98a5ca08c84c0d30309eb05185cd02717604144975b171",
+    "results/phase_2/training/post_training_verification.json": "55eb7217a49fd51cacc7d28052fb59d71e7a7e6666fdc0b75b3d39ccc7fc1dab",
+    "results/phase_2/training/post_training_verification.log": "ab92173cbd9fd89cea9ad3bf4f2e355e891d85a1ae4bcba5f0ce0f94527b70a3",
+    "results/phase_2/training/preflight.log": "76adef03f2c32efefe6fc192ef06a3bedec6313587242e9e99b5d395e732b3e3",
+    "results/phase_2/training/stability_report.log": "b7cef58fbbfb375bf9a073942e4ee831615b85f7e48237f75f1fda59e413b359",
+    "results/phase_2/training/timing_report.json": "8a416726dad70f7379d864ff984397e867d8f50b92cb6e16369197d6f489d59c",
+    "results/phase_2/training/timing_report_first_run.json": "6e6b60a36881a25f3679b201cbadc5c4ac479575cfa21758ccb206936284e796",
+    "results/phase_2/training/training_config.yaml": "d9166362809a765e39bb2fc0d5c47e4d74f72a647df28279443248fe5e6af55c",
+    "results/phase_2/training/training_run.log": "91823f2acfe84b345dcbeca131e9fe104dd7aaff293f80177d6259cea80c5a50",
+    "results/phase_2/training/training_stability_report.md": "45dce19519793648afeb5907901fa828f5c3827863854a7684d4bdbb472e1ef4",
+    "results/phase_2/training/training_summary.json": "99c3ce5e76e6ba89695d43c06860d7acdf050b28094268853a003eefa10a71ce",
+    "models/baseline/fno_baseline.pt": "488f2c95c3d1e243bb60240a4b2bbeee736cf0a8e858af30cab62aa9e30cbe25",
+    "models/baseline/fno_best.pt": "24fce0bad8ec9c665649f6d73f4c56efd66f92667d95da3011d32dcbf4388889",
+    "models/baseline/training_state.pt": "060f3dbad82601b998bb54d2c96a9104bd39b4c0366d14d548f1e89969d5e6f2"
+  }
+}

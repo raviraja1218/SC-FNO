@@ -1,0 +1,10 @@
+{
+  "warmup_iterations": 3,
+  "repeats": 10,
+  "sync_placement": "before_and_after_each_repeat",
+  "timer": "time.perf_counter",
+  "mean_s": 0.009057192299587768,
+  "median_s": 0.009027254998727585,
+  "min_s": 0.008879150002030656,
+  "max_s": 0.00938340999709908
+}

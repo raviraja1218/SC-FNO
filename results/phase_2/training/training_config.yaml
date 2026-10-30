@@ -2,7 +2,15 @@ batch_size: 16
 device: cuda
 early_stopping_patience: 30
 gradient_clip: 1.0
+hidden_channels: 32
+in_channels: 1
 learning_rate: 0.001
 max_epochs: 500
+n_layers: 4
+n_modes: 16
+out_channels: 9
 scheduler: cosine
+scheduler_T_max: 500
+scheduler_eta_min: 0.0
 seed: 42
+temporal_points: 200

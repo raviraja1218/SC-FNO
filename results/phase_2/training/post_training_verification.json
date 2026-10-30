@@ -1,0 +1,63 @@
+{
+  "checks": {
+    "summary_exists": true,
+    "best_val_checkpoint": true,
+    "final_checkpoint": true,
+    "training_state": true,
+    "training_config": true,
+    "epoch_metrics": true,
+    "timing_report": true,
+    "no_nan_in_losses": true,
+    "best_val_mse_recorded": true,
+    "best_epoch_recorded": true,
+    "duration_recorded": true,
+    "vram_recorded": true,
+    "3gb_assessed": true,
+    "60min_assessed": true,
+    "timing_methodology": true,
+    "epochs_completed_gt_zero": true
+  },
+  "summary": {
+    "config": {
+      "seed": 42,
+      "batch_size": 16,
+      "learning_rate": 0.001,
+      "max_epochs": 500,
+      "early_stopping_patience": 30,
+      "scheduler": "cosine",
+      "scheduler_T_max": 500,
+      "scheduler_eta_min": 0.0,
+      "gradient_clip": 1.0,
+      "device": "cuda",
+      "n_modes": 16,
+      "hidden_channels": 32,
+      "n_layers": 4,
+      "in_channels": 1,
+      "out_channels": 9,
+      "temporal_points": 200
+    },
+    "total_params": 50409,
+    "epochs_completed": 319,
+    "best_epoch": 289,
+    "best_val_mse": 0.06666702953729188,
+    "stability_event": "early_stop_epoch_319",
+    "total_time_s": 503.4760644900016,
+    "total_time_min": 8.391267741500027,
+    "peak_alloc_MB_any_epoch": 32.575488,
+    "peak_reserved_MB_any_epoch": 39.845888,
+    "three_GB_target_MB": 3000,
+    "under_3GB": true,
+    "under_60min": true,
+    "timing": {
+      "warmup_iterations": 3,
+      "repeats": 10,
+      "sync_placement": "before_and_after_each_repeat",
+      "timer": "time.perf_counter",
+      "mean_s": 0.009066908300155774,
+      "median_s": 0.00912562050143606,
+      "min_s": 0.008710224999958882,
+      "max_s": 0.009350729000288993
+    }
+  },
+  "all_passed": true
+}

@@ -1,0 +1,61 @@
+# Step 2.3 — Training Stability Report
+
+**Date:** 2026-10-30
+
+## Configuration
+
+- `seed`: `42`
+- `batch_size`: `16`
+- `learning_rate`: `0.001`
+- `max_epochs`: `500`
+- `early_stopping_patience`: `30`
+- `scheduler`: `cosine`
+- `scheduler_T_max`: `500`
+- `scheduler_eta_min`: `0.0`
+- `gradient_clip`: `1.0`
+- `device`: `cuda`
+- `n_modes`: `16`
+- `hidden_channels`: `32`
+- `n_layers`: `4`
+- `in_channels`: `1`
+- `out_channels`: `9`
+- `temporal_points`: `200`
+
+## Results
+
+- Total trainable params: **50,409**
+- Epochs completed: **319** / 500
+- Best epoch: **289**
+- **Best val MSE: `6.666703e-02`**
+- Stability event: **`early_stop_epoch_319`**
+- Total wall time: **8.39 min**
+
+## Hardware
+
+- Peak allocated VRAM (any epoch): **32.58 MB**
+- Peak reserved VRAM (any epoch): 39.85 MB
+- **3 GB target: MET**
+- **60 min target: MET**
+
+## GPU Timing Methodology (Reviewer Item C)
+
+- Warm-up iterations: **3**
+- Repeats: **10**
+- Sync placement: `before_and_after_each_repeat`
+- Timer: `time.perf_counter`
+- **Median per-step: `9.126 ms`**
+- Mean per-step: `9.067 ms`
+- Min / Max: `8.710` / `9.351` ms
+
+## Gradient Clipping Usage
+
+- Epochs where clipping fired: **1 / 319**
+- Max gradient norm (pre-clip): 3.6820e-01
+- Median gradient norm (pre-clip): 4.3498e-02
+
+## Loss Trajectory
+
+- First epoch train MSE: `2.203407e-01`
+- First epoch val MSE: `1.226648e-01`
+- Best epoch train MSE: `5.844703e-02`
+- Best epoch val MSE: `6.666703e-02`
