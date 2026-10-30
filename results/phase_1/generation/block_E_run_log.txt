@@ -1,0 +1,29 @@
+/home/raviraja/projects/SC-FNO/scripts/generate_production_figures.py:185: MatplotlibDeprecationWarning: The 'labels' parameter of boxplot() has been renamed 'tick_labels' since Matplotlib 3.9; support for the old name will be dropped in 3.11.
+  bp = axes[1].boxplot(data, labels=fams, patch_artist=True, showfliers=True)
+Generating figures...
+Saved: production_input_reactivity.png
+Saved: production_responses_composite.png
+Saved: production_neutron_density.png
+Saved: production_precursor_evolution.png
+Saved: production_temperatures.png
+Saved: production_runtime_distribution.png
+Saved: production_physical_bounds.png
+Saved: dataset_summary.json
+Saved: manuscript_table_3_data.csv
+
+{
+  "block": "E (Step 1.3)",
+  "n_figures": 8,
+  "figures": [
+    "production_input_reactivity.png",
+    "production_neutron_density.png",
+    "production_physical_bounds.png",
+    "production_precursor_evolution.png",
+    "production_reactivity_profiles.png",
+    "production_responses_composite.png",
+    "production_runtime_distribution.png",
+    "production_temperatures.png"
+  ],
+  "dataset_summary_written": true,
+  "manuscript_table_3_written": true
+}

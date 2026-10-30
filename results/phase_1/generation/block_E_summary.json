@@ -1,0 +1,16 @@
+{
+  "block": "E (Step 1.3)",
+  "n_figures": 8,
+  "figures": [
+    "production_input_reactivity.png",
+    "production_neutron_density.png",
+    "production_physical_bounds.png",
+    "production_precursor_evolution.png",
+    "production_reactivity_profiles.png",
+    "production_responses_composite.png",
+    "production_runtime_distribution.png",
+    "production_temperatures.png"
+  ],
+  "dataset_summary_written": true,
+  "manuscript_table_3_written": true
+}
