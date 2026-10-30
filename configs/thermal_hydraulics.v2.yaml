@@ -1,0 +1,28 @@
+# Thermal-Hydraulic Parameters — v2 (POPULATED)
+# Supersedes v1 (structural-only). v1 preserved untouched per locked-gate protocol.
+# Source: Hetrick, Dynamics of Nuclear Reactors (1993), Ch. 2 typical PWR;
+#         Todreas & Kazimi, Nuclear Systems Vol. I (heat transfer coefficients)
+
+fuel:
+  M_f: 27000.0              # total fuel mass [kg] (typical PWR core, Hetrick)
+  c_p_f: 300.0              # fuel specific heat capacity [J/(kg·K)] (UO2 mean, Todreas)
+  f_f: 0.97                 # fraction of fission energy deposited in fuel [-]
+
+coolant:
+  M_c: 4000.0               # total coolant mass in core [kg] (typical PWR)
+  c_p_c: 5500.0             # coolant specific heat capacity [J/(kg·K)] (PWR water ~15.5 MPa, 300C)
+  m_dot: 3500.0             # coolant mass flow rate [kg/s] (typical PWR core)
+  T_in: 563.0               # core inlet coolant temperature [K] (~290 C)
+
+heat_transfer:
+  U: 5000.0                 # overall convective heat transfer coefficient [W/(m²·K)] (Todreas)
+  A: 3000.0                 # effective heat transfer area [m²] (typical PWR core)
+
+power:
+  P0: 3.0e9                 # nominal baseline power [W] (3000 MWth large PWR)
+
+reactivity_feedback:
+  alpha_f: -3.0e-5          # fuel temperature (Doppler) coefficient [Δk/k per K] (negative, typical LWR)
+  alpha_c: -5.0e-4          # coolant temperature coefficient [Δk/k per K] (negative, typical PWR)
+  T_f_ref: 900.0            # reference fuel temperature at nominal power [K]
+  T_c_ref: 583.0            # reference coolant temperature at nominal power [K]

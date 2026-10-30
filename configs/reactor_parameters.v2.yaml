@@ -1,0 +1,33 @@
+# Reactor Kinetics Parameters — v2 (POPULATED)
+# Supersedes v1 (structural-only). v1 preserved untouched per locked-gate protocol.
+# Source: CATS PKE benchmark / Keepin, Physics of Nuclear Kinetics (1965), Table 1.1
+#         (6-group U-235 thermal fission data)
+
+neutronics:
+  n_precursor_groups: 6
+  beta_eff: 0.0065          # total effective delayed neutron fraction [-] (Keepin 1965)
+  Lambda: 1.0e-4            # prompt neutron generation time [s] (typical thermal system)
+  precursor_groups:         # beta_i [-], lambda_i [1/s] (Keepin 6-group U-235)
+    - {i: 1, beta_i: 0.000215, lambda_i: 0.0124}
+    - {i: 2, beta_i: 0.001424, lambda_i: 0.0305}
+    - {i: 3, beta_i: 0.001274, lambda_i: 0.1110}
+    - {i: 4, beta_i: 0.002568, lambda_i: 0.3010}
+    - {i: 5, beta_i: 0.000748, lambda_i: 1.1400}
+    - {i: 6, beta_i: 0.000273, lambda_i: 3.0100}
+  external_source:
+    include_q_t: true       # RESOLVED Phase 0.4: include q(t) per proposal formulation
+    q_t_default: 0.0        # negligible at high power; override per scenario
+
+initial_state:
+  n0: 1.0                   # normalized neutron density (proportional to power) [-]
+  T_f0: 900.0               # initial fuel temperature [K] (Hetrick typical PWR ref)
+  T_c0: 583.0               # initial coolant temperature [K] (T_in + avg rise)
+  # C_i0 computed in code at equilibrium: C_i0 = beta_i * n0 / (Lambda * lambda_i)
+
+simulation:
+  t_start: 0.0              # [s]
+  t_end: 10.0               # [s] default transient horizon
+  n_time_points: 200        # coarse training grid (Phase 0.5 locked decision)
+  solver: BDF               # SciPy solve_ivp method (Phase 0.5 locked decision)
+  rtol: 1.0e-8
+  atol: 1.0e-10
