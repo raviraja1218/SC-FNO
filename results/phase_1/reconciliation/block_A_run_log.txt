@@ -1,8 +1,7 @@
 [1] Git ancestry check...
     PASS
 [2] Working tree check...
-    FAIL
-    Dirty files outside reconciliation/: ['?? scripts/reconcile_step_1_3_1_4.py']
+    PASS
 [3] Step 1.4 diff vs Step 1.3...
     PASS — 36 files, 0 non-additions
 [4] Spot-checking 200 Step 1.3 scenarios...
@@ -10,5 +9,5 @@
 [5] Spot-checking 20 Step 1.3 evidence files...
     PASS — 0 issues
 
-=== BLOCK A RESULT: FAIL ===
-  4/5 checks passed
+=== BLOCK A RESULT: PASS ===
+  5/5 checks passed

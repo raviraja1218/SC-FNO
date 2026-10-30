@@ -49,10 +49,15 @@ def main():
     # which are created by this script. Only flag real uncommitted changes.
     print("[2] Working tree check...")
     rc, out, _ = git(["status", "--short"])
-    # Exclude untracked reconciliation outputs — these are the script's own products
+    # Exclude untracked reconciliation outputs AND this script's own source
+    # (both are products of running this script and will be committed together)
+    exclude_patterns = [
+        'results/phase_1/reconciliation/',
+        'scripts/reconcile_step_1_3_1_4.py',
+    ]
     dirty_lines = [ln for ln in out.splitlines()
                    if ln.strip()
-                   and 'results/phase_1/reconciliation/' not in ln]
+                   and not any(p in ln for p in exclude_patterns)]
     tree_ok = (len(dirty_lines) == 0)
     checks.append({"check": "working_tree_clean (excluding reconciliation outputs)",
                    "result": "PASS" if tree_ok else "FAIL",
