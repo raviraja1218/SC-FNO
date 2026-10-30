@@ -1,0 +1,83 @@
+Tolerance sweep: 20 scenarios (5 per family)
+  Reference:   rtol=1e-08, atol=1e-10
+  Tightened:   rtol=1e-10, atol=1e-12
+  [ 5/20] pilot_0025 (step) done
+  [10/20] pilot_0050 (ramp) done
+  [15/20] pilot_0075 (sinusoidal) done
+  [20/20] pilot_0100 (grf) done
+
+{
+  "block": "D",
+  "n_scenarios": 20,
+  "n_rows": 180,
+  "n_failures": 0,
+  "all_passed": true,
+  "total_wall_s": 14.210724800000207,
+  "tolerances": {
+    "reference": {
+      "rtol": 1e-08,
+      "atol": 1e-10
+    },
+    "tightened": {
+      "rtol": 1e-10,
+      "atol": 1e-12
+    }
+  },
+  "acceptance_rel_l2_max": 0.0001,
+  "per_state_stats": {
+    "n": {
+      "n_scenarios": 20,
+      "n_passed": 20,
+      "max_rel_l2": 4.3933201794842953e-07,
+      "max_abs_diff": 1.6429269478202002e-07
+    },
+    "C1": {
+      "n_scenarios": 20,
+      "n_passed": 20,
+      "max_rel_l2": 1.3625600320633744e-09,
+      "max_abs_diff": 3.297583361927536e-08
+    },
+    "C2": {
+      "n_scenarios": 20,
+      "n_passed": 20,
+      "max_rel_l2": 3.4049657348213486e-09,
+      "max_abs_diff": 2.5378142254339764e-07
+    },
+    "C3": {
+      "n_scenarios": 20,
+      "n_passed": 20,
+      "max_rel_l2": 5.017803364463375e-08,
+      "max_abs_diff": 8.4452715043426e-07
+    },
+    "C4": {
+      "n_scenarios": 20,
+      "n_passed": 20,
+      "max_rel_l2": 1.902924448044204e-07,
+      "max_abs_diff": 3.838715457504804e-06
+    },
+    "C5": {
+      "n_scenarios": 20,
+      "n_passed": 20,
+      "max_rel_l2": 6.495745688828216e-08,
+      "max_abs_diff": 1.0406878825364174e-07
+    },
+    "C6": {
+      "n_scenarios": 20,
+      "n_passed": 20,
+      "max_rel_l2": 1.8149684315283348e-07,
+      "max_abs_diff": 4.0635814435585615e-08
+    },
+    "Tf": {
+      "n_scenarios": 20,
+      "n_passed": 20,
+      "max_rel_l2": 2.7138758517117785e-08,
+      "max_abs_diff": 6.160082193673588e-06
+    },
+    "Tc": {
+      "n_scenarios": 20,
+      "n_passed": 20,
+      "max_rel_l2": 1.6228704899384968e-08,
+      "max_abs_diff": 3.972918648287305e-06
+    }
+  }
+}
