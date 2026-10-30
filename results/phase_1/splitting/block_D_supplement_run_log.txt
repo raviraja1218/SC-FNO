@@ -1,0 +1,29 @@
+Loading 2,000 scenarios...
+  Loaded 2000
+Per-family FFT spectra...
+Scenario-level extrema...
+Literal vs corrected metric comparison...
+
+{
+  "block": "D-supplement (Step 1.4)",
+  "wall_time_s": 3.538045020000027,
+  "per_family_fft": {
+    "step": {
+      "dominant_freq": 0.5
+    },
+    "ramp": {
+      "dominant_freq": 0.1
+    },
+    "sinusoidal": {
+      "dominant_freq": 0.1
+    },
+    "grf": {
+      "dominant_freq": 0.1
+    }
+  },
+  "scenario_extrema_rows": 2000,
+  "duplicate_literal": 106434,
+  "duplicate_corrected": 17,
+  "outlier_literal": 2000,
+  "outlier_corrected": 0
+}
