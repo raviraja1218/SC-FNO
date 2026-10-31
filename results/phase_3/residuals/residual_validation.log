@@ -1,0 +1,58 @@
+# Step 3.1 — Residual Validation Report
+
+**Date:** 2026-10-31  
+**Gate 3.1:** PASS  
+**Checks:** 15/15
+
+## Checklist
+
+| # | Criterion | Result | Detail |
+|---|-----------|--------|--------|
+| 1 | 8 validation tests exist (13 items) | PASS | 13 passed, 0 failed |
+| 2 | T1 neutron | PASS |  |
+| 3 | T2 precursors (6) | PASS |  |
+| 4 | T3 fuel thermal | PASS |  |
+| 5 | T4 coolant | PASS |  |
+| 6 | T5 feedback | PASS |  |
+| 7 | T6 coupling | PASS |  |
+| 8 | T7 equilibrium | PASS |  |
+| 9 | T8 unit consistency | PASS |  |
+| 10 | Residual scales measured | PASS | 9 states |
+| 11 | No leakage audit PASS | PASS | If feedback used ground truth, rho_fb would NOT change when predicted Tf is offs |
+| 12 | Units documented | PASS |  |
+| 13 | residuals.py present | PASS |  |
+| 14 | test_residuals.py present | PASS |  |
+| 15 | Locked paths untouched | PASS | empty |
+
+## Residual Scales (p95)
+
+| State | p95 magnitude | Unit |
+|-------|--------------|------|
+| n | 2.9056e-01 | 1/s |
+| C1 | 1.7388e-02 | 1/s |
+| C2 | 1.1523e-01 | 1/s |
+| C3 | 1.0335e-01 | 1/s |
+| C4 | 2.0865e-01 | 1/s |
+| C5 | 6.1375e-02 | 1/s |
+| C6 | 2.2477e-02 | 1/s |
+| Tf | 2.9410e+00 | K/s |
+| Tc | 7.1738e-02 | K/s |
+
+## Deliverables
+
+- `src/physics_informed/residuals.py` — 9 residual channels
+- `tests/test_physics_informed/test_residuals.py` — 13 validation tests
+- `residual_scales.json` — per-state p95 from 100 training scenarios
+- `no_leakage_verification.json` — feedback uses predicted Tf/Tc
+- `residual_units.md` — physical dimensions documented
+
+## Notes
+
+- All 9 residuals computed using PREDICTED states (no ground-truth leakage).
+- Coolant factor-of-2 matches `thermal_hydraulics.py:39` exactly.
+- q(t) handled per Phase 0: include_q_t=True, q_default=0.
+- Feedback formula `alpha_f*(Tf-Tf_ref) + alpha_c*(Tc-Tc_ref)` verified.
+- FP32 tolerances documented in test file docstring (scientifically justified).
+
+
+=== GATE 3.1: PASS ===

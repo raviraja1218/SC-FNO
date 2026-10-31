@@ -1,0 +1,81 @@
+{
+  "checks": [
+    {
+      "name": "8 validation tests exist (13 items)",
+      "pass": true,
+      "detail": "13 passed, 0 failed"
+    },
+    {
+      "name": "T1 neutron",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "T2 precursors (6)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "T3 fuel thermal",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "T4 coolant",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "T5 feedback",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "T6 coupling",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "T7 equilibrium",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "T8 unit consistency",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Residual scales measured",
+      "pass": true,
+      "detail": "9 states"
+    },
+    {
+      "name": "No leakage audit PASS",
+      "pass": true,
+      "detail": "If feedback used ground truth, rho_fb would NOT change when predicted Tf is offs"
+    },
+    {
+      "name": "Units documented",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "residuals.py present",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "test_residuals.py present",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Locked paths untouched",
+      "pass": true,
+      "detail": "empty"
+    }
+  ],
+  "all_pass": true,
+  "gate_3_1": "PASS"
+}

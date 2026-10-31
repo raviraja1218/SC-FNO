@@ -1,0 +1,16 @@
+{
+  "test": "no ground-truth leakage audit",
+  "setup": "Two residuals computed with identical n, C, Tc; Tf differs by 100 K",
+  "delta_rho_fb": 0.0030000002589076757,
+  "delta_R_n": 30.0,
+  "delta_R_Tf": 113.33335876464844,
+  "expected_delta_rho_fb": 0.003,
+  "checks": {
+    "feedback_responds_to_predicted_Tf": true,
+    "R_n_responds_to_predicted_Tf": true,
+    "R_Tf_responds_to_predicted_Tf": true,
+    "feedback_delta_matches_alpha_f_100K": true
+  },
+  "all_pass": true,
+  "interpretation": "If feedback used ground truth, rho_fb would NOT change when predicted Tf is offset. Confirmed rho_fb responds to predicted Tf -> no leakage."
+}
