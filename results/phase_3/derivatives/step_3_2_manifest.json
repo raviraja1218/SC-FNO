@@ -1,0 +1,31 @@
+{
+  "step": "3.2",
+  "phase": "3",
+  "timestamp": "2026-10-31",
+  "gate_3_2": "PASS",
+  "phase_1_aggregate": "9049c7b42996fee7c08202703086bf0aebd513dbd1f77b1265ae546d6f241bf6",
+  "phase_2_lock_tag": "0c9dfd7ced7454342e09280b6307f83d42eea89e",
+  "phase_2_ckpt_sha": "24fce0bad8ec9c665649f6d73f4c56efd66f92667d95da3011d32dcbf4388889",
+  "fno_latent_method": "forward_hook_on_projection",
+  "checks_passed": 18,
+  "checks_total": 18,
+  "artifacts": {
+    "results/phase_3/derivatives/boundary_behavior.json": "f0c2b147fa88e5a1eb241e47128392110ea60e56f9eea8b847b6a52c8fe1425d",
+    "results/phase_3/derivatives/decoder_specification.json": "c8e27bf59bfdb15f3c16b2ba1a8a1704df47b0e1c72185d04504b65b9f25976c",
+    "results/phase_3/derivatives/decoder_specification.log": "dc3a96af62c319ced24a6f2fb4b895197c17ce4f0db1899237f7fc700d38bb40",
+    "results/phase_3/derivatives/derivative_validation.json": "6e621385bb1f7be8dd00101d000bd2ff90e51c3b77d4efbf5e8ff37e6c9c53d1",
+    "results/phase_3/derivatives/derivative_validation.log": "5f156ef77edad94ec9a5b5bf39f656330a79768d7dc92580905d7a11b3a4bc8a",
+    "results/phase_3/derivatives/derivative_validation.md": "5e49213ecaffc598e63ccd0d1a1dbac8473436e8bb605d2e6e78828133d94d06",
+    "results/phase_3/derivatives/finite_difference_comparison.json": "a94619e86dec6d91988118d3d49dbeb92ab5447090a9ea0c566b5c6138e7b6ca",
+    "results/phase_3/derivatives/gpu_runtime.json": "9791979341f0af6bf3dce19bab8991b0adcfaf14ab489736d8b8a25b42ab45af",
+    "results/phase_3/derivatives/gpu_runtime.log": "cac35e0517515a5136eaea8d27c8dbc87cb171c7e2c1269231e23325dd4a60fb",
+    "results/phase_3/derivatives/gradient_propagation.json": "d6d0f83079e60700783839803fb1b5696348a8de10caeaf30e93c9e1f9c799a3",
+    "results/phase_3/derivatives/preflight.log": "2b1fef3098e6effafb86cd142dcd70f21b6f223a0b15efc744ce82e030c6cbbb",
+    "results/phase_3/derivatives/pytest_output.log": "3e9c1aa2ce31f16bb5d26a6680d719696455fed1a2cfff27ca9a2bf3c14cb790",
+    "results/phase_3/derivatives/time_scaling_verification.json": "7263b7b464a9f372e2e51b9833ccd4f404070bfa3fd01ba4ee1625411b5bafe6",
+    "src/physics_informed/decoder.py": "6f224e891d17f093d67e3486a1be7525f6900f608aaac345fe91ff918cea0743",
+    "src/physics_informed/derivatives.py": "e05a6a6f353a6cfe82ed570a18e04896ccaa537a0355af5c74ee6996abce13c1",
+    "tests/test_physics_informed/test_derivatives.py": "b082099083d9debd749488b40815352592a1f52df9011b4a051173df7b88a4c8",
+    "scripts/step3_2_summary.py": "8374d3419c70580b32a1854971e85cd24ee7b3e38df6e519f457abda445958c5"
+  }
+}

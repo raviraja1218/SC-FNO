@@ -1,0 +1,96 @@
+{
+  "checks": [
+    {
+      "name": "Decoder spec frozen",
+      "pass": true,
+      "detail": "temporal-attention coordinate decoder"
+    },
+    {
+      "name": "Phase 2 SHA unchanged",
+      "pass": true,
+      "detail": "24fce0bad8ec9c66"
+    },
+    {
+      "name": "D1 sin (FP64)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "D2 t^3 (FP64)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "D3 e^t (FP64)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "D4 9-channel (FP64)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "D5 real decoder",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "FD on smooth MLP < 5%",
+      "pass": true,
+      "detail": "mean rel L2 = 1.498e-03"
+    },
+    {
+      "name": "Boundary finite",
+      "pass": true,
+      "detail": "t0=True, t10=True"
+    },
+    {
+      "name": "Time scaling from seconds",
+      "pass": true,
+      "detail": "max_err=0.000e+00"
+    },
+    {
+      "name": "No unexpected detach (AST-verified)",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "create_graph works",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "GRAD: all in-path FNO params",
+      "pass": true,
+      "detail": "36/36"
+    },
+    {
+      "name": "GRAD: >90% decoder params",
+      "pass": true,
+      "detail": "13/14 (0%)"
+    },
+    {
+      "name": "GRAD: test passed",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "All derivative tests pass",
+      "pass": true,
+      "detail": "11 passed, 0 failed"
+    },
+    {
+      "name": "Peak VRAM < 3 GB",
+      "pass": true,
+      "detail": "148.94 MB"
+    },
+    {
+      "name": "Locked paths untouched",
+      "pass": true,
+      "detail": "empty"
+    }
+  ],
+  "all_pass": true,
+  "gate_3_2": "PASS"
+}

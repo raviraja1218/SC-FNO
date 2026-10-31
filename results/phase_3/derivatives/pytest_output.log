@@ -1,0 +1,27 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.22, pytest-9.2.0, pluggy-1.7.0 -- /home/raviraja/miniconda3/envs/sc_fno/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/raviraja/projects/SC-FNO
+configfile: pytest.ini
+plugins: platformdirs-4.12.4, mock-3.17.0, anyio-4.15.1, cov-7.1.0
+collecting ... collected 11 items
+
+tests/test_physics_informed/test_derivatives.py::test_D1_sin_fp64 PASSED [  9%]
+tests/test_physics_informed/test_derivatives.py::test_D2_polynomial_fp64 PASSED [ 18%]
+tests/test_physics_informed/test_derivatives.py::test_D3_exponential_fp64 PASSED [ 27%]
+tests/test_physics_informed/test_derivatives.py::test_D4_multichannel_fp64 PASSED [ 36%]
+tests/test_physics_informed/test_derivatives.py::test_D5_real_decoder_derivative_finite PASSED [ 45%]
+tests/test_physics_informed/test_derivatives.py::test_FD_agreement_on_smooth_mlp PASSED [ 54%]
+tests/test_physics_informed/test_derivatives.py::test_BND_boundary_finite PASSED [ 63%]
+tests/test_physics_informed/test_derivatives.py::test_TSC_time_in_seconds PASSED [ 72%]
+tests/test_physics_informed/test_derivatives.py::test_GRPH_no_detach_in_forward PASSED [ 81%]
+tests/test_physics_informed/test_derivatives.py::test_GRPH_create_graph_works PASSED [ 90%]
+tests/test_physics_informed/test_derivatives.py::test_GRAD_propagates_to_fno_and_decoder PASSED [100%]
+
+=============================== warnings summary ===============================
+tests/test_physics_informed/test_derivatives.py::test_D5_real_decoder_derivative_finite
+  /home/raviraja/miniconda3/envs/sc_fno/lib/python3.10/site-packages/torch/autograd/graph.py:825: UserWarning: Attempting to run cuBLAS, but there was no current CUDA context! Attempting to set the primary context... (Triggered internally at ../aten/src/ATen/cuda/CublasHandlePool.cpp:135.)
+    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 11 passed, 1 warning in 4.10s =========================

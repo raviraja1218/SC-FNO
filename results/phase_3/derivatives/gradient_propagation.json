@@ -1,0 +1,19 @@
+{
+  "fno_params_total": 40,
+  "fno_params_with_grad": 36,
+  "fno_params_without_grad_sample": [
+    "projection.fcs.0.weight",
+    "projection.fcs.0.bias",
+    "projection.fcs.1.weight",
+    "projection.fcs.1.bias"
+  ],
+  "decoder_params_total": 14,
+  "decoder_params_with_grad": 13,
+  "decoder_params_without_grad_sample": [
+    "head.4.bias"
+  ],
+  "loss_value": 0.30973324179649353,
+  "note": "FNO parameters in the compute path (lifting + fno_blocks) must ALL receive gradient from the derivative loss. Projection params are intentionally bypassed by _fno_latent and correctly receive zero gradient \u2014 they are excluded from the acceptance check.",
+  "fno_in_path_params_total": 36,
+  "fno_in_path_params_with_grad": 36
+}

@@ -1,0 +1,60 @@
+# Step 3.2 — Derivative Validation Report
+
+**Date:** 2026-10-31  
+**Gate 3.2:** PASS  
+**Checks:** 18/18
+
+## Checklist
+
+| # | Criterion | Result | Detail |
+|---|-----------|--------|--------|
+| 1 | Decoder spec frozen | PASS | temporal-attention coordinate decoder |
+| 2 | Phase 2 SHA unchanged | PASS | 24fce0bad8ec9c66 |
+| 3 | D1 sin (FP64) | PASS |  |
+| 4 | D2 t^3 (FP64) | PASS |  |
+| 5 | D3 e^t (FP64) | PASS |  |
+| 6 | D4 9-channel (FP64) | PASS |  |
+| 7 | D5 real decoder | PASS |  |
+| 8 | FD on smooth MLP < 5% | PASS | mean rel L2 = 1.498e-03 |
+| 9 | Boundary finite | PASS | t0=True, t10=True |
+| 10 | Time scaling from seconds | PASS | max_err=0.000e+00 |
+| 11 | No unexpected detach (AST-verified) | PASS |  |
+| 12 | create_graph works | PASS |  |
+| 13 | GRAD: all in-path FNO params | PASS | 36/36 |
+| 14 | GRAD: >90% decoder params | PASS | 13/14 (0%) |
+| 15 | GRAD: test passed | PASS |  |
+| 16 | All derivative tests pass | PASS | 11 passed, 0 failed |
+| 17 | Peak VRAM < 3 GB | PASS | 148.94 MB |
+| 18 | Locked paths untouched | PASS | empty |
+
+## Key Findings
+
+- **Phase 2 SHA unchanged:** True
+- **FNO params:** 50409
+- **Decoder params:** 13225
+- **Total params:** 63634
+- **Peak VRAM:** 148.94 MB
+- **FNO in-path gradient:** 36/36 (100%)
+- **Decoder gradient:** 13/14 (0%)
+- **Decoder param w/o grad on pure-deriv loss:** []
+
+## Architectural Note — Forward Hook Latent Capture
+
+FNO latent `z` is extracted via `register_forward_hook` on the projection
+layer, capturing `inputs[0]` of projection. This runs the exact same forward
+path Phase 2 training used, guaranteeing both numerical identity (Phase 2
+checkpoint unchanged) and full gradient flow through all 4 FNO blocks.
+Manually calling `lifting → fno_blocks` broke gradient past block 0 in
+neuralop 2.0.0. The hook approach is the correct fix.
+
+## Notes on Decoder Gradient
+
+13/14 decoder params receive non-zero gradient on the pure derivative loss
+`L = ||du/dt||^2`. The one exception is `head[-1].bias`, which was
+explicitly zero-initialized (`nn.init.zeros_`). Its gradient is exactly
+zero at initialization on this specific loss form. In Step 3.3, the
+composite data+physics+IC loss will give it a non-zero gradient from
+the data term. This is expected behavior, not a design flaw.
+
+
+=== GATE 3.2: PASS ===

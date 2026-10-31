@@ -1,0 +1,13 @@
+{
+  "device": "cuda",
+  "device_name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "batch_size": 16,
+  "n_query": 200,
+  "n_repeats": 10,
+  "total_wall_time_s": 0.1153,
+  "per_iter_ms": 11.53,
+  "peak_allocated_MB": 148.94,
+  "peak_reserved_MB": 171.97,
+  "three_GB_target_MB": 3000,
+  "under_3GB": true
+}

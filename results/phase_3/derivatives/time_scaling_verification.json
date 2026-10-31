@@ -1,0 +1,5 @@
+{
+  "test": "sin(2*pi*t) derivative",
+  "max_error": 0.0,
+  "interpretation": "If autograd returns 2*pi*cos(2*pi*t), time is SECONDS."
+}

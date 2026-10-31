@@ -1,0 +1,26 @@
+{
+  "frozen_spec": {
+    "type": "temporal-attention coordinate decoder",
+    "latent_dim": 32,
+    "hidden_dim": 64,
+    "out_dim": 9,
+    "n_freqs": 16,
+    "T_seconds": 10.0,
+    "query_embed_dim": 33,
+    "n_heads": 4,
+    "init_seed": 42
+  },
+  "param_counts": {
+    "fno_backbone": 50409,
+    "decoder": 13225,
+    "total": 63634
+  },
+  "checkpoint": {
+    "phase2_sha_before": "24fce0bad8ec9c665649f6d73f4c56efd66f92667d95da3011d32dcbf4388889",
+    "phase2_sha_after": "24fce0bad8ec9c665649f6d73f4c56efd66f92667d95da3011d32dcbf4388889",
+    "phase2_unchanged": true,
+    "decoder_init_path": "models/sc_fno/phase_3/decoder_init.pt",
+    "decoder_init_size_bytes": 58118
+  },
+  "device": "cuda"
+}

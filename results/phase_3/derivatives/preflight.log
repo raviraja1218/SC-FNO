@@ -1,0 +1,7 @@
+=== Step 3.2 Preflight: 2026-10-31T14:03:57+00:00 ===
+Gate 3.1 v2.1: PASS 17/17
+Phase 1 aggregate: OK
+24fce0bad8ec9c665649f6d73f4c56efd66f92667d95da3011d32dcbf4388889  models/baseline/fno_best.pt
+Phase 2 lock ancestor: OK
+Step 3.0 ancestor: OK
+Step 3.1 v2.1 ancestor: OK
