@@ -1,0 +1,19 @@
+
+=== BDF Speedup Benchmark (100 test scenarios) ===
+
+        p2: single 3.143 ms, batch throughput 1863/s
+     p_fno: single 3.144 ms, batch throughput 9641/s
+    pi_fno: single 3.139 ms, batch throughput 30686/s
+  p_pi_fno: single 3.199 ms, batch throughput 29136/s
+
+=== Speedup benchmark saved ===
+
+=== Resolution Generalization (PI-FNO, best variant) ===
+
+  Nq=   200: rel_l2 = 3.4833e-02
+  Nq=   500: rel_l2 = 3.4854e-02
+  Nq=  1000: rel_l2 = 3.4860e-02
+  Nq=  5000: rel_l2 = 3.4866e-02
+  Nq= 10000: rel_l2 = 3.4866e-02
+
+=== 3.5.E PASS ===

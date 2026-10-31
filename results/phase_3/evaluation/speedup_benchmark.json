@@ -1,0 +1,43 @@
+{
+  "p2": {
+    "single_scenario_median_ms": 3.143388003081782,
+    "single_scenario_mean_ms": 3.1423911030287854,
+    "batch_total_ms": 53.688751002482604,
+    "batch_throughput_scenarios_per_sec": 1862.587565044602,
+    "batch_amortized_per_scenario_ms": 0.536887510024826,
+    "single_scenario_speedup_vs_bdf": 11.229921335002816,
+    "batch_amortized_speedup_vs_bdf": 65.74934104607443
+  },
+  "p_fno": {
+    "single_scenario_median_ms": 3.144458998576738,
+    "single_scenario_mean_ms": 3.1859657006862108,
+    "batch_total_ms": 10.372867000114638,
+    "batch_throughput_scenarios_per_sec": 9640.536218086554,
+    "batch_amortized_per_scenario_ms": 0.10372867000114638,
+    "single_scenario_speedup_vs_bdf": 11.226096449652443,
+    "batch_amortized_speedup_vs_bdf": 340.3109284984553
+  },
+  "pi_fno": {
+    "single_scenario_median_ms": 3.138994001346873,
+    "single_scenario_mean_ms": 3.134005500760395,
+    "batch_total_ms": 3.2587899986538105,
+    "batch_throughput_scenarios_per_sec": 30686.2363151076,
+    "batch_amortized_per_scenario_ms": 0.032587899986538105,
+    "single_scenario_speedup_vs_bdf": 11.245641114590708,
+    "batch_amortized_speedup_vs_bdf": 1083.224141923298
+  },
+  "p_pi_fno": {
+    "single_scenario_median_ms": 3.199348499038024,
+    "single_scenario_mean_ms": 3.2158996997168288,
+    "batch_total_ms": 3.432145000260789,
+    "batch_throughput_scenarios_per_sec": 29136.298143697768,
+    "batch_amortized_per_scenario_ms": 0.03432145000260789,
+    "single_scenario_speedup_vs_bdf": 11.033496354215227,
+    "batch_amortized_speedup_vs_bdf": 1028.5113244725312
+  },
+  "_bdf_reference": {
+    "single_scenario_median_ms": 35.3,
+    "single_scenario_mean_ms": 350.3,
+    "note": "From Phase 1 - locked baseline"
+  }
+}

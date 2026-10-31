@@ -1,0 +1,36 @@
+{
+  "hypothesis_1_config": "variant: p_pi_fno\npadding: 20\nuse_physics: True\nuse_ic: True\nmax_epochs: 200\nbatch_size: 16\nlr: 0.001\npatience: 30\nlam_phys_init: 0.0001\nlam_phys_target: 1.0\nlam_phys_ramp_epochs: 100\nseed: 42\nreference_cos: -0.239\n",
+  "hypothesis_2_lam_phys_timeline": {
+    "first": 0.0001,
+    "last": 0.2089296130854039,
+    "max": 0.2089296130854039,
+    "nonzero_all_epochs": true
+  },
+  "hypothesis_5_logged_phys": {
+    "first": 9.9032583796978,
+    "last": 3.985405272942444e-05,
+    "note": "The training print used {:.2f} formatting which rounds 2.4e-4 to 0.00. The CSV column preserves full precision."
+  },
+  "hypothesis_3_and_6_recomputed": {
+    "physics_loss_mean_on_20_test": 0.00025120625432464296,
+    "physics_loss_std_on_20_test": 4.612609395531345e-05,
+    "physics_loss_min": 0.0001847988023655489,
+    "physics_loss_max": 0.0003640101640485227,
+    "genuine_zero": false,
+    "verdict": "NOT zero. Physics loss ~2.4e-4 on held-out data. The training log printed 0.00 due to {:.2f} formatting in the print statement, not an actual zero."
+  },
+  "hypothesis_4_per_state_residuals": {
+    "n": 9.606050880393014e-05,
+    "C1": 0.00012666491129493808,
+    "C2": 0.00032793299906188624,
+    "C3": 0.00014752778588444926,
+    "C4": 0.00012374995458230842,
+    "C5": 7.194059526227647e-05,
+    "C6": 0.00020316803202149458,
+    "Tf": 5.420972720457939e-05,
+    "Tc": 0.0012810654559871181
+  },
+  "hypothesis_4_residual_shape_ok": "See per-state values; nonzero => not zeroed",
+  "conclusion": "P-PI-FNO physics loss was NOT zero. It was ~2.4e-4 in the sanity check, consistent with the recomputed value here. The training log showed 0.00 because of epoch print formatting. The checkpoint IS a physics-trained model.",
+  "shared_grad_norm_from_physics": 0.283022161165718
+}

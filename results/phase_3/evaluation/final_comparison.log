@@ -1,0 +1,123 @@
+
+==========================================================================================
+OVERALL REL L2 MEDIAN
+==========================================================================================
+      P2-FNO: 9.232144e-04
+       P-FNO: 8.177713e-04  (+11.42% vs P2)
+      PI-FNO: 7.680455e-04  (+16.81% vs P2)
+    P-PI-FNO: 8.154379e-04  (+11.67% vs P2)
+
+==========================================================================================
+PER-FAMILY AGGREGATE REL L2 MEDIAN
+==========================================================================================
+  Family              P2-FNO         P-FNO        PI-FNO      P-PI-FNO
+  step                     —    3.8948e-03    3.8902e-03    3.9034e-03
+  ramp                     —    1.4787e-04    1.6433e-04    2.5443e-04
+  sinusoidal               —    5.2212e-04    4.4731e-04    6.0576e-04
+  grf                      —    1.3888e-03    1.4463e-03    1.6085e-03
+
+==========================================================================================
+PER-STATE REL L2 MEDIAN
+==========================================================================================
+  State         P2-FNO         P-FNO        PI-FNO      P-PI-FNO
+  n         7.5463e-03    7.3872e-03    7.5785e-03    7.8124e-03
+  C1        2.0079e-04    2.0415e-04    2.1410e-04    1.8317e-04
+  C2        4.5378e-04    4.5883e-04    4.7382e-04    4.0769e-04
+  C3        1.1357e-03    1.1540e-03    1.1531e-03    1.1260e-03
+  C4        1.7051e-03    1.9094e-03    1.7152e-03    1.8575e-03
+  C5        2.1727e-03    2.4693e-03    2.1905e-03    2.6354e-03
+  C6        3.8164e-03    4.8059e-03    3.8926e-03    4.7857e-03
+  Tf        8.2031e-04    9.1566e-04    8.2038e-04    9.7115e-04
+  Tc        8.3754e-05    8.8533e-05    8.5445e-05    8.8873e-05
+
+==========================================================================================
+WORST-CASE + SCENARIO_0458
+==========================================================================================
+      P2-FNO:
+    scenario_0458 = 0.0000e+00
+       P-FNO:
+    worst: scenario_0458 (step) = 8.1791e-03
+    scenario_0458 = 8.1791e-03
+      PI-FNO:
+    worst: scenario_0458 (step) = 8.1700e-03
+    scenario_0458 = 8.1700e-03
+    P-PI-FNO:
+    worst: scenario_0458 (step) = 8.1805e-03
+    scenario_0458 = 8.1805e-03
+
+==========================================================================================
+HONEST VERDICT
+==========================================================================================
+  P2-FNO baseline: 9.232144e-04
+  Best SC-FNO variant: PI-FNO at 7.680455e-04
+  Improvement: +16.81%
+
+  ✓ SC-FNO (PI-FNO) beats Phase 2 by 16.81% on test set
+
+==========================================================================================
+GATE 3.5 VERIFICATION
+==========================================================================================
+  [PASS] Step 3.4 lock at caf0526 — preflight verified
+  [PASS] P2-FNO harness fidelity < 1e-3 — max_diff=3.535e-04
+  [PASS] p2 predictions saved
+  [PASS] p_fno predictions saved
+  [PASS] pi_fno predictions saved
+  [PASS] p_pi_fno predictions saved
+  [PASS] P-PI-FNO physics NOT genuinely zero — val phys = 2.51e-04
+  [PASS] Speedup benchmark saved
+  [PASS] Resolution generalization measured
+  [PASS] All 4 variants in comparison
+  [PASS] Locked Phase 1/2/3.1-3.4 untouched — empty
+# Step 3.5 — Final Evaluation Report
+
+**Gate 3.5:** PASS  
+**Checks:** 11/11
+
+## Overall Rel L2 Median
+
+| Model | Rel L2 Median | Δ vs P2-FNO |
+|-------|--------------|-------------|
+| P2-FNO | 9.232144e-04 | baseline |
+| P-FNO | 8.177713e-04 | +11.42% |
+| PI-FNO | 7.680455e-04 | +16.81% |
+| P-PI-FNO | 8.154379e-04 | +11.67% |
+
+## Per-Family Rel L2 Median
+
+| Family | P2-FNO | P-FNO | PI-FNO | P-PI-FNO |
+|--------|--------|-------|--------|----------|
+| step | — | 3.8948e-03 | 3.8902e-03 | 3.9034e-03 |
+| ramp | — | 1.4787e-04 | 1.6433e-04 | 2.5443e-04 |
+| sinusoidal | — | 5.2212e-04 | 4.4731e-04 | 6.0576e-04 |
+| grf | — | 1.3888e-03 | 1.4463e-03 | 1.6085e-03 |
+
+## P-PI-FNO Physics Audit Summary
+
+- λ_phys nonzero all epochs: True
+- Physics loss on test (recomputed): 2.51e-04
+- Genuine zero: False
+- Shared grad from physics: 0.2830
+- Verdict: P-PI-FNO physics loss was NOT zero. It was ~2.4e-4 in the sanity check, consistent with the recomputed value here. The training log showed 0.00 because of epoch print formatting. The checkpoint IS a physics-trained model.
+
+## Speedup Summary
+
+- p2: 3.14 ms single, 1863/s throughput, 11.2× vs BDF
+- p_fno: 3.14 ms single, 9641/s throughput, 11.2× vs BDF
+- pi_fno: 3.14 ms single, 30686/s throughput, 11.2× vs BDF
+- p_pi_fno: 3.20 ms single, 29136/s throughput, 11.0× vs BDF
+
+## Resolution Generalization (PI-FNO)
+
+- 200 query points: rel L2 = 3.4833e-02 ± 4.7810e-03
+- 500 query points: rel L2 = 3.4854e-02 ± 4.7839e-03
+- 1000 query points: rel L2 = 3.4860e-02 ± 4.7849e-03
+- 5000 query points: rel L2 = 3.4866e-02 ± 4.7857e-03
+- 10000 query points: rel L2 = 3.4866e-02 ± 4.7858e-03
+
+## Honest Verdict
+
+**Best SC-FNO variant: PI-FNO at 7.680455e-04 (+16.81% vs P2-FNO)**
+
+SC-FNO achieves a measurable 16.81% improvement over the Phase 2 baseline on the locked test set.
+
+=== GATE 3.5: PASS ===

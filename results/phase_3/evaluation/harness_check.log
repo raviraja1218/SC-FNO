@@ -1,0 +1,18 @@
+
+=== Harness fidelity check (P2-FNO re-eval vs Phase 2) ===
+State    Phase2 RelL2        Re-eval      RelDiff
+C1       2.007926e-04   2.008636e-04   3.5353e-04
+C2       4.537776e-04   4.537748e-04   5.9896e-06
+C3       1.135729e-03   1.135503e-03   1.9895e-04
+C4       1.705094e-03   1.705225e-03   7.6652e-05
+C5       2.172666e-03   2.173071e-03   1.8632e-04
+C6       3.816389e-03   3.815777e-03   1.6029e-04
+Tc       8.375425e-05   8.373441e-05   2.3684e-04
+Tf       8.203060e-04   8.203291e-04   2.8259e-05
+n        7.546319e-03   7.547958e-03   2.1725e-04
+
+Max relative difference: 3.535e-04
+Tolerance: 1e-03
+Note: 3.5e-4 diff is expected from FP32 CUDA non-determinism + batch order differences; this is NOT a harness bug.
+
+=== 3.5.B PASS — Harness fidelity verified ===

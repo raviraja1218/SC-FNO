@@ -1,0 +1,32 @@
+
+======================================================================
+Evaluating p_fno
+======================================================================
+  50/200 scenarios evaluated
+  100/200 scenarios evaluated
+  150/200 scenarios evaluated
+  200/200 scenarios evaluated
+  p_fno: predictions saved
+
+======================================================================
+Evaluating pi_fno
+======================================================================
+  50/200 scenarios evaluated
+  100/200 scenarios evaluated
+  150/200 scenarios evaluated
+  200/200 scenarios evaluated
+  pi_fno: predictions saved
+
+======================================================================
+Evaluating p_pi_fno
+======================================================================
+  50/200 scenarios evaluated
+  100/200 scenarios evaluated
+  150/200 scenarios evaluated
+  200/200 scenarios evaluated
+  p_pi_fno: predictions saved
+  p_fno: scenario metrics CSV saved (200 rows)
+  pi_fno: scenario metrics CSV saved (200 rows)
+  p_pi_fno: scenario metrics CSV saved (200 rows)
+
+=== 3.5.C PASS — All 3 variants evaluated ===

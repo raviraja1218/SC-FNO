@@ -1,0 +1,395 @@
+{
+  "checks": [
+    {
+      "name": "Step 3.4 lock at caf0526",
+      "pass": true,
+      "detail": "preflight verified"
+    },
+    {
+      "name": "P2-FNO harness fidelity < 1e-3",
+      "pass": true,
+      "detail": "max_diff=3.535e-04"
+    },
+    {
+      "name": "p2 predictions saved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "p_fno predictions saved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "pi_fno predictions saved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "p_pi_fno predictions saved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "P-PI-FNO physics NOT genuinely zero",
+      "pass": true,
+      "detail": "val phys = 2.51e-04"
+    },
+    {
+      "name": "Speedup benchmark saved",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Resolution generalization measured",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "All 4 variants in comparison",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Locked Phase 1/2/3.1-3.4 untouched",
+      "pass": true,
+      "detail": "empty"
+    }
+  ],
+  "all_pass": true,
+  "gate_3_5": "PASS",
+  "metrics": {
+    "P-FNO": {
+      "per_state": {
+        "n": {
+          "rel_l2_median": 0.0073871633921054995,
+          "rel_l2_mean": 0.012048741981601132,
+          "mae_mean": 0.005949269007890735,
+          "rmse_mean": 0.012174308579150226,
+          "max_abs": 0.5306228874619883
+        },
+        "C1": {
+          "rel_l2_median": 0.00020414729425195,
+          "rel_l2_mean": 0.0007826472643988847,
+          "mae_mean": 0.1163837516821221,
+          "rmse_mean": 0.1356465350981824,
+          "max_abs": 1.6112247590095876
+        },
+        "C2": {
+          "rel_l2_median": 0.00045883144154934997,
+          "rel_l2_mean": 0.0017507650953942364,
+          "mae_mean": 0.7003248270405973,
+          "rmse_mean": 0.8165520157753121,
+          "max_abs": 10.032631295626288
+        },
+        "C3": {
+          "rel_l2_median": 0.0011540402785589,
+          "rel_l2_mean": 0.004312327169289665,
+          "mae_mean": 0.41937680479981415,
+          "rmse_mean": 0.49290220013570235,
+          "max_abs": 6.973920598760387
+        },
+        "C4": {
+          "rel_l2_median": 0.00190937189460085,
+          "rel_l2_mean": 0.005555186940569501,
+          "mae_mean": 0.38060801149021795,
+          "rmse_mean": 0.46941188590606653,
+          "max_abs": 8.761365972880114
+        },
+        "C5": {
+          "rel_l2_median": 0.0024693072394041003,
+          "rel_l2_mean": 0.004470131858428427,
+          "mae_mean": 0.01630136214934309,
+          "rmse_mean": 0.028978488143587347,
+          "max_abs": 0.8773839431896544
+        },
+        "C6": {
+          "rel_l2_median": 0.004805918765770601,
+          "rel_l2_mean": 0.007052946292203037,
+          "mae_mean": 0.003964312302308001,
+          "rmse_mean": 0.0064025735877420685,
+          "max_abs": 0.1653172817341117
+        },
+        "Tf": {
+          "rel_l2_median": 0.00091566256369165,
+          "rel_l2_mean": 0.001656546980305616,
+          "mae_mean": 0.8644706927991506,
+          "rmse_mean": 1.4855070509490615,
+          "max_abs": 44.7000732421875
+        },
+        "Tc": {
+          "rel_l2_median": 8.853296823959148e-05,
+          "rel_l2_mean": 0.00016564512209316085,
+          "mae_mean": 0.05575898286913425,
+          "rmse_mean": 0.09654458418721483,
+          "max_abs": 2.61981201171875
+        }
+      },
+      "per_family": {
+        "step": {
+          "n_scenarios": 50,
+          "aggregate_rel_l2_median": 0.00389482244942285,
+          "aggregate_rel_l2_mean": 0.003833716089916561
+        },
+        "ramp": {
+          "n_scenarios": 50,
+          "aggregate_rel_l2_median": 0.00014786936464854998,
+          "aggregate_rel_l2_mean": 0.00016293839375026788
+        },
+        "sinusoidal": {
+          "n_scenarios": 50,
+          "aggregate_rel_l2_median": 0.0005221234386299,
+          "aggregate_rel_l2_mean": 0.000705648177034636
+        },
+        "grf": {
+          "n_scenarios": 50,
+          "aggregate_rel_l2_median": 0.00138883732498655,
+          "aggregate_rel_l2_mean": 0.0016872727010985062
+        }
+      },
+      "overall_rel_l2_median": 0.0008177712688688,
+      "worst_case": {
+        "scenario_id": "scenario_0458",
+        "aggregate_rel_l2": 0.008179085422937,
+        "family": "step"
+      },
+      "scenario_0458": {
+        "aggregate_rel_l2": 0.008179085422937,
+        "family": "step"
+      }
+    },
+    "PI-FNO": {
+      "per_state": {
+        "n": {
+          "rel_l2_median": 0.007578500185197051,
+          "rel_l2_mean": 0.01239120461769926,
+          "mae_mean": 0.006000870139154366,
+          "rmse_mean": 0.012520160455719766,
+          "max_abs": 0.5774573087692261
+        },
+        "C1": {
+          "rel_l2_median": 0.0002140982661571,
+          "rel_l2_mean": 0.0007989112135528394,
+          "mae_mean": 0.11882527596786913,
+          "rmse_mean": 0.13847102643521667,
+          "max_abs": 1.6082645539314626
+        },
+        "C2": {
+          "rel_l2_median": 0.00047381866208915,
+          "rel_l2_mean": 0.0017845584544671452,
+          "mae_mean": 0.7137699491885584,
+          "rmse_mean": 0.8323901777108534,
+          "max_abs": 10.020088571016911
+        },
+        "C3": {
+          "rel_l2_median": 0.0011531419604142502,
+          "rel_l2_mean": 0.004364786825394902,
+          "mae_mean": 0.42355370554029037,
+          "rmse_mean": 0.49901398745430314,
+          "max_abs": 6.982045903936168
+        },
+        "C4": {
+          "rel_l2_median": 0.0017152402061922,
+          "rel_l2_mean": 0.005566019837933006,
+          "mae_mean": 0.3768176171377677,
+          "rmse_mean": 0.47044939252214546,
+          "max_abs": 8.796934210184801
+        },
+        "C5": {
+          "rel_l2_median": 0.0021905243907558002,
+          "rel_l2_mean": 0.004463457932786823,
+          "mae_mean": 0.015803315030850175,
+          "rmse_mean": 0.028924414375103635,
+          "max_abs": 0.8838098007335997
+        },
+        "C6": {
+          "rel_l2_median": 0.00389257094467765,
+          "rel_l2_mean": 0.007223434512932283,
+          "mae_mean": 0.004057174133400914,
+          "rmse_mean": 0.006555694236744809,
+          "max_abs": 0.1641694263301913
+        },
+        "Tf": {
+          "rel_l2_median": 0.0008203810230686,
+          "rel_l2_mean": 0.0016513357345857122,
+          "mae_mean": 0.8336772967202524,
+          "rmse_mean": 1.48069204160729,
+          "max_abs": 45.11676025390625
+        },
+        "Tc": {
+          "rel_l2_median": 8.544518782316711e-05,
+          "rel_l2_mean": 0.0001651342272893414,
+          "mae_mean": 0.05255085587147678,
+          "rmse_mean": 0.09624621636584876,
+          "max_abs": 2.64111328125
+        }
+      },
+      "per_family": {
+        "step": {
+          "n_scenarios": 50,
+          "aggregate_rel_l2_median": 0.00389019797919585,
+          "aggregate_rel_l2_mean": 0.003830772743446267
+        },
+        "ramp": {
+          "n_scenarios": 50,
+          "aggregate_rel_l2_median": 0.0001643336460501,
+          "aggregate_rel_l2_mean": 0.000184139128112265
+        },
+        "sinusoidal": {
+          "n_scenarios": 50,
+          "aggregate_rel_l2_median": 0.0004473125647113,
+          "aggregate_rel_l2_mean": 0.000713664435566092
+        },
+        "grf": {
+          "n_scenarios": 50,
+          "aggregate_rel_l2_median": 0.00144627198071655,
+          "aggregate_rel_l2_mean": 0.0016982508697762119
+        }
+      },
+      "overall_rel_l2_median": 0.0007680455116866999,
+      "worst_case": {
+        "scenario_id": "scenario_0458",
+        "aggregate_rel_l2": 0.0081700022119799,
+        "family": "step"
+      },
+      "scenario_0458": {
+        "aggregate_rel_l2": 0.0081700022119799,
+        "family": "step"
+      }
+    },
+    "P-PI-FNO": {
+      "per_state": {
+        "n": {
+          "rel_l2_median": 0.0078123850927772995,
+          "rel_l2_mean": 0.012187941906185863,
+          "mae_mean": 0.00593029089333189,
+          "rmse_mean": 0.012314952079401174,
+          "max_abs": 0.527058768122999
+        },
+        "C1": {
+          "rel_l2_median": 0.00018317079757865,
+          "rel_l2_mean": 0.0007915773677951679,
+          "mae_mean": 0.11757537860103823,
+          "rmse_mean": 0.13719333956406937,
+          "max_abs": 1.5782047394783376
+        },
+        "C2": {
+          "rel_l2_median": 0.00040768769608925004,
+          "rel_l2_mean": 0.0017700977939694251,
+          "mae_mean": 0.707434714115253,
+          "rmse_mean": 0.8255531049393661,
+          "max_abs": 9.831062692110663
+        },
+        "C3": {
+          "rel_l2_median": 0.0011260396679333498,
+          "rel_l2_mean": 0.004355275233973768,
+          "mae_mean": 0.4234547625856174,
+          "rmse_mean": 0.4977679444379395,
+          "max_abs": 6.853162542119762
+        },
+        "C4": {
+          "rel_l2_median": 0.0018575430879286502,
+          "rel_l2_mean": 0.005622785328001466,
+          "mae_mean": 0.38613691016618146,
+          "rmse_mean": 0.4750202196681566,
+          "max_abs": 8.675779425028551
+        },
+        "C5": {
+          "rel_l2_median": 0.00263536292601015,
+          "rel_l2_mean": 0.004665885806887104,
+          "mae_mean": 0.01789403478920237,
+          "rmse_mean": 0.030264864456660222,
+          "max_abs": 0.8762595611706114
+        },
+        "C6": {
+          "rel_l2_median": 0.00478573272918505,
+          "rel_l2_mean": 0.007346580425138267,
+          "mae_mean": 0.004074144228430165,
+          "rmse_mean": 0.0066774020262213305,
+          "max_abs": 0.1659285273662833
+        },
+        "Tf": {
+          "rel_l2_median": 0.00097115125182275,
+          "rel_l2_mean": 0.0017235609445561317,
+          "mae_mean": 0.930626575953828,
+          "rmse_mean": 1.545831098389175,
+          "max_abs": 44.67913818359375
+        },
+        "Tc": {
+          "rel_l2_median": 8.88728696309047e-05,
+          "rel_l2_mean": 0.00017140904551107342,
+          "mae_mean": 0.05888507278302749,
+          "rmse_mean": 0.09990422691309249,
+          "max_abs": 2.60888671875
+        }
+      },
+      "per_family": {
+        "step": {
+          "n_scenarios": 50,
+          "aggregate_rel_l2_median": 0.00390338627105705,
+          "aggregate_rel_l2_mean": 0.003841692801270629
+        },
+        "ramp": {
+          "n_scenarios": 50,
+          "aggregate_rel_l2_median": 0.0002544294416436,
+          "aggregate_rel_l2_mean": 0.0002615891259679095
+        },
+        "sinusoidal": {
+          "n_scenarios": 50,
+          "aggregate_rel_l2_median": 0.0006057583842422,
+          "aggregate_rel_l2_mean": 0.0007321817677285941
+        },
+        "grf": {
+          "n_scenarios": 50,
+          "aggregate_rel_l2_median": 0.00160846118813025,
+          "aggregate_rel_l2_mean": 0.0017568779561301423
+        }
+      },
+      "overall_rel_l2_median": 0.00081543790445365,
+      "worst_case": {
+        "scenario_id": "scenario_0458",
+        "aggregate_rel_l2": 0.0081804934075756,
+        "family": "step"
+      },
+      "scenario_0458": {
+        "aggregate_rel_l2": 0.0081804934075756,
+        "family": "step"
+      }
+    },
+    "P2-FNO": {
+      "per_state": {
+        "C1": {
+          "rel_l2_median": 0.0002007926136278
+        },
+        "C2": {
+          "rel_l2_median": 0.000453777567474
+        },
+        "C3": {
+          "rel_l2_median": 0.0011357291210503
+        },
+        "C4": {
+          "rel_l2_median": 0.001705093893059
+        },
+        "C5": {
+          "rel_l2_median": 0.0021726660988156
+        },
+        "C6": {
+          "rel_l2_median": 0.0038163890150423
+        },
+        "Tc": {
+          "rel_l2_median": 8.375424923004072e-05
+        },
+        "Tf": {
+          "rel_l2_median": 0.0008203059656764
+        },
+        "n": {
+          "rel_l2_median": 0.0075463186256495
+        }
+      },
+      "overall_rel_l2_median": 0.0009232144379968913,
+      "scenario_0458": {
+        "aggregate_rel_l2": 0
+      }
+    }
+  }
+}

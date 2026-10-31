@@ -1,0 +1,32 @@
+{
+  "Nq_200": {
+    "n_query": 200,
+    "rel_l2_mean": 0.034833182628500076,
+    "rel_l2_std": 0.004781023747334121,
+    "note": "Reference is cubic-spline interpolated from 200-point Phase 1 ground truth. Sub-grid dynamics are limited by Phase 1 temporal resolution (\u0394t=0.050251s)."
+  },
+  "Nq_500": {
+    "n_query": 500,
+    "rel_l2_mean": 0.03485353130125568,
+    "rel_l2_std": 0.004783933905664598,
+    "note": "Reference is cubic-spline interpolated from 200-point Phase 1 ground truth. Sub-grid dynamics are limited by Phase 1 temporal resolution (\u0394t=0.050251s)."
+  },
+  "Nq_1000": {
+    "n_query": 1000,
+    "rel_l2_mean": 0.034860308383053235,
+    "rel_l2_std": 0.004784902460764461,
+    "note": "Reference is cubic-spline interpolated from 200-point Phase 1 ground truth. Sub-grid dynamics are limited by Phase 1 temporal resolution (\u0394t=0.050251s)."
+  },
+  "Nq_5000": {
+    "n_query": 5000,
+    "rel_l2_mean": 0.034865726986515126,
+    "rel_l2_std": 0.004785677440740167,
+    "note": "Reference is cubic-spline interpolated from 200-point Phase 1 ground truth. Sub-grid dynamics are limited by Phase 1 temporal resolution (\u0394t=0.050251s)."
+  },
+  "Nq_10000": {
+    "n_query": 10000,
+    "rel_l2_mean": 0.03486640402119785,
+    "rel_l2_std": 0.004785774156053396,
+    "note": "Reference is cubic-spline interpolated from 200-point Phase 1 ground truth. Sub-grid dynamics are limited by Phase 1 temporal resolution (\u0394t=0.050251s)."
+  }
+}
