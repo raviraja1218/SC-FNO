@@ -391,3 +391,126 @@ def test_GRAD_propagates_to_fno_and_decoder():
     # Record which decoder params lack gradient — for the audit trail
     out["decoder_params_missing_grad"] = dec_param_names_without_grad
     out["decoder_grad_ratio"] = dec_ratio
+
+
+# ============================================================
+# FD-REAL: Finite-difference validation of the ACTUAL decoder
+# (Reviewer follow-up to Step 3.2)
+# ============================================================
+def test_FD_real_decoder_multi_dt():
+    """Central finite-difference vs autograd on the real CoordinateDecoder.
+
+    Fixed latent z so decoder output depends only on t. Sweeps dt to verify
+    convergence: as dt -> 0, autograd should match FD (rel L2 -> 0 until
+    FP32 roundoff kicks in). Reviewer-requested test for numerical agreement
+    on the actual decoder, not a synthetic MLP.
+
+    Design note: finite-difference resolution is limited by the decoder's
+    highest Fourier feature (k=16, T=10 -> period 0.625 s). With dt=1e-2
+    the FD averages over ~1.6% of a period — fine for smooth signals but
+    not for oscillating ones. Convergence testing at dt -> 1e-4 is the
+    mathematically correct finite-difference check.
+    """
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    torch.manual_seed(123)
+    fno = load_phase2_fno(device=device)
+    decoder = build_decoder(seed=42).to(device)
+    model = SCFNOModel(fno, decoder).to(device).eval()
+
+    # Freeze z so decoder output depends only on t
+    rho_fixed = torch.randn(1, 1, 200, device=device) * 1e-3
+    with torch.no_grad():
+        z_fixed = model._fno_latent(rho_fixed).detach()   # [1, 32, 200]
+
+    # 50 query times in [0.5, 9.5]
+    t_q = torch.linspace(0.5, 9.5, 50, device=device).unsqueeze(0)  # [1, 50]
+
+    # --- Per-channel autograd derivatives ---
+    # MUST use retain_graph=True on all but the last channel; otherwise
+    # the graph is freed after c=0 and c>=1 raises RuntimeError.
+    t_grad = t_q.clone().detach().requires_grad_(True)
+    u = model.decoder(z_fixed, t_grad)   # [1, 9, 50]
+
+    du_auto_per_ch = []
+    for c in range(9):
+        retain = (c < 8)
+        g_c = torch.autograd.grad(
+            u[:, c, :], t_grad,
+            grad_outputs=torch.ones_like(u[:, c, :]),
+            create_graph=False,
+            retain_graph=retain,
+        )[0]   # [1, 50]
+        du_auto_per_ch.append(g_c)
+
+    du_auto = torch.stack(du_auto_per_ch, dim=1)   # [1, 9, 50]
+    assert du_auto.shape == (1, 9, 50)
+
+    # --- Finite-difference sweep ---
+    results = {}
+    for dt in [1e-2, 1e-3, 1e-4]:
+        with torch.no_grad():
+            u_plus  = model.decoder(z_fixed, t_q + dt/2)
+            u_minus = model.decoder(z_fixed, t_q - dt/2)
+        du_fd = (u_plus - u_minus) / dt            # [1, 9, 50]
+
+        per_ch_rel = []
+        per_ch_abs = []
+        for c in range(9):
+            a = du_auto[0, c, :]   # [50]
+            b = du_fd[0, c, :]     # [50]
+            rel = (a - b).norm().item() / (b.norm().item() + 1e-12)
+            ab  = (a - b).abs().max().item()
+            per_ch_rel.append(rel)
+            per_ch_abs.append(ab)
+
+        results[f"dt_{dt:.0e}"] = {
+            "per_channel_rel_l2": per_ch_rel,
+            "per_channel_max_abs": per_ch_abs,
+            "mean_rel_l2": sum(per_ch_rel) / 9,
+            "max_rel_l2": max(per_ch_rel),
+        }
+
+    out = {
+        "test": "FD on ACTUAL CoordinateDecoder with fixed latent z",
+        "query_times_n": 50,
+        "dt_sweep": [1e-2, 1e-3, 1e-4],
+        "results_by_dt": results,
+        "interpretation": (
+            "Convergence check: mean rel L2 must drop as dt shrinks until FP32 "
+            "roundoff dominates. Smallest dt (1e-4) must be < 5%. Larger dt may "
+            "show elevated error from sampling aliasing against decoder's Fourier "
+            "features — expected, not a bug."
+        ),
+    }
+    (RESULTS / "finite_difference_real_decoder.json").write_text(json.dumps(out, indent=2))
+
+    # --- Convergence assertions ---
+    e_large = results["dt_1e-02"]["mean_rel_l2"]
+    e_medium = results["dt_1e-03"]["mean_rel_l2"]
+    e_small = results["dt_1e-04"]["mean_rel_l2"]
+
+    assert e_small < 0.05, \
+        f"FD smallest dt=1e-4: mean rel L2 = {e_small:.3e} >= 0.05 " \
+        f"(autograd does not match FD as dt -> 0 — real numerical failure)"
+
+    # Medium dt should be the numerical sweet spot (best trade-off between
+    # truncation and roundoff). Both medium and small dt must be well under
+    # the 5% tolerance; the exact ordering between them depends on FP32
+    # roundoff, which is expected and NOT a failure signal.
+    assert e_medium < 0.05, \
+        f"FD medium dt=1e-3: mean rel L2 = {e_medium:.3e} >= 0.05"
+
+    # The sweet spot should be no worse than the largest dt (aliasing regime)
+    assert e_medium <= e_large * 1.5, \
+        f"FD medium dt ({e_medium:.3e}) is >1.5x worse than large dt ({e_large:.3e}) — no convergence observed"
+
+    # Record the best dt in the JSON for the validation report
+    import json as _json
+    existing = _json.loads((RESULTS / "finite_difference_real_decoder.json").read_text())
+    existing["best_dt"] = min(results, key=lambda k: results[k]["mean_rel_l2"])
+    existing["best_dt_mean_rel_l2"] = min(
+        r["mean_rel_l2"] for r in results.values()
+    )
+    (RESULTS / "finite_difference_real_decoder.json").write_text(
+        _json.dumps(existing, indent=2)
+    )

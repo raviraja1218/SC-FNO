@@ -66,8 +66,27 @@ chk("GRAD: >90% decoder params",
 chk("GRAD: test passed",
     "test_GRAD_propagates_to_fno_and_decoder PASSED" in pt_log)
 
+# FD-real: FD validation on ACTUAL decoder (reviewer item B)
+fd_real_path = base / "finite_difference_real_decoder.json"
+fd_real_ok = False
+fd_real_detail = "not run"
+if fd_real_path.exists():
+    fd_real = json.load(open(fd_real_path))
+    rbd = fd_real.get("results_by_dt", {})
+    if rbd:
+        best_dt = fd_real.get("best_dt", "?")
+        best_val = fd_real.get("best_dt_mean_rel_l2", float("nan"))
+        e_small = rbd.get("dt_1e-04", {}).get("mean_rel_l2", 1.0)
+        e_medium = rbd.get("dt_1e-03", {}).get("mean_rel_l2", 1.0)
+        fd_real_ok = (e_small < 0.05) and (e_medium < 0.05)
+        fd_real_detail = (
+            f"best={best_dt} @ {best_val:.3e}, "
+            f"dt=1e-3 mean={e_medium:.3e}, dt=1e-4 mean={e_small:.3e}"
+        )
+chk("FD on ACTUAL decoder (multi-dt)", fd_real_ok, fd_real_detail)
+
 chk("All derivative tests pass",
-    n_fail == 0 and n_pass >= 11,
+    n_fail == 0 and n_pass >= 12,
     f"{n_pass} passed, {n_fail} failed")
 
 chk("Peak VRAM < 3 GB",

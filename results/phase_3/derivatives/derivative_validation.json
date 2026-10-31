@@ -76,9 +76,14 @@
       "detail": ""
     },
     {
+      "name": "FD on ACTUAL decoder (multi-dt)",
+      "pass": true,
+      "detail": "best=dt_1e-02 @ 4.176e-04, dt=1e-3 mean=4.681e-04, dt=1e-4 mean=4.232e-03"
+    },
+    {
       "name": "All derivative tests pass",
       "pass": true,
-      "detail": "11 passed, 0 failed"
+      "detail": "12 passed, 0 failed"
     },
     {
       "name": "Peak VRAM < 3 GB",

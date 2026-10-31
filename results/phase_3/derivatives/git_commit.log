@@ -1,0 +1,26 @@
+[master 46e4a2c] Phase 3.2: continuous temporal derivative pathway — Gate 3.2 PASS (hook-based latent, 36/36 FNO, 13/14 decoder [bias zero-init])
+ 21 files changed, 1376 insertions(+)
+ create mode 100644 models/sc_fno/phase_3/decoder_init.pt
+ create mode 100644 results/phase_3/derivatives/boundary_behavior.json
+ create mode 100644 results/phase_3/derivatives/decoder_specification.json
+ create mode 100644 results/phase_3/derivatives/decoder_specification.log
+ create mode 100644 results/phase_3/derivatives/derivative_validation.json
+ create mode 100644 results/phase_3/derivatives/derivative_validation.log
+ create mode 100644 results/phase_3/derivatives/derivative_validation.md
+ create mode 100644 results/phase_3/derivatives/finite_difference_comparison.json
+ create mode 100644 results/phase_3/derivatives/gpu_runtime.json
+ create mode 100644 results/phase_3/derivatives/gpu_runtime.log
+ create mode 100644 results/phase_3/derivatives/gradient_propagation.json
+ create mode 100644 results/phase_3/derivatives/preflight.log
+ create mode 100644 results/phase_3/derivatives/pytest_output.log
+ create mode 100644 results/phase_3/derivatives/step_3_2_manifest.json
+ create mode 100644 results/phase_3/derivatives/time_scaling_verification.json
+ create mode 100644 scripts/step3_2_gpu_runtime.py
+ create mode 100644 scripts/step3_2_instantiate.py
+ create mode 100644 scripts/step3_2_summary.py
+ create mode 100644 src/physics_informed/decoder.py
+ create mode 100644 tests/test_physics_informed/test_derivatives.py
+46e4a2c Phase 3.2: continuous temporal derivative pathway — Gate 3.2 PASS (hook-based latent, 36/36 FNO, 13/14 decoder [bias zero-init])
+c841af2 Phase 3.1 v2.1: fix stale summary script — 17/17 checks PASS (14/15 -> 17/17)
+2820473 Phase 3.1 v2: close reviewer follow-ups — T9 stacked(), T10 nonzero q, p95 definition, monitoring note
+d8e7d7b Phase 3.1: 9-state physics residuals — Gate 3.1 PASS (13 tests, no-leakage verified)

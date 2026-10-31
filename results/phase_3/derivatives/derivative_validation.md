@@ -2,7 +2,7 @@
 
 **Date:** 2026-10-31  
 **Gate 3.2:** PASS  
-**Checks:** 18/18
+**Checks:** 19/19
 
 ## Checklist
 
@@ -23,9 +23,10 @@
 | 13 | GRAD: all in-path FNO params | PASS | 36/36 |
 | 14 | GRAD: >90% decoder params | PASS | 13/14 (0%) |
 | 15 | GRAD: test passed | PASS |  |
-| 16 | All derivative tests pass | PASS | 11 passed, 0 failed |
-| 17 | Peak VRAM < 3 GB | PASS | 148.94 MB |
-| 18 | Locked paths untouched | PASS | empty |
+| 16 | FD on ACTUAL decoder (multi-dt) | PASS | best=dt_1e-02 @ 4.176e-04, dt=1e-3 mean=4.681e-04, dt=1e-4 mean=4.232e-03 |
+| 17 | All derivative tests pass | PASS | 12 passed, 0 failed |
+| 18 | Peak VRAM < 3 GB | PASS | 148.94 MB |
+| 19 | Locked paths untouched | PASS | empty |
 
 ## Key Findings
 

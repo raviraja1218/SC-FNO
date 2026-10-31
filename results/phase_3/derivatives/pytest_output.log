@@ -4,19 +4,20 @@ cachedir: .pytest_cache
 rootdir: /home/raviraja/projects/SC-FNO
 configfile: pytest.ini
 plugins: platformdirs-4.12.4, mock-3.17.0, anyio-4.15.1, cov-7.1.0
-collecting ... collected 11 items
+collecting ... collected 12 items
 
-tests/test_physics_informed/test_derivatives.py::test_D1_sin_fp64 PASSED [  9%]
-tests/test_physics_informed/test_derivatives.py::test_D2_polynomial_fp64 PASSED [ 18%]
-tests/test_physics_informed/test_derivatives.py::test_D3_exponential_fp64 PASSED [ 27%]
-tests/test_physics_informed/test_derivatives.py::test_D4_multichannel_fp64 PASSED [ 36%]
-tests/test_physics_informed/test_derivatives.py::test_D5_real_decoder_derivative_finite PASSED [ 45%]
-tests/test_physics_informed/test_derivatives.py::test_FD_agreement_on_smooth_mlp PASSED [ 54%]
-tests/test_physics_informed/test_derivatives.py::test_BND_boundary_finite PASSED [ 63%]
-tests/test_physics_informed/test_derivatives.py::test_TSC_time_in_seconds PASSED [ 72%]
-tests/test_physics_informed/test_derivatives.py::test_GRPH_no_detach_in_forward PASSED [ 81%]
-tests/test_physics_informed/test_derivatives.py::test_GRPH_create_graph_works PASSED [ 90%]
-tests/test_physics_informed/test_derivatives.py::test_GRAD_propagates_to_fno_and_decoder PASSED [100%]
+tests/test_physics_informed/test_derivatives.py::test_D1_sin_fp64 PASSED [  8%]
+tests/test_physics_informed/test_derivatives.py::test_D2_polynomial_fp64 PASSED [ 16%]
+tests/test_physics_informed/test_derivatives.py::test_D3_exponential_fp64 PASSED [ 25%]
+tests/test_physics_informed/test_derivatives.py::test_D4_multichannel_fp64 PASSED [ 33%]
+tests/test_physics_informed/test_derivatives.py::test_D5_real_decoder_derivative_finite PASSED [ 41%]
+tests/test_physics_informed/test_derivatives.py::test_FD_agreement_on_smooth_mlp PASSED [ 50%]
+tests/test_physics_informed/test_derivatives.py::test_BND_boundary_finite PASSED [ 58%]
+tests/test_physics_informed/test_derivatives.py::test_TSC_time_in_seconds PASSED [ 66%]
+tests/test_physics_informed/test_derivatives.py::test_GRPH_no_detach_in_forward PASSED [ 75%]
+tests/test_physics_informed/test_derivatives.py::test_GRPH_create_graph_works PASSED [ 83%]
+tests/test_physics_informed/test_derivatives.py::test_GRAD_propagates_to_fno_and_decoder PASSED [ 91%]
+tests/test_physics_informed/test_derivatives.py::test_FD_real_decoder_multi_dt PASSED [100%]
 
 =============================== warnings summary ===============================
 tests/test_physics_informed/test_derivatives.py::test_D5_real_decoder_derivative_finite
@@ -24,4 +25,4 @@ tests/test_physics_informed/test_derivatives.py::test_D5_real_decoder_derivative
     return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-======================== 11 passed, 1 warning in 4.10s =========================
+======================== 12 passed, 1 warning in 5.37s =========================
