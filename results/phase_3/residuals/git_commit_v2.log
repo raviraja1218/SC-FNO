@@ -1,0 +1,7 @@
+[master 2820473] Phase 3.1 v2: close reviewer follow-ups — T9 stacked(), T10 nonzero q, p95 definition, monitoring note
+ 6 files changed, 184 insertions(+), 16 deletions(-)
+ create mode 100644 results/phase_3/residuals/git_commit.log
+ create mode 100644 results/phase_3/residuals/step_3_1_manifest_v2.json
+2820473 Phase 3.1 v2: close reviewer follow-ups — T9 stacked(), T10 nonzero q, p95 definition, monitoring note
+d8e7d7b Phase 3.1: 9-state physics residuals — Gate 3.1 PASS (13 tests, no-leakage verified)
+0367359 Phase 3.0: Preflight complete — Gate 3.0 PASS (arch, equations, params, padding, matrix, IO, source, reactivity)

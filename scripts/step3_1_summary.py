@@ -19,7 +19,7 @@ checks = []
 def chk(name, ok, detail=""):
     checks.append((name, bool(ok), detail))
 
-chk("8 validation tests exist (13 items)", n_pass == 13 and n_fail == 0,
+chk("10 validation tests exist (15 items)", n_pass == 15 and n_fail == 0,
     f"{n_pass} passed, {n_fail} failed")
 chk("T1 neutron", "test_T1_neutron_residual_analytical PASSED" in pt_log)
 chk("T2 precursors (6)", sum(1 for i in range(6)
@@ -30,6 +30,8 @@ chk("T5 feedback", "test_T5_feedback_reactivity PASSED" in pt_log)
 chk("T6 coupling", "test_T6_coupling_predicted_states_used PASSED" in pt_log)
 chk("T7 equilibrium", "test_T7_equilibrium_residuals_zero PASSED" in pt_log)
 chk("T8 unit consistency", "test_T8_unit_consistency PASSED" in pt_log)
+chk("T9 stacked() interface", "test_T9_stacked_output_interface PASSED" in pt_log)
+chk("T10 nonzero q(t)", "test_T10_nonzero_source_term PASSED" in pt_log)
 chk("Residual scales measured", "per_state" in scales and
     len(scales["per_state"]) == 9, f"{len(scales.get('per_state', {}))} states")
 chk("No leakage audit PASS", leak.get("all_pass"), leak.get("interpretation", "")[:80])

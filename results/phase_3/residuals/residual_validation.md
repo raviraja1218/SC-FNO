@@ -2,13 +2,13 @@
 
 **Date:** 2026-10-31  
 **Gate 3.1:** PASS  
-**Checks:** 15/15
+**Checks:** 17/17
 
 ## Checklist
 
 | # | Criterion | Result | Detail |
 |---|-----------|--------|--------|
-| 1 | 8 validation tests exist (13 items) | PASS | 13 passed, 0 failed |
+| 1 | 10 validation tests exist (15 items) | PASS | 15 passed, 0 failed |
 | 2 | T1 neutron | PASS |  |
 | 3 | T2 precursors (6) | PASS |  |
 | 4 | T3 fuel thermal | PASS |  |
@@ -17,12 +17,14 @@
 | 7 | T6 coupling | PASS |  |
 | 8 | T7 equilibrium | PASS |  |
 | 9 | T8 unit consistency | PASS |  |
-| 10 | Residual scales measured | PASS | 9 states |
-| 11 | No leakage audit PASS | PASS | If feedback used ground truth, rho_fb would NOT change when predicted Tf is offs |
-| 12 | Units documented | PASS |  |
-| 13 | residuals.py present | PASS |  |
-| 14 | test_residuals.py present | PASS |  |
-| 15 | Locked paths untouched | PASS | empty |
+| 10 | T9 stacked() interface | PASS |  |
+| 11 | T10 nonzero q(t) | PASS |  |
+| 12 | Residual scales measured | PASS | 9 states |
+| 13 | No leakage audit PASS | PASS | If feedback used ground truth, rho_fb would NOT change when predicted Tf is offs |
+| 14 | Units documented | PASS |  |
+| 15 | residuals.py present | PASS |  |
+| 16 | test_residuals.py present | PASS |  |
+| 17 | Locked paths untouched | PASS | empty |
 
 ## Residual Scales (p95)
 

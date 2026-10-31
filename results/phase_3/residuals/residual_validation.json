@@ -1,9 +1,9 @@
 {
   "checks": [
     {
-      "name": "8 validation tests exist (13 items)",
+      "name": "10 validation tests exist (15 items)",
       "pass": true,
-      "detail": "13 passed, 0 failed"
+      "detail": "15 passed, 0 failed"
     },
     {
       "name": "T1 neutron",
@@ -42,6 +42,16 @@
     },
     {
       "name": "T8 unit consistency",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "T9 stacked() interface",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "T10 nonzero q(t)",
       "pass": true,
       "detail": ""
     },
