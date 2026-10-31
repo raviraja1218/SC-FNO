@@ -1,0 +1,22 @@
+{
+  "pi_fno": {
+    "n_epochs_with_cos": 66,
+    "initial_cos_after_warmup": 0.0,
+    "min_cos": -0.2388449665989248,
+    "max_cos": 0.2588545630577467,
+    "final_cos": 0.0225153906811876,
+    "epochs_below_-0.15": 7,
+    "epochs_below_-0.25": 0,
+    "note": "Reference cos at Step 3.3 init was \u22120.239. Do not claim 'resolved' \u2014 state the trajectory."
+  },
+  "p_pi_fno": {
+    "n_epochs_with_cos": 83,
+    "initial_cos_after_warmup": 0.0,
+    "min_cos": -0.2013820687234664,
+    "max_cos": 0.3328523756771742,
+    "final_cos": 0.0029388881637709,
+    "epochs_below_-0.15": 3,
+    "epochs_below_-0.25": 0,
+    "note": "Reference cos at Step 3.3 init was \u22120.239. Do not claim 'resolved' \u2014 state the trajectory."
+  }
+}

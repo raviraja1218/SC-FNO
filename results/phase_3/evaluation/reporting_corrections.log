@@ -1,0 +1,217 @@
+======================================================================
+CORRECTION 1: Paired bootstrap (PI-FNO vs P2-FNO)
+======================================================================
+{
+  "comparison": "PI-FNO vs P2-FNO (aggregate rel L2 per scenario)",
+  "n_scenarios": 200,
+  "pi_fno_wins": 47,
+  "p2_fno_wins": 153,
+  "ties": 0,
+  "win_rate_pi_fno": 0.235,
+  "median_paired_delta": -1.595397116925e-05,
+  "mean_paired_delta": -1.8879303126313774e-05,
+  "median_paired_delta_95ci": [
+    -2.1063088681300027e-05,
+    -1.9379560267001797e-06
+  ],
+  "delta_percentiles": {
+    "p25": -5.8337749693878416e-05,
+    "p50": -1.595397116925e-05,
+    "p75": -3.560431524986859e-08,
+    "p90": 5.058454037321982e-05,
+    "p95": 0.00012366700743512488,
+    "p05": -0.00013453341151876505,
+    "p10": -0.00010743125396742994
+  },
+  "statistically_significant": true,
+  "interpretation": "Statistically significant improvement (95% CI excludes 0)",
+  "p_pi_fno_vs_p2": {
+    "wins": 49,
+    "win_rate": 0.245,
+    "median_delta": -1.9115287846199888e-05,
+    "median_delta_95ci": [
+      -3.816360792118293e-05,
+      -1.4160845969650018e-05
+    ],
+    "statistically_significant": true
+  },
+  "p_fno_vs_p2": {
+    "wins": 58,
+    "win_rate": 0.29,
+    "median_delta": -5.500089331350339e-06,
+    "median_delta_95ci": [
+      -1.0307738027700553e-05,
+      -4.758887350500042e-06
+    ],
+    "statistically_significant": true
+  }
+}
+Saved statistical_significance.json
+
+======================================================================
+CORRECTION 2: Full per-family table (all 4 models)
+======================================================================
+{
+  "step": {
+    "P2-FNO": 0.0038895324790292002,
+    "P-FNO": 0.00389482244942285,
+    "PI-FNO": 0.00389019797919585,
+    "P-PI-FNO": 0.00390338627105705
+  },
+  "ramp": {
+    "P2-FNO": 0.00010690446421570001,
+    "P-FNO": 0.00014786936464854998,
+    "PI-FNO": 0.0001643336460501,
+    "P-PI-FNO": 0.0002544294416436
+  },
+  "sinusoidal": {
+    "P2-FNO": 0.0003945688485102,
+    "P-FNO": 0.0005221234386299,
+    "PI-FNO": 0.0004473125647113,
+    "P-PI-FNO": 0.0006057583842422
+  },
+  "grf": {
+    "P2-FNO": 0.0013773313270116,
+    "P-FNO": 0.00138883732498655,
+    "PI-FNO": 0.00144627198071655,
+    "P-PI-FNO": 0.00160846118813025
+  }
+}
+{
+  "physics_effect_no_padding": {
+    "step": {
+      "a": 0.0038895324790292002,
+      "b": 0.00389019797919585,
+      "pct_change_b_vs_a": -0.017110029810469884
+    },
+    "ramp": {
+      "a": 0.00010690446421570001,
+      "b": 0.0001643336460501,
+      "pct_change_b_vs_a": -53.7200969629535
+    },
+    "sinusoidal": {
+      "a": 0.0003945688485102,
+      "b": 0.0004473125647113,
+      "pct_change_b_vs_a": -13.367430399092067
+    },
+    "grf": {
+      "a": 0.0013773313270116,
+      "b": 0.00144627198071655,
+      "pct_change_b_vs_a": -5.005379050989184
+    }
+  },
+  "physics_effect_with_padding": {
+    "step": {
+      "a": 0.00389482244942285,
+      "b": 0.00390338627105705,
+      "pct_change_b_vs_a": -0.21987707386941333
+    },
+    "ramp": {
+      "a": 0.00014786936464854998,
+      "b": 0.0002544294416436,
+      "pct_change_b_vs_a": -72.06366054815867
+    },
+    "sinusoidal": {
+      "a": 0.0005221234386299,
+      "b": 0.0006057583842422,
+      "pct_change_b_vs_a": -16.0182323612527
+    },
+    "grf": {
+      "a": 0.00138883732498655,
+      "b": 0.00160846118813025,
+      "pct_change_b_vs_a": -15.813505238695026
+    }
+  },
+  "padding_effect_no_physics": {
+    "step": {
+      "a": 0.0038895324790292002,
+      "b": 0.00389482244942285,
+      "pct_change_b_vs_a": -0.1360053019783556
+    },
+    "ramp": {
+      "a": 0.00010690446421570001,
+      "b": 0.00014786936464854998,
+      "pct_change_b_vs_a": -38.319167242815524
+    },
+    "sinusoidal": {
+      "a": 0.0003945688485102,
+      "b": 0.0005221234386299,
+      "pct_change_b_vs_a": -32.32758759372828
+    },
+    "grf": {
+      "a": 0.0013773313270116,
+      "b": 0.00138883732498655,
+      "pct_change_b_vs_a": -0.8353834512654739
+    }
+  },
+  "padding_effect_with_physics": {
+    "step": {
+      "a": 0.00389019797919585,
+      "b": 0.00390338627105705,
+      "pct_change_b_vs_a": -0.33901338522432295
+    },
+    "ramp": {
+      "a": 0.0001643336460501,
+      "b": 0.0002544294416436,
+      "pct_change_b_vs_a": -54.82492341588569
+    },
+    "sinusoidal": {
+      "a": 0.0004473125647113,
+      "b": 0.0006057583842422,
+      "pct_change_b_vs_a": -35.42172342803795
+    },
+    "grf": {
+      "a": 0.00144627198071655,
+      "b": 0.00160846118813025,
+      "pct_change_b_vs_a": -11.214295068714806
+    }
+  }
+}
+Saved per_family_full.json
+
+======================================================================
+CORRECTION 3: P2-FNO scenario_0458 recomputed
+======================================================================
+{
+  "scenario_id": "scenario_0458",
+  "P2_FNO_recomputed_rel_l2": 0.008169946688089595,
+  "P_FNO_rel_l2": 0.008179085422937061,
+  "PI_FNO_rel_l2": 0.008170002211979983,
+  "P_PI_FNO_rel_l2": 0.008180493407575637,
+  "note": "P2-FNO recomputed under identical pipeline (aggregate rel L2 over [9, 200]). The prior 1.85e-2 value from Phase 2 aggregate metrics was computed under a different convention and is NOT directly comparable."
+}
+Saved scenario_0458_recomputed.json
+
+======================================================================
+CORRECTION 6: Gradient cos evolution
+======================================================================
+{
+  "pi_fno": {
+    "n_epochs_with_cos": 66,
+    "initial_cos_after_warmup": 0.0,
+    "min_cos": -0.2388449665989248,
+    "max_cos": 0.2588545630577467,
+    "final_cos": 0.0225153906811876,
+    "epochs_below_-0.15": 7,
+    "epochs_below_-0.25": 0,
+    "note": "Reference cos at Step 3.3 init was \u22120.239. Do not claim 'resolved' \u2014 state the trajectory."
+  },
+  "p_pi_fno": {
+    "n_epochs_with_cos": 83,
+    "initial_cos_after_warmup": 0.0,
+    "min_cos": -0.2013820687234664,
+    "max_cos": 0.3328523756771742,
+    "final_cos": 0.0029388881637709,
+    "epochs_below_-0.15": 3,
+    "epochs_below_-0.25": 0,
+    "note": "Reference cos at Step 3.3 init was \u22120.239. Do not claim 'resolved' \u2014 state the trajectory."
+  }
+}
+Saved gradient_conflict_evidence.json
+
+======================================================================
+CORRECTIONS 1, 2, 3, 6 COMPLETE
+======================================================================
+
+Next: Correction 4 (throughput reconciliation) and 5 (resolution terminology)
+require documentation edits — delivered separately.

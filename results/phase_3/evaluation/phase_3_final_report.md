@@ -36,13 +36,16 @@
 - pi_fno: 3.14 ms single, 30686/s throughput, 11.2× vs BDF
 - p_pi_fno: 3.20 ms single, 29136/s throughput, 11.0× vs BDF
 
-## Resolution Generalization (PI-FNO)
+## Dense-Query Evaluation Stability (PI-FNO)
 
 - 200 query points: rel L2 = 3.4833e-02 ± 4.7810e-03
 - 500 query points: rel L2 = 3.4854e-02 ± 4.7839e-03
 - 1000 query points: rel L2 = 3.4860e-02 ± 4.7849e-03
 - 5000 query points: rel L2 = 3.4866e-02 ± 4.7857e-03
 - 10000 query points: rel L2 = 3.4866e-02 ± 4.7858e-03
+
+
+**Terminology note:** This demonstrates that the coordinate decoder can evaluate a continuous-time representation at any query density without degradation. It does NOT demonstrate resolution-invariant physical accuracy. The 3.48e-2 rel L2 measured on the physics path (decoder) is against a cubic-spline-interpolated reference derived from the 200-point Phase 1 ground truth, and should not be conflated with the 7.68e-4 data-path result. The Phase 1 reference grid is Δt = 0.050251s; prompt timescale ≈ 0.031s; sub-grid dynamics remain unresolved.
 
 ## Honest Verdict
 

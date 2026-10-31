@@ -1,0 +1,34 @@
+[master f6afd44] Phase 3.5: final evaluation — Gate 3.5 PASS (PI-FNO +16.81% over baseline on test set)
+ 26 files changed, 2308 insertions(+)
+ create mode 100644 results/phase_3/evaluation/evaluate_variants.log
+ create mode 100644 results/phase_3/evaluation/final_comparison.json
+ create mode 100644 results/phase_3/evaluation/final_comparison.log
+ create mode 100644 results/phase_3/evaluation/harness_check.log
+ create mode 100644 results/phase_3/evaluation/p2_fno_predictions.json
+ create mode 100644 results/phase_3/evaluation/p2_predictions.json
+ create mode 100644 results/phase_3/evaluation/p_fno_predictions.json
+ create mode 100644 results/phase_3/evaluation/p_fno_scenario_metrics.csv
+ create mode 100644 results/phase_3/evaluation/p_pi_fno_physics_audit.json
+ create mode 100644 results/phase_3/evaluation/p_pi_fno_predictions.json
+ create mode 100644 results/phase_3/evaluation/p_pi_fno_scenario_metrics.csv
+ create mode 100644 results/phase_3/evaluation/phase_3_final_report.md
+ create mode 100644 results/phase_3/evaluation/physics_audit.log
+ create mode 100644 results/phase_3/evaluation/pi_fno_predictions.json
+ create mode 100644 results/phase_3/evaluation/pi_fno_scenario_metrics.csv
+ create mode 100644 results/phase_3/evaluation/preflight.log
+ create mode 100644 results/phase_3/evaluation/resolution_generalization.json
+ create mode 100644 results/phase_3/evaluation/speedup_benchmark.json
+ create mode 100644 results/phase_3/evaluation/speedup_resolution.log
+ create mode 100644 results/phase_3/evaluation/step_3_5_manifest.json
+ create mode 100644 scripts/step3_5_eval_utils.py
+ create mode 100644 scripts/step3_5_evaluate_variants.py
+ create mode 100644 scripts/step3_5_final_comparison.py
+ create mode 100644 scripts/step3_5_harness_check.py
+ create mode 100644 scripts/step3_5_physics_audit.py
+ create mode 100644 scripts/step3_5_speedup_resolution.py
+f6afd44 Phase 3.5: final evaluation — Gate 3.5 PASS (PI-FNO +16.81% over baseline on test set)
+caf0526 Phase 3.4: controlled SC-FNO training — Gate 3.4 PASS (PI-FNO 0.0663 best, cos resolved, sanity verified)
+78a696d Phase 3.3: composite physics-informed loss — Gate 3.3 PASS (Item C1+C2 verified, 4 variants configured)
+e3d2ec6 Phase 3.2 v2.1: reviewer follow-ups — arch addendum + FD on actual decoder (best dt=1e-3, 4.68e-4 rel L2)
+46e4a2c Phase 3.2: continuous temporal derivative pathway — Gate 3.2 PASS (hook-based latent, 36/36 FNO, 13/14 decoder [bias zero-init])
+c841af2 Phase 3.1 v2.1: fix stale summary script — 17/17 checks PASS (14/15 -> 17/17)

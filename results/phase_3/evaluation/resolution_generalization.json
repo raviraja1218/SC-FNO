@@ -28,5 +28,6 @@
     "rel_l2_mean": 0.03486640402119785,
     "rel_l2_std": 0.004785774156053396,
     "note": "Reference is cubic-spline interpolated from 200-point Phase 1 ground truth. Sub-grid dynamics are limited by Phase 1 temporal resolution (\u0394t=0.050251s)."
-  }
+  },
+  "_terminology_note": "Dense-query stability \u2260 resolution invariance. Reference is cubic-spline-interpolated from 200-point Phase 1 ground truth. Physics-path rel L2 = 3.48e-2 vs data-path = 7.68e-4 \u2014 different output paths, not comparable. Sub-grid dynamics (\u03c4_prompt \u2248 0.031s vs \u0394t = 0.050251s) remain unresolved."
 }

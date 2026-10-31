@@ -1,0 +1,8 @@
+{
+  "scenario_id": "scenario_0458",
+  "P2_FNO_recomputed_rel_l2": 0.008169946688089595,
+  "P_FNO_rel_l2": 0.008179085422937061,
+  "PI_FNO_rel_l2": 0.008170002211979983,
+  "P_PI_FNO_rel_l2": 0.008180493407575637,
+  "note": "P2-FNO recomputed under identical pipeline (aggregate rel L2 over [9, 200]). The prior 1.85e-2 value from Phase 2 aggregate metrics was computed under a different convention and is NOT directly comparable."
+}

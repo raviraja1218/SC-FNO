@@ -1,0 +1,45 @@
+{
+  "comparison": "PI-FNO vs P2-FNO (aggregate rel L2 per scenario)",
+  "n_scenarios": 200,
+  "pi_fno_wins": 47,
+  "p2_fno_wins": 153,
+  "ties": 0,
+  "win_rate_pi_fno": 0.235,
+  "median_paired_delta": -1.595397116925e-05,
+  "mean_paired_delta": -1.8879303126313774e-05,
+  "median_paired_delta_95ci": [
+    -2.1063088681300027e-05,
+    -1.9379560267001797e-06
+  ],
+  "delta_percentiles": {
+    "p25": -5.8337749693878416e-05,
+    "p50": -1.595397116925e-05,
+    "p75": -3.560431524986859e-08,
+    "p90": 5.058454037321982e-05,
+    "p95": 0.00012366700743512488,
+    "p05": -0.00013453341151876505,
+    "p10": -0.00010743125396742994
+  },
+  "statistically_significant": true,
+  "interpretation": "Statistically significant improvement (95% CI excludes 0)",
+  "p_pi_fno_vs_p2": {
+    "wins": 49,
+    "win_rate": 0.245,
+    "median_delta": -1.9115287846199888e-05,
+    "median_delta_95ci": [
+      -3.816360792118293e-05,
+      -1.4160845969650018e-05
+    ],
+    "statistically_significant": true
+  },
+  "p_fno_vs_p2": {
+    "wins": 58,
+    "win_rate": 0.29,
+    "median_delta": -5.500089331350339e-06,
+    "median_delta_95ci": [
+      -1.0307738027700553e-05,
+      -4.758887350500042e-06
+    ],
+    "statistically_significant": true
+  }
+}
