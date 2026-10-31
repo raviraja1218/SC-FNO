@@ -1,0 +1,23 @@
+{
+  "variant": "p_fno",
+  "padding": 20,
+  "use_physics": false,
+  "use_ic": false,
+  "device": "cuda",
+  "total_epochs": 95,
+  "best_epoch": 64,
+  "best_val_data_loss": 0.06825207566166333,
+  "final_train_data_loss": 0.05876283473451622,
+  "final_train_phys_loss": 0.0,
+  "final_train_ic_loss": 0.0,
+  "final_train_total_loss": 0.05876283473451622,
+  "final_cos": 0.0,
+  "reference_cos": -0.239,
+  "delta_cos": 0.0,
+  "lam_phys_final": 0.0,
+  "lam_phys_frozen": false,
+  "total_time_sec": 151.66125345230103,
+  "peak_vram_mb": 34.960384,
+  "best_ckpt_sha": "397872a0a890da8c7166c47f6ecec7540d1fe6528650442e511e841ffd6a0243",
+  "last_ckpt_sha": "44f9173cae8a175b6c5f2cddce01643a10e99ec91b8e90f806998d70d7592490"
+}

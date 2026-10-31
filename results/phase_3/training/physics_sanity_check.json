@@ -1,0 +1,11 @@
+{
+  "checkpoint": "models/sc_fno/phase_3/p_pi_fno/best_val.pt",
+  "n_val_scenarios": 200,
+  "data_loss_mean": 0.06797632414526106,
+  "data_loss_std": 0.13816240292690035,
+  "physics_loss_mean": 0.0002436574057355756,
+  "physics_loss_std": 7.117859852383661e-05,
+  "ic_loss_mean": 2.3440173231392693e-06,
+  "ic_loss_std": 5.476366419545398e-07,
+  "interpretation": "If physics_loss_mean is near zero on held-out val AND data_loss_mean is also reasonable, then physics residuals are genuinely satisfied \u2014 not a degenerate minimisation. If physics_loss_mean is near zero but data_loss_mean is high, the model may have converged to a trivial equilibrium that satisfies physics but doesn't track the actual trajectory."
+}

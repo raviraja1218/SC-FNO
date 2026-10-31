@@ -1,0 +1,13 @@
+variant: p_fno
+padding: 20
+use_physics: False
+use_ic: False
+max_epochs: 200
+batch_size: 16
+lr: 0.001
+patience: 30
+lam_phys_init: 0.0001
+lam_phys_target: 1.0
+lam_phys_ramp_epochs: 100
+seed: 42
+reference_cos: -0.239

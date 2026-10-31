@@ -1,0 +1,23 @@
+{
+  "variant": "pi_fno",
+  "padding": 0,
+  "use_physics": true,
+  "use_ic": true,
+  "device": "cuda",
+  "total_epochs": 67,
+  "best_epoch": 36,
+  "best_val_data_loss": 0.06633091947542898,
+  "final_train_data_loss": 0.058445989184547215,
+  "final_train_phys_loss": 0.0008559690771289752,
+  "final_train_ic_loss": 4.176018368227119e-06,
+  "final_train_total_loss": 0.05848752945661545,
+  "final_cos": 0.02251539068118767,
+  "reference_cos": -0.239,
+  "delta_cos": 0.2615153906811877,
+  "lam_phys_final": 0.04365158322401661,
+  "lam_phys_frozen": false,
+  "total_time_sec": 857.8520305156708,
+  "peak_vram_mb": 128.843264,
+  "best_ckpt_sha": "a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50",
+  "last_ckpt_sha": "6c60338ace63d03ad7915338de5145834a3ddfe3ba309b6fb3f8644c143e20f1"
+}
