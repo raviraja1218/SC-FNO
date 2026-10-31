@@ -1,0 +1,7 @@
+{
+  "test": "C2 \u2014 Data loss routes through FNO only, not decoder",
+  "loss_value": 0.010847166180610657,
+  "decoder_bias_grad_is_none": true,
+  "projection_bias_grad_norm": 0.05299289897084236,
+  "pass": true
+}

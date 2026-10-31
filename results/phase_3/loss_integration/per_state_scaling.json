@@ -1,0 +1,80 @@
+{
+  "source_residual_scales": "results/phase_3/residuals/residual_scales.json (Step 3.1)",
+  "source_normalization": "results/phase_1/splitting/normalization_statistics.json (Phase 1 training-only)",
+  "residual_scale_definition": "P95(|R_j|) \u2014 95th percentile of absolute residual magnitude",
+  "per_state": {
+    "n": {
+      "residual_p95": 0.2905620038509369,
+      "residual_mean": 0.07679858058691025,
+      "residual_max": 24.133960723876953,
+      "residual_unit": "1/s",
+      "normalization_mean": 1.0016218682856395,
+      "normalization_std": 0.08406447315664085
+    },
+    "C1": {
+      "residual_p95": 0.017388463020324707,
+      "residual_mean": 0.003749838564544916,
+      "residual_max": 0.978767991065979,
+      "residual_unit": "1/s",
+      "normalization_mean": 173.40834483646518,
+      "normalization_std": 0.6471224379421643
+    },
+    "C2": {
+      "residual_p95": 0.11522572487592697,
+      "residual_mean": 0.024837158620357513,
+      "residual_max": 6.480387210845947,
+      "residual_unit": "1/s",
+      "normalization_mean": 467.0168790591532,
+      "normalization_std": 4.009488830265479
+    },
+    "C3": {
+      "residual_p95": 0.10334672778844833,
+      "residual_mean": 0.022222978994250298,
+      "residual_max": 5.788844585418701,
+      "residual_unit": "1/s",
+      "normalization_mean": 114.86441743785197,
+      "normalization_std": 2.7416344759162627
+    },
+    "C4": {
+      "residual_p95": 0.20865260064601898,
+      "residual_mean": 0.04479541629552841,
+      "residual_max": 11.626302719116211,
+      "residual_unit": "1/s",
+      "normalization_mean": 85.42416891144192,
+      "normalization_std": 3.396224193159085
+    },
+    "C5": {
+      "residual_p95": 0.0613747201859951,
+      "residual_mean": 0.013020623475313187,
+      "residual_max": 3.33286714553833,
+      "residual_unit": "1/s",
+      "normalization_mean": 6.571627771322845,
+      "normalization_std": 0.35354237982847575
+    },
+    "C6": {
+      "residual_p95": 0.022476544603705406,
+      "residual_mean": 0.0046842521987855434,
+      "residual_max": 1.1743587255477905,
+      "residual_unit": "1/s",
+      "normalization_mean": 0.9084326663398169,
+      "normalization_std": 0.05673977410351843
+    },
+    "Tf": {
+      "residual_p95": 2.941021680831909,
+      "residual_mean": 0.6248584985733032,
+      "residual_max": 160.15016174316406,
+      "residual_unit": "K/s",
+      "normalization_mean": 900.5170173724844,
+      "normalization_std": 17.94548679251279
+    },
+    "Tc": {
+      "residual_p95": 0.0717383474111557,
+      "residual_mean": 0.01426301896572113,
+      "residual_max": 2.7965447902679443,
+      "residual_unit": "K/s",
+      "normalization_mean": 583.0309021590647,
+      "normalization_std": 1.0504606742165183
+    }
+  },
+  "all_pass": true
+}

@@ -1,0 +1,29 @@
+{
+  "variants": [
+    "p2_fno",
+    "p_fno",
+    "pi_fno",
+    "p_pi_fno"
+  ],
+  "differentiation": {
+    "p2_fno": {
+      "physics": false,
+      "padding": false
+    },
+    "p_fno": {
+      "physics": false,
+      "padding": true
+    },
+    "pi_fno": {
+      "physics": true,
+      "padding": false
+    },
+    "p_pi_fno": {
+      "physics": true,
+      "padding": true
+    }
+  },
+  "all_loadable": true,
+  "all_differentiated_correctly": true,
+  "pass": true
+}

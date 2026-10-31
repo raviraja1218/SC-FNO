@@ -1,0 +1,6 @@
+variant: P2-FNO
+description: "Phase 2 FNO baseline — locked reference"
+physics_loss: false
+padding: false
+init_from: models/baseline/fno_best.pt
+training: false

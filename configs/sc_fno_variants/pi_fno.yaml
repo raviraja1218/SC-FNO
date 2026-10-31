@@ -1,0 +1,10 @@
+variant: PI-FNO
+description: "Physics-only — isolates physics effect"
+physics_loss:
+  lam_data: 1.0
+  lam_phys: 1.0e-4
+  lam_IC: 1.0
+  residual_scales_source: results/phase_3/loss_integration/per_state_scaling.json
+padding: false
+init_from: models/baseline/fno_best.pt
+training: pending

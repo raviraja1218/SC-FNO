@@ -1,0 +1,9 @@
+{
+  "data_loss": 0.010847166180610657,
+  "physics_loss": 207.6676483154297,
+  "ic_loss": 0.5011160373687744,
+  "total_loss": 0.532729983329773,
+  "shared_grad_norm": 7.536172403022647,
+  "all_finite": true,
+  "pass": true
+}

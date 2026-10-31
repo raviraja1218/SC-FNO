@@ -1,0 +1,18 @@
+{
+  "frozen_decisions": {
+    "lam_data": 1.0,
+    "lam_data_schedule": "constant",
+    "lam_phys_initial": 1.0e-4,
+    "lam_phys_target": 1.0,
+    "lam_phys_ramp_epochs": 100,
+    "lam_phys_schedule": "linear ramp from 1e-4 to 1.0 over 100 epochs",
+    "lam_IC": 1.0,
+    "lam_IC_schedule": "constant",
+    "rationale": "Physics residuals at random init are ~10x ground-truth scale. 1e-4 bounds them while FNO learns data fit. Schedule is candidate — will be tuned in Step 3.4 based on cos(dL_data, dL_phys) monitoring."
+  },
+  "tuning_protocol": {
+    "step_3_3": "Freeze the above as initial candidate. Do NOT tune.",
+    "step_3_4": "Monitor cos(dL_data, dL_phys). If >0 (reinforce), continue ramp. If <0 (conflict), reduce lam_phys growth rate. If ~0, neutral. Freeze final schedule at Step 3.4 end."
+  },
+  "source": "Step 3.3 plan (frozen reviewer-approved)"
+}

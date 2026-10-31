@@ -1,0 +1,8 @@
+variant: P-FNO
+description: "Padding-only — isolates padding effect"
+physics_loss: false
+padding:
+  mode: reflection
+  size: 20
+init_from: models/baseline/fno_best.pt
+training: pending

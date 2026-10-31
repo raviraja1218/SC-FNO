@@ -1,0 +1,7 @@
+{
+  "test": "C1 \u2014 IC loss gradient reaches decoder.head[-1].bias",
+  "loss_value": 0.5011160373687744,
+  "bias_grad_norm": 6.374725341796875,
+  "bias_grad_finite": true,
+  "pass": true
+}

@@ -1,0 +1,86 @@
+{
+  "checks": [
+    {
+      "name": "CompositeLoss module exists",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Per-state scaling merged (9 states)",
+      "pass": true,
+      "detail": "9 states"
+    },
+    {
+      "name": "Item C1: IC loss reaches decoder bias",
+      "pass": true,
+      "detail": "bias_grad_norm = 6.374725341796875"
+    },
+    {
+      "name": "Item C2: data loss does NOT reach decoder",
+      "pass": true,
+      "detail": "projection_grad_norm = 0.05299289897084236"
+    },
+    {
+      "name": "Composite loss: all 3 finite",
+      "pass": true,
+      "detail": "total = 0.532729983329773"
+    },
+    {
+      "name": "Shared FNO blocks receive gradient",
+      "pass": true,
+      "detail": "grad norms: data=6.081e-02, phys=6.613e+01, ic=2.548e-02"
+    },
+    {
+      "name": "Gradient cos recorded (informational)",
+      "pass": true,
+      "detail": "cos(data,phys) = -0.23893931813819705"
+    },
+    {
+      "name": "4-variant configs verified",
+      "pass": true,
+      "detail": "['p2_fno', 'p_fno', 'pi_fno', 'p_pi_fno']"
+    },
+    {
+      "name": "All composite-loss tests pass",
+      "pass": true,
+      "detail": "3 passed, 0 failed"
+    },
+    {
+      "name": "Locked Phase 1/2/3.1/3.2 untouched",
+      "pass": true,
+      "detail": "empty"
+    },
+    {
+      "name": "Phase 2 ckpt SHA unchanged",
+      "pass": true,
+      "detail": "24fce0ba..."
+    },
+    {
+      "name": "Decoder init SHA unchanged",
+      "pass": true,
+      "detail": "c30dd6ca..."
+    },
+    {
+      "name": "Variant YAML: p2_fno",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Variant YAML: p_fno",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Variant YAML: pi_fno",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "Variant YAML: p_pi_fno",
+      "pass": true,
+      "detail": ""
+    }
+  ],
+  "all_pass": true,
+  "gate_3_3": "PASS"
+}

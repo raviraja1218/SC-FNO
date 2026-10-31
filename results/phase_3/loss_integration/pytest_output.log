@@ -1,0 +1,13 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.22, pytest-9.2.0, pluggy-1.7.0 -- /home/raviraja/miniconda3/envs/sc_fno/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/raviraja/projects/SC-FNO
+configfile: pytest.ini
+plugins: platformdirs-4.12.4, mock-3.17.0, anyio-4.15.1, cov-7.1.0
+collecting ... collected 3 items
+
+tests/test_physics_informed/test_losses.py::test_C1_IC_loss_reaches_final_decoder_bias PASSED [ 33%]
+tests/test_physics_informed/test_losses.py::test_C2_data_loss_does_NOT_route_through_decoder PASSED [ 66%]
+tests/test_physics_informed/test_losses.py::test_composite_loss_runs_finite PASSED [100%]
+
+============================== 3 passed in 9.58s ===============================

@@ -1,0 +1,23 @@
+/home/raviraja/projects/SC-FNO/scripts/step3_3_gradient_flow.py:68: UserWarning: Casting complex values to real discards the imaginary part (Triggered internally at ../aten/src/ATen/native/Copy.cpp:308.)
+  a_hat = (a / na).to(torch.float64)
+{
+  "batch_size": 4,
+  "n_query": 20,
+  "shared_params": "lifting + fno_blocks (36 tensors)",
+  "loss_values": {
+    "data": 0.010928883217275143,
+    "physics": 207.66725158691406,
+    "ic": 0.28955841064453125
+  },
+  "shared_grad_norms": {
+    "data": 0.060813095420598984,
+    "physics": 66.12788391113281,
+    "ic": 0.0254776980727911
+  },
+  "cos_shared": {
+    "data_vs_physics": -0.23893931813819705,
+    "data_vs_ic": -0.1323128323265267,
+    "physics_vs_ic": -0.06742527003556395
+  },
+  "note": "Informational only. cos>0 = reinforce, cos<0 = conflict. Recorded for Step 3.4 weight tuning \u2014 NOT a pass/fail criterion."
+}

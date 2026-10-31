@@ -1,0 +1,12 @@
+variant: P-PI-FNO
+description: "Physics + padding — primary SC-FNO candidate"
+physics_loss:
+  lam_data: 1.0
+  lam_phys: 1.0e-4
+  lam_IC: 1.0
+  residual_scales_source: results/phase_3/loss_integration/per_state_scaling.json
+padding:
+  mode: reflection
+  size: 20
+init_from: models/baseline/fno_best.pt
+training: pending

@@ -1,0 +1,12 @@
+Merged scaling table: 9 states
+  n: residual_p95=2.9056e-01 1/s, norm_std=8.4064e-02
+  C1: residual_p95=1.7388e-02 1/s, norm_std=6.4712e-01
+  C2: residual_p95=1.1523e-01 1/s, norm_std=4.0095e+00
+  C3: residual_p95=1.0335e-01 1/s, norm_std=2.7416e+00
+  C4: residual_p95=2.0865e-01 1/s, norm_std=3.3962e+00
+  C5: residual_p95=6.1375e-02 1/s, norm_std=3.5354e-01
+  C6: residual_p95=2.2477e-02 1/s, norm_std=5.6740e-02
+  Tf: residual_p95=2.9410e+00 K/s, norm_std=1.7945e+01
+  Tc: residual_p95=7.1738e-02 K/s, norm_std=1.0505e+00
+
+=== 3.3.A PASS ===
