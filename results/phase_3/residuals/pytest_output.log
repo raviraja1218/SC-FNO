@@ -4,20 +4,22 @@ cachedir: .pytest_cache
 rootdir: /home/raviraja/projects/SC-FNO
 configfile: pytest.ini
 plugins: platformdirs-4.12.4, mock-3.17.0, anyio-4.15.1, cov-7.1.0
-collecting ... collected 13 items
+collecting ... collected 15 items
 
-tests/test_physics_informed/test_residuals.py::test_T1_neutron_residual_analytical PASSED [  7%]
-tests/test_physics_informed/test_residuals.py::test_T2_precursor_residual_analytical[0] PASSED [ 15%]
-tests/test_physics_informed/test_residuals.py::test_T2_precursor_residual_analytical[1] PASSED [ 23%]
-tests/test_physics_informed/test_residuals.py::test_T2_precursor_residual_analytical[2] PASSED [ 30%]
-tests/test_physics_informed/test_residuals.py::test_T2_precursor_residual_analytical[3] PASSED [ 38%]
-tests/test_physics_informed/test_residuals.py::test_T2_precursor_residual_analytical[4] PASSED [ 46%]
-tests/test_physics_informed/test_residuals.py::test_T2_precursor_residual_analytical[5] PASSED [ 53%]
-tests/test_physics_informed/test_residuals.py::test_T3_fuel_thermal_adiabatic PASSED [ 61%]
-tests/test_physics_informed/test_residuals.py::test_T4_coolant_thermal PASSED [ 69%]
-tests/test_physics_informed/test_residuals.py::test_T5_feedback_reactivity PASSED [ 76%]
-tests/test_physics_informed/test_residuals.py::test_T6_coupling_predicted_states_used PASSED [ 84%]
-tests/test_physics_informed/test_residuals.py::test_T7_equilibrium_residuals_zero PASSED [ 92%]
-tests/test_physics_informed/test_residuals.py::test_T8_unit_consistency PASSED [100%]
+tests/test_physics_informed/test_residuals.py::test_T1_neutron_residual_analytical PASSED [  6%]
+tests/test_physics_informed/test_residuals.py::test_T2_precursor_residual_analytical[0] PASSED [ 13%]
+tests/test_physics_informed/test_residuals.py::test_T2_precursor_residual_analytical[1] PASSED [ 20%]
+tests/test_physics_informed/test_residuals.py::test_T2_precursor_residual_analytical[2] PASSED [ 26%]
+tests/test_physics_informed/test_residuals.py::test_T2_precursor_residual_analytical[3] PASSED [ 33%]
+tests/test_physics_informed/test_residuals.py::test_T2_precursor_residual_analytical[4] PASSED [ 40%]
+tests/test_physics_informed/test_residuals.py::test_T2_precursor_residual_analytical[5] PASSED [ 46%]
+tests/test_physics_informed/test_residuals.py::test_T3_fuel_thermal_adiabatic PASSED [ 53%]
+tests/test_physics_informed/test_residuals.py::test_T4_coolant_thermal PASSED [ 60%]
+tests/test_physics_informed/test_residuals.py::test_T5_feedback_reactivity PASSED [ 66%]
+tests/test_physics_informed/test_residuals.py::test_T6_coupling_predicted_states_used PASSED [ 73%]
+tests/test_physics_informed/test_residuals.py::test_T7_equilibrium_residuals_zero PASSED [ 80%]
+tests/test_physics_informed/test_residuals.py::test_T8_unit_consistency PASSED [ 86%]
+tests/test_physics_informed/test_residuals.py::test_T9_stacked_output_interface PASSED [ 93%]
+tests/test_physics_informed/test_residuals.py::test_T10_nonzero_source_term PASSED [100%]
 
-============================== 13 passed in 1.52s ==============================
+============================== 15 passed in 1.64s ==============================

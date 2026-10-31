@@ -1,0 +1,28 @@
+{
+  "step": "3.1",
+  "phase": "3",
+  "timestamp": "2026-10-31",
+  "gate_3_1": "PASS",
+  "version": "v2_reviewer_followups",
+  "note": "Adds T9 (stacked interface), T10 (nonzero q), p95 definition, monitoring note. Phase 3.1 initial lock preserved at d8e7d7b.",
+  "phase_1_aggregate": "9049c7b42996fee7c08202703086bf0aebd513dbd1f77b1265ae546d6f241bf6",
+  "phase_2_lock_tag": "0c9dfd7ced7454342e09280b6307f83d42eea89e",
+  "checks_passed": 15,
+  "checks_total": 15,
+  "artifacts": {
+    "results/phase_3/residuals/git_commit.log": "5adc98b355acfa516d7631b53b47ca202875107b42f3388cc10540e9d27acd88",
+    "results/phase_3/residuals/no_leakage_verification.json": "04b606a44d0f881fc966c65b0e87e95a62164d5dca052cc56a8cbe57db5994f3",
+    "results/phase_3/residuals/no_leakage_verification.log": "a23cc508164b7d495db78b192839121f4bf07752efd104084ef3145947f68a9a",
+    "results/phase_3/residuals/preflight.log": "a2df35c2dde35f0b53327bdffbaeb70e8492370d1dcc66c746ea1abc25444cf4",
+    "results/phase_3/residuals/pytest_output.log": "215bcea505ba4f515efc199478b20966023dabd0dfbfe879f910742f845fde05",
+    "results/phase_3/residuals/residual_scales.json": "3e0bc361a5ac50c06a0c27d4e64892a8f59bab263637f64a3338b96fa4fb0f6a",
+    "results/phase_3/residuals/residual_scales.log": "4f38eb7c525503e5ca782b27a1363664f599e2fafca5dccd9b1864f9d087231b",
+    "results/phase_3/residuals/residual_units.log": "3e1ad0f8b2555e82afb626d990293ba994867338d0e9e9abe85936abac0da7d1",
+    "results/phase_3/residuals/residual_units.md": "690cd268ae61900ad233ba36986cc1cb6949d85542f8f41e6a96179255929eda",
+    "results/phase_3/residuals/residual_validation.json": "5f6d7cc109517b27af661b371e356bc2edb531db9355cf479a3a8aebd3eeffb1",
+    "results/phase_3/residuals/residual_validation.log": "dc1782db3640aa921b9f68f1b6e9270910431071484655dc29da197205b8b050",
+    "results/phase_3/residuals/residual_validation.md": "970b0ecb70cd01c349943b996200d9da5e19a1e2aeed94b491b0ba7ff4808e59",
+    "src/physics_informed/residuals.py": "6807b84913077c93acb057ea0850ec9aaaecc8d095fa0089a80f931d83c53045",
+    "tests/test_physics_informed/test_residuals.py": "bcbf7e9028de62f9b1c4f88112ace5c4e46d5adc2eb60dc6cb342e7690608a83"
+  }
+}

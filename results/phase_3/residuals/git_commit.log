@@ -1,0 +1,22 @@
+[master d8e7d7b] Phase 3.1: 9-state physics residuals — Gate 3.1 PASS (13 tests, no-leakage verified)
+ 19 files changed, 1209 insertions(+)
+ create mode 100644 results/phase_3/residuals/no_leakage_verification.json
+ create mode 100644 results/phase_3/residuals/no_leakage_verification.log
+ create mode 100644 results/phase_3/residuals/preflight.log
+ create mode 100644 results/phase_3/residuals/pytest_output.log
+ create mode 100644 results/phase_3/residuals/residual_scales.json
+ create mode 100644 results/phase_3/residuals/residual_scales.log
+ create mode 100644 results/phase_3/residuals/residual_units.log
+ create mode 100644 results/phase_3/residuals/residual_units.md
+ create mode 100644 results/phase_3/residuals/residual_validation.json
+ create mode 100644 results/phase_3/residuals/residual_validation.log
+ create mode 100644 results/phase_3/residuals/residual_validation.md
+ create mode 100644 results/phase_3/residuals/step_3_1_manifest.json
+ create mode 100644 scripts/step3_1_leakage_audit.py
+ create mode 100644 scripts/step3_1_measure_scales.py
+ create mode 100644 scripts/step3_1_summary.py
+ create mode 100644 tests/test_physics_informed/__init__.py
+ create mode 100644 tests/test_physics_informed/test_residuals.py
+d8e7d7b Phase 3.1: 9-state physics residuals — Gate 3.1 PASS (13 tests, no-leakage verified)
+0367359 Phase 3.0: Preflight complete — Gate 3.0 PASS (arch, equations, params, padding, matrix, IO, source, reactivity)
+40ce798 Phase 2 supplemental audit: 5 reviewer items resolved (read-only, no retraining)

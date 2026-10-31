@@ -275,3 +275,70 @@ def test_T8_unit_consistency(kin, th):
     o = compute_residuals(u_hat, d, t, _rho_fn(0.0), kin, th)
     assert torch.allclose(o.R_C[:, 2, :] - o0.R_C[:, 2, :],
                           torch.ones_like(o.R_C[:, 2, :]), atol=1e-6)
+
+
+# === T9 — stacked() interface ===
+def test_T9_stacked_output_interface(kin, th):
+    """ResidualOutput.stacked() preserves state ordering and numerical values."""
+    B, N = 1, 10
+    t = torch.linspace(0, 1, N).unsqueeze(0)
+    beta_i = _beta_i(kin)
+    lambda_i = _lambda_i(kin)
+
+    n = torch.ones(B, N)
+    C = torch.zeros(B, 6, N)
+    for i in range(6):
+        C[:, i, :] = beta_i[i] / (kin.Lambda * lambda_i[i])
+    Tf = torch.full((B, N), th.T_f_ref)
+    Tc = torch.full((B, N), th.T_c_ref)
+    u_hat = _pack(n, C, Tf, Tc)
+    z = torch.zeros_like(u_hat)
+
+    out = compute_residuals(u_hat, z, t, _rho_fn(0.0), kin, th)
+    stacked = out.stacked()
+
+    # Shape
+    assert stacked.shape == (B, 9, N), f"stacked shape {stacked.shape} != (B, 9, N)"
+
+    # Ordering: [n, C1..C6, Tf, Tc] -> indices [0, 1:7, 7, 8]
+    assert torch.allclose(stacked[:, 0, :], out.R_n), "stacked[:, 0] != R_n"
+    assert torch.allclose(stacked[:, 1:7, :], out.R_C), "stacked[:, 1:7] != R_C"
+    assert torch.allclose(stacked[:, 7, :], out.R_Tf), "stacked[:, 7] != R_Tf"
+    assert torch.allclose(stacked[:, 8, :], out.R_Tc), "stacked[:, 8] != R_Tc"
+
+
+# === T10 — Nonzero q(t) source term ===
+def test_T10_nonzero_source_term(kin, th):
+    """R_n includes q(t): residual difference equals -q when q_t is added.
+
+    Analytical:  R_n = dn/dt - [(rho-beta_eff)/Lambda * n + sum_i lambda_i C_i + q(t)]
+    With dn/dt = 0 and fixed states, adding q_t shifts R_n by exactly -q_t.
+    """
+    B, N = 1, 10
+    t = torch.linspace(0, 1, N).unsqueeze(0)
+    beta_i = _beta_i(kin)
+    lambda_i = _lambda_i(kin)
+
+    n = torch.ones(B, N)
+    C = torch.zeros(B, 6, N)
+    for i in range(6):
+        C[:, i, :] = beta_i[i] / (kin.Lambda * lambda_i[i])
+    Tf = torch.full((B, N), th.T_f_ref)
+    Tc = torch.full((B, N), th.T_c_ref)
+    u_hat = _pack(n, C, Tf, Tc)
+    z = torch.zeros_like(u_hat)
+
+    q_val = 0.01
+    q_t = torch.full((B, N), q_val)
+
+    out_zero = compute_residuals(u_hat, z, t, _rho_fn(0.0), kin, th, q_t=None)
+    out_q    = compute_residuals(u_hat, z, t, _rho_fn(0.0), kin, th, q_t=q_t)
+
+    delta = (out_q.R_n - out_zero.R_n).abs()
+    expected = torch.full_like(out_q.R_n, q_val)
+    assert torch.allclose(delta, expected, atol=1e-6), \
+        f"R_n delta from q_t: {delta[0,0].item():.6e}, expected {q_val:.6e}"
+    # Sign check: q_t enters R_n as minus q(t)
+    assert torch.allclose(out_q.R_n - out_zero.R_n,
+                          torch.full_like(out_q.R_n, -q_val), atol=1e-6), \
+        "q_t sign wrong — should be -q in R_n"

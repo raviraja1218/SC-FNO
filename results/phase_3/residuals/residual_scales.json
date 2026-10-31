@@ -86,5 +86,18 @@
       "characteristic_scale": 0.0717383474111557
     }
   },
-  "note": "Uses ground truth for SCALE measurement only, not for training. Step 3.3 will use these scales to normalize physics loss contributions."
+  "note": "Uses ground truth for SCALE measurement only, not for training. Step 3.3 will use these scales to normalize physics loss contributions.",
+  "p95_definition": "P95(|R_j|) \u2014 95th percentile of ABSOLUTE residual magnitude for state j, measured on 20,000 finite-difference samples across 100 training scenarios. This is the positive loss-normalization scale for state j in Step 3.3. It is NOT a signed percentile and NOT a confidence bound.",
+  "scale_units": {
+    "n": "1/s",
+    "C1": "1/s",
+    "C2": "1/s",
+    "C3": "1/s",
+    "C4": "1/s",
+    "C5": "1/s",
+    "C6": "1/s",
+    "Tf": "K/s",
+    "Tc": "K/s"
+  },
+  "monitoring_note": "These scales come from finite differences on ground-truth trajectories. During training (Step 3.4), model predictions may differ significantly from ground truth, causing actual |R_j| to exceed these scales. Monitor actual training residual magnitudes and adjust scales only if a documented need arises (not silently)."
 }
