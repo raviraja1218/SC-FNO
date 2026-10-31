@@ -1,0 +1,19 @@
+{
+  "total_params": 37,
+  "groups": {
+    "kinetics": 22,
+    "fuel": 3,
+    "coolant": 4,
+    "heat_transfer": 3,
+    "power": 1,
+    "feedback": 4,
+    "equilibrium": 4
+  },
+  "fuel_equilibrium_ratio": 0.999979,
+  "fuel_equilibrium_verified": true,
+  "coolant_balance_W": 800.0,
+  "all_pass": true
+}
+
+Parameter rows: 41  (non-equilibrium params: 37)
+=== Parameter provenance: PASS ===

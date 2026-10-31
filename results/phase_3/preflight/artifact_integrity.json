@@ -1,0 +1,61 @@
+{
+  "checks": {
+    "phase1_manifest_sha256": {
+      "pass": true,
+      "detail": "993581ef514932c5..."
+    },
+    "phase1_aggregate_in_manifest": {
+      "pass": true,
+      "detail": "9049c7b42996fee7..."
+    },
+    "phase1_configs": {
+      "pass": true,
+      "detail": "{'reactor_parameters': 'v3', 'thermal_hydraulics': 'v4'}"
+    },
+    "baseline_ckpt_sha256": {
+      "pass": true,
+      "detail": "24fce0bad8ec9c66..."
+    },
+    "phase2_lock_tag": {
+      "pass": true,
+      "detail": "0c9dfd7c"
+    },
+    "train_ids": {
+      "pass": true,
+      "detail": "16ad4670eee9555a..."
+    },
+    "val_ids": {
+      "pass": true,
+      "detail": "19b781283503b1a1..."
+    },
+    "test_ids": {
+      "pass": true,
+      "detail": "a71514eacaee3d09..."
+    },
+    "normalization": {
+      "pass": true,
+      "detail": "4e832aa5cdaa940c..."
+    },
+    "locked_paths_clean": {
+      "pass": true,
+      "detail": "empty"
+    },
+    "phase1_ancestor": {
+      "pass": true,
+      "detail": "1d9b320 is ancestor"
+    },
+    "phase2_lock_ancestor": {
+      "pass": true,
+      "detail": "0c9dfd7 is ancestor"
+    },
+    "dataset_dir": {
+      "pass": true,
+      "detail": "scenarios_2000 exists"
+    },
+    "scenario_count": {
+      "pass": true,
+      "detail": "2000 scenarios"
+    }
+  },
+  "all_pass": true
+}

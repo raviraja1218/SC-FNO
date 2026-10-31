@@ -1,0 +1,23 @@
+module,term,line_number,source_line,status
+src/physics/kinetics.py,pke_rhs function,52,"def pke_rhs(t: float,",FOUND
+src/physics/kinetics.py,beta_eff term,17,beta_eff: float,FOUND
+src/physics/kinetics.py,Lambda term,18,Lambda: float,FOUND
+src/physics/kinetics.py,precursor lambda_i,20,lambda_i: Sequence[float]   # length m,FOUND
+src/physics/kinetics.py,q(t) source term,57,include_q: bool = True) -> np.ndarray:,FOUND
+src/physics/kinetics.py,equilibrium C_i0,46,"def equilibrium_precursors(n0: float, kin: KineticsParameters) -> np.ndarray:",FOUND
+src/physics/thermal_hydraulics.py,th_rhs function,33,"def th_rhs(n: float, T_f: float, T_c: float, th: THParameters) -> tuple[float, float]:",FOUND
+src/physics/thermal_hydraulics.py,fuel heat balance,12,M_f: float; c_p_f: float; f_f: float,FOUND
+src/physics/thermal_hydraulics.py,coolant balance,13,M_c: float; c_p_c: float; m_dot: float; T_in: float,FOUND
+src/physics/thermal_hydraulics.py,heat transfer UA,37,q_fc = th.U * th.A * (T_f - T_c),FOUND
+src/physics/thermal_hydraulics.py,factor 2 mass flow,39,dT_c = (q_c + q_fc - 2.0 * th.m_dot * th.c_p_c * (T_c - th.T_in)) / (th.M_c * th.c_p_c),FOUND
+src/physics/thermal_hydraulics.py,T_in inlet,13,M_c: float; c_p_c: float; m_dot: float; T_in: float,FOUND
+src/physics/thermal_hydraulics.py,feedback_reactivity,43,"def feedback_reactivity(T_f: float, T_c: float, th: THParameters) -> float:",FOUND
+src/physics/thermal_hydraulics.py,alpha_f Doppler,16,alpha_f: float; alpha_c: float,FOUND
+src/physics/thermal_hydraulics.py,alpha_c coolant,16,alpha_f: float; alpha_c: float,FOUND
+src/physics/thermal_hydraulics.py,T_f_ref,17,T_f_ref: float; T_c_ref: float,FOUND
+src/physics/thermal_hydraulics.py,T_c_ref,17,T_f_ref: float; T_c_ref: float,FOUND
+src/physics/reactivity.py,make_rho_total,7,"def make_rho_total(rho_ext_fn: Callable[[float], float],",FOUND
+src/physics/reactivity.py,feedback import,4,"from .thermal_hydraulics import THParameters, feedback_reactivity",FOUND
+src/physics/reactivity.py,rho_total composition,15,"return float(rho_ext_fn(t)) + feedback_reactivity(T_f, T_c, th)",FOUND
+src/data/solver.py,coupled_rhs,39,"def coupled_rhs(t, y, kin, th, rho_ext_fn, q_fn, include_q):",FOUND
+src/data/solver.py,9-state ordering,44,"closure that reads y[-2], y[-1] as T_f, T_c. But pke_rhs passes",FOUND

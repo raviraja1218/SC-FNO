@@ -1,0 +1,10 @@
+{
+  "include_q_t": true,
+  "q_t_default": 0.0,
+  "phase0_decision": "q(t) INCLUDED per Phase 0 lock e7e70c0",
+  "provenance": "configs/reactor_parameters.v3.yaml \u2192 neutronics.external_source",
+  "note": "Residual implementation in Step 3.1 must use q(t) per this config. Do NOT silently omit or introduce a new source model.",
+  "all_pass": true
+}
+
+=== Source term: PASS ===

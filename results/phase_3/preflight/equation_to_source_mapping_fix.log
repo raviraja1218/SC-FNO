@@ -1,0 +1,18 @@
+{
+  "total_terms": 21,
+  "found": 16,
+  "not_found": 5,
+  "missing_terms": [
+    "factor 2 mass flow",
+    "alpha_f Doppler",
+    "alpha_c coolant",
+    "T_f_ref",
+    "T_c_ref"
+  ],
+  "all_pass": false
+}
+
+=== Equation mapping: INCOMPLETE ===
+
+Missing: ['factor 2 mass flow', 'alpha_f Doppler', 'alpha_c coolant', 'T_f_ref', 'T_c_ref']
+Run the grep diagnostics in the output .md file before declaring Gate 3.0 pass.

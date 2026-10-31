@@ -1,0 +1,56 @@
+{
+  "checks": [
+    {
+      "name": "3.0.A Phase 1/2 artifact integrity",
+      "pass": true,
+      "detail": "14/14 checks"
+    },
+    {
+      "name": "3.0.B Equation-to-source mapping",
+      "pass": true,
+      "detail": "22/22 terms found"
+    },
+    {
+      "name": "3.0.C Parameter provenance",
+      "pass": true,
+      "detail": "fuel equilibrium ratio = 0.999979"
+    },
+    {
+      "name": "3.0.D Architecture ADR",
+      "pass": true,
+      "detail": "coordinate-conditioned decoder frozen"
+    },
+    {
+      "name": "3.0.E Padding policy",
+      "pass": true,
+      "detail": "3 padding modes, 4-variant matrix"
+    },
+    {
+      "name": "3.0.F Experimental matrix",
+      "pass": true,
+      "detail": "P2-FNO / P-FNO / PI-FNO / P-PI-FNO defined"
+    },
+    {
+      "name": "3.0.G I/O verification",
+      "pass": true,
+      "detail": "time grid uniform, dt = 0.050251256 (not 0.05)"
+    },
+    {
+      "name": "3.0.H Source term confirmation",
+      "pass": true,
+      "detail": "include_q_t=True, q_default=0"
+    },
+    {
+      "name": "3.0.I Reactivity verification",
+      "pass": true,
+      "detail": "16/16 checks"
+    },
+    {
+      "name": "3.0 Locked paths untouched",
+      "pass": true,
+      "detail": "empty"
+    }
+  ],
+  "all_pass": true,
+  "gate_3_0": "PASS"
+}

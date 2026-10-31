@@ -1,0 +1,42 @@
+group,parameter,value,unit,source,note
+kinetics,n_precursor_groups,6.0,—,reactor_parameters.v3.yaml:neutronics.n_precursor_groups,
+kinetics,beta_eff,0.006502,dimensionless,reactor_parameters.v3.yaml:neutronics.beta_eff,
+kinetics,Lambda,0.0001,s,reactor_parameters.v3.yaml:neutronics.Lambda,
+kinetics,beta_1.0,0.000215,dimensionless,reactor_parameters.v3.yaml:neutronics.precursor_groups[i=1.0].beta_i,
+kinetics,lambda_1.0,0.0124,s^-1,reactor_parameters.v3.yaml:neutronics.precursor_groups[i=1.0].lambda_i,
+kinetics,beta_2.0,0.001424,dimensionless,reactor_parameters.v3.yaml:neutronics.precursor_groups[i=2.0].beta_i,
+kinetics,lambda_2.0,0.0305,s^-1,reactor_parameters.v3.yaml:neutronics.precursor_groups[i=2.0].lambda_i,
+kinetics,beta_3.0,0.001274,dimensionless,reactor_parameters.v3.yaml:neutronics.precursor_groups[i=3.0].beta_i,
+kinetics,lambda_3.0,0.111,s^-1,reactor_parameters.v3.yaml:neutronics.precursor_groups[i=3.0].lambda_i,
+kinetics,beta_4.0,0.002568,dimensionless,reactor_parameters.v3.yaml:neutronics.precursor_groups[i=4.0].beta_i,
+kinetics,lambda_4.0,0.301,s^-1,reactor_parameters.v3.yaml:neutronics.precursor_groups[i=4.0].lambda_i,
+kinetics,beta_5.0,0.000748,dimensionless,reactor_parameters.v3.yaml:neutronics.precursor_groups[i=5.0].beta_i,
+kinetics,lambda_5.0,1.14,s^-1,reactor_parameters.v3.yaml:neutronics.precursor_groups[i=5.0].lambda_i,
+kinetics,beta_6.0,0.000273,dimensionless,reactor_parameters.v3.yaml:neutronics.precursor_groups[i=6.0].beta_i,
+kinetics,lambda_6.0,3.01,s^-1,reactor_parameters.v3.yaml:neutronics.precursor_groups[i=6.0].lambda_i,
+kinetics,sum_beta_check,0.006502,dimensionless,computed,"Σβᵢ = 0.0065020000, |Σβᵢ − β_eff| = 0.000e+00"
+kinetics,include_q_t,True,bool,reactor_parameters.v3.yaml:neutronics.external_source.include_q_t,Phase 0 decision: q(t) INCLUDED
+kinetics,q_t_default,0.0,—,reactor_parameters.v3.yaml:neutronics.external_source.q_t_default,
+kinetics,n0,1.0,—,reactor_parameters.v3.yaml:initial_state.n0,
+kinetics,T_f0,900.0,K,reactor_parameters.v3.yaml:initial_state.T_f0,
+kinetics,T_c0,583.0,K,reactor_parameters.v3.yaml:initial_state.T_c0,
+kinetics,C_i0_formula,beta_i*n0/(Lambda*lambda_i),—,reactor_parameters.v3.yaml:initial_state (implicit),equilibrium precursor concentration
+fuel,M_f,27000.0,kg,thermal_hydraulics.v4.yaml:fuel.M_f,
+fuel,c_p_f,300.0,J/(kg*K),thermal_hydraulics.v4.yaml:fuel.c_p_f,
+fuel,f_f,0.97,dimensionless,thermal_hydraulics.v4.yaml:fuel.f_f,
+coolant,M_c,4000.0,kg,thermal_hydraulics.v4.yaml:coolant.M_c,
+coolant,c_p_c,5500.0,J/(kg*K),thermal_hydraulics.v4.yaml:coolant.c_p_c,
+coolant,m_dot,13636.36,kg/s,thermal_hydraulics.v4.yaml:coolant.m_dot,
+coolant,T_in,563.0,K,thermal_hydraulics.v4.yaml:coolant.T_in,
+heat_transfer,U,3060.0,W/(m^2*K),thermal_hydraulics.v4.yaml:heat_transfer.U,
+heat_transfer,A,3000.0,m^2,thermal_hydraulics.v4.yaml:heat_transfer.A,
+heat_transfer,UA,9180000.0,W/K,computed,U*A = 9.180e+06
+power,P0,3000000000.0,W,thermal_hydraulics.v4.yaml:power.P0,
+feedback,alpha_f,-3e-05,(Δk/k)/K,thermal_hydraulics.v4.yaml:reactivity_feedback.alpha_f,
+feedback,alpha_c,-0.0005,(Δk/k)/K,thermal_hydraulics.v4.yaml:reactivity_feedback.alpha_c,
+feedback,T_f_ref,900.0,K,thermal_hydraulics.v4.yaml:reactivity_feedback.T_f_ref,
+feedback,T_c_ref,583.0,K,thermal_hydraulics.v4.yaml:reactivity_feedback.T_c_ref,
+equilibrium,fuel_heating_W,2910000000.0,W,computed,f_f*P0*n0 = 2.910e+09
+equilibrium,heat_transfer_out_W,2910060000.0,W,computed,UA*(T_f0-T_c0) = 2.910e+09
+equilibrium,fuel_imbalance_ratio,0.999979,dimensionless,computed,should be ≈ 1.0
+equilibrium,coolant_balance_W,800.0,W,computed,P0 - 2*mdot*cp_c*(Tc0-Tin) = 8.000e+02

@@ -1,0 +1,18 @@
+  [PASS] make_rho_total_exists: function defined
+  [PASS] imports_feedback_from_th: imports feedback_reactivity from thermal_hydraulics
+  [PASS] composes_rho_ext_plus_feedback: rho_total = rho_ext + feedback
+  [PASS] feedback_uses_y_minus_2_y_minus_1: T_f, T_c at positions -2, -1
+  [PASS] alpha_f_in_TH: alpha_f field in THParameters
+  [PASS] alpha_c_in_TH: alpha_c field in THParameters
+  [PASS] T_f_ref_in_TH: T_f_ref field in THParameters
+  [PASS] T_c_ref_in_TH: T_c_ref field in THParameters
+  [PASS] feedback_reactivity_defined_in_TH: feedback_reactivity defined
+  [PASS] feedback_formula_uses_alphas_and_refs: formula: alpha_f*(T_f - T_f_ref) + alpha_c*(T_c - T_c_ref)
+  [PASS] factor_2_in_coolant_equation: dT_c = (... - 2.0*m_dot*c_p_c*(T_c - T_in)) / (M_c*c_p_c)
+  [PASS] config_alpha_f_sign_negative: alpha_f = -3e-05 (Doppler < 0)
+  [PASS] config_alpha_c_sign_negative: alpha_c = -0.0005 (coolant < 0)
+  [PASS] config_T_f_ref_900: T_f_ref = 900.0
+  [PASS] config_T_c_ref_583: T_c_ref = 583.0
+  [PASS] feedback_zero_at_initial_state: feedback(T_f0, T_c0) = -0.000e+00
+
+=== Reactivity verification: PASS ===

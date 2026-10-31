@@ -1,0 +1,16 @@
+{
+  "total_terms": 21,
+  "found": 16,
+  "not_found": 5,
+  "missing_terms": [
+    "factor 2 mass flow",
+    "alpha_f Doppler",
+    "alpha_c coolant",
+    "T_f_ref",
+    "T_c_ref"
+  ],
+  "all_pass": false
+}
+
+=== Equation mapping: INCOMPLETE ===
+Missing terms: ['factor 2 mass flow', 'alpha_f Doppler', 'alpha_c coolant', 'T_f_ref', 'T_c_ref']

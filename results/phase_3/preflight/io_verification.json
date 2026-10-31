@@ -1,0 +1,99 @@
+{
+  "checks": {
+    "state_ordering_length": {
+      "pass": true,
+      "detail": "9 states [n, C1-C6, Tf, Tc]"
+    },
+    "forcing_shape": {
+      "pass": true,
+      "detail": "(200,)"
+    },
+    "trajectory_shape": {
+      "pass": true,
+      "detail": "(200, 9)"
+    },
+    "time_shape": {
+      "pass": true,
+      "detail": "(200,)"
+    },
+    "time_starts_at_0": {
+      "pass": true,
+      "detail": "0.0"
+    },
+    "time_ends_at_10": {
+      "pass": true,
+      "detail": "10.0"
+    },
+    "time_uniform_spacing": {
+      "pass": true,
+      "detail": "dt = 0.050251256 (all 199 intervals identical)"
+    },
+    "time_consistent_with_linspace_0_10_200": {
+      "pass": true,
+      "detail": "dt = 0.050251256 vs 10/199 = 0.050251256"
+    },
+    "train_count": {
+      "pass": true,
+      "detail": "1600"
+    },
+    "val_count": {
+      "pass": true,
+      "detail": "200"
+    },
+    "test_count": {
+      "pass": true,
+      "detail": "200"
+    },
+    "no_train_val_overlap": {
+      "pass": true,
+      "detail": "0 overlap"
+    },
+    "no_train_test_overlap": {
+      "pass": true,
+      "detail": "0 overlap"
+    },
+    "no_val_test_overlap": {
+      "pass": true,
+      "detail": "0 overlap"
+    },
+    "split_union_2000": {
+      "pass": true,
+      "detail": "2000 total"
+    },
+    "normalization_training_only": {
+      "pass": true,
+      "detail": "training only (1600 scenarios from train_ids.csv)"
+    },
+    "normalization_10_vars": {
+      "pass": true,
+      "detail": "missing: []"
+    },
+    "train_sha": {
+      "pass": true,
+      "detail": "16ad4670eee9555a"
+    },
+    "val_sha": {
+      "pass": true,
+      "detail": "19b781283503b1a1"
+    },
+    "test_sha": {
+      "pass": true,
+      "detail": "a71514eacaee3d09"
+    },
+    "norm_sha": {
+      "pass": true,
+      "detail": "4e832aa5cdaa940c"
+    }
+  },
+  "time_grid_detail": {
+    "n_points": 200,
+    "t_start": 0.0,
+    "t_end": 10.0,
+    "dt_value": 0.05025125628140704,
+    "dt_expected_from_linspace": 0.05025125628140704,
+    "dt_uniform": true,
+    "matches_linspace": true,
+    "note": "Phase 1 uses np.linspace(0,10,200). Spacing is 10/199, not 0.05. The Phase 3 physics residual must use the actual dt from time.npy, not assume 0.05. This is why temporal derivatives in Step 3.2 use autograd through a coordinate decoder, not finite differences on this grid."
+  },
+  "all_pass": true
+}

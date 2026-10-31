@@ -1,0 +1,73 @@
+{
+  "checks": {
+    "make_rho_total_exists": {
+      "pass": true,
+      "detail": "function defined"
+    },
+    "imports_feedback_from_th": {
+      "pass": true,
+      "detail": "imports feedback_reactivity from thermal_hydraulics"
+    },
+    "composes_rho_ext_plus_feedback": {
+      "pass": true,
+      "detail": "rho_total = rho_ext + feedback"
+    },
+    "feedback_uses_y_minus_2_y_minus_1": {
+      "pass": true,
+      "detail": "T_f, T_c at positions -2, -1"
+    },
+    "alpha_f_in_TH": {
+      "pass": true,
+      "detail": "alpha_f field in THParameters"
+    },
+    "alpha_c_in_TH": {
+      "pass": true,
+      "detail": "alpha_c field in THParameters"
+    },
+    "T_f_ref_in_TH": {
+      "pass": true,
+      "detail": "T_f_ref field in THParameters"
+    },
+    "T_c_ref_in_TH": {
+      "pass": true,
+      "detail": "T_c_ref field in THParameters"
+    },
+    "feedback_reactivity_defined_in_TH": {
+      "pass": true,
+      "detail": "feedback_reactivity defined"
+    },
+    "feedback_formula_uses_alphas_and_refs": {
+      "pass": true,
+      "detail": "formula: alpha_f*(T_f - T_f_ref) + alpha_c*(T_c - T_c_ref)"
+    },
+    "factor_2_in_coolant_equation": {
+      "pass": true,
+      "detail": "dT_c = (... - 2.0*m_dot*c_p_c*(T_c - T_in)) / (M_c*c_p_c)"
+    },
+    "config_alpha_f_sign_negative": {
+      "pass": true,
+      "detail": "alpha_f = -3e-05 (Doppler < 0)"
+    },
+    "config_alpha_c_sign_negative": {
+      "pass": true,
+      "detail": "alpha_c = -0.0005 (coolant < 0)"
+    },
+    "config_T_f_ref_900": {
+      "pass": true,
+      "detail": "T_f_ref = 900.0"
+    },
+    "config_T_c_ref_583": {
+      "pass": true,
+      "detail": "T_c_ref = 583.0"
+    },
+    "feedback_zero_at_initial_state": {
+      "pass": true,
+      "detail": "feedback(T_f0, T_c0) = -0.000e+00"
+    }
+  },
+  "sources": {
+    "reactivity_py": "\"\"\"Total reactivity composition: external + thermal-hydraulic feedback.\"\"\"\nfrom __future__ import annotations\nfrom typing import Callable\nfrom .thermal_hydraulics import THParameters, feedback_reactivity\n\n\ndef make_rho_total(rho_ext_fn: Callable[[float], float],\n                   th: THParameters) -> Callable[[float, \"np.ndarray\"], float]:\n    \"\"\"Return rho_total(t, y) combining external reactivity and TH feedback.\n\n    State vector y = [n, C_1..C_m, T_f, T_c]. T_f, T_c at positions -2, -1.\n    \"\"\"\n    def rho_total(t, y):\n        T_f = float(y[-2]); T_c = float(y[-1])\n        return float(rho_ext_fn(t)) + feedback_reactivity(T_f, T_c, th)\n    return rho_total\n",
+    "thermal_hydraulics_py": "\"\"\"Lumped-parameter thermal-hydraulic model: fuel and coolant temperatures.\n\nTwo-node model: fuel node T_f, coolant node T_c.\nState convention: [T_f, T_c]\n\"\"\"\nfrom __future__ import annotations\nfrom dataclasses import dataclass\n\n\n@dataclass(frozen=True)\nclass THParameters:\n    M_f: float; c_p_f: float; f_f: float\n    M_c: float; c_p_c: float; m_dot: float; T_in: float\n    U: float; A: float\n    P0: float\n    alpha_f: float; alpha_c: float\n    T_f_ref: float; T_c_ref: float\n\n    @classmethod\n    def from_yaml(cls, th: dict) -> \"THParameters\":\n        f, c, ht, p, fb = th[\"fuel\"], th[\"coolant\"], th[\"heat_transfer\"], th[\"power\"], th[\"reactivity_feedback\"]\n        return cls(\n            M_f=float(f[\"M_f\"]), c_p_f=float(f[\"c_p_f\"]), f_f=float(f[\"f_f\"]),\n            M_c=float(c[\"M_c\"]), c_p_c=float(c[\"c_p_c\"]),\n            m_dot=float(c[\"m_dot\"]), T_in=float(c[\"T_in\"]),\n            U=float(ht[\"U\"]), A=float(ht[\"A\"]),\n            P0=float(p[\"P0\"]),\n            alpha_f=float(fb[\"alpha_f\"]), alpha_c=float(fb[\"alpha_c\"]),\n            T_f_ref=float(fb[\"T_f_ref\"]), T_c_ref=float(fb[\"T_c_ref\"]),\n        )\n\n\ndef th_rhs(n: float, T_f: float, T_c: float, th: THParameters) -> tuple[float, float]:\n    \"\"\"Return (dT_f/dt, dT_c/dt) given current n, T_f, T_c.\"\"\"\n    q_f = th.f_f * th.P0 * n\n    q_c = (1.0 - th.f_f) * th.P0 * n\n    q_fc = th.U * th.A * (T_f - T_c)\n    dT_f = (q_f - q_fc) / (th.M_f * th.c_p_f)\n    dT_c = (q_c + q_fc - 2.0 * th.m_dot * th.c_p_c * (T_c - th.T_in)) / (th.M_c * th.c_p_c)\n    return dT_f, dT_c\n\n\ndef feedback_reactivity(T_f: float, T_c: float, th: THParameters) -> float:\n    return th.alpha_f * (T_f - th.T_f_ref) + th.alpha_c * (T_c - th.T_c_ref)\n"
+  },
+  "all_pass": true
+}

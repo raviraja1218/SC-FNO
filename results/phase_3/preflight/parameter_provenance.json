@@ -1,0 +1,348 @@
+{
+  "summary": {
+    "total_params": 37,
+    "groups": {
+      "kinetics": 22,
+      "fuel": 3,
+      "coolant": 4,
+      "heat_transfer": 3,
+      "power": 1,
+      "feedback": 4,
+      "equilibrium": 4
+    },
+    "fuel_equilibrium_ratio": 0.999979,
+    "fuel_equilibrium_verified": true,
+    "coolant_balance_W": 800.0,
+    "all_pass": true
+  },
+  "rows": [
+    {
+      "group": "kinetics",
+      "parameter": "n_precursor_groups",
+      "value": 6.0,
+      "unit": "\u2014",
+      "source": "reactor_parameters.v3.yaml:neutronics.n_precursor_groups",
+      "note": ""
+    },
+    {
+      "group": "kinetics",
+      "parameter": "beta_eff",
+      "value": 0.006502,
+      "unit": "dimensionless",
+      "source": "reactor_parameters.v3.yaml:neutronics.beta_eff",
+      "note": ""
+    },
+    {
+      "group": "kinetics",
+      "parameter": "Lambda",
+      "value": 0.0001,
+      "unit": "s",
+      "source": "reactor_parameters.v3.yaml:neutronics.Lambda",
+      "note": ""
+    },
+    {
+      "group": "kinetics",
+      "parameter": "beta_1.0",
+      "value": 0.000215,
+      "unit": "dimensionless",
+      "source": "reactor_parameters.v3.yaml:neutronics.precursor_groups[i=1.0].beta_i",
+      "note": ""
+    },
+    {
+      "group": "kinetics",
+      "parameter": "lambda_1.0",
+      "value": 0.0124,
+      "unit": "s^-1",
+      "source": "reactor_parameters.v3.yaml:neutronics.precursor_groups[i=1.0].lambda_i",
+      "note": ""
+    },
+    {
+      "group": "kinetics",
+      "parameter": "beta_2.0",
+      "value": 0.001424,
+      "unit": "dimensionless",
+      "source": "reactor_parameters.v3.yaml:neutronics.precursor_groups[i=2.0].beta_i",
+      "note": ""
+    },
+    {
+      "group": "kinetics",
+      "parameter": "lambda_2.0",
+      "value": 0.0305,
+      "unit": "s^-1",
+      "source": "reactor_parameters.v3.yaml:neutronics.precursor_groups[i=2.0].lambda_i",
+      "note": ""
+    },
+    {
+      "group": "kinetics",
+      "parameter": "beta_3.0",
+      "value": 0.001274,
+      "unit": "dimensionless",
+      "source": "reactor_parameters.v3.yaml:neutronics.precursor_groups[i=3.0].beta_i",
+      "note": ""
+    },
+    {
+      "group": "kinetics",
+      "parameter": "lambda_3.0",
+      "value": 0.111,
+      "unit": "s^-1",
+      "source": "reactor_parameters.v3.yaml:neutronics.precursor_groups[i=3.0].lambda_i",
+      "note": ""
+    },
+    {
+      "group": "kinetics",
+      "parameter": "beta_4.0",
+      "value": 0.002568,
+      "unit": "dimensionless",
+      "source": "reactor_parameters.v3.yaml:neutronics.precursor_groups[i=4.0].beta_i",
+      "note": ""
+    },
+    {
+      "group": "kinetics",
+      "parameter": "lambda_4.0",
+      "value": 0.301,
+      "unit": "s^-1",
+      "source": "reactor_parameters.v3.yaml:neutronics.precursor_groups[i=4.0].lambda_i",
+      "note": ""
+    },
+    {
+      "group": "kinetics",
+      "parameter": "beta_5.0",
+      "value": 0.000748,
+      "unit": "dimensionless",
+      "source": "reactor_parameters.v3.yaml:neutronics.precursor_groups[i=5.0].beta_i",
+      "note": ""
+    },
+    {
+      "group": "kinetics",
+      "parameter": "lambda_5.0",
+      "value": 1.14,
+      "unit": "s^-1",
+      "source": "reactor_parameters.v3.yaml:neutronics.precursor_groups[i=5.0].lambda_i",
+      "note": ""
+    },
+    {
+      "group": "kinetics",
+      "parameter": "beta_6.0",
+      "value": 0.000273,
+      "unit": "dimensionless",
+      "source": "reactor_parameters.v3.yaml:neutronics.precursor_groups[i=6.0].beta_i",
+      "note": ""
+    },
+    {
+      "group": "kinetics",
+      "parameter": "lambda_6.0",
+      "value": 3.01,
+      "unit": "s^-1",
+      "source": "reactor_parameters.v3.yaml:neutronics.precursor_groups[i=6.0].lambda_i",
+      "note": ""
+    },
+    {
+      "group": "kinetics",
+      "parameter": "sum_beta_check",
+      "value": 0.006502,
+      "unit": "dimensionless",
+      "source": "computed",
+      "note": "\u03a3\u03b2\u1d62 = 0.0065020000, |\u03a3\u03b2\u1d62 \u2212 \u03b2_eff| = 0.000e+00"
+    },
+    {
+      "group": "kinetics",
+      "parameter": "include_q_t",
+      "value": true,
+      "unit": "bool",
+      "source": "reactor_parameters.v3.yaml:neutronics.external_source.include_q_t",
+      "note": "Phase 0 decision: q(t) INCLUDED"
+    },
+    {
+      "group": "kinetics",
+      "parameter": "q_t_default",
+      "value": 0.0,
+      "unit": "\u2014",
+      "source": "reactor_parameters.v3.yaml:neutronics.external_source.q_t_default",
+      "note": ""
+    },
+    {
+      "group": "kinetics",
+      "parameter": "n0",
+      "value": 1.0,
+      "unit": "\u2014",
+      "source": "reactor_parameters.v3.yaml:initial_state.n0",
+      "note": ""
+    },
+    {
+      "group": "kinetics",
+      "parameter": "T_f0",
+      "value": 900.0,
+      "unit": "K",
+      "source": "reactor_parameters.v3.yaml:initial_state.T_f0",
+      "note": ""
+    },
+    {
+      "group": "kinetics",
+      "parameter": "T_c0",
+      "value": 583.0,
+      "unit": "K",
+      "source": "reactor_parameters.v3.yaml:initial_state.T_c0",
+      "note": ""
+    },
+    {
+      "group": "kinetics",
+      "parameter": "C_i0_formula",
+      "value": "beta_i*n0/(Lambda*lambda_i)",
+      "unit": "\u2014",
+      "source": "reactor_parameters.v3.yaml:initial_state (implicit)",
+      "note": "equilibrium precursor concentration"
+    },
+    {
+      "group": "fuel",
+      "parameter": "M_f",
+      "value": 27000.0,
+      "unit": "kg",
+      "source": "thermal_hydraulics.v4.yaml:fuel.M_f",
+      "note": ""
+    },
+    {
+      "group": "fuel",
+      "parameter": "c_p_f",
+      "value": 300.0,
+      "unit": "J/(kg*K)",
+      "source": "thermal_hydraulics.v4.yaml:fuel.c_p_f",
+      "note": ""
+    },
+    {
+      "group": "fuel",
+      "parameter": "f_f",
+      "value": 0.97,
+      "unit": "dimensionless",
+      "source": "thermal_hydraulics.v4.yaml:fuel.f_f",
+      "note": ""
+    },
+    {
+      "group": "coolant",
+      "parameter": "M_c",
+      "value": 4000.0,
+      "unit": "kg",
+      "source": "thermal_hydraulics.v4.yaml:coolant.M_c",
+      "note": ""
+    },
+    {
+      "group": "coolant",
+      "parameter": "c_p_c",
+      "value": 5500.0,
+      "unit": "J/(kg*K)",
+      "source": "thermal_hydraulics.v4.yaml:coolant.c_p_c",
+      "note": ""
+    },
+    {
+      "group": "coolant",
+      "parameter": "m_dot",
+      "value": 13636.36,
+      "unit": "kg/s",
+      "source": "thermal_hydraulics.v4.yaml:coolant.m_dot",
+      "note": ""
+    },
+    {
+      "group": "coolant",
+      "parameter": "T_in",
+      "value": 563.0,
+      "unit": "K",
+      "source": "thermal_hydraulics.v4.yaml:coolant.T_in",
+      "note": ""
+    },
+    {
+      "group": "heat_transfer",
+      "parameter": "U",
+      "value": 3060.0,
+      "unit": "W/(m^2*K)",
+      "source": "thermal_hydraulics.v4.yaml:heat_transfer.U",
+      "note": ""
+    },
+    {
+      "group": "heat_transfer",
+      "parameter": "A",
+      "value": 3000.0,
+      "unit": "m^2",
+      "source": "thermal_hydraulics.v4.yaml:heat_transfer.A",
+      "note": ""
+    },
+    {
+      "group": "heat_transfer",
+      "parameter": "UA",
+      "value": 9180000.0,
+      "unit": "W/K",
+      "source": "computed",
+      "note": "U*A = 9.180e+06"
+    },
+    {
+      "group": "power",
+      "parameter": "P0",
+      "value": 3000000000.0,
+      "unit": "W",
+      "source": "thermal_hydraulics.v4.yaml:power.P0",
+      "note": ""
+    },
+    {
+      "group": "feedback",
+      "parameter": "alpha_f",
+      "value": -3e-05,
+      "unit": "(\u0394k/k)/K",
+      "source": "thermal_hydraulics.v4.yaml:reactivity_feedback.alpha_f",
+      "note": ""
+    },
+    {
+      "group": "feedback",
+      "parameter": "alpha_c",
+      "value": -0.0005,
+      "unit": "(\u0394k/k)/K",
+      "source": "thermal_hydraulics.v4.yaml:reactivity_feedback.alpha_c",
+      "note": ""
+    },
+    {
+      "group": "feedback",
+      "parameter": "T_f_ref",
+      "value": 900.0,
+      "unit": "K",
+      "source": "thermal_hydraulics.v4.yaml:reactivity_feedback.T_f_ref",
+      "note": ""
+    },
+    {
+      "group": "feedback",
+      "parameter": "T_c_ref",
+      "value": 583.0,
+      "unit": "K",
+      "source": "thermal_hydraulics.v4.yaml:reactivity_feedback.T_c_ref",
+      "note": ""
+    },
+    {
+      "group": "equilibrium",
+      "parameter": "fuel_heating_W",
+      "value": 2910000000.0,
+      "unit": "W",
+      "source": "computed",
+      "note": "f_f*P0*n0 = 2.910e+09"
+    },
+    {
+      "group": "equilibrium",
+      "parameter": "heat_transfer_out_W",
+      "value": 2910060000.0,
+      "unit": "W",
+      "source": "computed",
+      "note": "UA*(T_f0-T_c0) = 2.910e+09"
+    },
+    {
+      "group": "equilibrium",
+      "parameter": "fuel_imbalance_ratio",
+      "value": 0.999979,
+      "unit": "dimensionless",
+      "source": "computed",
+      "note": "should be \u2248 1.0"
+    },
+    {
+      "group": "equilibrium",
+      "parameter": "coolant_balance_W",
+      "value": 800.0,
+      "unit": "W",
+      "source": "computed",
+      "note": "P0 - 2*mdot*cp_c*(Tc0-Tin) = 8.000e+02"
+    }
+  ]
+}

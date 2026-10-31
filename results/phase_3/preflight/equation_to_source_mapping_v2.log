@@ -1,0 +1,10 @@
+{
+  "total_terms": 22,
+  "found": 22,
+  "not_found": 0,
+  "missing_terms": [],
+  "all_pass": true,
+  "note": "feedback_reactivity and alphas are defined in thermal_hydraulics.py, reactivity.py imports and composes them. Attribution corrected."
+}
+
+=== Equation mapping: PASS ===

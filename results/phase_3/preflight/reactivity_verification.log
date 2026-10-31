@@ -1,0 +1,12 @@
+  [PASS] make_rho_total_exists: function defined
+  [FAIL] alpha_f_present: alpha_f found
+  [FAIL] alpha_c_present: alpha_c found
+  [PASS] config_alpha_f_sign: alpha_f = -3e-05 (should be < 0, Doppler)
+  [PASS] config_alpha_c_sign: alpha_c = -0.0005 (should be < 0, coolant coefficient)
+  [PASS] config_T_f_ref: T_f_ref = 900.0 (should be 900)
+  [PASS] config_T_c_ref: T_c_ref = 583.0 (should be 583)
+  [FAIL] source_refs_T_f: fuel reference temp referenced
+  [FAIL] source_refs_T_c: coolant reference temp referenced
+  [PASS] feedback_zero_at_init: feedback = -0.000e+00 (should be 0)
+
+=== Reactivity verification: CHECK ===
