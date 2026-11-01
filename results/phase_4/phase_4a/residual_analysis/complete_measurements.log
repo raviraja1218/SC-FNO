@@ -1,0 +1,47 @@
+=== Measuring Phase 3 PI-FNO ===
+  median rel L2 = 1.703041e-01
+  mean   rel L2 = 1.799250e-01
+
+=== Measuring Phase 4A.1 final ===
+  median rel L2 = 1.715798e-01
+  mean   rel L2 = 1.759762e-01
+
+======================================================================
+RELATIVE L2 (per-scenario, 200 validation scenarios)
+======================================================================
+Metric                                 Phase 3      Phase 4A.1         Δ%
+rel L2 median                     1.703041e-01    1.715798e-01     +0.75%
+rel L2 mean                       1.799250e-01    1.759762e-01     -2.19%
+
+======================================================================
+PER-FAMILY (median rel L2)
+======================================================================
+Family                 Phase 3     Phase 4A.1         Δ%     n
+grf                 2.2962e-01     2.4560e-01     +6.96%    50
+ramp                2.1979e-02     1.2110e-02    -44.90%    50
+sinusoidal          1.1583e-01     1.0393e-01    -10.28%    50
+step                3.1128e-01     3.1126e-01     -0.01%    50
+
+======================================================================
+PER-STATE (median rel L2 across 200 val scenarios)
+======================================================================
+State         Phase 3     Phase 4A.1         Δ%
+n          1.6380e-01     1.6181e-01     -1.21%
+C1         4.2277e-01     3.8863e-01     -8.08%
+C2         4.0642e-01     3.6816e-01     -9.42%
+C3         3.2115e-01     2.8765e-01    -10.43%
+C4         2.2567e-01     2.1427e-01     -5.05%
+C5         1.0685e-01     1.0686e-01     +0.01%
+C6         1.2547e-01     1.2474e-01     -0.58%
+Tf         1.1005e-01     1.1060e-01     +0.50%
+Tc         1.2809e-01     1.3500e-01     +5.40%
+
+✓ Saved:
+  results/phase_4/phase_4a/residual_analysis/per_scenario_metrics_phase3.csv
+  results/phase_4/phase_4a/residual_analysis/per_scenario_metrics_phase4a1.csv
+  results/phase_4/phase_4a/residual_analysis/per_scenario_comparison.csv
+  results/phase_4/phase_4a/residual_analysis/per_family_metrics.json
+  results/phase_4/phase_4a/residual_analysis/per_family_metrics.csv
+  results/phase_4/phase_4a/residual_analysis/relative_l2_metrics.json
+
+Scenario-level: Phase 3 wins 162/200, Phase 4A.1 wins 38/200, ties 0

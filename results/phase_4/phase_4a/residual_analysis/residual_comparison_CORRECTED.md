@@ -74,3 +74,105 @@ Adaptive fine-tuning did not address the FFT wraparound issue.
 accuracy cost of 0.52%. **Every one of the 9 PKE+TH residuals improved by**
 **177×–5,672×.** The R_n bottleneck claimed in the original report was a
 diagnostic bug, not a physical or architectural limitation.
+
+---
+
+# Step 4A.3.R — Complete Step 4A.3 Measurement Set
+
+The original Phase 4A.3 residual convergence assessment (`73ae0b0`) covered 6 of the
+9 measurements named in the plan. This section completes the remaining 3:
+
+## Relative L2 Error (200 validation scenarios, per-scenario)
+
+| Metric | Phase 3 | Phase 4A.1 | Δ% |
+|--------|---------|------------|-----|
+| Median | 1.703e-1 | 1.716e-1 | +0.75% |
+| Mean | 1.799e-1 | 1.760e-1 | −2.19% |
+| Min | (see CSV) | (see CSV) | — |
+| Max | (see CSV) | (see CSV) | — |
+
+**Distribution shift:** Phase 4A.1's median slightly worsened, but mean improved. Some small-error scenarios got better, some large-error scenarios got worse.
+
+## Per-Family Metrics (median rel L2)
+
+| Family | Phase 3 | Phase 4A.1 | Δ% | n |
+|--------|---------|------------|-----|---|
+| grf | 2.296e-1 | 2.456e-1 | **+6.96%** | 50 |
+| ramp | 2.198e-2 | 1.211e-2 | **−44.90%** | 50 |
+| sinusoidal | 1.158e-1 | 1.039e-1 | **−10.28%** | 50 |
+| step | 3.113e-1 | 3.113e-1 | −0.01% | 50 |
+
+**Ramp family improved 45%, sinusoidal 10%. GRF worsened 7%. Step unchanged.**
+
+## Per-State Metrics (median rel L2)
+
+| State | Phase 3 | Phase 4A.1 | Δ% |
+|-------|---------|------------|-----|
+| n | 1.638e-1 | 1.618e-1 | −1.21% |
+| C1 | 4.228e-1 | 3.886e-1 | −8.08% |
+| C2 | 4.064e-1 | 3.682e-1 | −9.42% |
+| C3 | 3.212e-1 | 2.877e-1 | −10.43% |
+| C4 | 2.257e-1 | 2.143e-1 | −5.05% |
+| C5 | 1.069e-1 | 1.069e-1 | +0.01% |
+| C6 | 1.255e-1 | 1.247e-1 | −0.58% |
+| Tf | 1.101e-1 | 1.106e-1 | +0.50% |
+| Tc | 1.281e-1 | 1.350e-1 | **+5.40%** |
+
+**6 of 9 states improved (n, C1–C4, C6). 3 unchanged/worse (C5, Tf, Tc).**
+
+## Scenario-Level Win/Loss
+
+**Phase 3 wins 162/200. Phase 4A.1 wins 38/200.** Phase 3's data accuracy still dominates per-scenario.
+
+## Data Trade-Off Interpretation (Reviewer C5/C6)
+
+The 828× physics improvement came with a family- and state-dependent data cost:
+- **Ramp and sinusoidal families improved** (physics alignment improved data)
+- **GRF family degraded** (unstructured forcing penalized)
+- **Precursors improved** (5–10%)
+- **Coolant temperature degraded** (+5.4%)
+
+**The "0.52% data cost" simplification from the earlier report is revised:** the trade-off is not uniform — it's family-specific and state-specific.
+
+---
+
+# Reviewer Refinements Applied
+
+## R3 — Language on Physics Target (Applied)
+
+**Removed:** "machine-precision enforcement"
+**Corrected to:** "The model achieved a low normalized nine-equation physics residual (2.03e-6), satisfying the predefined 10⁻⁵ threshold."
+
+## R5A — Dimensional Improvement Range (Corrected)
+
+Original report claimed "dimensional residuals improved by 20–200×."
+**Actual range: 13–96×** across the nine equations. Corrected.
+
+## R5B — Validation vs Test (Corrected)
+
+**Removed:** "test-set" references from Phase 4A.3 findings.
+**Corrected to:** "The model achieved the measured physics-residual improvement across the 200 **validation** scenarios." Independent test-set generalization claims reserved for Phase 4A.5 / Phase 5.
+
+## R5C — Phase 3 Interpretation (Corrected)
+
+**Removed:** "Phase 3 failed because of incorrect checkpoint selection."
+**Corrected to:** "The Phase 3 training procedure did not achieve the same level of physics convergence as the subsequent Phase 4A.1 procedure. The observed improvement is attributed to the complete experimental procedure (extended training, plateau-triggered L-BFGS, correct checkpoint selection rule)."
+
+## R5D — Scope and Limitations (Added)
+
+**Added:** Explicit note that these results are on 200 validation scenarios only, not the untouched test set. Test-set evaluation deferred to Phase 4A.5.
+
+---
+
+**Step 4A.3 is now complete per plan requirements.** All 9 measurements present:
+1. ✅ 9-equation residuals (aggregate 828× improvement)
+2. ✅ IC residual (1.26e-8)
+3. ✅ Total normalized physics loss (2.03e-6)
+4. ✅ Dimensional residuals (13–96× improvement)
+5. ✅ Data MSE (0.066678, +0.52% vs Phase 3)
+6. ✅ **Relative L2 error (median 1.716e-1, +0.75%; mean −2.19%)**
+7. ✅ **Per-family errors (ramp −45%, sinusoidal −10%, GRF +7%, step 0%)**
+8. ✅ **Per-scenario errors (Phase 3 wins 162/200)**
+9. ✅ 10⁻⁵ target test (achieved, 4.9× margin)
+
+**Gate 4A.3: FULLY PASS.**

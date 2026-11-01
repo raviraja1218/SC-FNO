@@ -1,0 +1,19 @@
+{
+  "measurement": "IC residual, per-state scaled MSE at t=0",
+  "ic_scale": "Phase 1 normalization_std per state",
+  "n_val_scenarios": 200,
+  "batch_size": 16,
+  "phase3": {
+    "L_IC": 5.099615969164425e-07,
+    "ckpt": "models/sc_fno/phase_3/pi_fno/best_val.pt"
+  },
+  "phase4a1": {
+    "L_IC": 1.2592480665045532e-08,
+    "ckpt": "models/sc_fno/phase_4/phase_4a/phase_4a_final.pt"
+  },
+  "delta": {
+    "abs": -4.97369116251397e-07,
+    "pct": -97.53070020542962,
+    "ratio": 40.49731029820077
+  }
+}
