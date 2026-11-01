@@ -1,0 +1,45 @@
+/home/raviraja/miniconda3/envs/sc_fno/lib/python3.10/site-packages/torch/autograd/graph.py:825: UserWarning: Attempting to run cuBLAS, but there was no current CUDA context! Attempting to set the primary context... (Triggered internally at ../aten/src/ATen/cuda/CublasHandlePool.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+Per-state scales (residual_p95):
+  n: 2.905620e-01
+  C1: 1.738846e-02
+  C2: 1.152257e-01
+  C3: 1.033467e-01
+  C4: 2.086526e-01
+  C5: 6.137472e-02
+  C6: 2.247654e-02
+  Tf: 2.941022e+00
+  Tc: 7.173835e-02
+
+=== aggregate loss_fn.compute_physics_loss ===
+  L_physics = 1.725624e-06
+
+=== Internal path via compute_du_dt + compute_residuals ===
+  z shape: torch.Size([16, 32, 200])
+  u_hat shape: torch.Size([16, 9, 50])
+  u_phys: shape=torch.Size([16, 9, 50]), mean=259.0927, first5_n: [1.0000091 1.0000163 1.0000288 1.0000001 1.0000094]
+  stacked residual shape: torch.Size([16, 9, 50])
+  raw R_n mean |value|: 2.2660e+01
+  raw R_C1 mean |value|: 1.2555e-05
+
+=== Per-state contributions using loss_fn.residual_scales ===
+  n   : scale=2.9056e-01, raw_|R|=2.2660e+01, (R/s)²_mean=6.4193e+03
+  C1  : scale=1.7388e-02, raw_|R|=1.2555e-05, (R/s)²_mean=9.0125e-07
+  C2  : scale=1.1523e-01, raw_|R|=1.2244e-04, (R/s)²_mean=1.9800e-06
+  C3  : scale=1.0335e-01, raw_|R|=7.7951e-05, (R/s)²_mean=9.1257e-07
+  C4  : scale=2.0865e-01, raw_|R|=1.0953e-04, (R/s)²_mean=4.2140e-07
+  C5  : scale=6.1375e-02, raw_|R|=3.3093e-05, (R/s)²_mean=4.3722e-07
+  C6  : scale=2.2477e-02, raw_|R|=1.8384e-05, (R/s)²_mean=1.0174e-06
+  Tf  : scale=2.9410e+00, raw_|R|=2.7901e-03, (R/s)²_mean=1.3245e-06
+  Tc  : scale=7.1738e-02, raw_|R|=1.5565e-04, (R/s)²_mean=7.2563e-06
+
+=== Aggregate decomposition ===
+  Manual mean of 9 contributions: 7.132555e+02
+  loss_fn.compute_physics_loss:   1.725624e-06
+  Match? False
+
+  Manual mean EXCLUDING R_n (÷8): 1.781323e-06
+  (This would match 2.03e-6 if R_n is masked)
+
+  If R_n in this batch is small but large in OTHER batches, that's a clue
+  R_n contribution this batch: 6.4193e+03

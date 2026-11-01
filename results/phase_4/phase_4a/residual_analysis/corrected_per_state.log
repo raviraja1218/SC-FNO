@@ -1,0 +1,25 @@
+/home/raviraja/miniconda3/envs/sc_fno/lib/python3.10/site-packages/torch/autograd/graph.py:825: UserWarning: Attempting to run cuBLAS, but there was no current CUDA context! Attempting to set the primary context... (Triggered internally at ../aten/src/ATen/cuda/CublasHandlePool.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+Measuring Phase 3 PI-FNO...
+Measuring Phase 4A.1 final...
+
+✓ Phase 3 reconciliation: manual=1.680695e-03, agg=1.680695e-03
+✓ Phase 4A.1 reconciliation: manual=2.028869e-06, agg=2.028869e-06
+
+=== CORRECTED TABLE ===
+state        Phase3      Phase4A.1      Ratio         Δ%
+n        4.0223e-04     1.8688e-06     215.2x    -99.54%
+C1       6.1002e-03     1.0756e-06    5671.5x    -99.98%
+C2       7.5691e-04     2.0495e-06     369.3x    -99.73%
+C3       7.5053e-04     1.0570e-06     710.0x    -99.86%
+C4       7.7924e-04     6.9819e-07    1116.1x    -99.91%
+C5       7.2083e-04     6.2260e-07    1157.8x    -99.91%
+C6       3.7424e-03     1.1351e-06    3296.9x    -99.97%
+Tf       4.2847e-04     1.5836e-06     270.6x    -99.63%
+Tc       1.4455e-03     8.1695e-06     176.9x    -99.43%
+
+Aggregate Phase 3:   1.680695e-03
+Aggregate Phase 4A.1: 2.028869e-06
+Improvement:          828.4x
+
+✓ Saved corrected CSV + JSON

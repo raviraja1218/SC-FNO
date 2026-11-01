@@ -1,0 +1,89 @@
+{
+  "correction": "Phase 4A.2.R1 \u2014 correct per-state residuals",
+  "reason": "Previous diagnostic manually denormalized du_hat_dt; compute_physics_loss passes raw du_hat_dt from compute_du_dt (already physical units)",
+  "phase3": {
+    "name": "phase3_pi_fno",
+    "ckpt_path": "models/sc_fno/phase_3/pi_fno/best_val.pt",
+    "L_physics_aggregate": 0.0016806954517960548,
+    "per_state_normalized": {
+      "n": 0.00040223302158455434,
+      "C1": 0.006100151866960984,
+      "C2": 0.0007569082842495006,
+      "C3": 0.0007505270365912181,
+      "C4": 0.0007792441129612809,
+      "C5": 0.0007208324924039727,
+      "C6": 0.0037423770229976913,
+      "Tf": 0.00042847027026045206,
+      "Tc": 0.0014455143962270366
+    },
+    "per_state_dimensional": {
+      "n": 0.004559452000718851,
+      "C1": 0.0011191289657010483,
+      "C2": 0.002637300049312986,
+      "C3": 0.0022257938264654232,
+      "C4": 0.004754554874335344,
+      "C5": 0.0013238971049969012,
+      "C6": 0.0011283475905656815,
+      "Tf": 0.048420232649032884,
+      "Tc": 0.002078820700542285
+    },
+    "n_batches": 13,
+    "batch_size": 16,
+    "nq": 50,
+    "t_query_range": [
+      0.5,
+      9.5
+    ]
+  },
+  "phase4a1": {
+    "name": "phase4a1_final",
+    "ckpt_path": "models/sc_fno/phase_4/phase_4a/phase_4a_final.pt",
+    "L_physics_aggregate": 2.0288686947913866e-06,
+    "per_state_normalized": {
+      "n": 1.8687954803471466e-06,
+      "C1": 1.0755729774176032e-06,
+      "C2": 2.0494543552838595e-06,
+      "C3": 1.057008686390103e-06,
+      "C4": 6.981885182820126e-07,
+      "C5": 6.226025933441493e-07,
+      "C6": 1.1351295720137737e-06,
+      "Tf": 1.58355345984791e-06,
+      "Tc": 8.169512651735344e-06
+    },
+    "per_state_dimensional": {
+      "n": 0.00030021692285887326,
+      "C1": 1.4374836889776187e-05,
+      "C2": 0.0001243693035436221,
+      "C3": 8.396591930739724e-05,
+      "C4": 0.0001347887580497907,
+      "C5": 3.8125855868341976e-05,
+      "C6": 1.9609337099469623e-05,
+      "Tf": 0.0029463116079568863,
+      "Tc": 0.00016385552813657201
+    },
+    "n_batches": 13,
+    "batch_size": 16,
+    "nq": 50,
+    "t_query_range": [
+      0.5,
+      9.5
+    ]
+  },
+  "aggregate": {
+    "phase3": 0.0016806954517960548,
+    "phase4a1": 2.0288686947913866e-06,
+    "ratio": 828.3904503582812,
+    "pct_reduction": 99.87928397779483
+  },
+  "reconciliation": {
+    "phase3_manual_vs_agg_match": true,
+    "phase4a1_manual_vs_agg_match": true
+  },
+  "target_1e-5": {
+    "target": 1e-05,
+    "phase3_achieved": false,
+    "phase4a1_achieved": true,
+    "phase3_ratio": 168.06954517960548,
+    "phase4a1_ratio": 0.20288686947913864
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "phase": "4A.2.R",
+  "gate": "PASS (corrected)",
+  "correction_reason": "Original per-state diagnostic double-denormalized du_hat_dt; corrected path matches compute_physics_loss exactly",
+  "phase3_ckpt_sha": "a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50",
+  "phase4a1_ckpt_sha": "681fe6789dd2911a43991db0242a20f8a08d5ba75f82b28f9dbbeaba88ad744f",
+  "aggregate_ratio": 828.3904503582812,
+  "range_x": [
+    176.9401013070204,
+    5671.536934301885
+  ],
+  "physics_target_achieved": true,
+  "reconciliation_verified": true,
+  "artifacts": {
+    "results/phase_4/phase_4a/residual_analysis/aggregate_audit.log": "f7fb55ed5dbe5d3abec859b86c3926a9cb6983c13c81be68f2926cabc3b08772",
+    "results/phase_4/phase_4a/residual_analysis/boundary_comparison.json": "84b18dee77df82963965138c382010ef55fb181800f86d7bca76774a76bca0ec",
+    "results/phase_4/phase_4a/residual_analysis/boundary_comparison.log": "4bf3c4f284935f452e86e969a46f6d32ed4880834acc6d1583218b2bb96e014d",
+    "results/phase_4/phase_4a/residual_analysis/corrected_per_state.log": "4c86cb8d458a273f204f049f681cb5f618c2066c2d1aafc592421320069cca2b",
+    "results/phase_4/phase_4a/residual_analysis/finalize.log": "1dc3d718ad0808d8a06077b4e4c3001b16906ed4658b0af198a78e4fbb817a58",
+    "results/phase_4/phase_4a/residual_analysis/finalize_corrections.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/phase_4/phase_4a/residual_analysis/residual_comparison.log": "851ef9d5c19d086ea1f7b8ba4fcda2a76ee1ca4864accd30a1862975431dff3b",
+    "results/phase_4/phase_4a/residual_analysis/residual_comparison.md": "0a872dfe75e4e3d3dce030775122b094ba6b91dc372d3d335e6b30606ba826bb",
+    "results/phase_4/phase_4a/residual_analysis/residual_comparison_CORRECTED.json": "25cd289665ee371e4a1f15f6dc6ade403ed0c7ccffa903a48f393b2b2d7cbde9",
+    "results/phase_4/phase_4a/residual_analysis/residual_comparison_CORRECTED.md": "19bbb7cd0070e143486b5be28c864af42cabb4047c6f515845113995fec5c40b",
+    "results/phase_4/phase_4a/residual_analysis/residual_comparison_aggregate.json": "cc047b0fb01c614429506273265e5da6495db939514994948735700ea476fd5a",
+    "results/phase_4/phase_4a/residual_analysis/residual_comparison_per_state.csv": "c16ea61d03e9eea21c266ceedc30aab8a70e4483564561878b563d06e4031927",
+    "results/phase_4/phase_4a/residual_analysis/residual_comparison_per_state_CORRECTED.csv": "90f5775dfd8a8c0b3594565ca2cd98db900248220bae5d9a8c43420e44d4e786",
+    "results/phase_4/phase_4a/residual_analysis/stability_report.json": "05f1b20c3435262b4ec8f7b2add9887f389889a47cf13675cf25b7e3d3d0e45e",
+    "results/phase_4/phase_4a/residual_analysis/target_check.json": "6f8828b6f325b9795c2123e5df434c16d4d8b3bdc0d73cc44bf34a5b3fb11868",
+    "reports/figures/phase_4/phase_4a/boundary_error_comparison_CORRECTED.png": "19a494676caa8967549e58bc809cf62ba9105e9975df78526b47370461980fed",
+    "reports/figures/phase_4/phase_4a/physics_loss_comparison_CORRECTED.png": "33c67f707db6ff16b39f1a7b64d3d6b50c5ffec5ebafe4eeed566d61e51307e9",
+    "reports/figures/phase_4/phase_4a/residual_comparison_per_state_CORRECTED.png": "523ed0e439597bd0cec6772c0da33b438355c546973d7224bbd70ab2a5e906f7"
+  }
+}
