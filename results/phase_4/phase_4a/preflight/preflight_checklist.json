@@ -31,7 +31,7 @@
     {
       "name": "4A.0.F Baseline metrics",
       "pass": true,
-      "detail": "L_data=0.06521822923969012, L_phys=0.001689851051196456"
+      "detail": "FIXED loader; L_data=0.066331, L_phys=1.680695e-03 (buggy version archived)"
     },
     {
       "name": "4A.0.G Environment",
@@ -56,5 +56,35 @@
     "initial_total_loss": 0.06522341188130304,
     "lam_phys_from_ckpt": 0.0027542287033381664,
     "peak_vram_allocated_MB": 164.042752
+  },
+  "loader_bug_disclosure": {
+    "bug_id": "4A.0.R7",
+    "discovered": "2026-11-01",
+    "description": "Phase 3 PI-FNO checkpoint saved state_dict with `fno.fno.*` prefix (SCFNOModel wrapping PaddedFNO(fno, pad_size=0)). The Phase 4A.0.F baseline script and Phase 4A.1 training script loaded into a single-wrapped SCFNOModel (`fno.*` prefix). Result: 40 checkpoint keys (`fno.fno.*`) were unexpected and never loaded; the FNO backbone stayed at Phase 2 `fno_best.pt` initialization. Phase 3 FNO weights differ from Phase 2 by up to 20% per key (max diff 0.203 on one weight, sum diff 2.49 over 40 keys). The bug was real and consequential.",
+    "fix": "load_phase3_pi_fno_model (PaddedFNO-wrapped, 0 missing / 0 unexpected)",
+    "regression_test": "test_t10_phase3_pi_fno_loads_bit_exact",
+    "baseline_recomputed": "baseline_metrics_canonical_FIXED.json",
+    "invalid_artifacts_archived": [
+      "results/phase_4/phase_4a/preflight/_INVALID_buggy_load/",
+      "results/phase_4/phase_4a/optimizer/_INVALID_buggy_load/",
+      "models/sc_fno/phase_4/phase_4a/_INVALID_buggy_load/"
+    ]
+  },
+  "baseline_metrics_summary_original_buggy": {
+    "initial_data_loss": 0.06521822923969012,
+    "initial_physics_loss": 0.001689851051196456,
+    "initial_ic_loss": 5.284053433537597e-07,
+    "initial_total_loss": 0.06522341188130304,
+    "lam_phys_from_ckpt": 0.0027542287033381664,
+    "peak_vram_allocated_MB": 164.042752
+  },
+  "baseline_metrics_summary_FIXED": {
+    "loader": "load_phase3_pi_fno_model (PaddedFNO-wrapped, bit-exact)",
+    "n_val_scenarios": 200,
+    "initial_data_loss": 0.06633091947542898,
+    "initial_physics_loss": 0.0016806954517960548,
+    "initial_ic_loss": 5.099615969164425e-07,
+    "lam_phys_from_ckpt": 0.0027542287033381664,
+    "delta_data_vs_phase3": -8.05245710250313e-08
   }
 }
