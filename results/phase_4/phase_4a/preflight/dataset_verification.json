@@ -1,0 +1,87 @@
+{
+  "checks": {
+    "train_count": {
+      "pass": true,
+      "detail": "1600"
+    },
+    "val_count": {
+      "pass": true,
+      "detail": "200"
+    },
+    "test_count": {
+      "pass": true,
+      "detail": "200"
+    },
+    "no_train_val_overlap": {
+      "pass": true,
+      "detail": "0 overlap"
+    },
+    "no_train_test_overlap": {
+      "pass": true,
+      "detail": "0 overlap"
+    },
+    "no_val_test_overlap": {
+      "pass": true,
+      "detail": "0 overlap"
+    },
+    "union_2000": {
+      "pass": true,
+      "detail": "2000"
+    },
+    "train_sha": {
+      "pass": true,
+      "detail": "16ad4670eee9555a"
+    },
+    "val_sha": {
+      "pass": true,
+      "detail": "19b781283503b1a1"
+    },
+    "test_sha": {
+      "pass": true,
+      "detail": "a71514eacaee3d09"
+    },
+    "norm_sha": {
+      "pass": true,
+      "detail": "4e832aa5cdaa940c"
+    },
+    "scenario_count_2000": {
+      "pass": true,
+      "detail": "2000"
+    },
+    "dt_uniform": {
+      "pass": true,
+      "detail": "mean=0.050251256, std=6.939e-18"
+    },
+    "t_start_zero": {
+      "pass": true,
+      "detail": "0.0"
+    },
+    "t_end_10": {
+      "pass": true,
+      "detail": "10.0"
+    },
+    "dt_matches_050251256": {
+      "pass": true,
+      "detail": "0.050251256281"
+    },
+    "norm_training_only": {
+      "pass": true,
+      "detail": "training only (1600 scenarios from train_ids.csv)"
+    },
+    "norm_10_vars": {
+      "pass": true,
+      "detail": "missing: []"
+    },
+    "norm_no_near_zero_std": {
+      "pass": true,
+      "detail": "near-zero: []"
+    }
+  },
+  "all_pass": true,
+  "data_stats": {
+    "dt_mean": 0.050251256281407045,
+    "dt_std": 6.938893903907228e-18,
+    "t_start": 0.0,
+    "t_end": 10.0
+  }
+}

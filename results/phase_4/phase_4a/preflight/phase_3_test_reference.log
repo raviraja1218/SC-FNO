@@ -1,0 +1,11 @@
+{
+  "final_comparison.json": "loaded",
+  "statistical_significance.json": "loaded",
+  "per_family_full.json": "loaded",
+  "boundary_comparison.json": "loaded",
+  "gate_checklist.json": "loaded",
+  "scenario_0458_recomputed.json": "loaded"
+}
+
+Extracted keys: ['final_comparison', 'paired_bootstrap', 'per_family', 'boundary', 'gate_checklist', 'worst_case_0458']
+=== 4A.0.E Phase 3 test reference: recorded ===

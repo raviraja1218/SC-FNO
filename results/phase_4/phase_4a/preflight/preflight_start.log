@@ -1,0 +1,6 @@
+=== Step 4A.0 Preflight Start: 2026-11-01T08:32:27+00:00 ===
+Working dir: /home/raviraja/projects/SC-FNO
+Python 3.10.22
+bc80727 Phase 3 CLOSED — negative result documented + source sync
+206f59e Phase 3.5 v2.1: reviewer reporting corrections — bootstrap retracts 16.81% claim (PI-FNO loses 76.5% of scenarios), P2 wins all families, scenario_0458 equal, throughput protocols documented, resolution terminology corrected
+f6afd44 Phase 3.5: final evaluation — Gate 3.5 PASS (PI-FNO +16.81% over baseline on test set)

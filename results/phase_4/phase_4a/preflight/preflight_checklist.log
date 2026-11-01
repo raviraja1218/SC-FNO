@@ -1,0 +1,11 @@
+  [PASS] 4A.0.A Phase 3 lock integrity: 14/14 checks
+  [PASS] 4A.0.B Checkpoint identity: SHA + param count + forward
+  [PASS] 4A.0.C Dataset verification: splits + dt + normalization
+  [PASS] 4A.0.D Val metrics reproducibility: val MSE = 0.0669540248299927
+  [PASS] 4A.0.E Phase 3 test reference: 6 reference files
+  [PASS] 4A.0.F Baseline metrics: L_data=0.06521822923969012, L_phys=0.001689851051196456
+  [PASS] 4A.0.G Environment: NVIDIA GeForce RTX 4050 Laptop GPU, 6439 MB
+  [PASS] Locked paths clean: empty
+
+Gate 4A.0: PASS
+Manifest: 19 artifacts

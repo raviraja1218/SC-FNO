@@ -1,0 +1,21 @@
+  [PASS] train_count: 1600
+  [PASS] val_count: 200
+  [PASS] test_count: 200
+  [PASS] no_train_val_overlap: 0 overlap
+  [PASS] no_train_test_overlap: 0 overlap
+  [PASS] no_val_test_overlap: 0 overlap
+  [PASS] union_2000: 2000
+  [PASS] train_sha: 16ad4670eee9555a
+  [PASS] val_sha: 19b781283503b1a1
+  [PASS] test_sha: a71514eacaee3d09
+  [PASS] norm_sha: 4e832aa5cdaa940c
+  [PASS] scenario_count_2000: 2000
+  [PASS] dt_uniform: mean=0.050251256, std=6.939e-18
+  [PASS] t_start_zero: 0.0
+  [PASS] t_end_10: 10.0
+  [PASS] dt_matches_050251256: 0.050251256281
+  [PASS] norm_training_only: training only (1600 scenarios from train_ids.csv)
+  [PASS] norm_10_vars: missing: []
+  [PASS] norm_no_near_zero_std: near-zero: []
+
+=== 4A.0.C Dataset verification: PASS ===

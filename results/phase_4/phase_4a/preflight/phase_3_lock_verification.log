@@ -1,0 +1,21 @@
+  [PASS] phase3_tag_exists: 97f5cc6d9d2a
+  [PASS] phase3_tag_peels_to_bc80727: peeled=bc807278181f (expected bc80727)
+  [PASS] phase3_ancestor_of_head: bc80727 is ancestor
+  [PASS] phase2_ancestor_of_head: 0c9dfd7 is ancestor
+  [PASS] phase1_aggregate: 9049c7b42996fee7...
+  [PASS] phase1_configs: {'reactor_parameters': 'v3', 'thermal_hydraulics': 'v4'}
+  [PASS] phase1_manifest_sha: 993581ef514932c5
+  [PASS] phase2_ckpt_sha: 24fce0bad8ec9c66
+  [PASS] phase3_pi_fno_sha: a0522e57f0b43c8a
+  [PASS] decoder_init_sha: c30dd6ca0cc7fb87
+  [PASS] train_ids: 16ad4670eee9555a
+  [PASS] val_ids: 19b781283503b1a1
+  [PASS] test_ids: a71514eacaee3d09
+  [PASS] normalization: 4e832aa5cdaa940c
+  [PASS] locked_paths_clean: empty
+  [PASS] dataset_dir: exists
+
+=== 4A.0.A Phase 3 lock integrity: PASS ===
+  Tag object: 97f5cc6d9d2a
+  Tag commit (peeled): bc807278181f
+  Expected commit:     bc80727

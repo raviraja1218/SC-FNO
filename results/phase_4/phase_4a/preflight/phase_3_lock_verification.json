@@ -1,0 +1,77 @@
+{
+  "checks": {
+    "phase3_tag_exists": {
+      "pass": true,
+      "detail": "97f5cc6d9d2a"
+    },
+    "phase3_tag_peels_to_bc80727": {
+      "pass": true,
+      "detail": "peeled=bc807278181f (expected bc80727)"
+    },
+    "_tag_object_sha": {
+      "pass": true,
+      "detail": "97f5cc6d9d2a"
+    },
+    "_tag_is_annotated": {
+      "pass": true,
+      "detail": "annotated"
+    },
+    "phase3_ancestor_of_head": {
+      "pass": true,
+      "detail": "bc80727 is ancestor"
+    },
+    "phase2_ancestor_of_head": {
+      "pass": true,
+      "detail": "0c9dfd7 is ancestor"
+    },
+    "phase1_aggregate": {
+      "pass": true,
+      "detail": "9049c7b42996fee7..."
+    },
+    "phase1_configs": {
+      "pass": true,
+      "detail": "{'reactor_parameters': 'v3', 'thermal_hydraulics': 'v4'}"
+    },
+    "phase1_manifest_sha": {
+      "pass": true,
+      "detail": "993581ef514932c5"
+    },
+    "phase2_ckpt_sha": {
+      "pass": true,
+      "detail": "24fce0bad8ec9c66"
+    },
+    "phase3_pi_fno_sha": {
+      "pass": true,
+      "detail": "a0522e57f0b43c8a"
+    },
+    "decoder_init_sha": {
+      "pass": true,
+      "detail": "c30dd6ca0cc7fb87"
+    },
+    "train_ids": {
+      "pass": true,
+      "detail": "16ad4670eee9555a"
+    },
+    "val_ids": {
+      "pass": true,
+      "detail": "19b781283503b1a1"
+    },
+    "test_ids": {
+      "pass": true,
+      "detail": "a71514eacaee3d09"
+    },
+    "normalization": {
+      "pass": true,
+      "detail": "4e832aa5cdaa940c"
+    },
+    "locked_paths_clean": {
+      "pass": true,
+      "detail": "empty"
+    },
+    "dataset_dir": {
+      "pass": true,
+      "detail": "exists"
+    }
+  },
+  "all_pass": true
+}

@@ -1,0 +1,25 @@
+{
+  "phase": "4A.0",
+  "gate_4a_0": "PASS",
+  "artifacts": {
+    "results/phase_4/phase_4a/preflight/baseline_metrics.json": "d92db76a0c0d287a51602de6481d6bc0baccbc708536b3c45b7f48246e712d08",
+    "results/phase_4/phase_4a/preflight/baseline_metrics.log": "8175c1d9d49874ecfac522d5d787352fc4da5eb2a2927d79cac11d4aaab725a0",
+    "results/phase_4/phase_4a/preflight/checkpoint_identity.json": "dd4e8cec32a846f15889fa9e6947ddf1ddc9ce6449e9f1b2e78679031d991321",
+    "results/phase_4/phase_4a/preflight/checkpoint_identity.log": "d7a0195bdd5ce4b33f2d924b06304f17c5471b27b6ca6a1a95ec62e9a796b87b",
+    "results/phase_4/phase_4a/preflight/checkpoint_metadata.json": "08adfb33daf7f20c5e6cc9261e25243a2c9ea4f7157d37c15a9262c301b28ce5",
+    "results/phase_4/phase_4a/preflight/dataset_verification.json": "bf86e83543d2016f81c93ef4ca5cde837dcf765268108fd0c0732035dc362166",
+    "results/phase_4/phase_4a/preflight/dataset_verification.log": "e52233cac392fc328c4575c3a0540d5e632da40b986034e6ae1c7683f3de89d0",
+    "results/phase_4/phase_4a/preflight/environment.json": "53ce0055405f0cc47744976d3fa8a91d964a03f6a5c56ed1c4f5efe2ee688d5f",
+    "results/phase_4/phase_4a/preflight/environment.log": "77cdfbf989698422cb47366cf4733fc1fd03a87582cfcbcec1f93ece3202c16e",
+    "results/phase_4/phase_4a/preflight/normalization_verification.json": "04b861eddc7a2304db8601c363746d01f2a862100aab56a3026c5cdc454e26a4",
+    "results/phase_4/phase_4a/preflight/phase_3_lock_verification.json": "4cfdc4902bf51f65f6241bdf8372061ba7f822b2421d20d81e4beb0dcef7d880",
+    "results/phase_4/phase_4a/preflight/phase_3_lock_verification.log": "1e224b3caafe821011d862f70fec700f208a6d2d6c650cea2c971b8b03629489",
+    "results/phase_4/phase_4a/preflight/phase_3_test_reference.json": "677a554eef3b5eb8f7d9adedfcaca632fd62468437f569d4fa54f56bf522923e",
+    "results/phase_4/phase_4a/preflight/phase_3_test_reference.log": "43ef7912470606c83405227ef1d85a573350732461fcc40bc9b06247d56631aa",
+    "results/phase_4/phase_4a/preflight/preflight_checklist.json": "159eb250634178f4b5ecd61f4a0b44635aed023a4393110a5f88a65542a0476c",
+    "results/phase_4/phase_4a/preflight/preflight_checklist.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/phase_4/phase_4a/preflight/preflight_start.log": "d9220f410180fa3066195c56fdd30226923894ab1ecd574bf1dc178a7c869d98",
+    "results/phase_4/phase_4a/preflight/val_metrics_reproduced.json": "3d613f63c9409d052157d7686cacb728b1dc38bae82e9dcf68a64ac05ef3e740",
+    "results/phase_4/phase_4a/preflight/val_metrics_reproduced.log": "e18e1a916092b487d231016539d646fbbbc293d3ca496412f70bb556ee6c98f0"
+  }
+}

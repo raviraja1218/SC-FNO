@@ -1,0 +1,15 @@
+{
+  "python": "3.10.22",
+  "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "torch": "2.5.1+cu121",
+  "torch_cuda_version": "12.1",
+  "neuralop": "2.0.0",
+  "numpy": "2.2.6",
+  "scipy": "1.15.3",
+  "cuda_available": true,
+  "cuda_device_name": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "cuda_device_vram_MB": 6438.780928,
+  "nvidia_smi": "610.88, NVIDIA GeForce RTX 4050 Laptop GPU, 6141 MiB"
+}
+
+=== 4A.0.G Environment: captured ===

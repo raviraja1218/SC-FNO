@@ -1,0 +1,14 @@
+  [PASS] ckpt_sha256: a0522e57f0b43c8a...
+  [PASS] ckpt_exists: 431854 bytes
+  [PASS] has_model_state_dict: ['epoch', 'model_state_dict', 'variant', 'padding', 'use_physics', 'val_data_loss', 'lam_phys']
+  [PASS] has_val_data_loss: val_data_loss = 0.06633091947542898
+  [PASS] state_dict_nonempty: 94 tensors
+  [PASS] not_p2_ckpt: PI-FNO(a0522e57) ≠ P2(24fce0ba)
+  load_phase2_fno signature: (checkpoint_path: 'str' = 'models/baseline/fno_best.pt', device: 'str' = 'cuda') -> 'FNO'
+  [PASS] param_count_63634: 63634 params
+  [PASS] forward_data_shape: torch.Size([2, 9, 200])
+  [PASS] forward_phys_shape: torch.Size([2, 9, 10])
+  [PASS] forward_data_finite: finite
+  [PASS] forward_phys_finite: finite
+
+=== 4A.0.B Checkpoint identity: PASS ===

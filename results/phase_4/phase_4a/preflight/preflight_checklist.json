@@ -1,0 +1,60 @@
+{
+  "phase": "4A.0",
+  "timestamp": "2026-11-01",
+  "phase_3_lock_reference": "bc80727",
+  "checks": [
+    {
+      "name": "4A.0.A Phase 3 lock integrity",
+      "pass": true,
+      "detail": "14/14 checks"
+    },
+    {
+      "name": "4A.0.B Checkpoint identity",
+      "pass": true,
+      "detail": "SHA + param count + forward"
+    },
+    {
+      "name": "4A.0.C Dataset verification",
+      "pass": true,
+      "detail": "splits + dt + normalization"
+    },
+    {
+      "name": "4A.0.D Val metrics reproducibility",
+      "pass": true,
+      "detail": "val MSE = 0.0669540248299927"
+    },
+    {
+      "name": "4A.0.E Phase 3 test reference",
+      "pass": true,
+      "detail": "6 reference files"
+    },
+    {
+      "name": "4A.0.F Baseline metrics",
+      "pass": true,
+      "detail": "L_data=0.06521822923969012, L_phys=0.001689851051196456"
+    },
+    {
+      "name": "4A.0.G Environment",
+      "pass": true,
+      "detail": "NVIDIA GeForce RTX 4050 Laptop GPU, 6439 MB"
+    },
+    {
+      "name": "Locked paths clean",
+      "pass": true,
+      "detail": "empty"
+    }
+  ],
+  "gate_4a_0": "PASS",
+  "diagnostic_notes": [
+    "lam_phys in PI-FNO ckpt = 0.002754 (epoch 36 of ramp) \u2014 Phase 4A.1 must decide \u03bb_phys strategy",
+    "R_n per-state diagnostic = 1900 while aggregate L_physics = 1.69e-3 \u2014 aggregate is authoritative (matches compute_physics_loss); per-state diagnostic path may have subtle denormalization difference \u2014 resolve in 4A.3 for residual comparison."
+  ],
+  "baseline_metrics_summary": {
+    "initial_data_loss": 0.06521822923969012,
+    "initial_physics_loss": 0.001689851051196456,
+    "initial_ic_loss": 5.284053433537597e-07,
+    "initial_total_loss": 0.06522341188130304,
+    "lam_phys_from_ckpt": 0.0027542287033381664,
+    "peak_vram_allocated_MB": 164.042752
+  }
+}
