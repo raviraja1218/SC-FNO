@@ -1,0 +1,19 @@
+{
+  "phase_1": {
+    "aggregate_sha256": "9049c7b42996fee7c08202703086bf0aebd513dbd1f77b1265ae546d6f241bf6",
+    "manifest_sha256": "993581ef514932c5f3c341ce176a401a5247ebe7217e83f70d3ebe26dd3cff12",
+    "verified": true
+  },
+  "phase_2": {
+    "tag_commit": "0c9dfd7ced7454342e09280b6307f83d42eea89e",
+    "checkpoint_sha256": "24fce0bad8ec9c665649f6d73f4c56efd66f92667d95da3011d32dcbf4388889",
+    "verified": true
+  },
+  "phase_3": {
+    "tag_commit": "bc807278181fb43553b91fe2bd0e9802734da29f",
+    "pi_fno_ckpt_sha256": "a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50",
+    "verified": true
+  },
+  "locked_paths_clean": true,
+  "all_verified": true
+}
