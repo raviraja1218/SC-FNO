@@ -1,0 +1,152 @@
+/home/raviraja/miniconda3/envs/sc_fno/lib/python3.10/site-packages/torch/autograd/graph.py:825: UserWarning: Attempting to run cuBLAS, but there was no current CUDA context! Attempting to set the primary context... (Triggered internally at ../aten/src/ATen/cuda/CublasHandlePool.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+Device: cuda
+Config: {
+  "adam_lr": 0.001,
+  "adam_beta1": 0.9,
+  "adam_beta2": 0.999,
+  "adam_eps": 1e-08,
+  "scheduler_t_max": 100,
+  "scheduler_eta_min": 0.0,
+  "lam_phys_init": 0.002754,
+  "lam_phys_target": 1.0,
+  "lam_phys_ramp_epochs": 64,
+  "ema_alpha": 0.1,
+  "ref_window": 20,
+  "plateau_delta": 0.0001,
+  "plateau_patience": 3,
+  "min_adam_epochs": 20,
+  "max_adam_epochs": 100,
+  "transition_policy": "B_inherit_lambda",
+  "lbfgs_history_size": 50,
+  "lbfgs_max_iter": 50000,
+  "lbfgs_tolerance_grad": 1e-07,
+  "lbfgs_tolerance_change": 1e-09,
+  "lbfgs_fixed_batch_size": 16,
+  "seed": 42
+}
+Loaded checkpoint: epoch=36, lam_phys=0.0027542287033381664
+  state_dict: 0 missing, 0 unexpected (bit-exact load verified)
+Loading train data...
+  X_train: torch.Size([1600, 1, 200]), Y_train: torch.Size([1600, 9, 200])
+Loading val data...
+  X_val: torch.Size([200, 1, 200]), Y_val: torch.Size([200, 9, 200])
+Fixed L-BFGS batch: torch.Size([16, 1, 200])
+
+============================================================
+ADAM STAGE
+============================================================
+Epoch   0 | lam=2.7540e-03 | train_d=5.92002306e-02 | val_d=0.0665368618 | lr=9.99753280e-04 | 6.3s
+Epoch   1 | lam=3.0197e-03 | train_d=5.87526009e-02 | val_d=0.0668224157 | lr=9.99013364e-04 | 4.9s
+Epoch   2 | lam=3.3110e-03 | train_d=5.87954784e-02 | val_d=0.0661362328 | lr=9.97780982e-04 | 5.2s
+Epoch   3 | lam=3.6305e-03 | train_d=5.88147945e-02 | val_d=0.0665354948 | lr=9.96057351e-04 | 5.3s
+Epoch   4 | lam=3.9808e-03 | train_d=5.88807996e-02 | val_d=0.0666445860 | lr=9.93844170e-04 | 4.9s
+Epoch   5 | lam=4.3648e-03 | train_d=5.94130198e-02 | val_d=0.0680208546 | lr=9.91143625e-04 | 3.8s
+Epoch   6 | lam=4.7859e-03 | train_d=5.91522360e-02 | val_d=0.0662719391 | lr=9.87958381e-04 | 4.8s
+Epoch   7 | lam=5.2477e-03 | train_d=5.88619707e-02 | val_d=0.0665286329 | lr=9.84291581e-04 | 5.2s
+Epoch   8 | lam=5.7540e-03 | train_d=5.86683190e-02 | val_d=0.0668055775 | lr=9.80146843e-04 | 5.0s
+Epoch   9 | lam=6.3091e-03 | train_d=5.90116901e-02 | val_d=0.0666243231 | lr=9.75528258e-04 | 5.2s
+Epoch  10 | lam=6.9178e-03 | train_d=5.88776460e-02 | val_d=0.0669190572 | lr=9.70440384e-04 | 5.0s
+Epoch  11 | lam=7.5853e-03 | train_d=5.89260904e-02 | val_d=0.0662762429 | lr=9.64888243e-04 | 4.1s
+Epoch  12 | lam=8.3171e-03 | train_d=5.86010459e-02 | val_d=0.0665167537 | lr=9.58877313e-04 | 5.0s
+Epoch  13 | lam=9.1195e-03 | train_d=5.86691309e-02 | val_d=0.0663759176 | lr=9.52413526e-04 | 5.0s
+Epoch  14 | lam=9.9994e-03 | train_d=5.87168977e-02 | val_d=0.0671710834 | lr=9.45503262e-04 | 5.0s
+Epoch  15 | lam=1.0964e-02 | train_d=5.88150049e-02 | val_d=0.0667237784 | lr=9.38153340e-04 | 5.3s
+Epoch  16 | lam=1.2022e-02 | train_d=5.87097023e-02 | val_d=0.0665851141 | lr=9.30371014e-04 | 4.9s
+Epoch  17 | lam=1.3182e-02 | train_d=5.87087915e-02 | val_d=0.0666854049 | lr=9.22163963e-04 | 5.0s
+Epoch  18 | lam=1.4454e-02 | train_d=5.87306247e-02 | val_d=0.0668635397 | lr=9.13540287e-04 | 4.0s
+Epoch  19 | lam=1.5848e-02 | train_d=5.87001795e-02 | val_d=0.0665054388 | lr=9.04508497e-04 | 5.0s
+Epoch  20 | lam=1.7377e-02 | train_d=5.85013724e-02 | val_d=0.0665086728 | lr=8.95077506e-04 | 5.0s
+Epoch  21 | lam=1.9054e-02 | train_d=5.84876707e-02 | val_d=0.0664118749 | lr=8.85256621e-04 | 5.1s
+Epoch  22 | lam=2.0892e-02 | train_d=5.84966021e-02 | val_d=0.0668967706 | lr=8.75055535e-04 | 5.1s
+Epoch  23 | lam=2.2907e-02 | train_d=5.86918397e-02 | val_d=0.0665908489 | lr=8.64484314e-04 | 5.0s
+Epoch  24 | lam=2.5118e-02 | train_d=5.87659893e-02 | val_d=0.0681620132 | lr=8.53553391e-04 | 4.0s
+Epoch  25 | lam=2.7541e-02 | train_d=5.99578809e-02 | val_d=0.0667638929 | lr=8.42273553e-04 | 5.1s
+Epoch  26 | lam=3.0198e-02 | train_d=5.87062797e-02 | val_d=0.0661977607 | lr=8.30655933e-04 | 4.9s
+Epoch  27 | lam=3.3112e-02 | train_d=5.84632971e-02 | val_d=0.0664293110 | lr=8.18711995e-04 | 5.1s
+Epoch  28 | lam=3.6306e-02 | train_d=5.83518997e-02 | val_d=0.0660848983 | lr=8.06453527e-04 | 5.1s
+Epoch  29 | lam=3.9809e-02 | train_d=5.83439980e-02 | val_d=0.0664498445 | lr=7.93892626e-04 | 4.9s
+Epoch  30 | lam=4.3650e-02 | train_d=5.83716153e-02 | val_d=0.0666220742 | lr=7.81041689e-04 | 5.0s
+Epoch  31 | lam=4.7861e-02 | train_d=5.83241625e-02 | val_d=0.0664194306 | lr=7.67913397e-04 | 4.0s
+Epoch  32 | lam=5.2479e-02 | train_d=5.84012078e-02 | val_d=0.0664997485 | lr=7.54520708e-04 | 5.1s
+Epoch  33 | lam=5.7542e-02 | train_d=5.83798999e-02 | val_d=0.0661820947 | lr=7.40876837e-04 | 4.9s
+Epoch  34 | lam=6.3093e-02 | train_d=5.83692387e-02 | val_d=0.0666807775 | lr=7.26995250e-04 | 5.2s
+Epoch  35 | lam=6.9180e-02 | train_d=5.83759959e-02 | val_d=0.0665737752 | lr=7.12889646e-04 | 5.0s
+Epoch  36 | lam=7.5855e-02 | train_d=5.83656260e-02 | val_d=0.0665008179 | lr=6.98573945e-04 | 4.8s
+Epoch  37 | lam=8.3173e-02 | train_d=5.84386358e-02 | val_d=0.0666885051 | lr=6.84062276e-04 | 5.1s
+Epoch  38 | lam=9.1198e-02 | train_d=5.84120424e-02 | val_d=0.0663581669 | lr=6.69368960e-04 | 5.0s
+Epoch  39 | lam=9.9997e-02 | train_d=5.83063101e-02 | val_d=0.0665318753 | lr=6.54508497e-04 | 4.9s
+Epoch  40 | lam=1.0964e-01 | train_d=5.82830740e-02 | val_d=0.0665806389 | lr=6.39495553e-04 | 5.2s
+Epoch  41 | lam=1.2022e-01 | train_d=5.83414751e-02 | val_d=0.0666403673 | lr=6.24344944e-04 | 4.9s
+Epoch  42 | lam=1.3182e-01 | train_d=5.83109079e-02 | val_d=0.0663535344 | lr=6.09071621e-04 | 5.0s
+Epoch  43 | lam=1.4454e-01 | train_d=5.83044961e-02 | val_d=0.0664960919 | lr=5.93690657e-04 | 4.9s
+Epoch  44 | lam=1.5849e-01 | train_d=5.82683593e-02 | val_d=0.0664979258 | lr=5.78217233e-04 | 4.9s
+Epoch  45 | lam=1.7378e-01 | train_d=5.82725853e-02 | val_d=0.0667451780 | lr=5.62666617e-04 | 2.9s
+Epoch  46 | lam=1.9054e-01 | train_d=5.82269464e-02 | val_d=0.0664468363 | lr=5.47054157e-04 | 4.6s
+Epoch  47 | lam=2.0893e-01 | train_d=5.82264535e-02 | val_d=0.0666931978 | lr=5.31395260e-04 | 5.0s
+Epoch  48 | lam=2.2908e-01 | train_d=5.82224657e-02 | val_d=0.0665113623 | lr=5.15705380e-04 | 5.2s
+Epoch  49 | lam=2.5118e-01 | train_d=5.81634239e-02 | val_d=0.0666825148 | lr=5.00000000e-04 | 5.2s
+Epoch  50 | lam=2.7542e-01 | train_d=5.81543349e-02 | val_d=0.0665036363 | lr=4.84294620e-04 | 5.2s
+Epoch  51 | lam=3.0199e-01 | train_d=5.81478906e-02 | val_d=0.0667050463 | lr=4.68604740e-04 | 4.2s
+Epoch  52 | lam=3.3113e-01 | train_d=5.81420520e-02 | val_d=0.0666900682 | lr=4.52945843e-04 | 5.3s
+Epoch  53 | lam=3.6307e-01 | train_d=5.81312485e-02 | val_d=0.0665229696 | lr=4.37333383e-04 | 5.2s
+Epoch  54 | lam=3.9810e-01 | train_d=5.81434944e-02 | val_d=0.0667021990 | lr=4.21782767e-04 | 5.2s
+
+*** PLATEAU DETECTED at epoch 54 ***
+    λ_phys at transition: 3.98102005e-01
+    val_data_loss: 0.0667021990
+    Transition policy: B_inherit_lambda
+
+Adam stage complete: 269.8s, 55 epochs
+Saved: models/sc_fno/phase_4/phase_4a/adam_stage.pt
+Transition: {
+  "plateau_epoch": 54,
+  "lam_phys_at_transition": 0.39810200510846905,
+  "ema_value": 0.06659167678759165,
+  "improvement_last_check": -0.0004240747310471406,
+  "policy": "B_inherit_lambda",
+  "raw_val_loss": 0.06670219903697636,
+  "adam_wall_time_s": 269.80097556114197,
+  "adam_epochs_completed": 55
+}
+
+============================================================
+L-BFGS STAGE
+============================================================
+L-BFGS inherits λ_phys = 3.98102005e-01 (Policy B)
+Fixed batch: 16 training scenarios (deterministic)
+Running L-BFGS...
+L-BFGS complete: {'wall_time_s': 0.8871045112609863, 'closure_calls': 17, 'final_loss': 0.5990330576896667, 'lambda_phys': 0.39810200510846905, 'max_iter': 50000}
+Saved: models/sc_fno/phase_4/phase_4a/phase_4a_final.pt
+
+============================================================
+TRAINING COMPLETE
+============================================================
+{
+  "phase": "4A.1",
+  "starting_checkpoint_sha": "a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50",
+  "adam": {
+    "epochs_completed": 55,
+    "wall_time_s": 269.80097556114197,
+    "final_val_data_loss": 0.06670219903697636,
+    "transition_epoch": 54,
+    "transition_lam_phys": 0.39810200510846905,
+    "transition_policy": "B_inherit_lambda"
+  },
+  "lbfgs": {
+    "wall_time_s": 0.8871045112609863,
+    "closure_calls": 17,
+    "final_loss": 0.5990330576896667,
+    "lambda_phys": 0.39810200510846905,
+    "max_iter": 50000
+  },
+  "peak_vram_MB": {
+    "adam": 69.28896,
+    "lbfgs": 78.172672
+  },
+  "checkpoints": {
+    "adam_stage": "models/sc_fno/phase_4/phase_4a/adam_stage.pt",
+    "final": "models/sc_fno/phase_4/phase_4a/phase_4a_final.pt",
+    "optimizer_state": "models/sc_fno/phase_4/phase_4a/optimizer_state.pt"
+  }
+}

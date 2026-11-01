@@ -1,0 +1,28 @@
+{
+  "phase": "4A.1",
+  "starting_checkpoint_sha": "a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50",
+  "adam": {
+    "epochs_completed": 55,
+    "wall_time_s": 269.80097556114197,
+    "final_val_data_loss": 0.06670219903697636,
+    "transition_epoch": 54,
+    "transition_lam_phys": 0.39810200510846905,
+    "transition_policy": "B_inherit_lambda"
+  },
+  "lbfgs": {
+    "wall_time_s": 0.8871045112609863,
+    "closure_calls": 17,
+    "final_loss": 0.5990330576896667,
+    "lambda_phys": 0.39810200510846905,
+    "max_iter": 50000
+  },
+  "peak_vram_MB": {
+    "adam": 69.28896,
+    "lbfgs": 78.172672
+  },
+  "checkpoints": {
+    "adam_stage": "models/sc_fno/phase_4/phase_4a/adam_stage.pt",
+    "final": "models/sc_fno/phase_4/phase_4a/phase_4a_final.pt",
+    "optimizer_state": "models/sc_fno/phase_4/phase_4a/optimizer_state.pt"
+  }
+}
