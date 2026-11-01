@@ -1,0 +1,45 @@
+/home/raviraja/miniconda3/envs/sc_fno/lib/python3.10/site-packages/torch/autograd/graph.py:825: UserWarning: Attempting to run cuBLAS, but there was no current CUDA context! Attempting to set the primary context... (Triggered internally at ../aten/src/ATen/cuda/CublasHandlePool.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+compute_du_dt output magnitudes (first batch element, mean |value|):
+  n: u_hat_norm=1.9583e-02, du_hat_dt_norm=1.2717e-03
+  C1: u_hat_norm=1.5254e-02, du_hat_dt_norm=1.2717e-03
+  C2: u_hat_norm=4.2396e-02, du_hat_dt_norm=1.2717e-03
+  C3: u_hat_norm=3.5879e-02, du_hat_dt_norm=1.2717e-03
+  C4: u_hat_norm=3.5714e-02, du_hat_dt_norm=1.2717e-03
+  C5: u_hat_norm=2.8923e-02, du_hat_dt_norm=1.2717e-03
+  C6: u_hat_norm=2.3360e-02, du_hat_dt_norm=1.2717e-03
+  Tf: u_hat_norm=2.8946e-02, du_hat_dt_norm=1.2717e-03
+  Tc: u_hat_norm=2.9544e-02, du_hat_dt_norm=1.2717e-03
+
+Expected physical du/dt magnitude (from GT via finite difference):
+  n: |dy/dt_phys| mean = 6.6540e-02 (physical units/s)
+  C1: |dy/dt_phys| mean = 2.9617e-01 (physical units/s)
+  C2: |dy/dt_phys| mean = 1.7930e+00 (physical units/s)
+  C3: |dy/dt_phys| mean = 1.1147e+00 (physical units/s)
+  C4: |dy/dt_phys| mean = 1.1704e+00 (physical units/s)
+  C5: |dy/dt_phys| mean = 9.8572e-02 (physical units/s)
+  C6: |dy/dt_phys| mean = 2.4851e-02 (physical units/s)
+  Tf: |dy/dt_phys| mean = 5.0455e+00 (physical units/s)
+  Tc: |dy/dt_phys| mean = 2.8981e-01 (physical units/s)
+
+Loss_fn.compute_physics_loss aggregate: 1.779518e-03
+
+Manual diagnostic (denorm du by norm_std):
+  R_n dimensional: mean |value| = 6.0613e-03
+  s_n (residual_p95 for n) = 0.2905620038509369
+  R_n / s_n mean |value| = 2.0860e-02
+  (R_n / s_n)^2 mean = 6.9852e-04
+
+Manual diagnostic (NO du denorm — matching compute_physics_loss):
+  R_n dimensional: mean |value| = 6.1871e-03
+  (R_n / s_n)^2 mean = 6.9356e-04
+
+{
+  "aggregate_loss_fn": 0.0017795179737731814,
+  "manual_with_denorm_dn": 0.000698523479513824,
+  "manual_no_denorm_dn": 0.0006935634883120656,
+  "s_n": 0.2905620038509369,
+  "diagnosis": "If manual_no_denorm_dn matches aggregate/9 closely, then compute_physics_loss passes raw du_hat_dt and compute_du_dt returns physical derivative. If manual_with_denorm matches, then compute_du_dt returns normalized derivative."
+}
+
+=== 4A.0.R4 R_n trace: DONE ===

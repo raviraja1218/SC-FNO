@@ -1,0 +1,7 @@
+{
+  "aggregate_loss_fn": 0.0017795179737731814,
+  "manual_with_denorm_dn": 0.000698523479513824,
+  "manual_no_denorm_dn": 0.0006935634883120656,
+  "s_n": 0.2905620038509369,
+  "diagnosis": "If manual_no_denorm_dn matches aggregate/9 closely, then compute_physics_loss passes raw du_hat_dt and compute_du_dt returns physical derivative. If manual_with_denorm matches, then compute_du_dt returns normalized derivative."
+}

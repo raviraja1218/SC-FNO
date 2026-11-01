@@ -1,0 +1,144 @@
+============================================================
+1. TRAINING CONFIG
+============================================================
+{
+  "variant": "pi_fno",
+  "padding": 0,
+  "use_physics": true,
+  "use_ic": true,
+  "max_epochs": 200,
+  "batch_size": 16,
+  "lr": 0.001,
+  "patience": 30,
+  "lam_phys_init": 0.0001,
+  "lam_phys_target": 1.0,
+  "lam_phys_ramp_epochs": 100,
+  "seed": 42,
+  "reference_cos": -0.239
+}
+
+============================================================
+2. TRAINING SUMMARY
+============================================================
+{
+  "variant": "pi_fno",
+  "padding": 0,
+  "use_physics": true,
+  "use_ic": true,
+  "device": "cuda",
+  "total_epochs": 67,
+  "best_epoch": 36,
+  "best_val_data_loss": 0.06633091947542898,
+  "final_train_data_loss": 0.058445989184547215,
+  "final_train_phys_loss": 0.0008559690771289752,
+  "final_train_ic_loss": 4.176018368227119e-06,
+  "final_train_total_loss": 0.05848752945661545,
+  "final_cos": 0.02251539068118767,
+  "reference_cos": -0.239,
+  "delta_cos": 0.2615153906811877,
+  "lam_phys_final": 0.04365158322401661,
+  "lam_phys_frozen": false,
+  "total_time_sec": 857.8520305156708,
+  "peak_vram_mb": 128.843264,
+  "best_ckpt_sha": "a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50",
+  "last_ckpt_sha": "6c60338ace63d03ad7915338de5145834a3ddfe3ba309b6fb3f8644c143e20f1"
+}
+
+============================================================
+3. TRAINING LOG
+============================================================
+Columns: ['epoch', 'train_data_loss', 'train_phys_loss', 'train_ic_loss', 'train_total_loss', 'val_data_loss', 'val_phys_loss', 'val_ic_loss', 'val_total_loss', 'lr', 'cos_data_phys', 'delta_cos_from_ref', 'weighted_grad_data', 'weighted_grad_phys', 'weighted_grad_ic', 'lam_phys_current', 'peak_vram_mb', 'time_sec', 'phys_n', 'phys_C1', 'phys_C2', 'phys_C3', 'phys_C4', 'phys_C5', 'phys_C6', 'phys_Tf', 'phys_Tc']
+Rows: 67
+Min epoch: 0
+Max epoch: 66
+Best val_data_loss: 0.066331 at epoch 36.0
+
+First 5 lam_phys values:
+   epoch  lam_phys_current
+0      0          0.000100
+1      1          0.000110
+2      2          0.000120
+3      3          0.000132
+4      4          0.000145
+
+Around epoch 36:
+    epoch  lam_phys_current
+30     30          0.001585
+31     31          0.001738
+32     32          0.001905
+33     33          0.002089
+34     34          0.002291
+35     35          0.002512
+36     36          0.002754
+37     37          0.003020
+38     38          0.003311
+39     39          0.003631
+40     40          0.003981
+41     41          0.004365
+42     42          0.004786
+43     43          0.005248
+44     44          0.005754
+45     45          0.006310
+
+Last 5 lam_phys values:
+    epoch  lam_phys_current
+62     62          0.030200
+63     63          0.033113
+64     64          0.036308
+65     65          0.039811
+66     66          0.043652
+
+============================================================
+4. CHECKPOINT
+============================================================
+epoch: 36
+val_data_loss: 0.06633091947542898
+lam_phys: 0.0027542287033381664
+variant: pi_fno
+padding: 0
+use_physics: True
+
+============================================================
+5. SOURCE CODE: λ_phys SCHEDULE
+============================================================
+   150      lam_phys_init: float = 1e-4,
+   151      lam_phys_target: float = 1.0,
+   152      lam_phys_ramp_epochs: int = 100,
+   180      loss_fn = load_composite_loss(lam_data=1.0, lam_phys=lam_phys_init,
+   183      # Override lam_phys and lam_IC based on variant
+   185          loss_fn.lam_phys = 0.0
+   232          "lam_phys_current", "peak_vram_mb", "time_sec",
+   247      lam_phys_frozen = False
+   248      lam_phys_current = lam_phys_init if use_physics else 0.0
+   274          # Update lam_phys according to schedule
+   275          if use_physics and not lam_phys_frozen:
+   276              if epoch < lam_phys_ramp_epochs:
+   278                  frac = epoch / lam_phys_ramp_epochs
+   279                  lam_phys_current = lam_phys_init * (10.0 ** (frac * math.log10(lam_phys_target / lam_phys_init)))
+   281                  lam_phys_current = lam_phys_target
+   282              loss_fn.lam_phys = lam_phys_current
+   357                  last_wg_phys = loss_fn.lam_phys * float(g_phys_vec.norm().item())
+   425                  "lam_phys": lam_phys_current,
+   442              if cos_warning_run >= 3 and not lam_phys_frozen:
+   443                  print(f"  [WARN] cos < -0.15 for 3 epochs — freezing lam_phys")
+   444                  lam_phys_frozen = True
+   446                  print(f"  [INTERVENE] cos < -0.25 sustained — reducing lam_phys 10x")
+   447                  lam_phys_current = max(lam_phys_current / 10.0, 1e-8)
+   448                  loss_fn.lam_phys = lam_phys_current
+   473              "lam_phys_current": lam_phys_current,
+   485                f"lam_phys={lam_phys_current:.2e}")
+   502          "lam_phys_final": lam_phys_current,
+   528          "lam_phys_final": float(lam_phys_current),
+   529          "lam_phys_frozen": bool(lam_phys_frozen),
+   545          f"lam_phys_init: {lam_phys_init}\n"
+   546          f"lam_phys_target: {lam_phys_target}\n"
+   547          f"lam_phys_ramp_epochs: {lam_phys_ramp_epochs}\n"
+
+============================================================
+6. RECONCILIATION
+============================================================
+Checkpoint epoch: 36
+Checkpoint lam_phys: 0.0027542287033381664
+Checkpoint val_data_loss: 0.06633091947542898
+
+=== 4A.0.R1 Lambda schedule evidence: SAVED ===

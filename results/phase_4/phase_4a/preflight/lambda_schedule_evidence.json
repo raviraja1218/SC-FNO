@@ -1,0 +1,183 @@
+{
+  "training_config": {
+    "variant": "pi_fno",
+    "padding": 0,
+    "use_physics": true,
+    "use_ic": true,
+    "max_epochs": 200,
+    "batch_size": 16,
+    "lr": 0.001,
+    "patience": 30,
+    "lam_phys_init": 0.0001,
+    "lam_phys_target": 1.0,
+    "lam_phys_ramp_epochs": 100,
+    "seed": 42,
+    "reference_cos": -0.239
+  },
+  "training_summary": {
+    "variant": "pi_fno",
+    "padding": 0,
+    "use_physics": true,
+    "use_ic": true,
+    "device": "cuda",
+    "total_epochs": 67,
+    "best_epoch": 36,
+    "best_val_data_loss": 0.06633091947542898,
+    "final_train_data_loss": 0.058445989184547215,
+    "final_train_phys_loss": 0.0008559690771289752,
+    "final_train_ic_loss": 4.176018368227119e-06,
+    "final_train_total_loss": 0.05848752945661545,
+    "final_cos": 0.02251539068118767,
+    "reference_cos": -0.239,
+    "delta_cos": 0.2615153906811877,
+    "lam_phys_final": 0.04365158322401661,
+    "lam_phys_frozen": false,
+    "total_time_sec": 857.8520305156708,
+    "peak_vram_mb": 128.843264,
+    "best_ckpt_sha": "a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50",
+    "last_ckpt_sha": "6c60338ace63d03ad7915338de5145834a3ddfe3ba309b6fb3f8644c143e20f1"
+  },
+  "lam_phys_trajectory": {
+    "first": 0.0001,
+    "at_epoch_36": 0.0027542287033381,
+    "last": 0.0436515832240166
+  },
+  "checkpoint": {
+    "epoch": "36",
+    "val_data_loss": "0.06633091947542898",
+    "lam_phys": "0.0027542287033381664",
+    "variant": "pi_fno",
+    "padding": "0",
+    "use_physics": "True"
+  },
+  "source_lines_with_lam_phys": [
+    {
+      "line": 150,
+      "text": "lam_phys_init: float = 1e-4,"
+    },
+    {
+      "line": 151,
+      "text": "lam_phys_target: float = 1.0,"
+    },
+    {
+      "line": 152,
+      "text": "lam_phys_ramp_epochs: int = 100,"
+    },
+    {
+      "line": 180,
+      "text": "loss_fn = load_composite_loss(lam_data=1.0, lam_phys=lam_phys_init,"
+    },
+    {
+      "line": 183,
+      "text": "# Override lam_phys and lam_IC based on variant"
+    },
+    {
+      "line": 185,
+      "text": "loss_fn.lam_phys = 0.0"
+    },
+    {
+      "line": 232,
+      "text": "\"lam_phys_current\", \"peak_vram_mb\", \"time_sec\","
+    },
+    {
+      "line": 247,
+      "text": "lam_phys_frozen = False"
+    },
+    {
+      "line": 248,
+      "text": "lam_phys_current = lam_phys_init if use_physics else 0.0"
+    },
+    {
+      "line": 274,
+      "text": "# Update lam_phys according to schedule"
+    },
+    {
+      "line": 275,
+      "text": "if use_physics and not lam_phys_frozen:"
+    },
+    {
+      "line": 276,
+      "text": "if epoch < lam_phys_ramp_epochs:"
+    },
+    {
+      "line": 278,
+      "text": "frac = epoch / lam_phys_ramp_epochs"
+    },
+    {
+      "line": 279,
+      "text": "lam_phys_current = lam_phys_init * (10.0 ** (frac * math.log10(lam_phys_target / lam_phys_init)))"
+    },
+    {
+      "line": 281,
+      "text": "lam_phys_current = lam_phys_target"
+    },
+    {
+      "line": 282,
+      "text": "loss_fn.lam_phys = lam_phys_current"
+    },
+    {
+      "line": 357,
+      "text": "last_wg_phys = loss_fn.lam_phys * float(g_phys_vec.norm().item())"
+    },
+    {
+      "line": 425,
+      "text": "\"lam_phys\": lam_phys_current,"
+    },
+    {
+      "line": 442,
+      "text": "if cos_warning_run >= 3 and not lam_phys_frozen:"
+    },
+    {
+      "line": 443,
+      "text": "print(f\"  [WARN] cos < -0.15 for 3 epochs \u2014 freezing lam_phys\")"
+    },
+    {
+      "line": 444,
+      "text": "lam_phys_frozen = True"
+    },
+    {
+      "line": 446,
+      "text": "print(f\"  [INTERVENE] cos < -0.25 sustained \u2014 reducing lam_phys 10x\")"
+    },
+    {
+      "line": 447,
+      "text": "lam_phys_current = max(lam_phys_current / 10.0, 1e-8)"
+    },
+    {
+      "line": 448,
+      "text": "loss_fn.lam_phys = lam_phys_current"
+    },
+    {
+      "line": 473,
+      "text": "\"lam_phys_current\": lam_phys_current,"
+    },
+    {
+      "line": 485,
+      "text": "f\"lam_phys={lam_phys_current:.2e}\")"
+    },
+    {
+      "line": 502,
+      "text": "\"lam_phys_final\": lam_phys_current,"
+    },
+    {
+      "line": 528,
+      "text": "\"lam_phys_final\": float(lam_phys_current),"
+    },
+    {
+      "line": 529,
+      "text": "\"lam_phys_frozen\": bool(lam_phys_frozen),"
+    },
+    {
+      "line": 545,
+      "text": "f\"lam_phys_init: {lam_phys_init}\\n\""
+    },
+    {
+      "line": 546,
+      "text": "f\"lam_phys_target: {lam_phys_target}\\n\""
+    },
+    {
+      "line": 547,
+      "text": "f\"lam_phys_ramp_epochs: {lam_phys_ramp_epochs}\\n\""
+    }
+  ]
+}
