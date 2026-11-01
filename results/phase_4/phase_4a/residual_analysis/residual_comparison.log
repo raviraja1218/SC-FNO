@@ -1,0 +1,71 @@
+/home/raviraja/miniconda3/envs/sc_fno/lib/python3.10/site-packages/torch/autograd/graph.py:825: UserWarning: Attempting to run cuBLAS, but there was no current CUDA context! Attempting to set the primary context... (Triggered internally at ../aten/src/ATen/cuda/CublasHandlePool.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+Device: cuda
+Phase 3 PI-FNO SHA: a0522e57f0b43c8a... ✓
+Phase 4A.1 SHA: 681fe6789dd2911a...
+Validation data: X=torch.Size([200, 1, 200]), Y=torch.Size([200, 9, 200])
+
+Loading Phase 3 PI-FNO...
+
+=== Measuring phase3_pi_fno ===
+  L_data = 0.066331
+  L_physics = 1.680695e-03
+  L_IC = 5.099616e-07
+  Wall time: 0.8s, Peak VRAM: 91.9 MB
+
+Loading Phase 4A.1 final...
+
+=== Measuring phase4a1_final ===
+  L_data = 0.066678
+  L_physics = 2.028869e-06
+  L_IC = 1.259248e-08
+  Wall time: 0.4s, Peak VRAM: 92.7 MB
+
+============================================================
+MEASUREMENT COMPLETE
+============================================================
+{
+  "L_data_abs": 0.00034678136244810365,
+  "L_data_pct": 0.522804998318412,
+  "L_physics_abs": -0.0016786665831012636,
+  "L_physics_pct": -99.87928397779484,
+  "L_IC_abs": -4.97369116251397e-07,
+  "L_IC_pct": -97.53070020542962,
+  "R_n_abs": 0.12269122783959574,
+  "R_n_pct": 0.006467990553391463,
+  "R_C1_abs": -0.002787003324381378,
+  "R_C1_pct": -99.93695798635036,
+  "R_C2_abs": -0.0030337286421294823,
+  "R_C2_pct": -99.84215056421527,
+  "R_C3_abs": -0.0017050944671574634,
+  "R_C3_pct": -99.88439837340836,
+  "R_C4_abs": -0.0011582543666446116,
+  "R_C4_pct": -99.90279097001005,
+  "R_C5_abs": -0.0005264976424060618,
+  "R_C5_pct": -99.85400572587798,
+  "R_C6_abs": -0.0019061844725981175,
+  "R_C6_pct": -99.76858425000503,
+  "R_Tf_abs": -0.0004228337801219613,
+  "R_Tf_pct": -99.72354114269434,
+  "R_Tc_abs": -0.0014703287893098604,
+  "R_Tc_pct": -99.44701229247569
+}
+
+10^-5 target check:
+{
+  "target": 1e-05,
+  "phase3_achieved": false,
+  "phase4a1_achieved": true,
+  "phase3_ratio": 168.06954517960548,
+  "phase4a1_ratio": 0.20288686947913864
+}
+
+Stability:
+{
+  "phase3_all_finite": true,
+  "phase4a1_all_finite": true,
+  "phase3_L_physics_finite": true,
+  "phase4a1_L_physics_finite": true,
+  "phase3_under_3GB": true,
+  "phase4a1_under_3GB": true
+}

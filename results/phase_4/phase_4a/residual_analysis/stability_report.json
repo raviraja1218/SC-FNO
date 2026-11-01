@@ -1,0 +1,8 @@
+{
+  "phase3_all_finite": true,
+  "phase4a1_all_finite": true,
+  "phase3_L_physics_finite": true,
+  "phase4a1_L_physics_finite": true,
+  "phase3_under_3GB": true,
+  "phase4a1_under_3GB": true
+}
