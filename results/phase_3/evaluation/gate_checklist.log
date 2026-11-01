@@ -1,0 +1,56 @@
+====================================================================================================
+PHASE 3 GATE CHECKLIST — HONEST VERIFICATION
+====================================================================================================
+
+1. Derivative accuracy < 1e-6 (analytical)
+   Required: < 1e-6 analytical (FP64)
+   Actual:   D1-D4 pass at < 1e-6 (FP64); FD-real at 4.68e-4 (numeric)
+   Status:   ⚠️  PARTIAL (analytical pass, FD separate)
+   Evidence: D1-D4 analytical tests pass; FD-real numerical agreement at 4.68e-4 (a different kind of test)
+
+2. Peak VRAM < 3 GB
+   Required: < 3000 MB
+   Actual:   134.0 MB
+   Status:   ✅ PASS
+   Evidence: Peak across 3 variants: 134.0 MB
+
+3. Physics loss reduction ≥ 10×
+   Required: ≥ 10× reduction
+   Actual:   11569× (9.903 → 8.56e-04)
+   Status:   ✅ PASS
+   Evidence: PI-FNO: 9.903 → 8.56e-4 (11570× reduction)
+
+4. Boundary ratio for n(t) < 2.0×
+   Required: < 2.0×
+   Actual:   best = 7.86× (P2=8.04×, P-FNO=7.86×, PI-FNO=8.29×, P-PI-FNO=8.15×)
+   Status:   ❌ FAIL
+   Evidence: Compare against Phase 2 reference of 8.05×
+
+5. Step family Rel L2 strictly improved over P2
+   Required: < P2-FNO
+   Actual:   best = 3.8895e-03 vs P2 3.8895e-03 (+0.00%)
+   Status:   ❌ FAIL
+   Evidence: P2=3.8895e-03, P-FNO=3.8948e-03, PI-FNO=3.8902e-03, P-PI-FNO=3.9034e-03
+
+6. Ramp/Sinusoidal stability (degradation ≤ 5%)
+   Required: ≤ 5% degradation each
+   Actual:   ramp +53.72%, sinusoidal +13.37% (PI-FNO vs P2)
+   Status:   ❌ FAIL
+   Evidence: Ramp: P2=1.0690e-04 → PI=1.6433e-04; Sin: P2=3.9457e-04 → PI=4.4731e-04
+
+7. Overall test accuracy (paired scenario bootstrap)
+   Required: PI-FNO beats P2 on majority of paired scenarios
+   Actual:   PI-FNO wins 47/200 = 23.5%
+   Status:   ❌ FAIL
+   Evidence: Median paired delta = -1.595e-05, 95% CI = [-2.1063088681300027e-05, -1.9379560267001797e-06]
+
+====================================================================================================
+SUMMARY: 2 PASS, 1 PARTIAL, 4 FAIL (out of 7)
+====================================================================================================
+
+HONEST PHASE 3 VERDICT:
+  4 gate criteria FAIL. Phase 3 scientific hypothesis is NOT confirmed.
+  Honest framing: Phase 3 delivered verified infrastructure + negative result on central hypothesis.
+  The template's expected positive-result gates are partially falsified by the data.
+
+Saved gate_checklist.json

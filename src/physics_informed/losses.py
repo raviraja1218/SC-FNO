@@ -142,8 +142,20 @@ class CompositeLoss(nn.Module):
     ) -> LossOutput:
         u_gt_t0 = u_gt[:, :, 0]                      # [B, 9]
         L_data = self.compute_data_loss(model, rho_ext, u_gt)
-        L_phys = self.compute_physics_loss(model, rho_ext, t_q, rho_ext_fn, kin, th, q_t)
-        L_IC   = self.compute_ic_loss(model, rho_ext, u_gt_t0)
+
+        # Short-circuit physics/IC when their weights are zero (P-FNO variant):
+        # avoids invoking physics-path code when it's not part of the loss.
+        if self.lam_phys > 0:
+            L_phys = self.compute_physics_loss(
+                model, rho_ext, t_q, rho_ext_fn, kin, th, q_t
+            )
+        else:
+            L_phys = L_data.new_zeros(())
+
+        if self.lam_IC > 0:
+            L_IC = self.compute_ic_loss(model, rho_ext, u_gt_t0)
+        else:
+            L_IC = L_data.new_zeros(())
         L_total = self.lam_data * L_data + self.lam_phys * L_phys + self.lam_IC * L_IC
         diag = {
             "data_loss":      float(L_data.item()),

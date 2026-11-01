@@ -1,0 +1,7 @@
+Saved results/phase_3/evaluation/table_hyperparameters.csv
+    variant  padding  use_physics  use_ic  lam_phys_init  lam_phys_target  lam_phys_ramp_epochs  batch_size     lr              max_epochs patience seed
+0    p2_fno        0        False   False         0.0000              0.0                     0          16  0.001  N/A (Phase 2 baseline)      N/A  N/A
+1     p_fno       20        False   False         0.0001              1.0                   100          16  0.001                     200       30   42
+2    pi_fno        0         True    True         0.0001              1.0                   100          16  0.001                     200       30   42
+3  p_pi_fno       20         True    True         0.0001              1.0                   100          16  0.001                     200       30   42
+Saved results/phase_3/evaluation/table_hyperparameters.md

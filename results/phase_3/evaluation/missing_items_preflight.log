@@ -1,0 +1,12 @@
+=== Missing Items Preflight: 2026-11-01T07:08:29+00:00 ===
+206f59e Phase 3.5 v2.1: reviewer reporting corrections — bootstrap retracts 16.81% claim (PI-FNO loses 76.5% of scenarios), P2 wins all families, scenario_0458 equal, throughput protocols documented, resolution terminology corrected
+f6afd44 Phase 3.5: final evaluation — Gate 3.5 PASS (PI-FNO +16.81% over baseline on test set)
+caf0526 Phase 3.4: controlled SC-FNO training — Gate 3.4 PASS (PI-FNO 0.0663 best, cos resolved, sanity verified)
+Gate 3.5: PASS (from v2.1 corrections)
+✓ p2_predictions.json
+✓ p_fno_predictions.json
+✓ pi_fno_predictions.json
+✓ p_pi_fno_predictions.json
+✓ p_fno/training_log.csv
+✓ pi_fno/training_log.csv
+✓ p_pi_fno/training_log.csv

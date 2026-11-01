@@ -1,0 +1,60 @@
+{
+  "checks": [
+    {
+      "criterion": "Derivative accuracy < 1e-6 (analytical)",
+      "required": "< 1e-6 analytical (FP64)",
+      "actual": "D1-D4 pass at < 1e-6 (FP64); FD-real at 4.68e-4 (numeric)",
+      "status": "PASS_ANALYTICAL",
+      "evidence": "D1-D4 analytical tests pass; FD-real numerical agreement at 4.68e-4 (a different kind of test)"
+    },
+    {
+      "criterion": "Peak VRAM < 3 GB",
+      "required": "< 3000 MB",
+      "actual": "134.0 MB",
+      "status": "PASS",
+      "evidence": "Peak across 3 variants: 134.0 MB"
+    },
+    {
+      "criterion": "Physics loss reduction \u2265 10\u00d7",
+      "required": "\u2265 10\u00d7 reduction",
+      "actual": "11569\u00d7 (9.903 \u2192 8.56e-04)",
+      "status": "PASS",
+      "evidence": "PI-FNO: 9.903 \u2192 8.56e-4 (11570\u00d7 reduction)"
+    },
+    {
+      "criterion": "Boundary ratio for n(t) < 2.0\u00d7",
+      "required": "< 2.0\u00d7",
+      "actual": "best = 7.86\u00d7 (P2=8.04\u00d7, P-FNO=7.86\u00d7, PI-FNO=8.29\u00d7, P-PI-FNO=8.15\u00d7)",
+      "status": "FAIL",
+      "evidence": "Compare against Phase 2 reference of 8.05\u00d7"
+    },
+    {
+      "criterion": "Step family Rel L2 strictly improved over P2",
+      "required": "< P2-FNO",
+      "actual": "best = 3.8895e-03 vs P2 3.8895e-03 (+0.00%)",
+      "status": "FAIL",
+      "evidence": "P2=3.8895e-03, P-FNO=3.8948e-03, PI-FNO=3.8902e-03, P-PI-FNO=3.9034e-03"
+    },
+    {
+      "criterion": "Ramp/Sinusoidal stability (degradation \u2264 5%)",
+      "required": "\u2264 5% degradation each",
+      "actual": "ramp +53.72%, sinusoidal +13.37% (PI-FNO vs P2)",
+      "status": "FAIL",
+      "evidence": "Ramp: P2=1.0690e-04 \u2192 PI=1.6433e-04; Sin: P2=3.9457e-04 \u2192 PI=4.4731e-04"
+    },
+    {
+      "criterion": "Overall test accuracy (paired scenario bootstrap)",
+      "required": "PI-FNO beats P2 on majority of paired scenarios",
+      "actual": "PI-FNO wins 47/200 = 23.5%",
+      "status": "FAIL",
+      "evidence": "Median paired delta = -1.595e-05, 95% CI = [-2.1063088681300027e-05, -1.9379560267001797e-06]"
+    }
+  ],
+  "summary": {
+    "pass": 2,
+    "partial": 1,
+    "fail": 4,
+    "total": 7,
+    "verdict": "NEGATIVE_RESULT"
+  }
+}

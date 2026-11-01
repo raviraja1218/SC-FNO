@@ -1,0 +1,65 @@
+
+=== P2-FNO ===
+     n: start_MAE = 3.5783e-02, interior_MAE = 4.4480e-03, ratio = 8.045x
+    C1: start_MAE = 2.1676e-01, interior_MAE = 1.0603e-01, ratio = 2.044x
+    C2: start_MAE = 1.3447e+00, interior_MAE = 6.3643e-01, ratio = 2.113x
+    C3: start_MAE = 9.1771e-01, interior_MAE = 3.7658e-01, ratio = 2.437x
+    C4: start_MAE = 1.0961e+00, interior_MAE = 3.2913e-01, ratio = 3.330x
+    C5: start_MAE = 7.8351e-02, interior_MAE = 1.1820e-02, ratio = 6.629x
+    C6: start_MAE = 1.4329e-02, interior_MAE = 3.5207e-03, ratio = 4.070x
+    Tf: start_MAE = 4.1389e+00, interior_MAE = 6.2760e-01, ratio = 6.595x
+    Tc: start_MAE = 3.1364e-01, interior_MAE = 3.6227e-02, ratio = 8.657x
+
+=== P-FNO ===
+     n: start_MAE = 3.4877e-02, interior_MAE = 4.4367e-03, ratio = 7.861x
+    C1: start_MAE = 2.1685e-01, interior_MAE = 1.0552e-01, ratio = 2.055x
+    C2: start_MAE = 1.3444e+00, interior_MAE = 6.3461e-01, ratio = 2.118x
+    C3: start_MAE = 9.1576e-01, interior_MAE = 3.7836e-01, ratio = 2.420x
+    C4: start_MAE = 1.0869e+00, interior_MAE = 3.3576e-01, ratio = 3.237x
+    C5: start_MAE = 7.6262e-02, interior_MAE = 1.2852e-02, ratio = 5.934x
+    C6: start_MAE = 1.4292e-02, interior_MAE = 3.4543e-03, ratio = 4.137x
+    Tf: start_MAE = 4.0189e+00, interior_MAE = 6.8320e-01, ratio = 5.882x
+    Tc: start_MAE = 2.9950e-01, interior_MAE = 4.1914e-02, ratio = 7.146x
+
+=== PI-FNO ===
+     n: start_MAE = 3.6480e-02, interior_MAE = 4.4030e-03, ratio = 8.285x
+    C1: start_MAE = 2.1918e-01, interior_MAE = 1.0778e-01, ratio = 2.034x
+    C2: start_MAE = 1.3592e+00, interior_MAE = 6.4693e-01, ratio = 2.101x
+    C3: start_MAE = 9.2749e-01, interior_MAE = 3.8147e-01, ratio = 2.431x
+    C4: start_MAE = 1.1100e+00, interior_MAE = 3.2997e-01, ratio = 3.364x
+    C5: start_MAE = 7.8665e-02, interior_MAE = 1.2265e-02, ratio = 6.414x
+    C6: start_MAE = 1.4495e-02, interior_MAE = 3.5354e-03, ratio = 4.100x
+    Tf: start_MAE = 4.1599e+00, interior_MAE = 6.4671e-01, ratio = 6.432x
+    Tc: start_MAE = 3.1627e-01, interior_MAE = 3.7822e-02, ratio = 8.362x
+
+=== P-PI-FNO ===
+     n: start_MAE = 3.5705e-02, interior_MAE = 4.3825e-03, ratio = 8.147x
+    C1: start_MAE = 2.1541e-01, interior_MAE = 1.0667e-01, ratio = 2.019x
+    C2: start_MAE = 1.3352e+00, interior_MAE = 6.4157e-01, ratio = 2.081x
+    C3: start_MAE = 9.1059e-01, interior_MAE = 3.8250e-01, ratio = 2.381x
+    C4: start_MAE = 1.0877e+00, interior_MAE = 3.4127e-01, ratio = 3.187x
+    C5: start_MAE = 7.6690e-02, interior_MAE = 1.4514e-02, ratio = 5.284x
+    C6: start_MAE = 1.4747e-02, interior_MAE = 3.5087e-03, ratio = 4.203x
+    Tf: start_MAE = 4.0450e+00, interior_MAE = 7.5170e-01, ratio = 5.381x
+    Tc: start_MAE = 3.0425e-01, interior_MAE = 4.5021e-02, ratio = 6.758x
+
+
+=== Saved boundary_comparison.json ===
+
+==========================================================================================
+BOUNDARY RATIO COMPARISON (start MAE / interior MAE)
+==========================================================================================
+ State      Phase 2       P2-FNO        P-FNO       PI-FNO     P-PI-FNO
+------------------------------------------------------------------------------------------
+     n        8.05x        8.04x        7.86x        8.29x        8.15x
+    C1            —        2.04x        2.06x        2.03x        2.02x
+    C2            —        2.11x        2.12x        2.10x        2.08x
+    C3            —        2.44x        2.42x        2.43x        2.38x
+    C4            —        3.33x        3.24x        3.36x        3.19x
+    C5            —        6.63x        5.93x        6.41x        5.28x
+    C6            —        4.07x        4.14x        4.10x        4.20x
+    Tf            —        6.59x        5.88x        6.43x        5.38x
+    Tc        8.66x        8.66x        7.15x        8.36x        6.76x
+
+Honest verdict: If PI-FNO boundary ratio for n is << 8.05x, physics/padding helped.
+If ~8.05x, boundary artifact unchanged from Phase 2.

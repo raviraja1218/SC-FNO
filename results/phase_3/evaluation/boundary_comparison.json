@@ -1,0 +1,205 @@
+{
+  "start_window_timesteps": 10,
+  "start_window_seconds": 0.50251256,
+  "methodology": "Boundary ratio = MAE(first 10 timesteps) / MAE(interior 180 timesteps), averaged over 200 test scenarios. Matches Phase 2 supplemental audit methodology (Phase 2 reported n=8.05x, Tc=8.66x on the same metric).",
+  "phase_2_reference": {
+    "n": 8.05,
+    "Tc": 8.66,
+    "note": "From Phase 2 supplemental audit Item 2 (start/interior ratio on 200 test scenarios)"
+  },
+  "models": {
+    "P2-FNO": {
+      "n": {
+        "start_mae": 0.03578287160181721,
+        "interior_mae": 0.004447985736078847,
+        "boundary_ratio": 8.044736138321593
+      },
+      "C1": {
+        "start_mae": 0.21676303197430635,
+        "interior_mae": 0.1060271909172506,
+        "boundary_ratio": 2.0444098357885916
+      },
+      "C2": {
+        "start_mae": 1.344749986543367,
+        "interior_mae": 0.6364337059596678,
+        "boundary_ratio": 2.1129458951479134
+      },
+      "C3": {
+        "start_mae": 0.9177142724395828,
+        "interior_mae": 0.3765828718161842,
+        "boundary_ratio": 2.4369517073657456
+      },
+      "C4": {
+        "start_mae": 1.0960980790509691,
+        "interior_mae": 0.32913228767320923,
+        "boundary_ratio": 3.330266036177949
+      },
+      "C5": {
+        "start_mae": 0.07835107765688558,
+        "interior_mae": 0.011819541885394242,
+        "boundary_ratio": 6.628943694262582
+      },
+      "C6": {
+        "start_mae": 0.014329368804203435,
+        "interior_mae": 0.0035207395752348213,
+        "boundary_ratio": 4.069988277726485
+      },
+      "Tf": {
+        "start_mae": 4.138898987922408,
+        "interior_mae": 0.6276003783657467,
+        "boundary_ratio": 6.594800020187029
+      },
+      "Tc": {
+        "start_mae": 0.31363622687590653,
+        "interior_mae": 0.03622719646723873,
+        "boundary_ratio": 8.657479944684075
+      }
+    },
+    "P-FNO": {
+      "n": {
+        "start_mae": 0.034877201114367325,
+        "interior_mae": 0.00443674730067662,
+        "boundary_ratio": 7.86098435247539
+      },
+      "C1": {
+        "start_mae": 0.21685135101383146,
+        "interior_mae": 0.1055174296144201,
+        "boundary_ratio": 2.055123516599965
+      },
+      "C2": {
+        "start_mae": 1.3444045540023228,
+        "interior_mae": 0.6346128242611119,
+        "boundary_ratio": 2.1184642077876576
+      },
+      "C3": {
+        "start_mae": 0.9157584626943144,
+        "interior_mae": 0.3783649713518777,
+        "boundary_ratio": 2.420304552559235
+      },
+      "C4": {
+        "start_mae": 1.0868856228827293,
+        "interior_mae": 0.3357572649798037,
+        "boundary_ratio": 3.2371172160485346
+      },
+      "C5": {
+        "start_mae": 0.07626236681953955,
+        "interior_mae": 0.012852098848887552,
+        "boundary_ratio": 5.933845336102966
+      },
+      "C6": {
+        "start_mae": 0.014291875509442869,
+        "interior_mae": 0.0034543024653099085,
+        "boundary_ratio": 4.13741287823886
+      },
+      "Tf": {
+        "start_mae": 4.018931695760211,
+        "interior_mae": 0.6832038535593314,
+        "boundary_ratio": 5.882478084420395
+      },
+      "Tc": {
+        "start_mae": 0.2994994183511992,
+        "interior_mae": 0.04191431761043275,
+        "boundary_ratio": 7.145515790754668
+      }
+    },
+    "PI-FNO": {
+      "n": {
+        "start_mae": 0.036480102012348324,
+        "interior_mae": 0.004403028522385668,
+        "boundary_ratio": 8.285229545662194
+      },
+      "C1": {
+        "start_mae": 0.21918443567481583,
+        "interior_mae": 0.10778436393508552,
+        "boundary_ratio": 2.033545754417485
+      },
+      "C2": {
+        "start_mae": 1.3592145484859979,
+        "interior_mae": 0.6469311364618775,
+        "boundary_ratio": 2.1010189058414457
+      },
+      "C3": {
+        "start_mae": 0.92748709856791,
+        "interior_mae": 0.38147205753080626,
+        "boundary_ratio": 2.4313369229948862
+      },
+      "C4": {
+        "start_mae": 1.1099815031859714,
+        "interior_mae": 0.3299657162591218,
+        "boundary_ratio": 3.3639297917573354
+      },
+      "C5": {
+        "start_mae": 0.07866505239328508,
+        "interior_mae": 0.012265189891028006,
+        "boundary_ratio": 6.413684018411727
+      },
+      "C6": {
+        "start_mae": 0.014494690205517937,
+        "interior_mae": 0.003535430690608846,
+        "boundary_ratio": 4.0998371824740625
+      },
+      "Tf": {
+        "start_mae": 4.159867039031177,
+        "interior_mae": 0.6467134264371146,
+        "boundary_ratio": 6.43231896690681
+      },
+      "Tc": {
+        "start_mae": 0.3162660357540178,
+        "interior_mae": 0.037821755308359205,
+        "boundary_ratio": 8.362013692044483
+      }
+    },
+    "P-PI-FNO": {
+      "n": {
+        "start_mae": 0.03570497550885509,
+        "interior_mae": 0.004382519999066262,
+        "boundary_ratio": 8.147133500432455
+      },
+      "C1": {
+        "start_mae": 0.21540809327531657,
+        "interior_mae": 0.10666542374247072,
+        "boundary_ratio": 2.019474406189684
+      },
+      "C2": {
+        "start_mae": 1.3352159675366588,
+        "interior_mae": 0.6415705941340474,
+        "boundary_ratio": 2.081167652854742
+      },
+      "C3": {
+        "start_mae": 0.9105917284924604,
+        "interior_mae": 0.38249792420030393,
+        "boundary_ratio": 2.3806448894954717
+      },
+      "C4": {
+        "start_mae": 1.0877374954792232,
+        "interior_mae": 0.34126806655716946,
+        "boundary_ratio": 3.1873403991457763
+      },
+      "C5": {
+        "start_mae": 0.07668983053073627,
+        "interior_mae": 0.014514231198229557,
+        "boundary_ratio": 5.283768012101606
+      },
+      "C6": {
+        "start_mae": 0.014747007568030348,
+        "interior_mae": 0.003508721217454041,
+        "boundary_ratio": 4.20295790114894
+      },
+      "Tf": {
+        "start_mae": 4.045016096387338,
+        "interior_mae": 0.7517015815559611,
+        "boundary_ratio": 5.381146183049266
+      },
+      "Tc": {
+        "start_mae": 0.30424510373547275,
+        "interior_mae": 0.045020633698140286,
+        "boundary_ratio": 6.757903626338397
+      }
+    }
+  },
+  "honest_interpretation": {
+    "if_ratio_decreased": "Padding or physics may have reduced the boundary artifact",
+    "if_ratio_unchanged": "Phase 3 did not address the Phase 2 boundary artifact",
+    "phase_3_actual": "See models above \u2014 report actual measured values without claiming improvement unless they exist"
+  }
+}

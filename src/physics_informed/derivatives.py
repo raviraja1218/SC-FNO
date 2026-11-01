@@ -44,29 +44,26 @@ class SCFNOModel(nn.Module):
                 p.requires_grad_(False)
 
     def _fno_latent(self, rho_ext: torch.Tensor) -> torch.Tensor:
-        """Compute FNO latent z [B, 32, 200] via lifting + fno_blocks.
+        """Compute FNO latent z [B, 32, 200] via forward hook on projection.
 
-        Uses a forward hook on the projection layer to capture the 32-channel
-        pre-projection tensor. This guarantees:
-          - Correct numerical values (same as Phase 2 forward)
-          - Correct gradient flow through ALL FNO blocks
-          - Phase 2 checkpoint unchanged
-
-        Rationale: manually calling `lifting` then `.fno_blocks` directly was
-        observed to break gradient flow past block 0 in neuralop 2.0.0. The
-        full `self.fno(rho_ext)` call is known-working (Phase 2 trained with
-        it for 319 epochs). We use a hook to expose the intermediate without
-        changing the forward computation itself.
+        For PaddedFNO-wrapped models, uses the RAW (unpadded) FNO on the
+        unpadded input so the latent is at the original 200-point grid.
+        Padding affects the data path only; the physics path uses the
+        unpadded latent. This is the frozen Step 3.4 design.
         """
         captured: dict = {}
 
         def _capture_pre_projection(module, inputs, output):
-            # inputs[0] is the tensor that feeds the projection layer
+            # inputs[0] is the 32-channel tensor feeding the projection
             captured["latent"] = inputs[0]
 
-        hook = self.fno.projection.register_forward_hook(_capture_pre_projection)
+        # Detect PaddedFNO wrapper: has .pad_size attr and .fno attr
+        is_wrapped = hasattr(self.fno, "pad_size") and hasattr(self.fno, "fno")
+        raw_fno = self.fno.fno if is_wrapped else self.fno
+
+        hook = raw_fno.projection.register_forward_hook(_capture_pre_projection)
         try:
-            _ = self.fno(rho_ext)            # full forward (grad-preserving)
+            _ = raw_fno(rho_ext)      # raw forward on UNPADDED input
             latent = captured["latent"]
         finally:
             hook.remove()
