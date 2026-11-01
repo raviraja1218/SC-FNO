@@ -1,0 +1,122 @@
+{
+  "description": "Paired bootstrap analysis of relative L2 differences",
+  "sign_convention": "delta = phase3_rel_l2 - phase4a1_rel_l2. Positive = Phase 4A.1 better",
+  "n_bootstrap_samples": 10000,
+  "overall": {
+    "label": "overall",
+    "n": 200,
+    "mean_paired_delta": 0.003948805291857756,
+    "median_paired_delta": 0.0042954942629388,
+    "std_paired_delta": 0.013405085711762474,
+    "mean_paired_delta_ci95": [
+      0.002099918616575905,
+      0.005764621845174399
+    ],
+    "median_paired_delta_ci95": [
+      0.0004524490733389,
+      0.006203766518024
+    ],
+    "wins_phase4a1": 162,
+    "losses_phase3": 38,
+    "ties": 0,
+    "win_rate_phase4a1": 0.81,
+    "win_rate_phase3": 0.19,
+    "phase3_rel_l2_mean": 0.17992496611001133,
+    "phase4a1_rel_l2_mean": 0.17597616081815354,
+    "mean_rel_l2_pct": -2.1946955874057936
+  },
+  "per_family": {
+    "grf": {
+      "label": "grf",
+      "n": 50,
+      "mean_paired_delta": -0.0014293251337138444,
+      "median_paired_delta": -0.0012527092050572501,
+      "std_paired_delta": 0.01536834152323929,
+      "mean_paired_delta_ci95": [
+        -0.005726046352374769,
+        0.002828047730004223
+      ],
+      "median_paired_delta_ci95": [
+        -0.007596906498222599,
+        0.004818538281661053
+      ],
+      "wins_phase4a1": 22,
+      "losses_phase3": 28,
+      "ties": 0,
+      "win_rate_phase4a1": 0.44,
+      "win_rate_phase3": 0.56,
+      "phase3_rel_l2_mean": 0.24642483739800383,
+      "phase4a1_rel_l2_mean": 0.24785416253171771,
+      "mean_rel_l2_pct": 0.580024785166181
+    },
+    "ramp": {
+      "label": "ramp",
+      "n": 50,
+      "mean_paired_delta": 0.010498330429665904,
+      "median_paired_delta": 0.00868064774377295,
+      "std_paired_delta": 0.00922198368086852,
+      "mean_paired_delta_ci95": [
+        0.008272510083441082,
+        0.013241565103975094
+      ],
+      "median_paired_delta_ci95": [
+        0.0070274535786329,
+        0.00998579326406105
+      ],
+      "wins_phase4a1": 49,
+      "losses_phase3": 1,
+      "ties": 0,
+      "win_rate_phase4a1": 0.98,
+      "win_rate_phase3": 0.02,
+      "phase3_rel_l2_mean": 0.037974348064885304,
+      "phase4a1_rel_l2_mean": 0.02747601763521935,
+      "mean_rel_l2_pct": -27.64584769626028
+    },
+    "sinusoidal": {
+      "label": "sinusoidal",
+      "n": 50,
+      "mean_paired_delta": 0.006722741907271868,
+      "median_paired_delta": 0.0083244055484524,
+      "std_paired_delta": 0.017586946700052352,
+      "mean_paired_delta_ci95": [
+        0.001627351850495118,
+        0.01123319168360532
+      ],
+      "median_paired_delta_ci95": [
+        0.0062355478504647,
+        0.0108558992342471
+      ],
+      "wins_phase4a1": 42,
+      "losses_phase3": 8,
+      "ties": 0,
+      "win_rate_phase4a1": 0.84,
+      "win_rate_phase3": 0.16,
+      "phase3_rel_l2_mean": 0.11777859224517441,
+      "phase4a1_rel_l2_mean": 0.11105585033790248,
+      "mean_rel_l2_pct": -5.707948939716903
+    },
+    "step": {
+      "label": "step",
+      "n": 50,
+      "mean_paired_delta": 3.473964207097134e-06,
+      "median_paired_delta": 5.493926410943262e-05,
+      "std_paired_delta": 0.0014947079491498857,
+      "mean_paired_delta_ci95": [
+        -0.0004691128309905233,
+        0.0003572895371348395
+      ],
+      "median_paired_delta_ci95": [
+        2.917784137468349e-05,
+        7.363274322136348e-05
+      ],
+      "wins_phase4a1": 49,
+      "losses_phase3": 1,
+      "ties": 0,
+      "win_rate_phase4a1": 0.98,
+      "win_rate_phase3": 0.02,
+      "phase3_rel_l2_mean": 0.31752208673198173,
+      "phase4a1_rel_l2_mean": 0.31751861276777466,
+      "mean_rel_l2_pct": -0.0010940858454396205
+    }
+  }
+}

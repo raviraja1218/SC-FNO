@@ -176,3 +176,70 @@ Original report claimed "dimensional residuals improved by 20–200×."
 9. ✅ 10⁻⁵ target test (achieved, 4.9× margin)
 
 **Gate 4A.3: FULLY PASS.**
+
+---
+
+# Step 4A.3.R.2 — Statistical Analysis & Causal Scope Revision
+
+## Paired Bootstrap Statistical Analysis
+
+Per reviewer request, paired statistical analysis computed on the 200 validation scenarios. Sign convention: `delta = Phase3_relL2 − Phase4A.1_relL2` (positive = Phase 4A.1 better).
+
+### Overall
+
+| Metric | Value |
+|--------|-------|
+| n | 200 |
+| Mean paired delta | **+3.949e-3** |
+| Mean 95% CI | **[+2.100e-3, +5.765e-3]** — **excludes zero, statistically significant** |
+| Median paired delta | +4.296e-3 |
+| Median 95% CI | [+4.524e-4, +6.204e-3] — excludes zero |
+| Std of paired deltas | (see JSON) |
+| Phase 4A.1 wins | **81.0%** (162/200) |
+| Phase 3 wins | 19.0% (38/200) |
+
+**Interpretation:** The apparent "median +0.75% worse / mean −2.19% better" contradiction is resolved. Phase 4A.1 wins on **81% of scenarios** with modest mean improvement; the 19% it loses tend to lose by larger amounts — explaining the slightly worse median but **statistically significant positive mean**. Phase 4A.1's aggregate data accuracy improved on average.
+
+### Per-Family Paired Bootstrap
+
+| Family | Mean Δ | 95% CI | Median Δ | Win Rate | Significant? |
+|--------|--------|--------|----------|----------|--------------|
+| **ramp** | **+1.050e-2** | [+8.27e-3, +1.32e-2] | +8.68e-3 | **98%** | ✅ Strongly significant |
+| **sinusoidal** | **+6.723e-3** | [+1.63e-3, +1.12e-2] | +8.32e-3 | **84%** | ✅ Significant |
+| **step** | +3.474e-6 | [−4.69e-4, +3.57e-4] | +5.49e-5 | 98% | ⚪ Neutral (tiny but consistent) |
+| **grf** | **−1.429e-3** | [−5.73e-3, +2.83e-3] | −1.25e-3 | 44% | ⚠️ **Not significant** (CI crosses zero) |
+
+**Interpretation:**
+- **Ramp family is the dominant driver** of overall improvement (+1.05e-2 vs +3.95e-3 overall)
+- **Sinusoidal family also substantially improved** (+6.72e-3)
+- **Step family is essentially unchanged** in mean but Phase 4A.1 wins tiny gains on 98% of scenarios
+- **GRF family is not statistically distinguishable from zero** — the "7% degradation" from median is not supported as significant; GRF's true effect is neutral-to-slightly-negative with high uncertainty
+
+**Key correction:** The earlier "GRF worsened 7%" (median-based) is **not statistically supported**. GRF's effect is neutral within uncertainty.
+
+## Causal Attribution Scope (Reviewer Point 3)
+
+The following causal language is **retracted**:
+
+> ~~"Physics-informed training works when extended training and proper checkpoint selection are used."~~
+
+**Replaced with reviewer-approved wording:**
+
+> **"The tested adaptive optimization procedure achieved a substantial reduction in the normalized nine-equation physics residual. The result demonstrates that the Phase 3 level of physics convergence was not an inherent limitation of the architecture. However, the individual contributions of training duration, physics-weight scheduling, and optimizer sequencing remain to be isolated."**
+
+**Reason:** The experiment used a combined procedure (fresh Adam, λ ramp, plateau detection, L-BFGS on fixed batch). The individual contributions of these components cannot be disentangled from the current data.
+
+## Statistical Summary
+
+| Claim | Before | After |
+|-------|--------|-------|
+| Data accuracy change | "+0.52% cost" | **Overall mean: −2.19% (i.e., +2.19% improvement), statistically significant (95% CI excludes zero); median: +0.75% worse** |
+| Per-family | "ramp improved 45%, GRF worsened 7%" | **ramp improved 98% win rate (strongly significant); GRF neutral (not significant)** |
+| Physics | 828× improvement | 828× improvement (unchanged) |
+| Causal explanation | "extended training works" | **"Specific mechanism not isolated" (reviewer-approved wording)** |
+
+## Files
+
+- `paired_bootstrap_stats.json` — full statistical results
+- `paired_bootstrap.log` — execution log
+- `scripts/phase_4/step_4a_3_r_2_paired_bootstrap.py` — analysis script
