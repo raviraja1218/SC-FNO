@@ -1,0 +1,96 @@
+# Phase 4A.1 — Pre-Registered Optimizer Configuration
+# Signed off by reviewer before any training run.
+# All values frozen. Any deviation during execution invalidates the run.
+
+meta:
+  phase: "4A.1"
+  created: "2026-11-01"
+  reviewer_approved: true
+  approval_method: "implicit via 'go' command after plan review"
+  note: "Approved values reflect the plan presented and reviewer 'go' authorization"
+
+# Starting state
+starting_checkpoint:
+  path: "models/sc_fno/phase_3/pi_fno/best_val.pt"
+  sha256: "a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50"
+  epoch: 36
+  lam_phys: 0.002754
+  optimizer_state_available: false  # verified Phase 4A.0.R6
+
+# Adam stage
+adam:
+  lr: 1.0e-3
+  betas: [0.9, 0.999]
+  eps: 1.0e-8
+  weight_decay: 0.0
+  state: "fresh"  # no Phase 3 optimizer state exists
+
+scheduler:
+  class: "CosineAnnealingLR"
+  T_max: 100
+  eta_min: 0.0
+  step_cadence: "per_epoch"
+
+# λ_phys schedule
+lambda_phys:
+  schedule: "log_linear_ramp"
+  init: 0.002754
+  target: 1.0
+  ramp_epochs: 64
+  formula: "lam(e) = init * 10^( (e/ramp_epochs) * log10(target/init) )"
+  cap_at_target: true
+  transition_policy: "B_inherit_lambda"  # L-BFGS inherits current λ; no jump to 1.0
+
+# Plateau detection
+plateau_detection:
+  metric: "validation_data_loss"
+  metric_protocol: "A_phase3_exact_batch16"  # same as Phase 4A.0.R5 canonical
+  ema_alpha: 0.1
+  reference_window: 20
+  delta: 1.0e-4
+  patience: 3
+  min_adam_epochs: 20
+  max_adam_epochs: 100  # hard cap → force transition
+
+# L-BFGS stage
+lbfgs:
+  class: "torch.optim.LBFGS"
+  lr: 1.0  # line search controls step
+  history_size: 50
+  max_iter: 50000
+  tolerance_grad: 1.0e-7
+  tolerance_change: 1.0e-9
+  line_search_fn: "strong_wolfe"
+  fixed_batch:
+    source: "train_ids.csv first 16 scenarios"
+    shuffle: false
+    stochastic: false
+  closure_logging:
+    count_calls: true
+    count_line_search: true
+    separate_from_iterations: true
+
+# Misc
+seed: 42
+device: "cuda"
+batch_size_training: 16
+
+# Acceptance criteria (Gate 4A.1)
+gate_acceptance:
+  unit_tests_must_pass: 9
+  locked_paths_must_be_clean: true
+  no_nan_inf_during_training: true
+  vram_under_3GB: true
+  transition_event_logged: true
+  adam_stage_completed_or_capped: true
+  lbfgs_stage_completed: true
+  final_checkpoint_saved: true
+  manifest_generated: true
+
+# What is explicitly NOT in scope for this run
+not_in_scope:
+  - architecture_changes
+  - residual_equation_changes
+  - normalization_changes
+  - dataset_regeneration
+  - test_set_hyperparameter_tuning
