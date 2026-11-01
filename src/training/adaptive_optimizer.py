@@ -287,3 +287,55 @@ def run_lbfgs_stage(
         "lambda_phys": lambda_phys,
         "max_iter": max_iter,
     }
+
+
+# ============================================================================
+# Phase 4A.1 CORRECTIVE ADDENDUM — correct model loading for Phase 3 checkpoint
+# ============================================================================
+# Phase 3's training script used `SCFNOModel(PaddedFNO(fno, pad_size), decoder)`.
+# Even for PI-FNO (padding=0), the PaddedFNO wrapper was present, so the saved
+# state_dict has keys with `fno.fno.*` prefix. Loading into a single-wrapped
+# `SCFNOModel(fno_raw, decoder)` (which has `fno.*` prefix) silently drops all
+# FNO backbone weights, leaving the model with Phase 2's FNO + Phase 3's decoder.
+#
+# This loader reconstructs the exact Phase 3 model structure, guaranteeing
+# bit-exact weight match with the checkpoint.
+
+def load_phase3_pi_fno_model(checkpoint_path: str, device: str = "cuda"):
+    """Load a Phase 3 PI-FNO checkpoint into a fully-loaded SCFNOModel.
+
+    Reconstructs the PaddedFNO wrapper used during Phase 3 training so the
+    state_dict keys match exactly (`fno.fno.*` prefix).
+
+    Returns:
+        (model, checkpoint_dict) — model on `device`, checkpoint for metadata.
+
+    Raises:
+        RuntimeError if any state_dict key is missing or unexpected.
+    """
+    import torch
+    from physics_informed.derivatives import load_phase2_fno, SCFNOModel
+    from physics_informed.decoder import build_decoder
+    from training.train_sc_fno import PaddedFNO
+
+    # Build Phase 3 structure
+    fno_raw = load_phase2_fno(device=device)
+    fno_wrapped = PaddedFNO(fno_raw, pad_size=0)  # 0 = identity for PI-FNO
+    decoder = build_decoder(seed=42).to(device)
+    model = SCFNOModel(fno_wrapped, decoder).to(device)
+
+    # Load checkpoint
+    ckpt = torch.load(checkpoint_path, map_location=device, weights_only=False)
+    sd = {k: v for k, v in ckpt["model_state_dict"].items() if k != "_metadata"}
+
+    missing, unexpected = model.load_state_dict(sd, strict=False)
+    if missing or unexpected:
+        raise RuntimeError(
+            f"State dict load mismatch for {checkpoint_path}:\n"
+            f"  missing ({len(missing)}): {missing[:5]}\n"
+            f"  unexpected ({len(unexpected)}): {unexpected[:5]}\n"
+            f"  This indicates the model architecture does not match the "
+            f"checkpoint. Expected PaddedFNO-wrapped SCFNOModel."
+        )
+
+    return model, ckpt

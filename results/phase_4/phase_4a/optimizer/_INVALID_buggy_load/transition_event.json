@@ -1,0 +1,10 @@
+{
+  "plateau_epoch": 54,
+  "lam_phys_at_transition": 0.39810200510846905,
+  "ema_value": 0.06659167678759165,
+  "improvement_last_check": -0.0004240747310471406,
+  "policy": "B_inherit_lambda",
+  "raw_val_loss": 0.06670219903697636,
+  "adam_wall_time_s": 265.398095369339,
+  "adam_epochs_completed": 55
+}

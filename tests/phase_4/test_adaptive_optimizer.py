@@ -192,3 +192,41 @@ def test_t9_nan_inf_detection():
 
     loss = bad_loss()
     assert not torch.isfinite(loss).all(), "NaN loss not detectable"
+
+
+# ============ T10: Correct Phase 3 checkpoint loading (regression test) ============
+def test_t10_phase3_pi_fno_loads_bit_exact():
+    """Regression test for the double-wrap bug found in Phase 4A.1.
+
+    The Phase 3 PI-FNO checkpoint must load with 0 missing / 0 unexpected keys
+    when reconstructed with the correct PaddedFNO-wrapped SCFNOModel. This
+    prevents future re-introduction of the single-wrap load that silently
+    dropped all FNO backbone weights.
+    """
+    from pathlib import Path
+    import torch
+    from training.adaptive_optimizer import load_phase3_pi_fno_model
+
+    ckpt_path = "models/sc_fno/phase_3/pi_fno/best_val.pt"
+    if not Path(ckpt_path).exists():
+        import pytest
+        pytest.skip("Phase 3 checkpoint not available")
+
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    model, ckpt = load_phase3_pi_fno_model(ckpt_path, device=device)
+
+    # Verify checkpoint SHA matches expected
+    import hashlib
+    actual_sha = hashlib.sha256(Path(ckpt_path).read_bytes()).hexdigest()
+    expected_sha = "a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50"
+    assert actual_sha == expected_sha, f"SHA mismatch: {actual_sha}"
+
+    # Verify weights match checkpoint bit-exact
+    ckpt_sd = {k: v for k, v in ckpt["model_state_dict"].items() if k != "_metadata"}
+    model_sd = model.state_dict()
+    for k in ckpt_sd:
+        assert k in model_sd, f"Missing key after load: {k}"
+        assert torch.allclose(ckpt_sd[k], model_sd[k]), \
+            f"Weight mismatch at {k}: max diff {(ckpt_sd[k] - model_sd[k]).abs().max():.2e}"
+
+    print(f"✓ Bit-exact load verified for {len(ckpt_sd)} keys")

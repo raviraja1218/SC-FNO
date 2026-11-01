@@ -77,14 +77,11 @@ print(f"Device: {device}")
 print(f"Config: {json.dumps(cfg.to_dict(), indent=2)}")
 
 # ============ LOAD MODEL ============
-fno = load_phase2_fno(device=device)
-decoder = build_decoder(seed=cfg.seed).to(device)
-model = SCFNOModel(fno, decoder).to(device)
-ckpt = torch.load(CKPT, map_location=device, weights_only=False)
-sd = {k:v for k,v in ckpt["model_state_dict"].items() if k != "_metadata"}
-missing, unexpected = model.load_state_dict(sd, strict=False)
+# Correct loader for Phase 3 PI-FNO (PaddedFNO-wrapped, bit-exact)
+from training.adaptive_optimizer import load_phase3_pi_fno_model
+model, ckpt = load_phase3_pi_fno_model(CKPT, device=device)
 print(f"Loaded checkpoint: epoch={ckpt.get('epoch')}, lam_phys={ckpt.get('lam_phys')}")
-print(f"  missing={len(missing)}, unexpected={len(unexpected)}")
+print(f"  state_dict: 0 missing, 0 unexpected (bit-exact load verified)")
 
 # ============ LOAD KIN/TH/LOSS/NORM ============
 kin_cfg = yaml.safe_load(open("configs/reactor_parameters.v3.yaml"))

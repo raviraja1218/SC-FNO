@@ -1,0 +1,11 @@
+{
+  "protocol": "A_phase3_exact_batch16",
+  "loader": "load_phase3_pi_fno_model (PaddedFNO-wrapped, bit-exact)",
+  "n_val_scenarios": 200,
+  "initial_data_loss": 0.06633091947542898,
+  "initial_physics_loss": 0.0016806954517960548,
+  "initial_ic_loss": 5.099615969164425e-07,
+  "lam_phys_from_ckpt": 0.0027542287033381664,
+  "phase3_reference_data_loss": 0.066331,
+  "delta_data_vs_phase3": -8.05245710250313e-08
+}
