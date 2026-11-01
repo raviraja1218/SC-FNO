@@ -1,0 +1,56 @@
+{
+  "phase": "4A.4",
+  "total_planned": 8,
+  "produced": 6,
+  "unavailable": 2,
+  "figures": {
+    "F1": {
+      "name": "Adam loss trajectory",
+      "status": "produced",
+      "source": "adam_training_log.csv",
+      "file": "figure_F1_adam_loss_trajectory.png"
+    },
+    "F2": {
+      "name": "L-BFGS loss trajectory",
+      "status": "produced",
+      "source": "lbfgs_training_log.csv",
+      "file": "figure_F2_lbfgs_loss_trajectory.png"
+    },
+    "F3": {
+      "name": "Combined optimization trace",
+      "status": "produced",
+      "source": "adam_training_log.csv + lbfgs_training_log.csv",
+      "file": "figure_F3_combined_optimization_trace.png"
+    },
+    "F4": {
+      "name": "Automatic transition marker",
+      "status": "produced",
+      "source": "transition_event.json + adam_training_log.csv",
+      "file": "figure_F4_transition_marker.png"
+    },
+    "F5": {
+      "name": "9-equation residual convergence",
+      "status": "unavailable",
+      "reason": "Per-equation residual history not logged per epoch",
+      "file": "figure_F5_UNAVAILABLE.md"
+    },
+    "F6": {
+      "name": "Data accuracy vs physics accuracy",
+      "status": "produced",
+      "source": "adam_training_log.csv",
+      "file": "figure_F6_data_vs_physics_trajectory.png"
+    },
+    "F7": {
+      "name": "Gradient norm evolution",
+      "status": "unavailable",
+      "reason": "Gradient norms not logged during training",
+      "file": "figure_F7_UNAVAILABLE.md"
+    },
+    "F8": {
+      "name": "GPU memory evolution",
+      "status": "produced",
+      "source": "adam_training_log.csv (peak_vram_MB column)",
+      "file": "figure_F8_gpu_memory_evolution.png"
+    }
+  }
+}

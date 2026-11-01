@@ -1,0 +1,24 @@
+Adam log: 55 rows
+L-BFGS log: 17 rows
+Transition epoch: 54, λ=0.398102
+Best val_data: 0.066085 at epoch 28
+✓ F1 produced
+✓ F2 produced
+✓ F3 produced
+✓ F4 produced
+✓ F5 marked UNAVAILABLE
+✓ F6 produced
+✓ F7 marked UNAVAILABLE
+✓ F8 produced
+✓ figure_inventory.json written
+✓ optimization_hyperparameter_table.{csv,md} written
+✓ optimization_analysis_report.md written
+✓ Manifest: 13 artifacts
+
+============================================================
+STEP 4A.4 COMPLETE
+============================================================
+Figures: 6 produced, 2 unavailable
+Hyperparameter table: CSV + MD
+Report: optimization_analysis_report.md
+Manifest: step_4a_4_manifest.json

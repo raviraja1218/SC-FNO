@@ -1,0 +1,25 @@
+{
+  "phase": "4A.4",
+  "gate_4a_4": "PASS",
+  "predecessor": "f7474c0",
+  "phase_3_lock": "bc80727",
+  "figures_produced": 6,
+  "figures_unavailable": 2,
+  "training_performed": false,
+  "test_set_used": false,
+  "artifacts": {
+    "results/phase_4/phase_4a/analysis/analysis_run.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/phase_4/phase_4a/analysis/figure_F5_UNAVAILABLE.md": "6e4b059a99c48311dbbc23c62c582e624269811831ff0f90aba17561eee0b00e",
+    "results/phase_4/phase_4a/analysis/figure_F7_UNAVAILABLE.md": "c5ab2ded501438bd94be62021f844fd0ee4e9bce4ece21390f9bd643392d74de",
+    "results/phase_4/phase_4a/analysis/figure_inventory.json": "32b9e3e6f196a7bf3d579eacc44832235386fd8237baa24a1b063855c9f4c860",
+    "results/phase_4/phase_4a/analysis/optimization_analysis_report.md": "34816b45a13578f0745f76fe61a389d32e3fc4ad3515ecbad3c743f0b858452a",
+    "results/phase_4/phase_4a/analysis/optimization_hyperparameter_table.csv": "a3a03598c18b8ccb46ddb2cc6670d551c8dfbd35fdfc29d0ea622d54e42c33d4",
+    "results/phase_4/phase_4a/analysis/optimization_hyperparameter_table.md": "69d2e9aebe8c94bd98e80c4536e1ac218e9ad3faa8632f7c89bb3ee4a5e80459",
+    "reports/figures/phase_4/phase_4a/figure_F1_adam_loss_trajectory.png": "40772cf1d737f48bf66aa356bbe4d5ffe802c21f0709c71767547a1ea18a630b",
+    "reports/figures/phase_4/phase_4a/figure_F2_lbfgs_loss_trajectory.png": "2f612378314bc5ac12eb4ebd4fa79815b4b4f84e73d3d0ee42e3070b9c4e4450",
+    "reports/figures/phase_4/phase_4a/figure_F3_combined_optimization_trace.png": "3a9e45e3cb0ce82f9a2f01e8d288bb6e4c2d5e4473844b4ffe35eb9894c97903",
+    "reports/figures/phase_4/phase_4a/figure_F4_transition_marker.png": "58f90f1ec6625bf23064abecd6457595411caa59673498f8b36252af6e0d6bd9",
+    "reports/figures/phase_4/phase_4a/figure_F6_data_vs_physics_trajectory.png": "23455c0f3a29cfb40350778b6c1c7a2c4a8c89b71057866786b2090dc62244ec",
+    "reports/figures/phase_4/phase_4a/figure_F8_gpu_memory_evolution.png": "f2c45a0b974ff2b437bbf03ab628299fe84697a893103116e243b0e3855cc16b"
+  }
+}
