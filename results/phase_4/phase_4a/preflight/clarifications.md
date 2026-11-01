@@ -39,3 +39,53 @@
 ### Item 3 — λ_phys Transition Policy (PENDING 4A.1 PLAN)
 
 Deferred to Phase 4A.1 plan. Recommended policy: **L-BFGS inherits λ_phys at plateau detection** (do NOT jump to 1.0). Pre-registered before any 4A.1 training.
+
+---
+
+## R9 Addendum — Loader Bug Post-Mortem (2026-11-01)
+
+**Investigation:** After R7/R8, the fixed and "buggy" loaders produced identical
+training outputs. Deep diagnostic revealed why.
+
+### Truth
+
+Phase 3's checkpoint was saved from `SCFNOModel(PaddedFNO(FNO, 0), decoder)`.
+PaddedFNO **auto-registers** `self.fno`, `self.lifting`, `self.fno_blocks`,
+`self.projection` as nn.Module submodules (PyTorch auto-registers any
+nn.Module assignment). Even though `.lifting`, `.fno_blocks`, `.projection`
+are aliases to the same underlying tensors as `.fno.lifting` etc., PyTorch's
+state_dict includes **both**:
+- `fno.fno.lifting.*` (from the FNO submodule inside PaddedFNO)
+- `fno.lifting.*` (from the aliased lifting submodule directly on PaddedFNO)
+
+**Both have identical values** because they point to the same tensors.
+
+### Why the "buggy" single-wrap loader still loaded Phase 3
+
+The "buggy" model was `SCFNOModel(FNO_raw, decoder)` with keys `fno.lifting.*`
++ `decoder.*`. `load_state_dict(strict=False)` found that `fno.lifting.*` keys
+**matched the checkpoint's `fno.lifting.*` alias keys** (from PaddedFNO's
+dual registration). Phase 3 weights loaded successfully. The 40 "unexpected"
+keys were `fno.fno.*` duplicates — harmless, same values already loaded.
+
+### Conclusion
+
+- **The load always worked.** Buggy and FIXED loaders produced identical
+  Phase 3 PI-FNO models.
+- **R7's loader fix is still correct for hygiene** — explicit PaddedFNO wrap
+  + verification test prevents future confusion.
+- **The "consequential" claim in R7's commit message was wrong** — the bug was
+  a load-key ambiguity, not a data-integrity failure.
+- **Phase 4A.0 measurements and 4A.1 training (v1 and v2) are all valid** —
+  they measured/trained the correct Phase 3 PI-FNO.
+
+### Verified diagnostic
+
+
+Both loaders reached the same correct state via different key paths.
+
+### Corrected narrative
+
+The R7 commit title ("critical loader bug fix") should be read as
+"loader clarity fix + regression test", not "data integrity bug fix".
+Phase 4A.0 and 4A.1 v1/v2 remain valid.
