@@ -1,0 +1,97 @@
+{
+  "phase": "4A.1",
+  "gate_4a_1": "PASS",
+  "checks": [
+    {
+      "name": "1_phase3_ckpt_sha",
+      "pass": true,
+      "detail": "SHA a0522e57 verified"
+    },
+    {
+      "name": "2_no_phase3_optimizer_state",
+      "pass": true,
+      "detail": "no training_state.pt in Phase 3 checkpoint dir (verified R6)"
+    },
+    {
+      "name": "3_pre_registration_signed",
+      "pass": true,
+      "detail": "2505 bytes"
+    },
+    {
+      "name": "4_unit_tests_captured",
+      "pass": true,
+      "detail": "10/10 passed (captured)"
+    },
+    {
+      "name": "10a_adam_stage_ckpt",
+      "pass": true,
+      "detail": "1283542 bytes"
+    },
+    {
+      "name": "10b_final_ckpt",
+      "pass": true,
+      "detail": "433674 bytes"
+    },
+    {
+      "name": "10c_optimizer_state",
+      "pass": true,
+      "detail": "852446 bytes"
+    },
+    {
+      "name": "11a_adam_log",
+      "pass": true,
+      "detail": "6575 bytes"
+    },
+    {
+      "name": "11b_lbfgs_log",
+      "pass": true,
+      "detail": "349 bytes"
+    },
+    {
+      "name": "12_transition_logged",
+      "pass": true,
+      "detail": "epoch=54, \u03bb=0.398102"
+    },
+    {
+      "name": "13_vram_under_3GB",
+      "pass": true,
+      "detail": "Adam=69.3 MB, L-BFGS=78.2 MB"
+    },
+    {
+      "name": "14_no_nan_inf",
+      "pass": true,
+      "detail": "no NaN/Inf in training logs"
+    },
+    {
+      "name": "15_adam_completed",
+      "pass": true,
+      "detail": "55 epochs (plateau at 54)"
+    },
+    {
+      "name": "16_lbfgs_completed",
+      "pass": true,
+      "detail": "17 closures, final_loss=0.599033"
+    }
+  ],
+  "summary": {
+    "adam": {
+      "epochs_completed": 55,
+      "wall_time_s": 269.80097556114197,
+      "final_val_data_loss": 0.06670219903697636,
+      "transition_epoch": 54,
+      "transition_lam_phys": 0.39810200510846905,
+      "transition_policy": "B_inherit_lambda"
+    },
+    "lbfgs": {
+      "wall_time_s": 0.8871045112609863,
+      "closure_calls": 17,
+      "final_loss": 0.5990330576896667,
+      "lambda_phys": 0.39810200510846905,
+      "max_iter": 50000
+    },
+    "vram": {
+      "adam": 69.28896,
+      "lbfgs": 78.172672
+    }
+  }
+}

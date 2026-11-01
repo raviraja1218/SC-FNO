@@ -1,0 +1,19 @@
+{
+  "phase": "4A.1",
+  "gate_4a_1": "PASS",
+  "phase_3_lock_reference": "bc80727",
+  "starting_checkpoint_sha": "a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50",
+  "artifacts": {
+    "results/phase_4/phase_4a/optimizer/adam_training_log.csv": "782d34766c934a8b44ced03fa9cf7ba91d0e90388912d6522f30389b949935b3",
+    "results/phase_4/phase_4a/optimizer/gate_4a_1_verification.json": "2ba6a988302e16264b0550eb98f74c32584cc3cc937c88ef609ff9691c30c795",
+    "results/phase_4/phase_4a/optimizer/gate_4a_1_verification.log": "d8d25b4cd9912529e034c9e2c81b93d7f99bd196544cc76206dfd4364f5822cf",
+    "results/phase_4/phase_4a/optimizer/lbfgs_training_log.csv": "4d6377cd5efcbeffbfedb5ddaaac49b934276efe5652dff37a153fe9307b082c",
+    "results/phase_4/phase_4a/optimizer/pre_registration.yaml": "18cf0372cc41f2c4dd8528c422e5bd1e1ba27b2cece4c38d96460a6117feeeab",
+    "results/phase_4/phase_4a/optimizer/training_run_v2.log": "4a511a01a70c0bea63b860bd207628ba03c1418c2df130950e9802294fafec69",
+    "results/phase_4/phase_4a/optimizer/training_summary.json": "dd73bf81a8631504bfc310644b9ec60d3c7cd2e59ae3e4a30f02aa836716e0cc",
+    "results/phase_4/phase_4a/optimizer/transition_event.json": "10a75128978ae3cf2f8807ffe317fa8ed1fb8ba38d5a7fd8358e3ab6d43c983a",
+    "models/sc_fno/phase_4/phase_4a/adam_stage.pt": "192f5707129b582ffaea089b4b5695ae0beb77c1abaea2de8cd0b9b83f1d1615",
+    "models/sc_fno/phase_4/phase_4a/optimizer_state.pt": "402606c9df1d7790323a5dc26719cad5973ffa6cc7d19f8412f805a9593b3cd7",
+    "models/sc_fno/phase_4/phase_4a/phase_4a_final.pt": "681fe6789dd2911a43991db0242a20f8a08d5ba75f82b28f9dbbeaba88ad744f"
+  }
+}
