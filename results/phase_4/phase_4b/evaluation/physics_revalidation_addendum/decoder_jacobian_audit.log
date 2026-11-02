@@ -1,0 +1,81 @@
+======================================================================
+Decoder Jacobian Audit
+======================================================================
+
+Decoder class: CoordinateDecoder
+Decoder parameters: 13225
+
+Forward signature: (z: 'torch.Tensor', t_q: 'torch.Tensor', t_grid: 'torch.Tensor | None' = None) -> 'torch.Tensor'
+
+Forward source (first 50 lines):
+    1:     def forward(self, z: torch.Tensor, t_q: torch.Tensor,
+    2:                 t_grid: torch.Tensor | None = None) -> torch.Tensor:
+    3:         """
+    4:         z      : [B, C, Nz]     (FNO latent, differentiable input)
+    5:         t_q    : [B, Nq]        (query times in seconds)
+    6:         t_grid : [Nz] or [1, Nz] grid times in seconds (optional, unused here
+    7:                  since we attend over the full z)
+    8: 
+    9:         Returns: u_hat [B, 9, Nq]
+   10:         """
+   11:         if z.dim() != 3:
+   12:             raise ValueError(f"z must be [B, C, Nz], got {z.shape}")
+   13:         B, C, Nz = z.shape
+   14:         if t_q.dim() == 1:
+   15:             t_q = t_q.unsqueeze(0)
+   16:         Nq = t_q.shape[1]
+   17: 
+   18:         # --- Project z to K/V space [B, Nz, C] ---
+   19:         z_t = z.transpose(1, 2)                          # [B, Nz, C]
+   20:         z_kv = self.z_proj(z_t)                          # [B, Nz, C]
+   21:         K = self.k_proj(z_kv)                            # [B, Nz, C]
+   22:         V = self.v_proj(z_kv)                            # [B, Nz, C]
+   23: 
+   24:         # --- Query embeds [B, Nq, q_dim] ---
+   25:         q_emb = self.query_embed(t_q)                    # [B, Nq, q_dim]
+   26:         Q = self.q_proj(q_emb)                           # [B, Nq, C]
+   27: 
+   28:         # --- Multi-head cross-attention: [B, Nq, C] x [B, Nz, C]^T ---
+   29:         # Simple single-head first; split to multi-head via reshape
+   30:         C_head = C // self.n_heads
+   31:         Qh = Q.view(B, Nq, self.n_heads, C_head).transpose(1, 2)  # [B, H, Nq, C_h]
+   32:         Kh = K.view(B, Nz, self.n_heads, C_head).transpose(1, 2)  # [B, H, Nz, C_h]
+   33:         Vh = V.view(B, Nz, self.n_heads, C_head).transpose(1, 2)  # [B, H, Nz, C_h]
+   34: 
+   35:         attn = torch.matmul(Qh, Kh.transpose(-2, -1)) * self.attn_scale
+   36:         attn = F.softmax(attn, dim=-1)                   # [B, H, Nq, Nz]
+   37:         attended = torch.matmul(attn, Vh)                # [B, H, Nq, C_h]
+   38:         attended = attended.transpose(1, 2).reshape(B, Nq, C)  # [B, Nq, C]
+   39: 
+   40:         # --- Combine attended + query embeds, MLP head ---
+   41:         head_in = torch.cat([attended, q_emb], dim=-1)   # [B, Nq, C + q_dim]
+   42:         out = self.head(head_in)                         # [B, Nq, 9]
+   43:         return out.transpose(1, 2)                       # [B, 9, Nq]
+   44: 
+
+Submodules:
+  query_embed: FourierQueryEmbedding
+  z_proj: Linear
+  q_proj: Linear
+  k_proj: Linear
+  v_proj: Linear
+  head: Sequential
+    0: Linear
+    1: GELU
+    2: Linear
+    3: GELU
+    4: Linear
+
+======================================================================
+Empirical coupling test
+======================================================================
+
+Perturbed t_q[5] by +0.01
+Output change at query 5:       1.047499e-03
+Output change at queries i≠5:
+  Mean |Δu| at i≠5:              0.000000e+00
+  Max |Δu| at i≠5:               0.000000e+00
+
+>>> VERDICT: Query-INDEPENDENT
+>>> Current per-channel derivative with grad_outputs=ones is CORRECT
+>>> ∂u_j(t_k)/∂t_k = ∂u_j(t_k)/∂t |_{t_i fixed}
