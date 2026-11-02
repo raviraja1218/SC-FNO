@@ -216,12 +216,30 @@ i.e., ~4.88% decrease per epoch at sustained maximum negative cosine.
 
 **Maximum reachable λ over typical runs:**
 
-| Epochs | Sustained max positive cosine | λ reachable from init 1e-4 |
-|--------|-------------------------------|---------------------------|
-| 55 (typical plateau) | +1.0 | ≈ 1.56e-3 |
-| 200 (max epochs) | +1.0 | ≈ 2.20 |
-| 250 | +1.0 | ≈ 5.75 (approaching λ_max) |
-| 280 | +1.0 | ≈ 10.0 (clips at λ_max) |
+**Corrected arithmetic** (per reviewer Step 4B.2.R review):
+
+For a constant smoothed cosine of +1.0, the update is:
+
+    λ_n = 1e-4 · exp(0.05·n)
+
+| Updates (n) | λ reachable from init 1e-4 |
+|-------------|----------------------------|
+| 55 (typical plateau) | 1.56e-3 |
+| 200 (max epochs) | 2.20 |
+| 230 | 9.87 |
+| **231** | **10.0 — clip at λ_max begins** |
+| 280 | clipped at 10.0 |
+
+**Derivation of clip threshold:**
+
+    1e-4 · exp(0.05·n) = 10.0
+    exp(0.05·n) = 1e5
+    0.05·n = ln(1e5) ≈ 11.513
+    n ≈ 230.26
+
+**Therefore, clipping begins at approximately 231 updates** (not 280 as
+stated in the earlier version of this section), assuming sustained maximum
+positive cosine of +1.0 throughout.
 
 **Maximum reachable λ from typical negative conflict:**
 
@@ -279,3 +297,33 @@ combined training loop.
 The corrections are additive documentation + small implementation
 enhancements + 2 new tests. The original commit remains valid; this addendum
 (`4B.2.R`) documents the qualifications.
+
+
+---
+
+## Correction C — Adaptation Rate Arithmetic Fix (Step 4B.2.R.2)
+
+**Reviewer correction applied on 2026-11-02:**
+
+The original Step 4B.2.R report stated that clipping at λ_max=10 begins at
+approximately 280 updates. **This was arithmetically incorrect.**
+
+**Corrected derivation:**
+
+For sustained +1.0 smoothed cosine:
+$$\lambda_n = 10^{-4} \cdot e^{0.05 n}$$
+
+To reach λ = 10:
+$$10^{-4} \cdot e^{0.05 n} = 10$$
+$$e^{0.05 n} = 10^5$$
+$$0.05 n = \ln(10^5) = 5 \ln(10) \approx 11.513$$
+$$n \approx 230.26$$
+
+**Therefore, clipping begins at approximately 231 updates**, not 280.
+
+The practical implication is unchanged: in a typical Phase 4B training run
+of 55-200 epochs, the bounds are safeguards, not expected operating values.
+But the specific threshold number in the earlier documentation was wrong.
+
+**This is a documentation correction only.** No implementation change, no
+re-training, no code modification. Commit `b412f20` and `10a7e6d` preserved.
