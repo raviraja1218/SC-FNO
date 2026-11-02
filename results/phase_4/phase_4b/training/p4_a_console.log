@@ -1,0 +1,66 @@
+/home/raviraja/miniconda3/envs/sc_fno/lib/python3.10/site-packages/torch/autograd/graph.py:825: UserWarning: Attempting to run cuBLAS, but there was no current CUDA context! Attempting to set the primary context... (Triggered internally at ../aten/src/ATen/cuda/CublasHandlePool.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+======================================================================
+TRAINING P4-A — pcgrad=True, adaptive_lambda=False, padding=False
+======================================================================
+Loaded Phase 3 PI-FNO (epoch=36, lam_phys=0.0027542287033381664)
+Loading train + val data...
+  Train: 1600 scenarios
+  Val:   200 scenarios
+  PCGrad enabled
+  Using Phase 3 default lambda ramp
+Epoch   0 | data=0.0592 phys=1.7519e+02 val=0.066721 lam=1.00e-04 | 5.1s
+Epoch   1 | data=0.0588 phys=6.4515e+01 val=0.066703 lam=1.10e-04 | 5.9s
+Epoch   2 | data=0.0587 phys=5.2742e+01 val=0.066702 lam=1.20e-04 | 5.8s
+Epoch   3 | data=0.0589 phys=4.7718e+01 val=0.066985 lam=1.32e-04 | 6.0s
+Epoch   4 | data=0.0591 phys=4.4199e+01 val=0.066653 lam=1.45e-04 | 6.1s
+Epoch   5 | data=0.0591 phys=4.2266e+01 val=0.066650 lam=1.58e-04 | 6.0s
+Epoch   6 | data=0.0593 phys=4.0620e+01 val=0.067052 lam=1.74e-04 | 5.0s
+Epoch   7 | data=0.0596 phys=3.9452e+01 val=0.066317 lam=1.91e-04 | 5.8s
+Epoch   8 | data=0.0592 phys=3.8019e+01 val=0.066765 lam=2.09e-04 | 6.1s
+Epoch   9 | data=0.0593 phys=3.7079e+01 val=0.066142 lam=2.29e-04 | 5.9s
+Epoch  10 | data=0.0592 phys=3.6031e+01 val=0.066655 lam=2.51e-04 | 5.8s
+Epoch  11 | data=0.0592 phys=3.5216e+01 val=0.066574 lam=2.75e-04 | 4.6s
+Epoch  12 | data=0.0596 phys=3.4676e+01 val=0.066413 lam=3.02e-04 | 5.9s
+Epoch  13 | data=0.0597 phys=3.4167e+01 val=0.066610 lam=3.31e-04 | 5.8s
+Epoch  14 | data=0.0594 phys=3.3099e+01 val=0.066431 lam=3.63e-04 | 6.2s
+Epoch  15 | data=0.0594 phys=3.1948e+01 val=0.066166 lam=3.98e-04 | 5.9s
+Epoch  16 | data=0.0596 phys=3.2143e+01 val=0.066507 lam=4.37e-04 | 5.8s
+Epoch  17 | data=0.0600 phys=3.1665e+01 val=0.066238 lam=4.79e-04 | 4.9s
+Epoch  18 | data=0.0599 phys=3.1415e+01 val=0.066041 lam=5.25e-04 | 6.0s
+Epoch  19 | data=0.0603 phys=3.1056e+01 val=0.066497 lam=5.75e-04 | 6.0s
+Epoch  20 | data=0.0599 phys=2.9615e+01 val=0.065438 lam=6.31e-04 | 5.8s
+Epoch  21 | data=0.0597 phys=2.8709e+01 val=0.065956 lam=6.92e-04 | 5.9s
+Epoch  22 | data=0.0599 phys=2.8461e+01 val=0.066353 lam=7.59e-04 | 6.1s
+Epoch  23 | data=0.0601 phys=2.7997e+01 val=0.066382 lam=8.32e-04 | 5.8s
+Epoch  24 | data=0.0602 phys=2.7332e+01 val=0.066658 lam=9.12e-04 | 5.8s
+Epoch  25 | data=0.0604 phys=2.7259e+01 val=0.066563 lam=1.00e-03 | 5.7s
+Epoch  26 | data=0.0604 phys=2.6274e+01 val=0.066300 lam=1.10e-03 | 5.2s
+Epoch  27 | data=0.0605 phys=2.5534e+01 val=0.066406 lam=1.20e-03 | 5.7s
+Epoch  28 | data=0.0606 phys=2.5319e+01 val=0.066384 lam=1.32e-03 | 4.7s
+Epoch  29 | data=0.0608 phys=2.5057e+01 val=0.066978 lam=1.45e-03 | 5.7s
+Epoch  30 | data=0.0607 phys=2.3481e+01 val=0.066093 lam=1.58e-03 | 5.9s
+Epoch  31 | data=0.0606 phys=2.3665e+01 val=0.066236 lam=1.74e-03 | 6.2s
+Epoch  32 | data=0.0611 phys=2.2848e+01 val=0.066584 lam=1.91e-03 | 6.1s
+Epoch  33 | data=0.0617 phys=2.4431e+01 val=0.066812 lam=2.09e-03 | 5.9s
+Epoch  34 | data=0.0617 phys=2.2592e+01 val=0.066585 lam=2.29e-03 | 4.7s
+Epoch  35 | data=0.0611 phys=2.2340e+01 val=0.067136 lam=2.51e-03 | 6.0s
+Epoch  36 | data=0.0614 phys=2.0609e+01 val=0.066791 lam=2.75e-03 | 5.9s
+Epoch  37 | data=0.0612 phys=2.0669e+01 val=0.066505 lam=3.02e-03 | 5.9s
+Epoch  38 | data=0.0613 phys=1.9707e+01 val=0.066789 lam=3.31e-03 | 6.1s
+Epoch  39 | data=0.0615 phys=1.9914e+01 val=0.066917 lam=3.63e-03 | 4.7s
+Epoch  40 | data=0.0618 phys=1.9831e+01 val=0.066549 lam=3.98e-03 | 5.8s
+Epoch  41 | data=0.0619 phys=1.9443e+01 val=0.066878 lam=4.37e-03 | 6.1s
+Epoch  42 | data=0.0622 phys=1.8508e+01 val=0.067814 lam=4.79e-03 | 6.0s
+Epoch  43 | data=0.0621 phys=1.8687e+01 val=0.066996 lam=5.25e-03 | 6.1s
+Epoch  44 | data=0.0625 phys=1.8147e+01 val=0.066513 lam=5.75e-03 | 5.8s
+Epoch  45 | data=0.0621 phys=1.7062e+01 val=0.067136 lam=6.31e-03 | 4.7s
+Epoch  46 | data=0.0622 phys=1.7008e+01 val=0.066934 lam=6.92e-03 | 5.8s
+Epoch  47 | data=0.0627 phys=1.7071e+01 val=0.067936 lam=7.59e-03 | 5.9s
+Epoch  48 | data=0.0640 phys=1.8258e+01 val=0.068614 lam=8.32e-03 | 6.1s
+Epoch  49 | data=0.0638 phys=1.7626e+01 val=0.067580 lam=9.12e-03 | 6.1s
+Epoch  50 | data=0.0631 phys=1.6138e+01 val=0.067461 lam=1.00e-02 | 4.8s
+Early stop at epoch 50 (best epoch 20, best val 0.065438)
+
+P4-A DONE: 51 epochs in 291.5s, best val=0.065438 @ epoch 20

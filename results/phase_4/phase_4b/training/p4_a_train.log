@@ -1,0 +1,22 @@
+/home/raviraja/miniconda3/envs/sc_fno/lib/python3.10/site-packages/torch/autograd/graph.py:825: UserWarning: Attempting to run cuBLAS, but there was no current CUDA context! Attempting to set the primary context... (Triggered internally at ../aten/src/ATen/cuda/CublasHandlePool.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+======================================================================
+TRAINING P4-A — pcgrad=True, adaptive_lambda=False, padding=False
+======================================================================
+Loaded Phase 3 PI-FNO (epoch=36, lam_phys=0.0027542287033381664)
+Loading train + val data...
+  Train: 1600 scenarios
+  Val:   200 scenarios
+  PCGrad enabled
+  Using Phase 3 default lambda ramp
+Traceback (most recent call last):
+  File "/home/raviraja/projects/SC-FNO/src/training/train_phase_4b.py", line 450, in <module>
+    main(args.variant)
+  File "/home/raviraja/projects/SC-FNO/src/training/train_phase_4b.py", line 336, in main
+    cos = compute_gradient_cosine(grad_data, grad_physics)
+  File "/home/raviraja/projects/SC-FNO/src/training/train_phase_4b.py", line 145, in compute_gradient_cosine
+    return float(_real_inner(fa, fb) / (na * nb + eps))
+  File "/home/raviraja/projects/SC-FNO/src/training/pcgrad.py", line 84, in _real_inner
+    return torch.real((a.conj() * b).sum())
+RuntimeError: The size of tensor a (50409) must match the size of tensor b (60937) at non-singleton dimension 0

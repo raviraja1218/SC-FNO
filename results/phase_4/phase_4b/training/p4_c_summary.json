@@ -1,0 +1,15 @@
+{
+  "variant": "P4-C",
+  "config": {
+    "pcgrad": false,
+    "adaptive_lambda": true,
+    "unified_padding": false
+  },
+  "starting_checkpoint_sha": "a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50",
+  "epochs_completed": 67,
+  "best_epoch": 36,
+  "best_val_data_loss": 0.06557878758478462,
+  "total_wall_time_s": 318.23811197280884,
+  "peak_vram_MB": 69.57568,
+  "lambda_phys_final": 0.00010000000000000009
+}

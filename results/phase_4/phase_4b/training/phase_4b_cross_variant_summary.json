@@ -1,0 +1,51 @@
+{
+  "phase": "4B.4",
+  "variants": {
+    "p4_a": {
+      "best_epoch": 20,
+      "best_val_data_loss": 0.06543779191717757,
+      "epochs_completed": 51,
+      "wall_time_s": 291.53537130355835,
+      "config": {
+        "pcgrad": true,
+        "adaptive_lambda": false,
+        "unified_padding": false
+      }
+    },
+    "p4_b": {
+      "best_epoch": 33,
+      "best_val_data_loss": 0.0684023548831017,
+      "epochs_completed": 64,
+      "wall_time_s": 302.766553401947,
+      "config": {
+        "pcgrad": false,
+        "adaptive_lambda": false,
+        "unified_padding": true
+      }
+    },
+    "p4_c": {
+      "best_epoch": 36,
+      "best_val_data_loss": 0.06557878758478462,
+      "epochs_completed": 67,
+      "wall_time_s": 318.23811197280884,
+      "config": {
+        "pcgrad": false,
+        "adaptive_lambda": true,
+        "unified_padding": false
+      }
+    },
+    "p4_d": {
+      "best_epoch": 82,
+      "best_val_data_loss": 0.06667835174504524,
+      "epochs_completed": 113,
+      "wall_time_s": 653.4586501121521,
+      "config": {
+        "pcgrad": true,
+        "adaptive_lambda": true,
+        "unified_padding": true
+      }
+    }
+  },
+  "baseline_p3_pi_fno_val_data_loss": 0.066331,
+  "baseline_phase_4a1_val_data_loss": 0.066702
+}

@@ -1,0 +1,81 @@
+/home/raviraja/miniconda3/envs/sc_fno/lib/python3.10/site-packages/torch/autograd/graph.py:825: UserWarning: Attempting to run cuBLAS, but there was no current CUDA context! Attempting to set the primary context... (Triggered internally at ../aten/src/ATen/cuda/CublasHandlePool.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+======================================================================
+TRAINING P4-C — pcgrad=False, adaptive_lambda=True, padding=False
+======================================================================
+Loaded Phase 3 PI-FNO (epoch=36, lam_phys=0.0027542287033381664)
+Loading train + val data...
+  Train: 1600 scenarios
+  Val:   200 scenarios
+  AdaptiveLambda enabled
+Epoch   0 | data=0.0592 phys=1.7515e+02 val=0.066714 lam=1.00e-04 | 5.7s
+Epoch   1 | data=0.0588 phys=6.5106e+01 val=0.066668 lam=1.00e-04 | 5.2s
+Epoch   2 | data=0.0587 phys=5.3161e+01 val=0.066728 lam=1.00e-04 | 4.9s
+Epoch   3 | data=0.0588 phys=4.8531e+01 val=0.067039 lam=1.00e-04 | 3.8s
+Epoch   4 | data=0.0592 phys=4.5019e+01 val=0.066633 lam=1.00e-04 | 4.7s
+Epoch   5 | data=0.0590 phys=4.3281e+01 val=0.066726 lam=1.00e-04 | 4.8s
+Epoch   6 | data=0.0588 phys=4.1653e+01 val=0.066954 lam=1.00e-04 | 4.8s
+Epoch   7 | data=0.0593 phys=4.0779e+01 val=0.066419 lam=1.00e-04 | 4.8s
+Epoch   8 | data=0.0590 phys=3.9543e+01 val=0.067031 lam=1.00e-04 | 5.1s
+Epoch   9 | data=0.0590 phys=3.8724e+01 val=0.066418 lam=1.00e-04 | 5.0s
+Epoch  10 | data=0.0589 phys=3.7677e+01 val=0.066488 lam=1.00e-04 | 4.0s
+Epoch  11 | data=0.0588 phys=3.6917e+01 val=0.066537 lam=1.00e-04 | 4.7s
+Epoch  12 | data=0.0589 phys=3.6412e+01 val=0.066294 lam=1.00e-04 | 5.0s
+Epoch  13 | data=0.0588 phys=3.5580e+01 val=0.066657 lam=1.00e-04 | 5.0s
+Epoch  14 | data=0.0589 phys=3.5186e+01 val=0.066414 lam=1.00e-04 | 4.9s
+Epoch  15 | data=0.0589 phys=3.4780e+01 val=0.066852 lam=1.00e-04 | 4.9s
+Epoch  16 | data=0.0591 phys=3.4447e+01 val=0.066044 lam=1.00e-04 | 5.1s
+Epoch  17 | data=0.0589 phys=3.3832e+01 val=0.066368 lam=1.00e-04 | 2.9s
+Epoch  18 | data=0.0589 phys=3.4090e+01 val=0.066348 lam=1.00e-04 | 4.8s
+Epoch  19 | data=0.0589 phys=3.2907e+01 val=0.066186 lam=1.00e-04 | 5.1s
+Epoch  20 | data=0.0588 phys=3.2635e+01 val=0.065926 lam=1.00e-04 | 5.2s
+Epoch  21 | data=0.0589 phys=3.2074e+01 val=0.066422 lam=1.00e-04 | 5.2s
+Epoch  22 | data=0.0590 phys=3.1569e+01 val=0.066204 lam=1.00e-04 | 5.3s
+Epoch  23 | data=0.0588 phys=3.1233e+01 val=0.065886 lam=1.00e-04 | 3.6s
+Epoch  24 | data=0.0589 phys=3.0855e+01 val=0.067222 lam=1.00e-04 | 4.8s
+Epoch  25 | data=0.0592 phys=3.0716e+01 val=0.066805 lam=1.00e-04 | 4.9s
+Epoch  26 | data=0.0590 phys=3.0547e+01 val=0.065983 lam=1.00e-04 | 5.1s
+Epoch  27 | data=0.0590 phys=3.0062e+01 val=0.066520 lam=1.00e-04 | 5.0s
+Epoch  28 | data=0.0588 phys=2.9643e+01 val=0.066048 lam=1.00e-04 | 4.8s
+Epoch  29 | data=0.0589 phys=2.9648e+01 val=0.066166 lam=1.00e-04 | 5.1s
+Epoch  30 | data=0.0588 phys=2.9130e+01 val=0.066870 lam=1.00e-04 | 3.6s
+Epoch  31 | data=0.0592 phys=2.8973e+01 val=0.067543 lam=1.00e-04 | 5.1s
+Epoch  32 | data=0.0596 phys=2.9992e+01 val=0.066929 lam=1.00e-04 | 4.9s
+Epoch  33 | data=0.0593 phys=2.9226e+01 val=0.065721 lam=1.00e-04 | 4.9s
+Epoch  34 | data=0.0588 phys=2.7948e+01 val=0.065901 lam=1.00e-04 | 4.9s
+Epoch  35 | data=0.0587 phys=2.7387e+01 val=0.066125 lam=1.00e-04 | 5.1s
+Epoch  36 | data=0.0586 phys=2.7147e+01 val=0.065579 lam=1.00e-04 | 3.6s
+Epoch  37 | data=0.0586 phys=2.6622e+01 val=0.066056 lam=1.00e-04 | 4.9s
+Epoch  38 | data=0.0586 phys=2.6538e+01 val=0.065990 lam=1.00e-04 | 4.9s
+Epoch  39 | data=0.0586 phys=2.6289e+01 val=0.065994 lam=1.00e-04 | 5.0s
+Epoch  40 | data=0.0586 phys=2.6362e+01 val=0.066107 lam=1.00e-04 | 4.9s
+Epoch  41 | data=0.0588 phys=2.6070e+01 val=0.066051 lam=1.00e-04 | 5.1s
+Epoch  42 | data=0.0587 phys=2.5721e+01 val=0.065841 lam=1.00e-04 | 4.8s
+Epoch  43 | data=0.0586 phys=2.5201e+01 val=0.065846 lam=1.00e-04 | 3.6s
+Epoch  44 | data=0.0585 phys=2.4830e+01 val=0.065779 lam=1.00e-04 | 4.9s
+Epoch  45 | data=0.0586 phys=2.4696e+01 val=0.066399 lam=1.00e-04 | 4.9s
+Epoch  46 | data=0.0588 phys=2.5027e+01 val=0.066076 lam=1.00e-04 | 5.0s
+Epoch  47 | data=0.0587 phys=2.5350e+01 val=0.066017 lam=1.00e-04 | 4.8s
+Epoch  48 | data=0.0587 phys=2.4461e+01 val=0.066110 lam=1.00e-04 | 5.1s
+Epoch  49 | data=0.0586 phys=2.3953e+01 val=0.066219 lam=1.00e-04 | 3.5s
+Epoch  50 | data=0.0586 phys=2.3532e+01 val=0.066058 lam=1.00e-04 | 4.9s
+Epoch  51 | data=0.0586 phys=2.3509e+01 val=0.066350 lam=1.00e-04 | 5.0s
+Epoch  52 | data=0.0591 phys=2.3255e+01 val=0.066029 lam=1.00e-04 | 4.9s
+Epoch  53 | data=0.0587 phys=2.3398e+01 val=0.066314 lam=1.00e-04 | 5.0s
+Epoch  54 | data=0.0587 phys=2.3915e+01 val=0.065976 lam=1.00e-04 | 5.0s
+Epoch  55 | data=0.0586 phys=2.2737e+01 val=0.065905 lam=1.00e-04 | 4.9s
+Epoch  56 | data=0.0586 phys=2.2264e+01 val=0.065742 lam=1.00e-04 | 3.5s
+Epoch  57 | data=0.0586 phys=2.2670e+01 val=0.065918 lam=1.00e-04 | 4.8s
+Epoch  58 | data=0.0585 phys=2.2261e+01 val=0.065622 lam=1.00e-04 | 5.0s
+Epoch  59 | data=0.0586 phys=2.2165e+01 val=0.066075 lam=1.00e-04 | 4.9s
+Epoch  60 | data=0.0584 phys=2.1524e+01 val=0.066046 lam=1.00e-04 | 5.2s
+Epoch  61 | data=0.0585 phys=2.1420e+01 val=0.065931 lam=1.00e-04 | 4.8s
+Epoch  62 | data=0.0587 phys=2.1484e+01 val=0.066061 lam=1.00e-04 | 4.9s
+Epoch  63 | data=0.0586 phys=2.1282e+01 val=0.065929 lam=1.00e-04 | 3.5s
+Epoch  64 | data=0.0586 phys=2.1653e+01 val=0.065883 lam=1.00e-04 | 4.9s
+Epoch  65 | data=0.0585 phys=2.0837e+01 val=0.066133 lam=1.00e-04 | 4.9s
+Epoch  66 | data=0.0586 phys=2.0812e+01 val=0.066807 lam=1.00e-04 | 4.8s
+Early stop at epoch 66 (best epoch 36, best val 0.065579)
+
+P4-C DONE: 67 epochs in 318.2s, best val=0.065579 @ epoch 36

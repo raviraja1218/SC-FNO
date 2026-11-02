@@ -1,0 +1,30 @@
+{
+  "phase": "4B.4",
+  "artifacts": {
+    "results/phase_4/phase_4b/training/P4-A_training_log.csv": "ae80083418bcc7aa8c5476b2e7467c6ac289aa792b817b37e5171ad2f6db7878",
+    "results/phase_4/phase_4b/training/P4-B_training_log.csv": "5cc65d8e4b89175b0d374c5469aea2aedbf379853879aff1c908ba207ab67707",
+    "results/phase_4/phase_4b/training/P4-C_training_log.csv": "79795240211ca0aa150a4f483bb5f2f23f8aed595535949d5fe5648e75fd9ecf",
+    "results/phase_4/phase_4b/training/P4-D_training_log.csv": "1f8cb1d03b79ba621f11d493acb2b8eb5dc5e4c6af486395fee5126eb0daee43",
+    "results/phase_4/phase_4b/training/p4_a_console.log": "3b808d7ba81765406d8c92fe985181d8c6cf3f5506574099314432d94e04f448",
+    "results/phase_4/phase_4b/training/p4_a_summary.json": "77372204550bace9279daa9d337a83487695767bff44fcee1124c74969c34fcb",
+    "results/phase_4/phase_4b/training/p4_a_train.log": "1e7a7cb7c259d364431c52c1d2aa825aaeb2faea674fe422b437c8fc810ff24b",
+    "results/phase_4/phase_4b/training/p4_a_training_config.yaml": "9c42cace449ef6b89d7989838f12d5f815536f38559d0ea453e08cf8ce0cff76",
+    "results/phase_4/phase_4b/training/p4_b_console.log": "27ccc3f4b7486ea81b8b15584dea52157f93ad9e030018f69e72a672a1cb4e24",
+    "results/phase_4/phase_4b/training/p4_b_summary.json": "59dd598c47a78cd03f4943305cbbd28d3acf8b027227ebeacd930cecf29b53e6",
+    "results/phase_4/phase_4b/training/p4_b_train.log": "4513b670d0a9347f8a278028b4e4861009b92256b12cd059d189ebefe962d433",
+    "results/phase_4/phase_4b/training/p4_b_training_config.yaml": "7dff4aacce00bb0ba45f6fa6366388f44b303079bd3603d01b7345963061e4fc",
+    "results/phase_4/phase_4b/training/p4_c_console.log": "962f363c5889cc6a17527d9d0e127d3611fd50f2e0d879cb328dc7a6cc66b88e",
+    "results/phase_4/phase_4b/training/p4_c_summary.json": "a1e8a8fd51c39c55e9bc947af07f20c5117ecb009c708205495366ea8a24d55d",
+    "results/phase_4/phase_4b/training/p4_c_train.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/phase_4/phase_4b/training/p4_c_training_config.yaml": "ff0c9ff774ddde118e71fa7f612c7fbbada6100a527d34bacfc5e70c6b8240d9",
+    "results/phase_4/phase_4b/training/p4_d_console.log": "ad32506c8a7736a2bee084418c2bbfb7dec212afe0573c68457c8a98beef1645",
+    "results/phase_4/phase_4b/training/p4_d_summary.json": "57a59ae62f296544fc1561a1117cd97f88874559a78a37883040a8d3ea56a67c",
+    "results/phase_4/phase_4b/training/p4_d_train.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/phase_4/phase_4b/training/p4_d_training_config.yaml": "af183e8871746410d552331f758f0448d760f6946aad916d68db1635e22a5a91",
+    "results/phase_4/phase_4b/training/phase_4b_cross_variant_summary.json": "0aa2b4bbbbb24cff78ffece24fd6a0aaf1710afae8d0037f6a865b630f9baf7f",
+    "models/sc_fno/phase_4/phase_4b/p4_a_best.pt": "e79664126f4317a2d29b87e9609ac53e7c54c5f258d622188c57629e93a1720a",
+    "models/sc_fno/phase_4/phase_4b/p4_b_best.pt": "1e1e2768b5cb9e7a464d6ead956366860d43fa73f648eea676193f37af79f634",
+    "models/sc_fno/phase_4/phase_4b/p4_c_best.pt": "d6a3de6d3de434f3a948846c926af1da51f0664aba92f0f09eeb4a919b55a219",
+    "models/sc_fno/phase_4/phase_4b/p4_d_best.pt": "9f0f4a506d659b56bb6800bf0cb5d85eb0dff3b1365877a96b06c819a14607f5"
+  }
+}

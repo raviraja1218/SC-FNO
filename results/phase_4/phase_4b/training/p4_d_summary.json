@@ -1,0 +1,15 @@
+{
+  "variant": "P4-D",
+  "config": {
+    "pcgrad": true,
+    "adaptive_lambda": true,
+    "unified_padding": true
+  },
+  "starting_checkpoint_sha": "a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50",
+  "epochs_completed": 113,
+  "best_epoch": 82,
+  "best_val_data_loss": 0.06667835174504524,
+  "total_wall_time_s": 653.4586501121521,
+  "peak_vram_MB": 98.192384,
+  "lambda_phys_final": 0.00014120364349590647
+}

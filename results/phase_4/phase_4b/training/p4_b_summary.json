@@ -6,10 +6,10 @@
     "unified_padding": true
   },
   "starting_checkpoint_sha": "a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50",
-  "epochs_completed": 34,
-  "best_epoch": 3,
-  "best_val_data_loss": 0.14574624354449603,
-  "total_wall_time_s": 169.50802493095398,
-  "peak_vram_MB": 99.165184,
-  "lambda_phys_final": 0.0022908676527677737
+  "epochs_completed": 64,
+  "best_epoch": 33,
+  "best_val_data_loss": 0.0684023548831017,
+  "total_wall_time_s": 302.766553401947,
+  "peak_vram_MB": 74.3808,
+  "lambda_phys_final": 0.036307805477010145
 }
