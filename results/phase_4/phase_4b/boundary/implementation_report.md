@@ -151,3 +151,93 @@ One test helper bug was found and fixed during development:
 - `results/phase_4/phase_4b/boundary/unit_test_results.log` — pytest output
 - `results/phase_4/phase_4b/boundary/boundary_ratio_measurement.json` — T8 diagnostic
 - `results/phase_4/phase_4b/boundary/unified_latent_verification.json` — gate status
+
+
+---
+
+## Reviewer Addendum (Step 4B.3.R, 2026-11-02)
+
+Step 4B.3 review accepted. Three pre-training checks are carried forward
+to Step 4B.4 and Step 4B.5. The implementation and commit `836ddf7` are
+unchanged; this addendum documents the clarified scope.
+
+### Pre-Training Check 1 — Real FNO Integration (Deferred to 4B.4)
+
+The FakeFNO test-helper bug found during Step 4B.3 development revealed that
+test fakes can diverge from real-implementation conventions. The 12 unit tests
+verify the UnifiedLatentFNO wrapper's logic using a FakeFNO stand-in.
+
+**Missing verification:** a smoke test using the actual Phase 3 `neuralop.FNO`
+checkpoint.
+
+**Required before Step 4B.4 training:**
+1. Load actual Phase 3 PI-FNO checkpoint (`a0522e57...`)
+2. Wrap in `UnifiedLatentFNO(pad_size=20)`
+3. Run one forward on a real batch `[2, 1, 200]`
+4. Verify: data path output `[2, 9, 200]` finite, `get_latent()` output
+   `[2, 32, 200]` finite, crop `[:, :, 20:220]` shape `[2, 32, 200]`
+5. Verify: `loss.backward()` produces `.grad` on the FNO + decoder parameters
+6. Verify: exactly 1 FNO forward per `get_latent()` call
+
+**Evidence:** `results/phase_4/phase_4b/preflight/real_fno_smoke_test.json`
+
+### Pre-Training Check 2 — Boundary Coverage Scope (Deferred to 4B.5)
+
+The frozen query design (`4 + 42 + 4` in `[0.5, 1.5]`, `[1.5, 8.5]`,
+`[8.5, 9.5]`) evaluates physics residuals in `[0.5, 9.5]` — a strict subset
+of the physical interval `[0, 10]`. This is a **deliberate design choice**
+from Step 4B.0 to avoid endpoints where padded-context aliasing can produce
+artifacts.
+
+**Step 4B.5 must separately evaluate:**
+- Endpoint errors at `t = 0` and `t = 10`
+- Near-boundary errors in `[0, 0.5]` and `[9.5, 10]`
+- Interior errors in `[0.5, 9.5]`
+- Boundary start/interior MAE ratio (matching Phase 2/3 conventions)
+
+**This is an evaluation-only concern** — do not change the frozen training
+query design.
+
+### Pre-Training Check 3 — Synthetic Diagnostic Scope
+
+The `boundary_ratio_measurement.json` produced by T8 is a **synthetic
+diagnostic** — a random input, forward pass, and ratio computation. It
+confirms that the wrapper produces finite outputs on random data.
+
+**What it does NOT measure:** the FFT wraparound artifact on trained models,
+the boundary error profile of P4-B or P4-D, or the comparative boundary
+accuracy vs P2-FNO, P3-PI-FNO, or Phase 4A.1.
+
+**Step 4B.5 must measure** actual trained-model boundary behavior and compare
+against these baselines. The T8 diagnostic is an implementation check only,
+not evidence that padding improves boundary accuracy.
+
+### Reviewer Clarification — Causality Scope
+
+Test T5 verifies the `CoordinateDecoder` is unchanged from Phase 3: same
+class, no attention mask. **This does NOT establish that the complete
+FNO+decoder model is causal.**
+
+**Why not:** the FNO's FFT-based spectral convolution mixes all temporal
+positions within the 240-point padded window. The latent produced by the FNO
+already has global temporal dependence. The decoder's cross-attention over
+that latent preserves this mixing — a change in input at time `t=5` can affect
+predictions at `t=3`.
+
+**Corrected claim:**
+
+> "T5 verifies the CoordinateDecoder module is unchanged and has no attention
+> mask. The decoder's temporal attention preserves the FNO latent's structure.
+> **The complete FNO+decoder model is not strictly causal** — the FNO's
+> FFT convolutions mix all temporal positions. No broader causality claim is
+> made for the full model."
+
+This does not affect the validity of the unified-latent fix or the training
+protocol. It is a scope clarification for downstream interpretation and
+manuscript language.
+
+### Commit Preservation
+
+Step 4B.3 commit `836ddf7` is preserved unchanged. This addendum is additive
+documentation; no code, no re-training, no modification of the locked
+implementation.

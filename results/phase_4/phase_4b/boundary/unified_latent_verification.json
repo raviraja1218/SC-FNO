@@ -65,5 +65,33 @@
     "no_locked_paths_modified": true,
     "pcgrad_and_adaptive_lambda_untouched": true
   },
-  "all_checks_pass": true
+  "all_checks_pass": true,
+  "reviewer_addendum_4B_3_R": {
+    "applied": "2026-11-02",
+    "real_fno_smoke_test": {
+      "status": "deferred_to_4B.4_preflight",
+      "rationale": "FakeFNO test helper bug showed test-fake vs real-implementation divergence; actual neuralop.FNO smoke test required before training",
+      "required_checks": [
+        "load actual Phase 3 checkpoint",
+        "wrap in UnifiedLatentFNO(pad_size=20)",
+        "forward on real [2, 1, 200] batch",
+        "verify data + latent shapes finite",
+        "verify crop shape [2, 32, 200]",
+        "verify gradient flow to FNO + decoder params",
+        "verify single forward per get_latent() call"
+      ]
+    },
+    "endpoint_evaluation": {
+      "status": "deferred_to_4B.5",
+      "rationale": "physics query design [0.5, 9.5] \u2282 [0, 10] is frozen; endpoint and near-boundary errors evaluated separately in 4B.5"
+    },
+    "boundary_diagnostic_scope": {
+      "status": "synthetic_implementation_check_only",
+      "rationale": "T8 measures forward pass on random input; not trained-model boundary accuracy; comparative analysis deferred to 4B.5"
+    },
+    "causality_claim_scope": {
+      "status": "decoder_only_not_full_model",
+      "rationale": "T5 verifies CoordinateDecoder unchanged; FNO FFT convolutions are non-causal; no broader causality claim for full model"
+    }
+  }
 }
