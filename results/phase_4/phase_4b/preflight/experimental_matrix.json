@@ -1,0 +1,162 @@
+{
+  "step": "4B.0",
+  "created": "2026-11-02",
+  "frozen": true,
+  "common_config": {
+    "starting_checkpoint": {
+      "path": "models/sc_fno/phase_3/pi_fno/best_val.pt",
+      "sha256": "a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50",
+      "epoch": 36,
+      "lam_phys_at_start": 0.002754,
+      "active_parameter_count": 63634,
+      "note": "MUST be Phase 3 PI-FNO \u2014 NOT Phase 4A.1 final"
+    },
+    "training": {
+      "optimizer": "Adam",
+      "learning_rate": 0.001,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "scheduler": "CosineAnnealingLR",
+      "scheduler_T_max": 200,
+      "scheduler_eta_min": 0.0,
+      "batch_size": 16,
+      "max_epochs": 200,
+      "early_stopping_patience": 30,
+      "loss": "NormalizedMSE + lambda_phys * L_physics + lambda_IC * L_IC",
+      "precision": "FP32",
+      "seed": 42,
+      "gradient_clipping": "none"
+    },
+    "lambda_phys_schedule_phase3_default": {
+      "note": "Phase 3 default ramp \u2014 used by P4-A and P4-B",
+      "init": 0.0001,
+      "target": 1.0,
+      "ramp_epochs": 100,
+      "formula": "10^-4 * 10^(4*epoch/100)"
+    },
+    "lambda_IC": 1.0,
+    "dataset": {
+      "aggregate_sha256": "9049c7b42996fee7c08202703086bf0aebd513dbd1f77b1265ae546d6f241bf6",
+      "train_ids_sha256": "16ad4670eee9555aec237c94d2d241e90b74b50ce8ea57eb07efe209fe852834",
+      "validation_ids_sha256": "19b781283503b1a1cdb313dc68ce153086f18c25043f1ff5123e3cb3e3205bb6",
+      "test_ids_sha256": "a71514eacaee3d09f8c00b34b6070c61ae919a59e8208d6164903d5fed44ffb2",
+      "normalization_sha256": "4e832aa5cdaa940cb2e07bf64c5741cc5124ad40242dd9532da231ff257f6727",
+      "n_train": 1600,
+      "n_val": 200,
+      "n_test": 200,
+      "test_used_in_training": false
+    },
+    "evaluation": {
+      "test_scenarios": 200,
+      "metrics": [
+        "MAE",
+        "RMSE",
+        "relative_L2_per_scenario",
+        "physics_loss",
+        "IC_loss",
+        "boundary_ratio"
+      ],
+      "statistical_test": "paired bootstrap, 10000 resamples, seed 42, 95% CI",
+      "primary_baseline": "P3-PI-FNO",
+      "supplementary_baseline": "Phase 4A.1",
+      "reference_baseline": "P2-FNO"
+    }
+  },
+  "variants": {
+    "P4-A": {
+      "name": "PCGrad only",
+      "pcgrad": true,
+      "adaptive_lambda": false,
+      "unified_padding": false,
+      "expected_effect": "Reduce gradient conflict, smoother convergence"
+    },
+    "P4-B": {
+      "name": "Unified latent padding only",
+      "pcgrad": false,
+      "adaptive_lambda": false,
+      "unified_padding": true,
+      "expected_effect": "Reduce FFT boundary artifact"
+    },
+    "P4-C": {
+      "name": "Adaptive lambda_phys only",
+      "pcgrad": false,
+      "adaptive_lambda": true,
+      "unified_padding": false,
+      "expected_effect": "Better data-physics balance via cosine-driven lambda"
+    },
+    "P4-D": {
+      "name": "Combined (all three)",
+      "pcgrad": true,
+      "adaptive_lambda": true,
+      "unified_padding": true,
+      "expected_effect": "Best-of-all or evidence of interference"
+    }
+  },
+  "interventions": {
+    "pcgrad": {
+      "eps_projection": 1e-08,
+      "trigger": "cos(g_data, g_physics) < 0",
+      "log_both_raw_and_projected_cosine": true,
+      "memory_strategy": "autograd.grad with graph release per gradient"
+    },
+    "adaptive_lambda": {
+      "alpha": 0.05,
+      "lambda_min": 1e-05,
+      "lambda_max": 10.0,
+      "lambda_init": 0.0001,
+      "ema_alpha_cosine": 0.1,
+      "ema_reference_window": 20,
+      "update_freq": "per_epoch",
+      "clip_method": "log-clip-exp"
+    },
+    "padding": {
+      "pad_size": 20,
+      "pad_mode": "reflect",
+      "padded_length": 240,
+      "physics_query_distribution": {
+        "n_total": 50,
+        "n_near_start": 4,
+        "n_near_end": 4,
+        "near_start_range": [
+          0.5,
+          1.5
+        ],
+        "near_end_range": [
+          8.5,
+          9.5
+        ],
+        "n_uniform_middle": 42,
+        "uniform_middle_range": [
+          1.5,
+          8.5
+        ]
+      },
+      "data_path_crop": "crop to [0, 200] for data loss",
+      "physics_path_domain": "[0, 10] s only (do NOT extend to [-1, 11])",
+      "unified_latent_requirement": "Both data and physics path MUST use same padded latent",
+      "causal_handling": "decoder remains causal; padding is spectral context only"
+    }
+  },
+  "baselines_for_comparison": {
+    "P2-FNO": {
+      "path": "models/baseline/fno_best.pt",
+      "sha256": "24fce0bad8ec9c665649f6d73f4c56efd66f92667d95da3011d32dcbf4388889"
+    },
+    "P3-PI-FNO": {
+      "path": "models/sc_fno/phase_3/pi_fno/best_val.pt",
+      "sha256": "a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50"
+    },
+    "Phase4A.1_supplementary": {
+      "path": "models/sc_fno/phase_4/phase_4a/phase_4a_final.pt",
+      "sha256": "681fe6789dd2911a43991db0242a20f8a08d5ba75f82b28f9dbbeaba88ad744f"
+    }
+  },
+  "reviewer_constraints": {
+    "all_variants_start_from": "Phase 3 PI-FNO (NOT Phase 4A.1)",
+    "training_protocol": "Phase 3 Adam (NOT Phase 4A.1 L-BFGS)",
+    "no_test_set_use_in_training": true,
+    "no_r_n_interventions": true
+  }
+}

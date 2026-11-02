@@ -1,0 +1,15 @@
+{
+  "path": "models/sc_fno/phase_3/pi_fno/best_val.pt",
+  "sha256_actual": "a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50",
+  "sha256_expected": "a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50",
+  "sha256_match": true,
+  "epoch": 36,
+  "lam_phys": 0.0027542287033381664,
+  "variant": "pi_fno",
+  "state_dict_tensor_count": 94,
+  "total_saved_parameters_with_aliases": 114043,
+  "active_parameter_count": 63634,
+  "active_parameter_count_expected": 63634,
+  "note": "total_saved includes PaddedFNO dual-key aliasing (same tensors saved twice under fno.fno.* and fno.*); active_parameter_count from model.parameters() is authoritative",
+  "all_verified": true
+}

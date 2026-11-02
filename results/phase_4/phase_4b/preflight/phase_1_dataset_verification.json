@@ -1,0 +1,13 @@
+{
+  "manifest_sha256": "993581ef514932c5f3c341ce176a401a5247ebe7217e83f70d3ebe26dd3cff12",
+  "aggregate_sha256": "9049c7b42996fee7c08202703086bf0aebd513dbd1f77b1265ae546d6f241bf6",
+  "config_versions": {
+    "reactor_parameters": "v3",
+    "thermal_hydraulics": "v4"
+  },
+  "train_ids_sha256": "16ad4670eee9555aec237c94d2d241e90b74b50ce8ea57eb07efe209fe852834",
+  "validation_ids_sha256": "19b781283503b1a1cdb313dc68ce153086f18c25043f1ff5123e3cb3e3205bb6",
+  "test_ids_sha256": "a71514eacaee3d09f8c00b34b6070c61ae919a59e8208d6164903d5fed44ffb2",
+  "normalization_sha256": "4e832aa5cdaa940cb2e07bf64c5741cc5124ad40242dd9532da231ff257f6727",
+  "all_verified": true
+}
