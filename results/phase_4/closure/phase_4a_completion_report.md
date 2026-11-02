@@ -172,3 +172,74 @@ The L-BFGS stage **terminated after 17 closure evaluations** on the fixed 16-sce
 
 **Milestone:** `PHASE_4A_LOCKED — OPTIMIZATION SUCCESSFUL`
 **Phase 1/2/3 locks:** Intact (see `lock_integrity_verification.json`)
+
+---
+
+# Post-Review Addendum (Step 4A.5.R)
+
+**Date:** 2026-11-02
+**Trigger:** Reviewer corrections A–E from Step 4A.5 review
+
+All five reviewer corrections are accepted. Corrections are **additive documentation** — the tag `phase-4a-locked` remains at `dea218a`. No training, no checkpoints, no test-set use.
+
+## Correction A — Data-Accuracy Metrics Clarification
+
+The 0.52% MSE increase and the statistically significant relative L2 improvement are **different metrics**, not contradictory. See `data_accuracy_metrics_clarification.md` for full detail.
+
+- **MSE (Protocol A):** sensitive to worst-case magnitude. Rose 0.52% because a few scenarios worsened substantially in absolute terms.
+- **Relative L2 (paired per-scenario):** scale-invariant, dominated by typical scenario behavior. Improved (162/200 wins, mean paired delta +3.95e-3, 95% CI excludes zero).
+
+Both are reported. Neither supersedes the other.
+
+## Correction B — Per-Family Significance with CIs
+
+The completion report cited family win rates but did not include confidence intervals. Full bootstrap CIs are now documented in `per_family_significance_evidence.md`:
+
+| Family | Mean Δ | 95% CI | Median Δ | 95% CI | Verdict |
+|--------|--------|--------|----------|--------|---------|
+| ramp | +1.050e-2 | [+8.27e-3, +1.32e-2] | +8.68e-3 | [+7.03e-3, +9.99e-3] | ✅ Significant |
+| sinusoidal | +6.72e-3 | [+1.63e-3, +1.12e-2] | +8.32e-3 | [+6.24e-3, +1.09e-2] | ✅ Significant |
+| step | +3.47e-6 | [−4.69e-4, +3.57e-4] | +5.49e-5 | [+2.92e-5, +7.36e-5] | ⚪ Mean CI crosses zero |
+| grf | −1.43e-3 | [−5.73e-3, +2.83e-3] | −1.25e-3 | [−7.60e-3, +4.82e-3] | ⚪ Not significant |
+
+**Manuscript guidance:** claim ramp and sinusoidal improvements as statistically significant. Do NOT claim step improvement as significant on mean. Do NOT claim GRF degradation as significant. The GRF family's direction is descriptively negative but the CIs cross zero.
+
+## Correction C — Statistical Reversal Reproducibility
+
+Full audit trail in `statistical_reversal_reproducibility.md` and `statistical_reversal_reproducibility.json`. Independent recomputation from `per_scenario_comparison.csv` using the same procedure (10,000 resamples, seed=42, percentile CI) reproduces all published values. Commit `f7474c0` is authoritative.
+
+Source data SHA-256 recorded. Full bootstrap parameters documented. Win/loss/tie counts per group verified. Both mean and median CIs reproduced.
+
+## Correction D — Causal Scope
+
+The reviewer-approved causal wording is preserved verbatim in Section 8:
+
+> *"The tested adaptive optimization procedure achieved a substantial reduction in the normalized nine-equation physics residual. The result demonstrates that the Phase 3 level of physics convergence was not an inherent limitation of the architecture. However, the individual contributions of training duration, physics-weight scheduling, and optimizer sequencing remain to be isolated."*
+
+See `causal_scope_note.md`. Do not attribute the 828× improvement to any single component in the manuscript.
+
+## Correction E — Commit Count
+
+The completion report stated "19 commits" but the lineage includes 18 Phase 4A commits on top of the Phase 3 lock `bc80727`. Corrected in `commit_count_correction.md`:
+
+**18 Phase 4A commits on top of the Phase 3 lock `bc80727`.**
+
+## Corrected Figures
+
+The six figures produced in Step 4A.4 (commit `fa28591`) remain valid without modification. Both F5 and F7 remain honestly documented as unavailable (see the `.md` files in the 4A.4 evidence). No new figures need to be generated.
+
+## Status After Corrections
+
+| Aspect | Before Correction | After Correction |
+|--------|-------------------|------------------|
+| Data accuracy (MSE) | "+0.52% cost" | +0.52% MSE increase (worst-case sensitive) |
+| Data accuracy (rel L2) | "+3.95e-3 improvement" | +3.95e-3 (95% CI excludes zero) — different metric |
+| Ramp significance | "45% better" | +1.05e-2 (95% CI [+8.27e-3, +1.32e-2], statistically significant) |
+| Sinusoidal significance | "10% better" | +6.72e-3 (95% CI [+1.63e-3, +1.12e-2], statistically significant) |
+| Step significance | "neutral (98% win)" | Descriptive only — mean CI crosses zero |
+| GRF significance | "not significant" | Confirmed not significant (CIs cross zero) |
+| Statistical reversal | "Phase 4A.1 wins 162/200" | Fully reproducible — see audit document |
+| Causal scope | "combined procedure only" | Verbatim reviewer-approved wording preserved |
+| Commit count | "19 Phase 4A commits" | 18 Phase 4A commits + Phase 3 lock as predecessor |
+
+**`phase-4a-locked` tag at `dea218a` remains unchanged.** All corrections are additive documentation committed after the tag.

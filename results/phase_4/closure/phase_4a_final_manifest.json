@@ -42,7 +42,12 @@
   "reviewer_corrections_applied": [
     "Adam trajectory \u2014 best epoch 28, plateau epoch 54",
     "L-BFGS \u2014 terminated on tolerance, fixed batch only",
-    "Statistical reversal \u2014 Phase 4A.1 wins 162/200, f7474c0 authoritative"
+    "Statistical reversal \u2014 Phase 4A.1 wins 162/200, f7474c0 authoritative",
+    "Step 4A.5.R Correction A \u2014 data metrics clarification (data_accuracy_metrics_clarification.md)",
+    "Step 4A.5.R Correction B \u2014 per-family CIs (per_family_significance_evidence.md)",
+    "Step 4A.5.R Correction C \u2014 statistical reversal reproducibility (statistical_reversal_reproducibility.md + .json + .log)",
+    "Step 4A.5.R Correction D \u2014 causal scope preserved (causal_scope_note.md)",
+    "Step 4A.5.R Correction E \u2014 commit count 18 not 19 (commit_count_correction.md)"
   ],
   "handoff_to_phase_4b": {
     "start_from": "Phase 3 PI-FNO (a0522e57) \u2014 NOT Phase 4A.1",
@@ -134,12 +139,21 @@
     "results/phase_4/phase_4a/analysis/optimization_hyperparameter_table.csv": "a3a03598c18b8ccb46ddb2cc6670d551c8dfbd35fdfc29d0ea622d54e42c33d4",
     "results/phase_4/phase_4a/analysis/optimization_hyperparameter_table.md": "69d2e9aebe8c94bd98e80c4536e1ac218e9ad3faa8632f7c89bb3ee4a5e80459",
     "results/phase_4/phase_4a/analysis/step_4a_4_manifest.json": "eb09f8b7010dfa83fd3f7841d8c15cc03c4c8d2855321a4e1fa5c027ee97e4cc",
+    "results/phase_4/closure/causal_scope_note.md": "b719215bea686418cace1d5c0a6f65a977812e94cad188305ff1a4521c2ff872",
     "results/phase_4/closure/closure_part1.log": "b7f059070cbcb2c8677514ee9fa2547ee7fec4e6fd54eac33e1588ca1712d5f1",
-    "results/phase_4/closure/closure_part2.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/phase_4/closure/closure_part2.log": "2fdea5c5840d89fc4e4d116abaad0fba36b976f745094d99a3c6272857f04a67",
+    "results/phase_4/closure/commit_count_correction.md": "47b484de0c691ab448ffa05e81658c0c8203bc4e611d2d5ce0f2d47a375d73c5",
+    "results/phase_4/closure/data_accuracy_metrics_clarification.md": "e3cff37cdeb26b0cfb941da79fd74c1a159a3b1ad207968b59fff7ec119565f4",
     "results/phase_4/closure/lock_integrity_verification.json": "320e6af4a800f65ce342b314c53ce2289f16a4a1b6f49728d7d36282ce774dd5",
-    "results/phase_4/closure/phase_4a_completion_report.md": "7c83e09266388cbca02bbfffb11231311ab1a3367459d38d64d312e74a249d86",
+    "results/phase_4/closure/per_family_significance_evidence.md": "f781083c2ecb107a359463da53e915ebb267bb01a54186f032b8b7db078d5bff",
+    "results/phase_4/closure/phase_4a_completion_report.md": "db0b112bd8e4bfe62aaa70fe71f27204e318a651d476477351756448b22d2a21",
     "results/phase_4/closure/phase_4a_completion_report_summary.md": "bf32e24a8a611783b0829fc6a51715cb45a60312f7f877f50532e94343d07dab",
     "results/phase_4/closure/phase_4a_step_index.md": "1c28cfde4c36bf75cb86590852c8350a7bc0e301395ec02d501c7d041bf241e1",
-    "results/phase_4/closure/statistical_reversal_reconciliation.md": "e350e329dfa95131f649ddba692a9c51606424cc2f1a774e4ec94b12fadc390a"
-  }
+    "results/phase_4/closure/statistical_reversal_reconciliation.md": "e350e329dfa95131f649ddba692a9c51606424cc2f1a774e4ec94b12fadc390a",
+    "results/phase_4/closure/statistical_reversal_reproducibility.json": "91107f5616668aada3506ef9e3f667986380269049e7cfa3bc81b81d9583f4f0",
+    "results/phase_4/closure/statistical_reversal_reproducibility.log": "2ef30c7066ed9e7c1ead290185b770fa4268770acd7dc12514ed63aaa2877721",
+    "results/phase_4/closure/statistical_reversal_reproducibility.md": "2d057ab190dfee31656a38421747134fb3432814ea813c60ef5ff603451913c7"
+  },
+  "last_updated": "2026-11-02",
+  "post_review_addendum_commit": "Step 4A.5.R"
 }

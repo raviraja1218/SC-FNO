@@ -1,0 +1,40 @@
+Source: per_scenario_comparison.csv
+SHA-256: 79e10afb824aaa2fe9cc98eb8ffaf3d314efb0a2daa364d8a775e47782fa6eaf
+Rows: 200
+=== Overall comparison ===
+  mean_paired_delta: published=3.948805e-03, recomputed=3.948805e-03, match=True
+  median_paired_delta: published=4.295494e-03, recomputed=4.295494e-03, match=True
+  std_paired_delta: published=1.340509e-02, recomputed=1.340509e-02, match=True
+  wins_phase4a1: published=1.620000e+02, recomputed=1.620000e+02, match=True
+  losses_phase3: published=3.800000e+01, recomputed=3.800000e+01, match=True
+  ties: published=0.000000e+00, recomputed=0.000000e+00, match=True
+  mean_paired_delta_ci95: published=[0.002099918616575905, 0.005764621845174399], recomputed=[0.002099918616575905, 0.005764621845174399], match=True
+  median_paired_delta_ci95: published=[0.0004524490733389, 0.006203766518024], recomputed=[0.0004524490733389, 0.006203766518024], match=True
+
+=== Per-family comparison ===
+
+--- grf (n=50) ---
+  mean_paired_delta: published=-1.429325e-03, recomputed=-1.429325e-03, match=True
+  median_paired_delta: published=-1.252709e-03, recomputed=-1.252709e-03, match=True
+  wins_phase4a1: published=2.200000e+01, recomputed=2.200000e+01, match=True
+  losses_phase3: published=2.800000e+01, recomputed=2.800000e+01, match=True
+
+--- ramp (n=50) ---
+  mean_paired_delta: published=1.049833e-02, recomputed=1.049833e-02, match=True
+  median_paired_delta: published=8.680648e-03, recomputed=8.680648e-03, match=True
+  wins_phase4a1: published=4.900000e+01, recomputed=4.900000e+01, match=True
+  losses_phase3: published=1.000000e+00, recomputed=1.000000e+00, match=True
+
+--- sinusoidal (n=50) ---
+  mean_paired_delta: published=6.722742e-03, recomputed=6.722742e-03, match=True
+  median_paired_delta: published=8.324406e-03, recomputed=8.324406e-03, match=True
+  wins_phase4a1: published=4.200000e+01, recomputed=4.200000e+01, match=True
+  losses_phase3: published=8.000000e+00, recomputed=8.000000e+00, match=True
+
+--- step (n=50) ---
+  mean_paired_delta: published=3.473964e-06, recomputed=3.473964e-06, match=True
+  median_paired_delta: published=5.493926e-05, recomputed=5.493926e-05, match=True
+  wins_phase4a1: published=4.900000e+01, recomputed=4.900000e+01, match=True
+  losses_phase3: published=1.000000e+00, recomputed=1.000000e+00, match=True
+
+=== All statistics independently verified ===

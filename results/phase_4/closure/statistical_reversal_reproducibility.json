@@ -1,0 +1,59 @@
+{
+  "audit_date": "2026-11-02",
+  "source_file": "results/phase_4/phase_4a/residual_analysis/per_scenario_comparison.csv",
+  "source_sha256": "79e10afb824aaa2fe9cc98eb8ffaf3d314efb0a2daa364d8a775e47782fa6eaf",
+  "source_rows": 200,
+  "sign_convention": "delta = phase3_rel_l2 - phase4a1_rel_l2 (positive = Phase 4A.1 better)",
+  "bootstrap_procedure": {
+    "n_resamples": 10000,
+    "random_seed": 42,
+    "rng": "numpy.random.default_rng(seed=42)",
+    "resample_scheme": "with replacement, size=200",
+    "ci_method": "percentile (2.5%, 97.5%)",
+    "win_definition": "delta > 0",
+    "loss_definition": "delta < 0",
+    "tie_definition": "delta == 0"
+  },
+  "recomputed_overall": {
+    "mean_paired_delta": 0.003948805291857756,
+    "median_paired_delta": 0.0042954942629388,
+    "std_paired_delta": 0.013405085711762474,
+    "mean_paired_delta_ci95": [
+      0.002099918616575905,
+      0.005764621845174399
+    ],
+    "median_paired_delta_ci95": [
+      0.0004524490733389,
+      0.006203766518024
+    ],
+    "wins_phase4a1": 162,
+    "losses_phase3": 38,
+    "ties": 0,
+    "win_rate_phase4a1": 0.81
+  },
+  "published_overall": {
+    "label": "overall",
+    "n": 200,
+    "mean_paired_delta": 0.003948805291857756,
+    "median_paired_delta": 0.0042954942629388,
+    "std_paired_delta": 0.013405085711762474,
+    "mean_paired_delta_ci95": [
+      0.002099918616575905,
+      0.005764621845174399
+    ],
+    "median_paired_delta_ci95": [
+      0.0004524490733389,
+      0.006203766518024
+    ],
+    "wins_phase4a1": 162,
+    "losses_phase3": 38,
+    "ties": 0,
+    "win_rate_phase4a1": 0.81,
+    "win_rate_phase3": 0.19,
+    "phase3_rel_l2_mean": 0.17992496611001133,
+    "phase4a1_rel_l2_mean": 0.17597616081815354,
+    "mean_rel_l2_pct": -2.1946955874057936
+  },
+  "match_verified": true,
+  "verdict": "Independently recomputed statistics match published values. Commit f7474c0 is authoritative."
+}
