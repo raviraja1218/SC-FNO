@@ -123,19 +123,26 @@ def load_data(split):
 
 
 def compute_gradient_cosine(grads_a, grads_b, eps=1e-8):
-    """Compute cosine between two grad lists (both may have Nones)."""
-    flat_a, flat_b = [], []
-    for ga, gb in zip(grads_a, grads_b):
-        if ga is not None and gb is not None:
-            flat_a.append(ga.flatten())
-            flat_b.append(gb.flatten())
-    if not flat_a:
+    """Compute cosine between two grad lists. Complex-aware, FP64-safe.
+
+    Uses Re(conj(a)*b) inner product for complex FFT gradients.
+    All computation in FP64/complex128 to prevent overflow on real FNO gradients.
+    """
+    # Import the robust helper from pcgrad
+    from training.pcgrad import _flat_and_norm, _real_inner, _norm_from_flat
+
+    valid_a = [g for g in grads_a if g is not None]
+    valid_b = [g for g in grads_b if g is not None]
+    if not valid_a or not valid_b:
         return 0.0
-    fa = torch.cat(flat_a)
-    fb = torch.cat(flat_b)
-    na = torch.linalg.norm(fa)
-    nb = torch.linalg.norm(fb)
-    return float((fa * fb).sum() / (na * nb + eps))
+
+    fa, _ = _flat_and_norm(valid_a)
+    fb, _ = _flat_and_norm(valid_b)
+    if fa is None or fb is None:
+        return 0.0
+    na = _norm_from_flat(fa)
+    nb = _norm_from_flat(fb)
+    return float(_real_inner(fa, fb) / (na * nb + eps))
 
 
 def evaluate_val_data_loss(model, val_data, device, batch_size=BATCH):
@@ -253,18 +260,31 @@ def main(variant_name):
             t_q = build_query_times(B, device)
 
             if cfg["unified_padding"]:
-                # Single latent for both paths
-                latent = model.fno.get_latent(x)
-                # Data path: decoder on 200-point grid
-                t_data_grid = train_data["time"][idx].to(device)  # [B, 200]
-                u_data = model.decoder(latent, t_data_grid)       # [B, 9, 200]
+                # DESIGN: Data path uses projection MLP (Phase 3 accuracy preserved)
+                #         Physics path uses pre-projection latent (padded context)
+                #         Both consume the padded FNO forward, but heads differ.
+                u_data = model.fno(x)                             # [B, 9, 200] via MLP
                 L_data = ((u_data - y) ** 2).mean()
-                # Physics path: decoder on t_q
-                u_phys = model.decoder(latent, t_q)               # [B, 9, Nq]
-                L_physics = loss_fn.compute_physics_loss_from_u(
-                    u_phys, t_q, x, kin, th
+
+                # Physics path: compute_physics_loss uses patched _fno_latent
+                # (which routes through get_latent → padded, cropped to 200)
+                def rho_ext_fn(tq):
+                    if tq.dim() == 1:
+                        tq = tq.unsqueeze(0).expand(x.shape[0], -1)
+                    return torch.stack([
+                        torch.nn.functional.interpolate(
+                            x[b, 0].unsqueeze(0).unsqueeze(0),
+                            size=tq.shape[1], mode="linear", align_corners=True
+                        ).squeeze() * train_data["norm"]["rho_ext"]["std"]
+                        + train_data["norm"]["rho_ext"]["mean"]
+                        for b in range(x.shape[0])
+                    ], dim=0)
+                L_physics = loss_fn.compute_physics_loss(
+                    model, x, t_q, rho_ext_fn, kin, th
                 )
-                # IC path: decoder at t=0
+
+                # IC path: decoder at t=0 on the padded latent
+                latent = model.fno.get_latent(x)                  # [B, 32, 200]
                 t_ic = torch.zeros(B, 1, device=device)
                 u_ic = model.decoder(latent, t_ic)                # [B, 9, 1]
                 ic_gt = y[:, :, 0].unsqueeze(-1)
@@ -278,10 +298,19 @@ def main(variant_name):
                 pred_data = model.fno(x)
                 L_data = ((pred_data - y) ** 2).mean()
                 # Physics path via existing composite loss internals
-                z, u_hat, du_hat_dt = compute_du_dt(model, x, t_q)
-                u_phys = u_hat
-                L_physics = loss_fn.compute_physics_loss_from_u(
-                    u_phys, t_q, x, kin, th
+                def rho_ext_fn(tq):
+                    if tq.dim() == 1:
+                        tq = tq.unsqueeze(0).expand(x.shape[0], -1)
+                    return torch.stack([
+                        torch.nn.functional.interpolate(
+                            x[b, 0].unsqueeze(0).unsqueeze(0),
+                            size=tq.shape[1], mode="linear", align_corners=True
+                        ).squeeze() * train_data["norm"]["rho_ext"]["std"]
+                        + train_data["norm"]["rho_ext"]["mean"]
+                        for b in range(x.shape[0])
+                    ], dim=0)
+                L_physics = loss_fn.compute_physics_loss(
+                    model, x, t_q, rho_ext_fn, kin, th
                 )
                 z_ic = model._fno_latent(x)
                 t_ic = torch.zeros(B, 1, device=device)

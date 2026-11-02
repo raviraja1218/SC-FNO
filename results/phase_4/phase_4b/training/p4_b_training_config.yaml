@@ -1,0 +1,18 @@
+T_max: 200
+batch_size: 16
+betas:
+- 0.9
+- 0.999
+config:
+  adaptive_lambda: false
+  pcgrad: false
+  unified_padding: true
+lr: 0.001
+max_epochs: 200
+optimizer: Adam
+patience: 30
+scheduler: CosineAnnealingLR
+seed: 42
+starting_checkpoint: models/sc_fno/phase_3/pi_fno/best_val.pt
+starting_checkpoint_sha: a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50
+variant: P4-B
