@@ -1,0 +1,20 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.22, pytest-9.2.0, pluggy-1.7.0 -- /home/raviraja/miniconda3/envs/sc_fno/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/raviraja/projects/SC-FNO
+configfile: pytest.ini
+plugins: platformdirs-4.12.4, mock-3.17.0, anyio-4.15.1, cov-7.1.0
+collecting ... collected 10 items
+
+tests/phase_4/phase_4b/test_adaptive_lambda.py::test_t1_initialization PASSED [ 10%]
+tests/phase_4/phase_4b/test_adaptive_lambda.py::test_t2_first_update_ema_init PASSED [ 20%]
+tests/phase_4/phase_4b/test_adaptive_lambda.py::test_t3_subsequent_update_ema PASSED [ 30%]
+tests/phase_4/phase_4b/test_adaptive_lambda.py::test_t4_lambda_min_clip PASSED [ 40%]
+tests/phase_4/phase_4b/test_adaptive_lambda.py::test_t5_lambda_max_clip PASSED [ 50%]
+tests/phase_4/phase_4b/test_adaptive_lambda.py::test_t6_extreme_cosines_no_nan PASSED [ 60%]
+tests/phase_4/phase_4b/test_adaptive_lambda.py::test_t7_reproducibility PASSED [ 70%]
+tests/phase_4/phase_4b/test_adaptive_lambda.py::test_t8_log_history PASSED [ 80%]
+tests/phase_4/phase_4b/test_adaptive_lambda.py::test_t9_summary_statistics PASSED [ 90%]
+tests/phase_4/phase_4b/test_adaptive_lambda.py::test_t10_frozen_config_defaults PASSED [100%]
+
+============================== 10 passed in 1.77s ==============================
