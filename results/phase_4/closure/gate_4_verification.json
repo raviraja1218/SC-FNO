@@ -1,0 +1,73 @@
+{
+  "gate": "4",
+  "n_checks": 13,
+  "n_pass": 13,
+  "all_pass": true,
+  "checks": [
+    {
+      "name": "phase-4a-locked tag",
+      "pass": true,
+      "detail": "present"
+    },
+    {
+      "name": "phase-4b-locked tag",
+      "pass": true,
+      "detail": "present"
+    },
+    {
+      "name": "7 model SHAs unchanged",
+      "pass": true,
+      "detail": "7/7"
+    },
+    {
+      "name": "Test set SHA",
+      "pass": true,
+      "detail": "a71514ea..."
+    },
+    {
+      "name": "Unified comparison CSV",
+      "pass": true,
+      "detail": "1724 bytes"
+    },
+    {
+      "name": "Completion report 6 sections",
+      "pass": true,
+      "detail": "reports/phase_reports/phase_4_completion_report.md"
+    },
+    {
+      "name": "Reviewer Phase 4B verbatim",
+      "pass": true,
+      "detail": "verbatim"
+    },
+    {
+      "name": "Final model selection documented",
+      "pass": true,
+      "detail": "Phase4A.1"
+    },
+    {
+      "name": "Phase 4 master manifest",
+      "pass": true,
+      "detail": "selected: Phase4A.1"
+    },
+    {
+      "name": "Locked paths clean",
+      "pass": true,
+      "detail": "empty"
+    },
+    {
+      "name": "No retraining after Phase 4B closure",
+      "pass": true,
+      "detail": "verified"
+    },
+    {
+      "name": "Both Phase 4A and 4B closure reports present",
+      "pass": true,
+      "detail": "4A: True, 4B: True"
+    },
+    {
+      "name": "Phase 5 authorization",
+      "pass": true,
+      "detail": "true"
+    }
+  ]
+}

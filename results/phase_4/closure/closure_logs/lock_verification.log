@@ -1,0 +1,27 @@
+=== Ancestor locks ===
+  [PASS] Phase 1 (1d9b320): ancestor of HEAD
+  [PASS] Phase 2 (0c9dfd7): ancestor of HEAD
+  [PASS] Phase 3 (bc80727): ancestor of HEAD
+  [PASS] Phase 4A (dea218a): ancestor of HEAD
+  [PASS] Phase 4B (dd392bb): ancestor of HEAD
+
+=== Phase 4 tags ===
+  [PASS] phase-4a-locked tag: points to 2c8443e0234a (dea218a as ancestor)
+  [PASS] phase-4b-locked tag: fbb36c98995d
+
+=== Model checkpoint SHAs ===
+  [PASS] P2-FNO ckpt SHA: 24fce0bad8ec9c66
+  [PASS] P3-PI-FNO ckpt SHA: a0522e57f0b43c8a
+  [PASS] Phase4A.1 ckpt SHA: 681fe6789dd2911a
+  [PASS] P4-A ckpt SHA: e79664126f4317a2
+  [PASS] P4-B ckpt SHA: 1e1e2768b5cb9e7a
+  [PASS] P4-C ckpt SHA: d6a3de6d3de434f3
+  [PASS] P4-D ckpt SHA: 9f0f4a506d659b56
+
+=== Test set SHA ===
+  [PASS] Test set: a71514eacaee3d09
+
+=== Working tree clean ===
+  [PASS] locked paths clean: empty
+
+=== Lock verification: 16/16 PASS ===

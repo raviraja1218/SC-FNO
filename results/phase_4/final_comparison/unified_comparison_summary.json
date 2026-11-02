@@ -1,0 +1,25 @@
+{
+  "phase": "Phase 4",
+  "timestamp": "2026-11-02",
+  "models_compared": 7,
+  "phase_4a": {
+    "status": "POSITIVE",
+    "selected_model": "Phase4A.1",
+    "rel_l2_median": 0.0023069590399459,
+    "paired_wins_vs_p2": 121,
+    "win_rate": 0.605,
+    "physics_loss_per_sum": 1.951858560668522e-06,
+    "physics_loss_per_channel": 0.2295469876063872
+  },
+  "phase_4b": {
+    "status": "NEGATIVE \u2014 training-protocol limitation",
+    "variants": [
+      "P4-A",
+      "P4-B",
+      "P4-C",
+      "P4-D"
+    ],
+    "all_physics_diverged": true
+  },
+  "gate_4_verdict": "PHASE_4_LOCKED \u2014 MIXED RESULT: PHASE 4A SUCCESS, PHASE 4B TRAINING-PROTOCOL LIMITATION"
+}

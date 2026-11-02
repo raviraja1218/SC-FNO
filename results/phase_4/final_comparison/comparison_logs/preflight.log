@@ -1,0 +1,7 @@
+=== Step 4.6 Preflight: 2026-11-02T11:15:01+00:00 ===
+/home/raviraja/projects/SC-FNO
+dd392bb Step 4B.6: Phase 4B closure — PHASE_4B_LOCKED. Negative result: training-protocol limitation. Reviewer's 5 conditions closed. Phase4A.1 remains strongest model (121/200 paired wins vs P2, corrected physics 0.23). P4-A/B/C/D physics-diverged under frozen Phase 3 protocol (173-2100x worse aggregate, 10^5-10^6x worse on Tf/Tc). Interventions correct (35/35 tests pass) but untested under adequate protocol. True-forcing and boundary deferred to Phase 5. Original d226447 preserved; corrections b5f94a0-e96d94f-109cdfc-75dce8f additive.
+75dce8f Step 4B.5 correction v4: additive corrected figures/tables (F4b dual-protocol physics loss, F4c per-state Phase4A.1 vs P3, T1b original-vs-corrected table). Original F1-F10 and T1-T5 from d226447 preserved unchanged. All 10 primary figures + 5 tables remain valid under both protocols (rel L2, boundary, endpoint, bootstrap unaffected by derivative correction). Jacobian audit log force-added.
+109cdfc Step 4B.5 correction v3: Jacobian validation CLOSED. CoordinateDecoder is query-independent (attention over latent, not queries). Per-channel derivative with grad_outputs=ones is mathematically valid. Bug A attribution scoped to training protocol failure (not intervention failure). Reviewer conditions 1-5 all addressed.
+2c8443e0234ab5670386bfc6755cc8d157ea7de0
+fbb36c98995d40f8a23215435f7c45c88df3e6f4

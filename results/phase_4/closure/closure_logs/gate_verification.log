@@ -1,0 +1,15 @@
+  [PASS] phase-4a-locked tag: present
+  [PASS] phase-4b-locked tag: present
+  [PASS] 7 model SHAs unchanged: 7/7
+  [PASS] Test set SHA: a71514ea...
+  [PASS] Unified comparison CSV: 1724 bytes
+  [PASS] Completion report 6 sections: reports/phase_reports/phase_4_completion_report.md
+  [PASS] Reviewer Phase 4B verbatim: verbatim
+  [PASS] Final model selection documented: Phase4A.1
+  [PASS] Phase 4 master manifest: selected: Phase4A.1
+  [PASS] Locked paths clean: empty
+  [PASS] No retraining after Phase 4B closure: verified
+  [PASS] Both Phase 4A and 4B closure reports present: 4A: True, 4B: True
+  [PASS] Phase 5 authorization: true
+
+=== Gate 4: 13/13 PASS ===
