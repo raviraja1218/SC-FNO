@@ -1,0 +1,22 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.22, pytest-9.2.0, pluggy-1.7.0 -- /home/raviraja/miniconda3/envs/sc_fno/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/raviraja/projects/SC-FNO
+configfile: pytest.ini
+plugins: platformdirs-4.12.4, mock-3.17.0, anyio-4.15.1, cov-7.1.0
+collecting ... collected 12 items
+
+tests/phase_4/phase_4b/test_unified_latent.py::test_t1_padding_shape PASSED [  8%]
+tests/phase_4/phase_4b/test_unified_latent.py::test_t2_latent_identity_bit_exact PASSED [ 16%]
+tests/phase_4/phase_4b/test_unified_latent.py::test_t3_cropping_matches_manual PASSED [ 25%]
+tests/phase_4/phase_4b/test_unified_latent.py::test_t4_query_bounds_in_physical_domain PASSED [ 33%]
+tests/phase_4/phase_4b/test_unified_latent.py::test_t5_decoder_class_unchanged PASSED [ 41%]
+tests/phase_4/phase_4b/test_unified_latent.py::test_t6_padding_not_physical PASSED [ 50%]
+tests/phase_4/phase_4b/test_unified_latent.py::test_t7_data_and_physics_shapes PASSED [ 58%]
+tests/phase_4/phase_4b/test_unified_latent.py::test_t8_boundary_ratio_measurement PASSED [ 66%]
+tests/phase_4/phase_4b/test_unified_latent.py::test_t9_numerical_stability PASSED [ 75%]
+tests/phase_4/phase_4b/test_unified_latent.py::test_t10_single_forward_count PASSED [ 83%]
+tests/phase_4/phase_4b/test_unified_latent.py::test_t11_training_loop_contract PASSED [ 91%]
+tests/phase_4/phase_4b/test_unified_latent.py::test_t12_reproducibility PASSED [100%]
+
+============================== 12 passed in 1.97s ==============================

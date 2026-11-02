@@ -1,0 +1,69 @@
+{
+  "step": "4B.3",
+  "timestamp": "2026-11-02",
+  "predecessor": "9d0e0da",
+  "implementation_files": {
+    "src/models/boundary_aware_fno.py": "4685247e6d8aa91fdc21eddb46ec68683a733fe3678e328d8fa659c07988e251",
+    "src/training/unified_latent.py": "68d1994529042e81de74b1c005801d6b57cebc908884f88c2f1f8a5d74825548"
+  },
+  "test_file": "tests/phase_4/phase_4b/test_unified_latent.py",
+  "test_file_sha256": "f570d65ba063226b14c28e154762471a09ff9b67e9650ebf1233389dd1f6dd7b",
+  "frozen_config": {
+    "pad_size": 20,
+    "pad_mode": "reflect",
+    "padded_length": 240,
+    "physics_query_distribution": {
+      "n_near_start": 4,
+      "near_start_range": [
+        0.5,
+        1.5
+      ],
+      "n_near_end": 4,
+      "near_end_range": [
+        8.5,
+        9.5
+      ],
+      "n_uniform_middle": 42,
+      "uniform_middle_range": [
+        1.5,
+        8.5
+      ],
+      "n_total": 50
+    },
+    "physics_domain": "[0, 10] s only (do NOT extend)"
+  },
+  "unit_tests": {
+    "total": 12,
+    "passed": 12,
+    "failed": 0,
+    "skipped": 0,
+    "result": "12 passed"
+  },
+  "boundary_diagnostic": {
+    "start_mae": 0.360739141702652,
+    "interior_mae": 0.3175703287124634,
+    "start_interior_ratio": 1.1359346547431224,
+    "note": "synthetic test, diagnostic only"
+  },
+  "gate_4b_3_checks": {
+    "implementation_exists": true,
+    "12_unit_tests_pass": true,
+    "padding_size_20_each_side": true,
+    "latent_identity_bit_exact": true,
+    "crop_to_200_before_decoder": true,
+    "query_bounds_in_0_10": true,
+    "padding_not_physical_observation": true,
+    "causal_decoder_preserved": true,
+    "boundary_ratio_measured": true,
+    "numerical_stability": true,
+    "single_forward_per_step": true,
+    "training_loop_contract": true,
+    "reproducibility": true,
+    "pre_registration_unchanged": true,
+    "experimental_matrix_unchanged": true,
+    "no_training_performed": true,
+    "no_locked_paths_modified": true,
+    "pcgrad_and_adaptive_lambda_untouched": true
+  },
+  "all_checks_pass": true
+}
