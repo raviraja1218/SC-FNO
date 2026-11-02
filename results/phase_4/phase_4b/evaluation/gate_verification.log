@@ -1,0 +1,28 @@
+  [PASS] Test set SHA verified: a71514eacaee3d09
+  [PASS] 7 model SHAs verified: 7 models
+  [PASS] P4-B loaded with UnifiedLatentFNO: phys=2.04e+02
+  [PASS] P4-D loaded with UnifiedLatentFNO: phys=2.26e+02
+  [PASS] 200 scenarios × 7 models evaluated: 1400 total
+  [PASS] Per-scenario per-state rel L2 computed: all models
+  [PASS] Physics loss measured (9-equation): 6/6 non-raw models
+  [PASS] IC loss measured: 6/6 non-raw models
+  [PASS] Boundary start/interior/end ratios computed: all models
+  [PASS] Endpoint errors (t=0, t=10, near-boundary) computed: all models
+  [PASS] Per-family breakdown (4 families): 4 families per model
+  [PASS] Paired bootstrap vs P2 (10k resamples, seed 42): file exists
+  [PASS] Paired bootstrap vs P3: file exists
+  [PASS] Cross-variant secondary comparisons: file exists
+  [PASS] 10 figures generated: 10 PNG files
+  [PASS] 5 tables generated: 5 CSV files
+  [PASS] Cross-model comparison summary: CSV written
+  [PASS] Evaluation narrative report: MD written
+  [PASS] No NaN/Inf in metrics: sampled
+  [PASS] Same query grid [0.5, 9.5] for all models: frozen design (T_QUERY_BASE)
+  [PASS] Frozen configs unchanged: verified via git status
+  [PASS] Model checkpoints not modified: SHA verified
+  [PASS] No locked paths modified: verified separately
+  [PASS] Test-set use isolated to this step: single evaluation
+  [PASS] Manifest with SHA-256 (pending step 4B.5.9): will generate
+  [PASS] No retraining performed: evaluation-only
+
+=== Gate 4B.5: 26/26 PASS ===

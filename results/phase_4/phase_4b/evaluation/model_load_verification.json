@@ -1,54 +1,37 @@
 {
-  "models": {
-    "P2-FNO": {
-      "path": "models/baseline/fno_best.pt",
-      "sha256_actual": "24fce0bad8ec9c665649f6d73f4c56efd66f92667d95da3011d32dcbf4388889",
-      "sha256_expected_prefix": "24fce0bad8ec9c665649f6d73f4c56efd66f92667d95da3011d32dcbf4388889",
-      "match": true,
-      "wrapper": "raw"
-    },
-    "P3-PI-FNO": {
-      "path": "models/sc_fno/phase_3/pi_fno/best_val.pt",
-      "sha256_actual": "a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50",
-      "sha256_expected_prefix": "a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50",
-      "match": true,
-      "wrapper": "raw"
-    },
-    "Phase4A.1": {
-      "path": "models/sc_fno/phase_4/phase_4a/phase_4a_final.pt",
-      "sha256_actual": "681fe6789dd2911a43991db0242a20f8a08d5ba75f82b28f9dbbeaba88ad744f",
-      "sha256_expected_prefix": "681fe6789dd2911a43991db0242a20f8a08d5ba75f82b28f9dbbeaba88ad744f",
-      "match": true,
-      "wrapper": "raw"
-    },
-    "P4-A": {
-      "path": "models/sc_fno/phase_4/phase_4b/p4_a_best.pt",
-      "sha256_actual": "e79664126f4317a2d29b87e9609ac53e7c54c5f258d622188c57629e93a1720a",
-      "sha256_expected_prefix": "e79664126f4317a2",
-      "match": true,
-      "wrapper": "raw"
-    },
-    "P4-B": {
-      "path": "models/sc_fno/phase_4/phase_4b/p4_b_best.pt",
-      "sha256_actual": "1e1e2768b5cb9e7a464d6ead956366860d43fa73f648eea676193f37af79f634",
-      "sha256_expected_prefix": "1e1e2768b5cb9e7a",
-      "match": true,
-      "wrapper": "unified"
-    },
-    "P4-C": {
-      "path": "models/sc_fno/phase_4/phase_4b/p4_c_best.pt",
-      "sha256_actual": "d6a3de6d3de434f3a948846c926af1da51f0664aba92f0f09eeb4a919b55a219",
-      "sha256_expected_prefix": "d6a3de6d3de434f3",
-      "match": true,
-      "wrapper": "raw"
-    },
-    "P4-D": {
-      "path": "models/sc_fno/phase_4/phase_4b/p4_d_best.pt",
-      "sha256_actual": "9f0f4a506d659b56bb6800bf0cb5d85eb0dff3b1365877a96b06c819a14607f5",
-      "sha256_expected_prefix": "9f0f4a506d659b56",
-      "match": true,
-      "wrapper": "unified"
-    }
+  "P2-FNO": {
+    "sha": "24fce0bad8ec9c665649f6d73f4c56efd66f92667d95da3011d32dcbf4388889",
+    "verified": true,
+    "path": "models/baseline/fno_best.pt"
   },
-  "all_verified": true
+  "P3-PI-FNO": {
+    "sha": "a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50",
+    "verified": true,
+    "path": "models/sc_fno/phase_3/pi_fno/best_val.pt"
+  },
+  "Phase4A.1": {
+    "sha": "681fe6789dd2911a43991db0242a20f8a08d5ba75f82b28f9dbbeaba88ad744f",
+    "verified": true,
+    "path": "models/sc_fno/phase_4/phase_4a/phase_4a_final.pt"
+  },
+  "P4-A": {
+    "sha": "e79664126f4317a2d29b87e9609ac53e7c54c5f258d622188c57629e93a1720a",
+    "verified": true,
+    "path": "models/sc_fno/phase_4/phase_4b/p4_a_best.pt"
+  },
+  "P4-B": {
+    "sha": "1e1e2768b5cb9e7a464d6ead956366860d43fa73f648eea676193f37af79f634",
+    "verified": true,
+    "path": "models/sc_fno/phase_4/phase_4b/p4_b_best.pt"
+  },
+  "P4-C": {
+    "sha": "d6a3de6d3de434f3a948846c926af1da51f0664aba92f0f09eeb4a919b55a219",
+    "verified": true,
+    "path": "models/sc_fno/phase_4/phase_4b/p4_c_best.pt"
+  },
+  "P4-D": {
+    "sha": "9f0f4a506d659b56bb6800bf0cb5d85eb0dff3b1365877a96b06c819a14607f5",
+    "verified": true,
+    "path": "models/sc_fno/phase_4/phase_4b/p4_d_best.pt"
+  }
 }

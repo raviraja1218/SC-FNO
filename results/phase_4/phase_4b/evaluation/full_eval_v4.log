@@ -1,0 +1,80 @@
+/home/raviraja/miniconda3/envs/sc_fno/lib/python3.10/site-packages/torch/autograd/graph.py:825: UserWarning: Attempting to run cuBLAS, but there was no current CUDA context! Attempting to set the primary context... (Triggered internally at ../aten/src/ATen/cuda/CublasHandlePool.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+======================================================================
+Step 4B.5 — Full test-set evaluation
+======================================================================
+[OK] Test set SHA: a71514eacaee3d09...
+[OK] P2-FNO: 24fce0bad8ec9c66
+[OK] P3-PI-FNO: a0522e57f0b43c8a
+[OK] Phase4A.1: 681fe6789dd2911a
+[OK] P4-A: e79664126f4317a2
+[OK] P4-B: 1e1e2768b5cb9e7a
+[OK] P4-C: d6a3de6d3de434f3
+[OK] P4-D: 9f0f4a506d659b56
+[OK] Loaded 200 test scenarios
+[OK] Family counts: {'step': 50, 'ramp': 50, 'sinusoidal': 50, 'grf': 50}
+Loading P2-FNO...
+Loading P3-PI-FNO...
+Loading Phase4A.1...
+Loading P4-A...
+Loading P4-B...
+Loading P4-C...
+Loading P4-D...
+[OK] Kinetics: beta_eff=0.006502, Lambda=0.0001, n_groups=6
+[OK] TH params: M_f=27000.0, U=3060.0, m_dot=13636.36
+[OK] CompositeLoss loaded; residual_scales has 9 states
+
+=== Running full evaluation ===
+
+--- P2-FNO ---
+  rel L2 median: 2.3077e-03
+  physics loss:  None
+  IC loss:       None
+  time: 0.38s
+
+--- P3-PI-FNO ---
+  rel L2 median: 2.4031e-03
+  physics loss:  0.0016722891861314162
+  IC loss:       3.2577619429048354e-05
+  time: 0.71s
+
+--- Phase4A.1 ---
+  rel L2 median: 2.3070e-03
+  physics loss:  1.951858560668522e-06
+  IC loss:       0.00012295913165871752
+  time: 0.47s
+
+--- P4-A ---
+  rel L2 median: 2.2699e-03
+  physics loss:  174.06674871279134
+  IC loss:       0.05043829956062837
+  time: 0.48s
+
+--- P4-B ---
+  rel L2 median: 2.7503e-03
+  physics loss:  204.41106669541244
+  IC loss:       0.0177004089197726
+  time: 0.48s
+
+--- P4-C ---
+  rel L2 median: 2.1782e-03
+  physics loss:  182.28314901130068
+  IC loss:       0.008749986795301083
+  time: 0.48s
+
+--- P4-D ---
+  rel L2 median: 2.2969e-03
+  physics loss:  225.58210973954658
+  IC loss:       0.001883937579891608
+  time: 0.48s
+
+=== Paired bootstrap ===
+
+=== COMPLETE ===
+  P2-FNO: rel L2=2.3077e-03, phys=None, ic=None
+  P3-PI-FNO: rel L2=2.4031e-03, phys=0.0016722891861314162, ic=3.2577619429048354e-05
+  Phase4A.1: rel L2=2.3070e-03, phys=1.951858560668522e-06, ic=0.00012295913165871752
+  P4-A: rel L2=2.2699e-03, phys=174.06674871279134, ic=0.05043829956062837
+  P4-B: rel L2=2.7503e-03, phys=204.41106669541244, ic=0.0177004089197726
+  P4-C: rel L2=2.1782e-03, phys=182.28314901130068, ic=0.008749986795301083
+  P4-D: rel L2=2.2969e-03, phys=225.58210973954658, ic=0.001883937579891608

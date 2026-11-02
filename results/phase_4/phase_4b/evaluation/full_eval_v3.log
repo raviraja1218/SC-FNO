@@ -1,0 +1,88 @@
+/home/raviraja/projects/SC-FNO/scripts/phase_4/step_4b_5_evaluate_full.py:220: RuntimeWarning: Mean of empty slice
+  physics_loss = float(np.nanmean(per_scn_physics)) if per_scn_physics else None
+/home/raviraja/projects/SC-FNO/scripts/phase_4/step_4b_5_evaluate_full.py:221: RuntimeWarning: Mean of empty slice
+  ic_loss = float(np.nanmean(per_scn_ic)) if per_scn_ic else None
+======================================================================
+Step 4B.5 — Full test-set evaluation
+======================================================================
+[OK] Test set SHA: a71514eacaee3d09...
+[OK] P2-FNO: 24fce0bad8ec9c66
+[OK] P3-PI-FNO: a0522e57f0b43c8a
+[OK] Phase4A.1: 681fe6789dd2911a
+[OK] P4-A: e79664126f4317a2
+[OK] P4-B: 1e1e2768b5cb9e7a
+[OK] P4-C: d6a3de6d3de434f3
+[OK] P4-D: 9f0f4a506d659b56
+[OK] Loaded 200 test scenarios
+[OK] Family counts: {'step': 50, 'ramp': 50, 'sinusoidal': 50, 'grf': 50}
+Loading P2-FNO...
+Loading P3-PI-FNO...
+Loading Phase4A.1...
+Loading P4-A...
+Loading P4-B...
+Loading P4-C...
+Loading P4-D...
+[OK] Kinetics: beta_eff=0.006502, Lambda=0.0001, n_groups=6
+[OK] TH params: M_f=27000.0, U=3060.0, m_dot=13636.36
+
+=== Running full evaluation ===
+
+--- P2-FNO ---
+  rel L2 median: 2.3077e-03
+  rel L2 mean:   4.2197e-03
+  physics loss:  None
+  IC loss:       None
+  time: 0.46s
+
+--- P3-PI-FNO ---
+  rel L2 median: 2.4031e-03
+  rel L2 mean:   4.2678e-03
+  physics loss:  nan
+  IC loss:       nan
+  time: 0.23s
+
+--- Phase4A.1 ---
+  rel L2 median: 2.3070e-03
+  rel L2 mean:   4.1757e-03
+  physics loss:  nan
+  IC loss:       nan
+  time: 0.14s
+
+--- P4-A ---
+  rel L2 median: 2.2699e-03
+  rel L2 mean:   4.2898e-03
+  physics loss:  nan
+  IC loss:       nan
+  time: 0.16s
+
+--- P4-B ---
+  rel L2 median: 2.7503e-03
+  rel L2 mean:   4.5039e-03
+  physics loss:  nan
+  IC loss:       nan
+  time: 0.18s
+
+--- P4-C ---
+  rel L2 median: 2.1782e-03
+  rel L2 mean:   4.2225e-03
+  physics loss:  nan
+  IC loss:       nan
+  time: 0.16s
+
+--- P4-D ---
+  rel L2 median: 2.2969e-03
+  rel L2 mean:   4.1788e-03
+  physics loss:  nan
+  IC loss:       nan
+  time: 0.14s
+
+=== Paired bootstrap (10,000 resamples, seed=42) ===
+
+=== ALL EVALUATION COMPLETE ===
+  P2-FNO: rel L2 = 2.3077e-03, physics = None
+  P3-PI-FNO: rel L2 = 2.4031e-03, physics = nan
+  Phase4A.1: rel L2 = 2.3070e-03, physics = nan
+  P4-A: rel L2 = 2.2699e-03, physics = nan
+  P4-B: rel L2 = 2.7503e-03, physics = nan
+  P4-C: rel L2 = 2.1782e-03, physics = nan
+  P4-D: rel L2 = 2.2969e-03, physics = nan
