@@ -1,0 +1,46 @@
+{
+  "P4-A": {
+    "config": {
+      "pcgrad": true,
+      "adaptive_lambda": false,
+      "unified_padding": false
+    },
+    "success": true,
+    "error": "",
+    "peak_vram_MB": 68.83,
+    "under_3GB": true
+  },
+  "P4-B": {
+    "config": {
+      "pcgrad": false,
+      "adaptive_lambda": false,
+      "unified_padding": true
+    },
+    "success": true,
+    "error": "",
+    "peak_vram_MB": 89.72,
+    "under_3GB": true
+  },
+  "P4-C": {
+    "config": {
+      "pcgrad": false,
+      "adaptive_lambda": true,
+      "unified_padding": false
+    },
+    "success": true,
+    "error": "",
+    "peak_vram_MB": 70.76,
+    "under_3GB": true
+  },
+  "P4-D": {
+    "config": {
+      "pcgrad": true,
+      "adaptive_lambda": true,
+      "unified_padding": true
+    },
+    "success": true,
+    "error": "",
+    "peak_vram_MB": 90.56,
+    "under_3GB": true
+  }
+}

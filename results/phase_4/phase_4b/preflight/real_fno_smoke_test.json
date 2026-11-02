@@ -1,0 +1,30 @@
+{
+  "test": "real_fno_smoke_test",
+  "timestamp": "2026-11-02",
+  "device": "cuda",
+  "phase3_checkpoint_sha": "a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50",
+  "checks": {
+    "loaded_phase3_ckpt": true,
+    "wrapped_with_unified_latent": true,
+    "data_path_shape": [
+      2,
+      9,
+      200
+    ],
+    "latent_shape": [
+      16,
+      32,
+      200
+    ],
+    "data_path_finite": true,
+    "latent_finite": true,
+    "bit_identity_verified": true,
+    "crop_matches_manual": true,
+    "params_with_grad": 50,
+    "params_with_nonzero_grad": 50,
+    "single_forward_per_call": true,
+    "peak_vram_MB": 76.1472,
+    "under_3GB": true
+  },
+  "all_pass": true
+}
