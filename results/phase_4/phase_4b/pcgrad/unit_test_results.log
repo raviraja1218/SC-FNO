@@ -1,0 +1,19 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.22, pytest-9.2.0, pluggy-1.7.0 -- /home/raviraja/miniconda3/envs/sc_fno/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/raviraja/projects/SC-FNO
+configfile: pytest.ini
+plugins: platformdirs-4.12.4, mock-3.17.0, anyio-4.15.1, cov-7.1.0
+collecting ... collected 9 items
+
+tests/phase_4/phase_4b/test_pcgrad.py::test_t1_no_conflict_no_projection PASSED [ 11%]
+tests/phase_4/phase_4b/test_pcgrad.py::test_t2_conflict_triggers_projection PASSED [ 22%]
+tests/phase_4/phase_4b/test_pcgrad.py::test_t3_post_projection_cosine_zero PASSED [ 33%]
+tests/phase_4/phase_4b/test_pcgrad.py::test_t4_combined_update_correct PASSED [ 44%]
+tests/phase_4/phase_4b/test_pcgrad.py::test_t5_missing_gradient PASSED   [ 55%]
+tests/phase_4/phase_4b/test_pcgrad.py::test_t6_zero_norm_gradient PASSED [ 66%]
+tests/phase_4/phase_4b/test_pcgrad.py::test_t7_memory PASSED             [ 77%]
+tests/phase_4/phase_4b/test_pcgrad.py::test_t8_reference_agreement PASSED [ 88%]
+tests/phase_4/phase_4b/test_pcgrad.py::test_t9_reproducibility PASSED    [100%]
+
+============================== 9 passed in 3.22s ===============================

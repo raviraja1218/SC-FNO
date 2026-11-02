@@ -1,0 +1,42 @@
+{
+  "step": "4B.1",
+  "timestamp": "2026-11-02",
+  "predecessor": "bec0f63",
+  "implementation_file": "src/training/pcgrad.py",
+  "implementation_sha256": "012cd418d588bed849cdd039d533300226fe738304336969824b581151fbad13",
+  "test_file": "tests/phase_4/phase_4b/test_pcgrad.py",
+  "test_file_sha256": "94e33ad1330296a08dc596a1acf2076e217a8fb07be3c533f625d0e1b16a399b",
+  "frozen_config": {
+    "eps": 1e-08,
+    "conflict_trigger": "cos < 0",
+    "log_raw_and_post_projection_cosine": true
+  },
+  "unit_tests": {
+    "total": 9,
+    "passed": 9,
+    "failed": 0,
+    "skipped": 0,
+    "result": "9 passed"
+  },
+  "memory_measurement": {
+    "peak_vram_MB": 17.843712,
+    "under_3GB": true
+  },
+  "gate_4b_1_checks": {
+    "implementation_exists": true,
+    "9_unit_tests_pass": true,
+    "projection_formula_matches_reference": true,
+    "post_projection_cosine_below_1e-5": true,
+    "missing_gradient_handled": true,
+    "zero_norm_gradient_handled": true,
+    "vram_under_3GB": true,
+    "no_nan_inf_in_output": true,
+    "reproducibility_verified": true,
+    "logging_schema_documented": true,
+    "pre_registration_unchanged": true,
+    "experimental_matrix_unchanged": true,
+    "no_training_performed": true,
+    "no_locked_paths_modified": true
+  },
+  "all_checks_pass": true
+}
