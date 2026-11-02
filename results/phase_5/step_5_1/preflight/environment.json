@@ -1,0 +1,9 @@
+{
+  "python": "3.10.22",
+  "platform": "Linux-6.18.54.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "torch": "2.5.1+cu121",
+  "neuralop": "2.0.0",
+  "cuda_available": true,
+  "cuda_device": "NVIDIA GeForce RTX 4050 Laptop GPU",
+  "cuda_vram_MB": 6438.780928
+}

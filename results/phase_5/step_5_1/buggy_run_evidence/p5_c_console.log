@@ -1,0 +1,382 @@
+/home/raviraja/miniconda3/envs/sc_fno/lib/python3.10/site-packages/torch/autograd/graph.py:825: UserWarning: Attempting to run cuBLAS, but there was no current CUDA context! Attempting to set the primary context... (Triggered internally at ../aten/src/ATen/cuda/CublasHandlePool.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+======================================================================
+Training P5-C: PCGrad=False, Padding=False, AdaptiveLambda=True
+======================================================================
+Train: 1600 scenarios; Val: 200 scenarios
+Model: 63,634 params
+  PCGrad: False, AdaptiveLambda: True
+  Epoch   0: data=0.05916 phys=0.0237 lam=0.0001 val=0.06661 gn=0.140 vram=65.8MB time=4.6s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch   1: data=0.05854 phys=0.0018 lam=0.0001 val=0.06634 gn=0.028 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch   2: data=0.05830 phys=0.0015 lam=0.0001 val=0.06630 gn=0.013 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch   3: data=0.05828 phys=0.0015 lam=0.0001 val=0.06636 gn=0.012 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch   4: data=0.05837 phys=0.0014 lam=0.0001 val=0.06649 gn=0.021 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch   5: data=0.05937 phys=0.0013 lam=0.0001 val=0.06710 gn=0.078 vram=65.8MB time=4.1s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch  10: data=0.05840 phys=0.0009 lam=0.0001 val=0.06636 gn=0.024 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch  15: data=0.05824 phys=0.0006 lam=0.0001 val=0.06642 gn=0.012 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch  20: data=0.05872 phys=0.0005 lam=0.0001 val=0.06626 gn=0.019 vram=65.8MB time=4.1s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch  25: data=0.05885 phys=0.0005 lam=0.0001 val=0.06629 gn=0.055 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch  30: data=0.05861 phys=0.0025 lam=0.0001 val=0.06681 gn=0.052 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch  35: data=0.05844 phys=0.0009 lam=0.0001 val=0.06691 gn=0.031 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch  40: data=0.05826 phys=0.0003 lam=0.0001 val=0.06654 gn=0.019 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch  45: data=0.05823 phys=0.0003 lam=0.0001 val=0.06648 gn=0.013 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch  50: data=0.05824 phys=0.0002 lam=0.0001 val=0.06632 gn=0.014 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch  55: data=0.05875 phys=0.0002 lam=0.0001 val=0.06630 gn=0.041 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch  60: data=0.05873 phys=0.0007 lam=0.0001 val=0.06695 gn=0.049 vram=65.8MB time=4.1s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch  65: data=0.05885 phys=0.0008 lam=0.0001 val=0.06777 gn=0.060 vram=65.8MB time=4.0s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch  70: data=0.05840 phys=0.0001 lam=0.0001 val=0.06640 gn=0.018 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch  75: data=0.05811 phys=0.0001 lam=0.0001 val=0.06644 gn=0.011 vram=65.8MB time=4.2s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch  80: data=0.05815 phys=0.0001 lam=0.0001 val=0.06634 gn=0.013 vram=65.8MB time=4.0s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch  85: data=0.05852 phys=0.0002 lam=0.0001 val=0.06631 gn=0.028 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch  90: data=0.05879 phys=0.0001 lam=0.0001 val=0.06649 gn=0.053 vram=65.8MB time=4.2s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch  95: data=0.05853 phys=0.0006 lam=0.0001 val=0.06727 gn=0.051 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 100: data=0.05815 phys=0.0001 lam=0.0001 val=0.06640 gn=0.020 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 105: data=0.05819 phys=0.0001 lam=0.0001 val=0.06624 gn=0.016 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 110: data=0.05819 phys=0.0000 lam=0.0001 val=0.06624 gn=0.015 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 115: data=0.05850 phys=0.0002 lam=0.0001 val=0.06621 gn=0.038 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 120: data=0.05867 phys=0.0001 lam=0.0001 val=0.06664 gn=0.048 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 125: data=0.05828 phys=0.0004 lam=0.0001 val=0.06673 gn=0.030 vram=65.8MB time=4.0s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 130: data=0.05808 phys=0.0001 lam=0.0001 val=0.06639 gn=0.015 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 135: data=0.05803 phys=0.0000 lam=0.0001 val=0.06629 gn=0.011 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 140: data=0.05813 phys=0.0000 lam=0.0001 val=0.06621 gn=0.014 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 145: data=0.05849 phys=0.0000 lam=0.0001 val=0.06615 gn=0.042 vram=65.8MB time=4.2s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 150: data=0.05915 phys=0.0005 lam=0.0001 val=0.06774 gn=0.085 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 155: data=0.05820 phys=0.0002 lam=0.0001 val=0.06642 gn=0.031 vram=65.8MB time=4.0s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 160: data=0.05800 phys=0.0000 lam=0.0001 val=0.06618 gn=0.018 vram=65.8MB time=4.0s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 165: data=0.05813 phys=0.0000 lam=0.0001 val=0.06590 gn=0.014 vram=65.8MB time=4.0s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 170: data=0.05799 phys=0.0000 lam=0.0001 val=0.06597 gn=0.012 vram=65.8MB time=4.0s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 175: data=0.05987 phys=0.0000 lam=0.0001 val=0.06636 gn=0.077 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 180: data=0.05838 phys=0.0000 lam=0.0001 val=0.06663 gn=0.034 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 185: data=0.05843 phys=0.0002 lam=0.0001 val=0.06704 gn=0.057 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 190: data=0.05797 phys=0.0000 lam=0.0001 val=0.06683 gn=0.019 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 195: data=0.05795 phys=0.0000 lam=0.0001 val=0.06628 gn=0.012 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 200: data=0.05800 phys=0.0000 lam=0.0001 val=0.06620 gn=0.014 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 205: data=0.05818 phys=0.0000 lam=0.0001 val=0.06627 gn=0.026 vram=65.8MB time=4.0s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 210: data=0.05839 phys=0.0000 lam=0.0001 val=0.06625 gn=0.044 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 215: data=0.05871 phys=0.0002 lam=0.0001 val=0.06679 gn=0.067 vram=65.8MB time=4.2s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 220: data=0.05800 phys=0.0000 lam=0.0001 val=0.06629 gn=0.020 vram=65.8MB time=4.0s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 225: data=0.05796 phys=0.0000 lam=0.0001 val=0.06627 gn=0.012 vram=65.8MB time=4.3s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 230: data=0.05797 phys=0.0000 lam=0.0001 val=0.06595 gn=0.013 vram=65.8MB time=4.5s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 235: data=0.05813 phys=0.0000 lam=0.0001 val=0.06618 gn=0.025 vram=65.8MB time=4.1s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 240: data=0.05858 phys=0.0000 lam=0.0001 val=0.06673 gn=0.060 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 245: data=0.05836 phys=0.0018 lam=0.0001 val=0.06801 gn=0.058 vram=65.8MB time=4.1s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 250: data=0.05796 phys=0.0000 lam=0.0001 val=0.06592 gn=0.016 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 255: data=0.05785 phys=0.0000 lam=0.0001 val=0.06594 gn=0.010 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 260: data=0.05788 phys=0.0000 lam=0.0001 val=0.06594 gn=0.011 vram=65.8MB time=4.0s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 265: data=0.05820 phys=0.0000 lam=0.0001 val=0.06593 gn=0.030 vram=65.8MB time=4.0s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 270: data=0.05829 phys=0.0000 lam=0.0001 val=0.06634 gn=0.036 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 275: data=0.05836 phys=0.0003 lam=0.0001 val=0.06607 gn=0.054 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 280: data=0.05786 phys=0.0000 lam=0.0001 val=0.06623 gn=0.018 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 285: data=0.05786 phys=0.0000 lam=0.0001 val=0.06588 gn=0.012 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 290: data=0.05796 phys=0.0000 lam=0.0001 val=0.06604 gn=0.016 vram=65.8MB time=3.9s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  Epoch 295: data=0.05821 phys=0.0000 lam=0.0001 val=0.06560 gn=0.033 vram=65.8MB time=4.0s
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+  [WARN] adaptive_lambda.update failed: AdaptiveLambda.update() missing 1 required positional argument: 'raw_cosine'
+
+P5-C COMPLETE:
+  best_val = 0.065467 at epoch 248
+  final_lambda = 0.000100
+  max_lambda = 0.000100
+  epochs run = 300
+  wall time = 19.4 min
+  peak VRAM = 65.8 MB
+  stop reason = max_epochs_reached

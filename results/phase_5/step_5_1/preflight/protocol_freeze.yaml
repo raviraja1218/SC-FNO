@@ -1,0 +1,70 @@
+# Step 5.1 — Frozen training protocol (BEFORE any training)
+# Deviation from Phase 4B: patience measured from ramp-completion epoch, NOT from best-val epoch
+# Root cause addressed: Phase 4B early stop triggered before λ_phys reached meaningful pressure
+
+common:
+  starting_checkpoint: models/sc_fno/phase_3/pi_fno/best_val.pt
+  starting_checkpoint_sha: a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50
+  train_scenarios: 1600
+  val_scenarios: 200
+  test_scenarios: 200  # NOT USED in Step 5.1
+  seed: 42
+  batch_size: 16
+  lr: 1.0e-3
+  optimizer: Adam
+  betas: [0.9, 0.999]
+  scheduler: CosineAnnealingLR
+  T_max: 300
+  max_epochs: 300
+  patience_after_ramp: 100
+  min_epochs_before_stop: 100  # ramp completion
+  early_stop_basis: val_data_loss  # but only counts AFTER epoch 100
+
+# λ_phys schedule for P5-A, P5-B (fixed)
+fixed_lambda_schedule:
+  init: 1.0e-4
+  target: 1.0
+  ramp_epochs: 100
+  formula: "1e-4 * 10^(epoch/100) for epoch<100; 1.0 for epoch>=100"
+
+# AdaptiveLambda for P5-C, P5-D
+adaptive_lambda:
+  alpha: 0.05
+  lambda_min: 1.0e-5
+  lambda_max: 10.0
+  lambda_init: 1.0e-4
+  ema_beta: 0.1
+  lookback_epochs: 20
+  cosine_clip: [-1.0, 1.0]
+  plateau_threshold: 1.0e-3  # |Δλ| < threshold for lookback epochs = plateau
+  min_lambda_for_stop: 0.01  # don't early stop until λ >= this
+
+# PCGrad (for P5-A, P5-D)
+pcgrad:
+  eps: 1.0e-8
+  trigger: "cos < 0"
+  asymmetric: true  # physics projected against data only
+  log_raw_cosine: true
+  log_post_cosine: true
+
+# UnifiedLatentPadding (for P5-B, P5-D)
+unified_padding:
+  pad_size: 20
+  pad_mode: reflect
+  padded_length: 240
+  crop_to: 200
+
+# Variants
+variants:
+  P5-A: {pcgrad: true, unified_padding: false, adaptive_lambda: false}
+  P5-B: {pcgrad: false, unified_padding: true, adaptive_lambda: false}
+  P5-C: {pcgrad: false, unified_padding: false, adaptive_lambda: true}
+  P5-D: {pcgrad: true, unified_padding: true, adaptive_lambda: true}
+
+frozen_at: "2026-11-02"
+frozen_by: "step_5_1_protocol"
+deviation_from_phase_4b: |
+  Phase 4B protocol: patience=30 counted from best_val_epoch.
+  Step 5.1 protocol: patience=100 counted from ramp-completion epoch (epoch 100).
+  This guarantees λ_phys reaches 1.0 (or adaptive plateau) before early stopping can activate.
+  Root cause addressed.

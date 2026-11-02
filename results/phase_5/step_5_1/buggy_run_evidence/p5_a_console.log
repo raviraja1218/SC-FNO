@@ -1,0 +1,63 @@
+/home/raviraja/miniconda3/envs/sc_fno/lib/python3.10/site-packages/torch/autograd/graph.py:825: UserWarning: Attempting to run cuBLAS, but there was no current CUDA context! Attempting to set the primary context... (Triggered internally at ../aten/src/ATen/cuda/CublasHandlePool.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+
+======================================================================
+Training P5-A: PCGrad=True, Padding=False, AdaptiveLambda=False
+======================================================================
+Train: 1600 scenarios; Val: 200 scenarios
+Model: 63,634 params
+  PCGrad: True, AdaptiveLambda: False
+  Epoch   0: data=0.05916 phys=0.0018 lam=0.0001 val=0.06649 gn=0.000 vram=84.4MB time=6.6s
+  Epoch   1: data=0.05853 phys=0.0018 lam=0.0001 val=0.06632 gn=0.000 vram=84.4MB time=5.2s
+  Epoch   2: data=0.05830 phys=0.0018 lam=0.0001 val=0.06628 gn=0.000 vram=84.4MB time=5.1s
+  Epoch   3: data=0.05828 phys=0.0017 lam=0.0001 val=0.06635 gn=0.000 vram=84.4MB time=5.2s
+  Epoch   4: data=0.05836 phys=0.0017 lam=0.0001 val=0.06647 gn=0.000 vram=84.4MB time=5.0s
+  Epoch   5: data=0.05910 phys=0.0018 lam=0.0002 val=0.06699 gn=0.000 vram=84.4MB time=5.1s
+  Epoch  10: data=0.05839 phys=0.0018 lam=0.0003 val=0.06646 gn=0.000 vram=84.4MB time=5.1s
+  Epoch  15: data=0.05826 phys=0.0017 lam=0.0004 val=0.06631 gn=0.000 vram=84.4MB time=5.1s
+  Epoch  20: data=0.05854 phys=0.0017 lam=0.0006 val=0.06634 gn=0.000 vram=84.4MB time=5.1s
+  Epoch  25: data=0.05859 phys=0.0017 lam=0.0010 val=0.06644 gn=0.000 vram=84.4MB time=5.0s
+  Epoch  30: data=0.05896 phys=0.0017 lam=0.0016 val=0.06693 gn=0.000 vram=84.4MB time=5.2s
+  Epoch  35: data=0.05844 phys=0.0017 lam=0.0025 val=0.06699 gn=0.000 vram=84.4MB time=5.4s
+  Epoch  40: data=0.05828 phys=0.0017 lam=0.0040 val=0.06674 gn=0.000 vram=84.4MB time=5.1s
+  Epoch  45: data=0.05824 phys=0.0018 lam=0.0063 val=0.06644 gn=0.000 vram=84.4MB time=5.2s
+  Epoch  50: data=0.05828 phys=0.0019 lam=0.0100 val=0.06632 gn=0.000 vram=84.4MB time=5.2s
+  Epoch  55: data=0.05855 phys=0.0018 lam=0.0158 val=0.06620 gn=0.000 vram=84.4MB time=5.1s
+  Epoch  60: data=0.05900 phys=0.0018 lam=0.0251 val=0.06706 gn=0.000 vram=84.4MB time=5.7s
+  Epoch  65: data=0.05908 phys=0.0018 lam=0.0398 val=0.06847 gn=0.000 vram=84.4MB time=5.2s
+  Epoch  70: data=0.05843 phys=0.0018 lam=0.0631 val=0.06622 gn=0.000 vram=84.4MB time=5.2s
+  Epoch  75: data=0.05811 phys=0.0018 lam=0.1000 val=0.06644 gn=0.000 vram=84.4MB time=5.1s
+  Epoch  80: data=0.05818 phys=0.0018 lam=0.1585 val=0.06634 gn=0.000 vram=84.4MB time=5.3s
+  Epoch  85: data=0.05847 phys=0.0018 lam=0.2512 val=0.06638 gn=0.000 vram=84.4MB time=5.2s
+  Epoch  90: data=0.05911 phys=0.0018 lam=0.3981 val=0.06698 gn=0.000 vram=84.4MB time=5.1s
+  Epoch  95: data=0.05833 phys=0.0018 lam=0.6310 val=0.06721 gn=0.000 vram=84.4MB time=5.1s
+  Epoch 100: data=0.05813 phys=0.0018 lam=1.0000 val=0.06673 gn=0.000 vram=84.4MB time=5.3s
+  Epoch 105: data=0.05829 phys=0.0019 lam=1.0000 val=0.06690 gn=0.000 vram=84.4MB time=5.4s
+  Epoch 110: data=0.05812 phys=0.0019 lam=1.0000 val=0.06640 gn=0.000 vram=84.4MB time=5.2s
+  Epoch 115: data=0.05842 phys=0.0019 lam=1.0000 val=0.06627 gn=0.000 vram=84.4MB time=5.6s
+  Epoch 120: data=0.05882 phys=0.0019 lam=1.0000 val=0.06664 gn=0.000 vram=84.4MB time=5.0s
+  Epoch 125: data=0.05859 phys=0.0019 lam=1.0000 val=0.06702 gn=0.000 vram=84.4MB time=5.1s
+  Epoch 130: data=0.05842 phys=0.0021 lam=1.0000 val=0.06675 gn=0.000 vram=84.4MB time=5.2s
+  Epoch 135: data=0.05803 phys=0.0020 lam=1.0000 val=0.06644 gn=0.000 vram=84.4MB time=5.4s
+  Epoch 140: data=0.05806 phys=0.0020 lam=1.0000 val=0.06637 gn=0.000 vram=84.4MB time=5.0s
+  Epoch 145: data=0.05851 phys=0.0020 lam=1.0000 val=0.06624 gn=0.000 vram=84.4MB time=5.2s
+  Epoch 150: data=0.05882 phys=0.0020 lam=1.0000 val=0.06737 gn=0.000 vram=84.4MB time=5.2s
+  Epoch 155: data=0.05826 phys=0.0019 lam=1.0000 val=0.06658 gn=0.000 vram=84.4MB time=5.2s
+  Epoch 160: data=0.05807 phys=0.0020 lam=1.0000 val=0.06637 gn=0.000 vram=84.4MB time=5.2s
+  Epoch 165: data=0.05801 phys=0.0019 lam=1.0000 val=0.06637 gn=0.000 vram=84.4MB time=5.2s
+  Epoch 170: data=0.05797 phys=0.0020 lam=1.0000 val=0.06621 gn=0.000 vram=84.4MB time=5.5s
+  Epoch 175: data=0.05858 phys=0.0020 lam=1.0000 val=0.06615 gn=0.000 vram=84.4MB time=5.3s
+  Epoch 180: data=0.05875 phys=0.0021 lam=1.0000 val=0.06709 gn=0.000 vram=84.4MB time=5.2s
+  Epoch 185: data=0.05825 phys=0.0020 lam=1.0000 val=0.06713 gn=0.000 vram=84.4MB time=5.2s
+  Epoch 190: data=0.05800 phys=0.0020 lam=1.0000 val=0.06692 gn=0.000 vram=84.4MB time=5.2s
+  Epoch 195: data=0.05804 phys=0.0021 lam=1.0000 val=0.06601 gn=0.000 vram=84.4MB time=5.3s
+  EARLY STOP at epoch 199: patience=100 after epoch 100
+
+P5-A COMPLETE:
+  best_val = 0.065988 at epoch 193
+  final_lambda = 1.000000
+  max_lambda = 1.000000
+  epochs run = 200
+  wall time = 17.1 min
+  peak VRAM = 84.4 MB
+  stop reason = patience=100 after epoch 100

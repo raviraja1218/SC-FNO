@@ -1,0 +1,17 @@
+# P5_A — Step 5.1 corrected protocol
+# See protocol_freeze.yaml for full details
+variant: P5_A
+starting_checkpoint: models/sc_fno/phase_3/pi_fno/best_val.pt
+starting_checkpoint_sha: a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50
+seed: 42
+batch_size: 16
+lr: 1.0e-3
+optimizer: Adam
+scheduler: CosineAnnealingLR
+T_max: 300
+max_epochs: 300
+patience_after_ramp: 100
+min_epochs_before_stop: 100
+pcgrad: {enabled: true, eps: 1.0e-8, trigger_cos_negative: true}
+unified_padding: {enabled: false}
+lambda: {mode: fixed, init: 1.0e-4, target: 1.0, ramp_epochs: 100}
