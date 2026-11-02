@@ -110,3 +110,41 @@ The boundary ratio for Phase 4A.1 is **5.16×**, not the <4.0× target from the 
 | Missing summary data | ✅ Correction 4 |
 | M4 comparison baseline | ✅ Correction 5 |
 | Boundary limitations preserved | ✅ Correction 7 |
+
+---
+
+## Correction 8 (post-second-review) — Jacobian validation closed
+
+### Reviewer concern
+> *"If the decoder's temporal attention allows one query output to depend on other query-time inputs, computing a gradient for each channel by summing over query positions is still not sufficient. The correct quantity is ∂u_j(t_k)/∂t_k for each state j and query point k, extracted from the appropriate diagonal of the Jacobian when query points are coupled."*
+
+### Audit result
+
+**Empirical test (see `decoder_jacobian_audit.log`):**
+
+Perturbing `t_q[:, 5]` by +0.01 yields:
+- Output change at query 5: **1.047e-3**
+- Output change at queries i≠5: **0.000e+00** (mean and max)
+
+**Structural confirmation (from `src/physics_informed/decoder.py`):**
+- Cross-attention operates over **FNO latent positions** (Nz = 200), NOT over query positions
+- Query `Q[b, k, :]` depends only on `t_q[b, k]`
+- Keys and values `K[b, n, :]`, `V[b, n, :]` depend only on latent `z`
+- Attention weight `attn[b, k, n]` = query k attends to latent n; no query-to-query coupling
+
+### Conclusion
+
+**The `CoordinateDecoder` is query-independent.** Each query `t_k` computes its output independently of other query times `t_i` (i ≠ k). Therefore:
+
+$$\frac{\partial u_j(t_k)}{\partial t_i} = 0 \quad \text{for all } i \neq k$$
+
+And the current per-channel derivative implementation with `grad_outputs = ones_like(...)` evaluates `∂(Σ_k u_j(t_k))/∂t` which, since only diagonal terms are nonzero, equals the correct per-query derivative at each `t_k` for the per-query residual formulation used in `compute_residuals`.
+
+**Issue 1 (Jacobian validation) is CLOSED.** The corrected physics losses reported in `physics_revalidation_v2_zero_forcing.json` are mathematically valid measurements of the per-query, per-state, zero-forcing physics residual.
+
+### Reviewer's other condition (Bug A attribution scope)
+
+Per reviewer guidance, the Bug A conclusion is scoped to:
+> "The Phase 4B training protocol was inadequate for physics convergence under the frozen Phase 3 setup. The exact contribution of early stopping, lambda schedule, and other protocol factors to the observed residual failure remains to be isolated."
+
+No claim is made that the individual interventions (PCGrad, AdaptiveLambda, UnifiedLatentPadding) are inherently ineffective. **They remain scientifically untested under an adequate training protocol.**
