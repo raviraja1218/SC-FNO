@@ -122,26 +122,45 @@ def load_data(split):
     }
 
 
+# --- compute_gradient_cosine (replaced, common-valid subset) ---
 def compute_gradient_cosine(grads_a, grads_b, eps=1e-8):
-    """Compute cosine between two grad lists. Complex-aware, FP64-safe.
+    """Compute cosine between two grad lists on COMMON-VALID subset.
 
-    Uses Re(conj(a)*b) inner product for complex FFT gradients.
-    All computation in FP64/complex128 to prevent overflow on real FNO gradients.
+    Data-path gradients may only cover FNO (decoder untouched by
+    data loss); physics-path gradients cover FNO + decoder. Naive
+    concatenation produces mismatched lengths. This helper
+    intersects to params where BOTH gradients are non-None.
+
+    Returns 0.0 if no common params or if either flat vector
+    has zero norm (avoids division by zero).
+    Raises ValueError if input list lengths differ.
     """
-    # Import the robust helper from pcgrad
     from training.pcgrad import _flat_and_norm, _real_inner, _norm_from_flat
 
-    valid_a = [g for g in grads_a if g is not None]
-    valid_b = [g for g in grads_b if g is not None]
-    if not valid_a or not valid_b:
+    if len(grads_a) != len(grads_b):
+        raise ValueError(
+            f'Gradient lists have different lengths: '
+            f'{len(grads_a)} vs {len(grads_b)}'
+        )
+
+    common_a = []
+    common_b = []
+    for ga, gb in zip(grads_a, grads_b):
+        if ga is not None and gb is not None:
+            common_a.append(ga)
+            common_b.append(gb)
+
+    if not common_a:
         return 0.0
 
-    fa, _ = _flat_and_norm(valid_a)
-    fb, _ = _flat_and_norm(valid_b)
+    fa, _ = _flat_and_norm(common_a)
+    fb, _ = _flat_and_norm(common_b)
     if fa is None or fb is None:
         return 0.0
     na = _norm_from_flat(fa)
     nb = _norm_from_flat(fb)
+    if na < eps or nb < eps:
+        return 0.0
     return float(_real_inner(fa, fb) / (na * nb + eps))
 
 
