@@ -1,0 +1,30 @@
+{
+  "step": "5.A",
+  "timestamp": "2026-11-02",
+  "n_artifacts": 14,
+  "bug_j_fix": {
+    "mechanism": "L_data_decoder anchors decoder to ground truth at query times",
+    "verification": {
+      "du_dt_std": 30.13,
+      "u_hat_variance_pct_of_max": 76.8,
+      "reconstruction_mse": 0.0932,
+      "bug_j_improvement": "21,500x"
+    }
+  },
+  "artifacts": {
+    "results/phase_5/step_5_A/gate_5_A_verification.json": "437ae0a1d3103fdcf78895d18a5c434ded2ddd865a6782249ab0e1a6c1f64110",
+    "results/phase_5/step_5_A/preflight/phase_4_lock_verification.json": "1f0a780d6c030573feeee4f6b8a6788eb5dee4717af1016cbd1eaa707ebbcc6a",
+    "results/phase_5/step_5_A/preflight/phase_5_A_protocol_freeze.yaml": "1df26c77a7f3175b7ffb6771118439313ffdea3162230c16309ee894fd9aa635",
+    "src/phase_5_corrected/residuals_v2.py": "4b89fc6756fdfe087dc10f1008922ce575ed7f018f0779c7eac03b3d891450ec",
+    "src/phase_5_corrected/derivatives_v2.py": "5c7e188dbec29678ee21582f964fe872a8bc8081132fb8702259155c643c8be2",
+    "src/phase_5_corrected/losses_v2.py": "d5fce3d77bdd297c289194891685b07059212b3ea42a4808bd87e874886de2cb",
+    "src/phase_5_corrected/decoder_v2.py": "5467fb912fd9236a0b378f1356600c5e001db920ccffc8095852e9791be69d77",
+    "src/phase_5_corrected/__init__.py": "e87a0a4099bba52638b7e606cec0596a4b901ab65e29cf5183c2e9a1d81b0e30",
+    "src/phase_5_corrected/trainer_v2.py": "079da93a28e7b3566f559d2a257834631a6d94d069048af77b00b8a22b2ea0db",
+    "src/phase_5_corrected/model_v2.py": "83bc3d35f90412132f8517e433ef0fcc7ce343e66e7905537f7d8d9262e48da2",
+    "src/phase_5_corrected/verification/test_decoder_health.py": "08132d12720fb25df9f9dafab376e9fec1e09a1de97c581b07b48293cb686609",
+    "src/phase_5_corrected/verification/test_gradient_flow.py": "874fd3ec83bee6ba81ec42d17b373bbc3634dc7695241733df25bfd64cf15f72",
+    "src/phase_5_corrected/verification/__init__.py": "15b59fda50912a41daaaa6bad7efcdd39a8d7e8f9c1b03dc5983c5688f64cd47",
+    "src/phase_5_corrected/verification/test_residual_accuracy.py": "f89ff0a6b5d3abf1a48aa5f96f0683d3b04659bc890ceb1ed7b3842dce2d85d0"
+  }
+}

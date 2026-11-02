@@ -1,0 +1,77 @@
+{
+  "checks": {
+    "phase1_ancestor": {
+      "pass": true,
+      "detail": "1d9b320 is ancestor"
+    },
+    "phase2_ancestor": {
+      "pass": true,
+      "detail": "0c9dfd7 is ancestor"
+    },
+    "phase3_ancestor": {
+      "pass": true,
+      "detail": "bc80727 is ancestor"
+    },
+    "phase4a_ancestor": {
+      "pass": true,
+      "detail": "dea218a is ancestor"
+    },
+    "phase4b_ancestor": {
+      "pass": true,
+      "detail": "dd392bb is ancestor"
+    },
+    "phase4_ancestor": {
+      "pass": true,
+      "detail": "3b622f7 is ancestor"
+    },
+    "phase4_tag": {
+      "pass": true,
+      "detail": "2f0b53f15f69"
+    },
+    "phase1_aggregate": {
+      "pass": true,
+      "detail": "9049c7b42996fee7"
+    },
+    "phase2_ckpt_sha": {
+      "pass": true,
+      "detail": "24fce0bad8ec9c66"
+    },
+    "phase3_ckpt_sha": {
+      "pass": true,
+      "detail": "a0522e57f0b43c8a"
+    },
+    "phase4a1_ckpt_sha": {
+      "pass": true,
+      "detail": "681fe6789dd2911a"
+    },
+    "train_ids_sha": {
+      "pass": true,
+      "detail": "16ad4670eee9555a"
+    },
+    "val_ids_sha": {
+      "pass": true,
+      "detail": "19b781283503b1a1"
+    },
+    "test_ids_sha": {
+      "pass": true,
+      "detail": "a71514eacaee3d09"
+    },
+    "normalization_sha": {
+      "pass": true,
+      "detail": "4e832aa5cdaa940c"
+    },
+    "locked_paths_clean": {
+      "pass": true,
+      "detail": "empty"
+    },
+    "phase_5_dir_exists": {
+      "pass": true,
+      "detail": "src/phase_5_corrected"
+    },
+    "phase_5_dir_no_impl": {
+      "pass": true,
+      "detail": "0 non-stub .py files"
+    }
+  },
+  "all_pass": true
+}

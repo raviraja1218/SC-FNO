@@ -1,0 +1,114 @@
+"""Phase 5 Corrected — decoder health (Bug J prevention).
+
+Trains a decoder on toy data with L_data_decoder only, then verifies:
+  - du_dt std > 0.05
+  - u_hat variance across query times > 1.0
+  - Reconstruction MSE < 1e-3
+"""
+import sys
+sys.path.insert(0, "src")
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import pytest
+
+from phase_5_corrected.decoder_v2 import build_decoder_v2
+
+
+def make_toy_dataset(n_scenarios=16, n_points=200, n_channels=9, seed=42):
+    """Toy: y_j(t) = A_j * sin(2π * f_j * t + φ_j) + offset_j."""
+    torch.manual_seed(seed)
+    t = torch.linspace(0.0, 10.0, n_points)          # [N]
+    A = torch.rand(n_channels) * 1.0 + 0.5           # [C]
+    f = torch.rand(n_channels) * 0.4 + 0.1           # [C]
+    phi = torch.rand(n_channels) * 2 * 3.14159       # [C]
+    offset = torch.randn(n_channels) * 0.1           # [C]
+
+    y_base = (A[None, :, None] * torch.sin(2 * 3.14159 * f[None, :, None] * t[None, None, :]
+                                            + phi[None, :, None])
+              + offset[None, :, None])               # [1, C, N]
+
+    # Add per-scenario variation (scaling and phase shift)
+    y = torch.zeros(n_scenarios, n_channels, n_points)
+    for s in range(n_scenarios):
+        scale = 1.0 + 0.1 * torch.randn(n_channels)
+        shift = 0.05 * torch.randn(n_channels)
+        y[s] = y_base[0] * scale[:, None] + shift[:, None]
+    return y, t
+
+
+def test_decoder_health_toy_fit():
+    """Train decoder on toy data with L_data_decoder; verify dynamics learned."""
+    torch.manual_seed(42)
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+
+    y_toy, t_grid = make_toy_dataset(n_scenarios=16, n_points=200)
+    y_toy = y_toy.to(device)
+    t_grid = t_grid.to(device)
+
+    # Query times (frozen)
+    t_q = torch.linspace(0.5, 9.5, 50, device=device)
+
+    # Decoder (Phase 3 architecture)
+    decoder = build_decoder_v2(latent_dim=32, hidden_dim=64, n_freqs=16, T=10.0, seed=42).to(device)
+
+    # Fake FNO latent: fixed random [B, 32, 200] — decoder must learn to ignore it
+    # and produce output based on t_q alone. This is the simplest version of the
+    # real training scenario.
+    B = y_toy.shape[0]
+    torch.manual_seed(0)
+    z = torch.randn(B, 32, 200, device=device) * 0.1
+
+    # Optimizer
+    opt = torch.optim.Adam(decoder.parameters(), lr=1e-3)
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(opt, T_max=100)
+
+    # Interpolate ground truth to query times
+    def interp(yb, t_q):
+        t_qn = (t_q / 10.0) * 199
+        i0 = t_qn.floor().long().clamp(0, 198)
+        i1 = (i0 + 1).clamp(0, 199)
+        frac = (t_qn - i0.float()).unsqueeze(0).unsqueeze(0)  # [1, 1, Nq]
+        b_idx = torch.arange(B, device=yb.device).unsqueeze(1).unsqueeze(2).expand(B, 9, len(t_q))
+        s_idx = torch.arange(9, device=yb.device).unsqueeze(0).unsqueeze(2).expand(B, 9, len(t_q))
+        y0 = yb[b_idx, s_idx, i0.unsqueeze(0).unsqueeze(0).expand(B, 9, -1)]
+        y1 = yb[b_idx, s_idx, i1.unsqueeze(0).unsqueeze(0).expand(B, 9, -1)]
+        return y0 * (1 - frac) + y1 * frac
+
+    y_at_tq = interp(y_toy, t_q)   # [B, 9, Nq]
+
+    # Train with L_data_decoder only
+    for epoch in range(100):
+        opt.zero_grad()
+        u_hat = decoder(z, t_q.unsqueeze(0).expand(B, -1))  # [B, 9, Nq]
+        loss = ((u_hat - y_at_tq) ** 2).mean()
+        loss.backward()
+        torch.nn.utils.clip_grad_norm_(decoder.parameters(), max_norm=1.0)
+        opt.step()
+        scheduler.step()
+
+    # Verify health
+    with torch.no_grad():
+        u_hat = decoder(z, t_q.unsqueeze(0).expand(B, -1))
+
+    u_hat_variance = u_hat.var(dim=-1).mean().item()
+    recon_mse = ((u_hat - y_at_tq) ** 2).mean().item()
+
+    # Compute du_dt via autograd
+    t_q_g = t_q.detach().clone().requires_grad_(True)
+    u_hat_g = decoder(z, t_q_g.unsqueeze(0).expand(B, -1))
+    du_dt = torch.autograd.grad(
+        outputs=u_hat_g[:, 0, :], inputs=t_q_g,
+        grad_outputs=torch.ones_like(u_hat_g[:, 0, :]),
+        create_graph=False, retain_graph=True,
+    )[0]
+    du_dt_std = du_dt.std().item()
+
+    print(f"\n  [DECODER HEALTH] u_hat variance across t_q: {u_hat_variance:.4f} (threshold > 1.0)")
+    print(f"  [DECODER HEALTH] reconstruction MSE: {recon_mse:.6f} (threshold < 1e-3)")
+    print(f"  [DECODER HEALTH] du_dt std: {du_dt_std:.4f} (threshold > 0.05)")
+
+    assert u_hat_variance > 1.0, f"u_hat variance {u_hat_variance:.4f} < 1.0"
+    assert recon_mse < 1e-3, f"recon_mse {recon_mse:.6f} > 1e-3"
+    assert du_dt_std > 0.05, f"du_dt std {du_dt_std:.4f} < 0.05"

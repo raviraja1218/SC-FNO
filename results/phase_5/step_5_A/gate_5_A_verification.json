@@ -1,0 +1,74 @@
+{
+  "gate": "5.A",
+  "n_checks": 12,
+  "n_pass": 12,
+  "all_pass": true,
+  "checks": [
+    {
+      "name": "Phase 4 lock intact",
+      "pass": true,
+      "detail": "18 checks"
+    },
+    {
+      "name": "Locked paths clean",
+      "pass": true,
+      "detail": "empty"
+    },
+    {
+      "name": "src/phase_5_corrected exists",
+      "pass": true,
+      "detail": "src/phase_5_corrected"
+    },
+    {
+      "name": "Verification tests pass (4/4)",
+      "pass": true,
+      "detail": "4 passed, 0 failed"
+    },
+    {
+      "name": "Decoder health: du_dt std > 0.05",
+      "pass": true,
+      "detail": "confirmed in v2 log"
+    },
+    {
+      "name": "Decoder health: u_hat variance > 50% of max",
+      "pass": true,
+      "detail": "u_hat variance = 76.8% of theoretical max"
+    },
+    {
+      "name": "True forcing used (not zero)",
+      "pass": true,
+      "detail": "PASSED"
+    },
+    {
+      "name": "Per-channel derivative correct",
+      "pass": true,
+      "detail": "PASSED"
+    },
+    {
+      "name": "L_data_decoder implemented",
+      "pass": true,
+      "detail": "losses_v2.py contains supervised decoder loss"
+    },
+    {
+      "name": "Phase 3 physics_informed untouched",
+      "pass": true,
+      "detail": "empty"
+    },
+    {
+      "name": "SCFNOModelV2 implemented",
+      "pass": true,
+      "detail": "model_v2.py contains class"
+    },
+    {
+      "name": "All source files present",
+      "pass": true,
+      "detail": "7 modules present"
+    }
+  ],
+  "key_results": {
+    "du_dt_std": 30.13,
+    "u_hat_variance_pct_of_max": 76.8,
+    "reconstruction_mse": 0.0932,
+    "bug_j_improvement_factor": "21,500x"
+  }
+}

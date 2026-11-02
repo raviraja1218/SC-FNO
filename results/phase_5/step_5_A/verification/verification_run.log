@@ -1,0 +1,124 @@
+=== test_gradient_flow ===
+============================= test session starts ==============================
+platform linux -- Python 3.10.22, pytest-9.2.0, pluggy-1.7.0 -- /home/raviraja/miniconda3/envs/sc_fno/bin/python
+cachedir: .pytest_cache
+rootdir: /home/raviraja/projects/SC-FNO
+configfile: pytest.ini
+plugins: platformdirs-4.12.4, mock-3.17.0, anyio-4.15.1, cov-7.1.0
+collecting ... collected 2 items
+
+src/phase_5_corrected/verification/test_gradient_flow.py::test_per_channel_derivative_correct PASSED [ 50%]
+src/phase_5_corrected/verification/test_gradient_flow.py::test_per_sum_derivative_differs PASSED [100%]
+
+============================== 2 passed in 2.30s ===============================
+
+=== test_residual_accuracy ===
+============================= test session starts ==============================
+platform linux -- Python 3.10.22, pytest-9.2.0, pluggy-1.7.0 -- /home/raviraja/miniconda3/envs/sc_fno/bin/python
+cachedir: .pytest_cache
+rootdir: /home/raviraja/projects/SC-FNO
+configfile: pytest.ini
+plugins: platformdirs-4.12.4, mock-3.17.0, anyio-4.15.1, cov-7.1.0
+collecting ... collected 1 item
+
+src/phase_5_corrected/verification/test_residual_accuracy.py::test_true_forcing_used PASSED [100%]
+
+============================== 1 passed in 0.93s ===============================
+
+=== test_decoder_health (CRITICAL — Bug J prevention) ===
+============================= test session starts ==============================
+platform linux -- Python 3.10.22, pytest-9.2.0, pluggy-1.7.0 -- /home/raviraja/miniconda3/envs/sc_fno/bin/python
+cachedir: .pytest_cache
+rootdir: /home/raviraja/projects/SC-FNO
+configfile: pytest.ini
+plugins: platformdirs-4.12.4, mock-3.17.0, anyio-4.15.1, cov-7.1.0
+collecting ... collected 1 item
+
+src/phase_5_corrected/verification/test_decoder_health.py::test_decoder_health_toy_fit 
+  [DECODER HEALTH] u_hat variance across t_q: 0.4966 (threshold > 1.0)
+  [DECODER HEALTH] reconstruction MSE: 0.127013 (threshold < 1e-3)
+  [DECODER HEALTH] du_dt std: 32.7539 (threshold > 0.05)
+FAILED
+
+=================================== FAILURES ===================================
+_________________________ test_decoder_health_toy_fit __________________________
+
+    def test_decoder_health_toy_fit():
+        """Train decoder on toy data with L_data_decoder; verify dynamics learned."""
+        torch.manual_seed(42)
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+    
+        y_toy, t_grid = make_toy_dataset(n_scenarios=16, n_points=200)
+        y_toy = y_toy.to(device)
+        t_grid = t_grid.to(device)
+    
+        # Query times (frozen)
+        t_q = torch.linspace(0.5, 9.5, 50, device=device)
+    
+        # Decoder (Phase 3 architecture)
+        decoder = build_decoder_v2(latent_dim=32, hidden_dim=64, n_freqs=16, T=10.0, seed=42).to(device)
+    
+        # Fake FNO latent: fixed random [B, 32, 200] — decoder must learn to ignore it
+        # and produce output based on t_q alone. This is the simplest version of the
+        # real training scenario.
+        B = y_toy.shape[0]
+        torch.manual_seed(0)
+        z = torch.randn(B, 32, 200, device=device) * 0.1
+    
+        # Optimizer
+        opt = torch.optim.Adam(decoder.parameters(), lr=1e-3)
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(opt, T_max=100)
+    
+        # Interpolate ground truth to query times
+        def interp(yb, t_q):
+            t_qn = (t_q / 10.0) * 199
+            i0 = t_qn.floor().long().clamp(0, 198)
+            i1 = (i0 + 1).clamp(0, 199)
+            frac = (t_qn - i0.float()).unsqueeze(0).unsqueeze(0)  # [1, 1, Nq]
+            b_idx = torch.arange(B, device=yb.device).unsqueeze(1).unsqueeze(2).expand(B, 9, len(t_q))
+            s_idx = torch.arange(9, device=yb.device).unsqueeze(0).unsqueeze(2).expand(B, 9, len(t_q))
+            y0 = yb[b_idx, s_idx, i0.unsqueeze(0).unsqueeze(0).expand(B, 9, -1)]
+            y1 = yb[b_idx, s_idx, i1.unsqueeze(0).unsqueeze(0).expand(B, 9, -1)]
+            return y0 * (1 - frac) + y1 * frac
+    
+        y_at_tq = interp(y_toy, t_q)   # [B, 9, Nq]
+    
+        # Train with L_data_decoder only
+        for epoch in range(100):
+            opt.zero_grad()
+            u_hat = decoder(z, t_q.unsqueeze(0).expand(B, -1))  # [B, 9, Nq]
+            loss = ((u_hat - y_at_tq) ** 2).mean()
+            loss.backward()
+            torch.nn.utils.clip_grad_norm_(decoder.parameters(), max_norm=1.0)
+            opt.step()
+            scheduler.step()
+    
+        # Verify health
+        with torch.no_grad():
+            u_hat = decoder(z, t_q.unsqueeze(0).expand(B, -1))
+    
+        u_hat_variance = u_hat.var(dim=-1).mean().item()
+        recon_mse = ((u_hat - y_at_tq) ** 2).mean().item()
+    
+        # Compute du_dt via autograd
+        t_q_g = t_q.detach().clone().requires_grad_(True)
+        u_hat_g = decoder(z, t_q_g.unsqueeze(0).expand(B, -1))
+        du_dt = torch.autograd.grad(
+            outputs=u_hat_g[:, 0, :], inputs=t_q_g,
+            grad_outputs=torch.ones_like(u_hat_g[:, 0, :]),
+            create_graph=False, retain_graph=True,
+        )[0]
+        du_dt_std = du_dt.std().item()
+    
+        print(f"\n  [DECODER HEALTH] u_hat variance across t_q: {u_hat_variance:.4f} (threshold > 1.0)")
+        print(f"  [DECODER HEALTH] reconstruction MSE: {recon_mse:.6f} (threshold < 1e-3)")
+        print(f"  [DECODER HEALTH] du_dt std: {du_dt_std:.4f} (threshold > 0.05)")
+    
+>       assert u_hat_variance > 1.0, f"u_hat variance {u_hat_variance:.4f} < 1.0"
+E       AssertionError: u_hat variance 0.4966 < 1.0
+E       assert 0.4965669810771942 > 1.0
+
+src/phase_5_corrected/verification/test_decoder_health.py:112: AssertionError
+=========================== short test summary info ============================
+FAILED src/phase_5_corrected/verification/test_decoder_health.py::test_decoder_health_toy_fit
+============================== 1 failed in 3.20s ===============================

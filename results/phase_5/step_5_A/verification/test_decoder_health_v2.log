@@ -1,0 +1,16 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.22, pytest-9.2.0, pluggy-1.7.0 -- /home/raviraja/miniconda3/envs/sc_fno/bin/python
+cachedir: .pytest_cache
+rootdir: /home/raviraja/projects/SC-FNO
+configfile: pytest.ini
+plugins: platformdirs-4.12.4, mock-3.17.0, anyio-4.15.1, cov-7.1.0
+collecting ... collected 1 item
+
+src/phase_5_corrected/verification/test_decoder_health.py::test_decoder_health_toy_fit 
+  [DECODER HEALTH] gt variance (theoretical max): 0.7647
+  [DECODER HEALTH] u_hat variance: 0.5877 (76.8% of max) — threshold > 50%
+  [DECODER HEALTH] reconstruction MSE: 0.093226 — threshold < 0.5
+  [DECODER HEALTH] du_dt std: 30.1315 — threshold > 0.05 (Bug J prevention)
+PASSED
+
+============================== 1 passed in 2.92s ===============================

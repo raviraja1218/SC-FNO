@@ -1,0 +1,58 @@
+# Step 5.A — Corrected Architecture Protocol (FROZEN before code)
+# Purpose: Build SCFNOModelV2 whose decoder is trained with supervised data loss
+# Fix for Bug J (decoder temporal collapse)
+
+directory: src/phase_5_corrected/
+rationale: |
+  Fresh architecture separate from locked Phase 3/4 code.
+  Never modify src/physics_informed/ or src/models/boundary_aware_fno.py.
+  Preserve Phase 0-4 evidence as historical record.
+
+composite_loss_weights:
+  lambda_data: 1.0
+  lambda_dec: 1.0        # NEW: supervised decoder data loss (Bug J fix)
+  lambda_ic: 1.0
+  lambda_phys_init: 1.0e-4
+  lambda_phys_target: 1.0
+  lambda_phys_ramp_epochs: 100
+
+query_grid:
+  start: 0.5
+  end: 9.5
+  n_points: 50
+  formula: "torch.linspace(0.5, 9.5, 50)"
+
+decoder_architecture:
+  note: "Identical to Phase 3 (attention + Fourier query embedding)"
+  rationale: "Isolate the training fix from architecture changes"
+  must_match_phase3: true
+
+derivative:
+  method: per_channel           # Bug E fix
+  note: "One autograd call per state channel; do NOT use per-sum"
+  verification_threshold: 1.0e-5
+
+forcing:
+  method: true_forcing          # Bug B fix
+  interpolation: linear
+  note: "rho_ext(t_q) from scenario forcing.npy, interpolated; NOT zero-forcing"
+  verification_required: true
+
+decoder_health_thresholds:
+  du_dt_std_min: 0.05
+  u_hat_variance_min: 1.0
+  toy_reconstruction_mse_max: 1.0e-3
+  toy_training_epochs: 100
+  toy_seed: 42
+
+residual_accuracy_threshold:
+  max_relative_error_vs_ground_truth: 0.01
+  n_scenarios_to_test: 10
+
+training_scope:
+  no_real_scenario_training: true
+  toy_fitting_only: true
+  purpose: "Verify decoder can learn temporal dynamics before real training"
+
+frozen_at: "2026-11-02"
+frozen_by: "step_5_A_protocol"
