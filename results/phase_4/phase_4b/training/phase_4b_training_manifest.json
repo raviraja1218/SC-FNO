@@ -1,5 +1,8 @@
 {
   "phase": "4B.4",
+  "created": "2026-11-02",
+  "starting_checkpoint_sha": "a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50",
+  "n_artifacts": 25,
   "artifacts": {
     "results/phase_4/phase_4b/training/P4-A_training_log.csv": "ae80083418bcc7aa8c5476b2e7467c6ac289aa792b817b37e5171ad2f6db7878",
     "results/phase_4/phase_4b/training/P4-B_training_log.csv": "5cc65d8e4b89175b0d374c5469aea2aedbf379853879aff1c908ba207ab67707",
