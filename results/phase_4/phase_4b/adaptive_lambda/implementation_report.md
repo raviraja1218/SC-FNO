@@ -139,3 +139,143 @@ this intervention will be measured by:
 - `tests/phase_4/phase_4b/test_adaptive_lambda.py` — 10 unit tests
 - `results/phase_4/phase_4b/adaptive_lambda/unit_test_results.log` — pytest output
 - `results/phase_4/phase_4b/adaptive_lambda/adaptive_lambda_verification.json` — gate status
+
+
+---
+
+## Reviewer Addendum (Step 4B.2.R, 2026-11-02)
+
+Three clarifications from Step 4B.2 review have been incorporated. The
+algorithmic behavior is unchanged in spirit; the changes add diagnostics and
+defensive guards. Commit `b412f20` remains the implementation anchor.
+
+### Clarification A — 20-Epoch Reference Window (Now Used)
+
+**Original gap:** `ema_reference_window: 20` was frozen in Step 4B.0 but not
+referenced in the Step 4B.2 implementation.
+
+**Resolution:** The 20-epoch window is now used as a **diagnostic look-back**,
+not as a controller gate. The update formula remains per-epoch; the first
+update happens at epoch 0. The window provides:
+
+- `smoothed_cosine_20_epochs_ago`: the EMA-smoothed cosine at epoch (current − 20)
+- `delta_smoothed_cosine`: current smoothed cosine minus 20-epochs-ago value
+
+Both fields are `None` until epoch ≥ 20. They are logged per-epoch in the
+history for **post-hoc analysis** (e.g., "was the conflict sustained or
+transient over the last 20 epochs?").
+
+**Purpose:** interpretability and diagnostic transparency. Not a training-time
+gate. The controller responds to the current smoothed cosine immediately.
+
+**Verification:** test T11 confirms that for epochs 0-19 the look-back fields
+are None, and for epochs 20+ they match the smoothed cosine at exactly the
+20-epochs-earlier index.
+
+### Clarification B — Cosine Numerical Bounds (Now Clipped)
+
+**Original gap:** raw cosine was used as-is without validation.
+
+**Resolution:** raw cosine is now **clipped to [-1, 1]** before EMA smoothing.
+The original value is preserved in history for diagnostics.
+
+Logging schema per epoch now includes:
+
+- `raw_cosine_input`: the value passed to `update()` (may be outside [-1, 1])
+- `raw_cosine_used`: the clipped value (in [-1, 1]) that entered the EMA
+- `cosine_clipped`: boolean flag; True if `|raw_input − clipped| > 1e-12`
+
+Summary statistics include:
+- `n_cosine_clipped`: count of epochs where cosine was clipped
+- `cosine_clip_fraction`: fraction of epochs with clipping
+
+**Why this matters:** if PyTorch FP arithmetic ever produces a cosine slightly
+outside [−1, 1] (e.g., 1.0000001 or −1.0000001 due to rounding), the clipping
+prevents it from influencing the adaptive update in an unintended way. If a
+genuine caller bug produces a wildly invalid cosine (e.g., 1.5), the clip
+prevents runaway behavior and the `cosine_clipped=True` flag makes the
+anomaly visible in logs.
+
+**Verification:** test T12 confirms:
+- `raw_cosine=1.5` → clipped to 1.0, flag=True
+- `raw_cosine=-2.3` → clipped to -1.0, flag=True
+- `raw_cosine=0.5` → unchanged, flag=False
+- Summary records correct clip counts
+
+### Clarification C — Adaptation Rate Analysis
+
+**With frozen α=0.05, β=0.1, λ_init=1e-4:**
+
+**Per-epoch maximum multiplicative change** (when smoothed cosine approaches +1):
+$$\lambda_{e+1} / \lambda_e = e^{0.05} \approx 1.0513$$
+i.e., ~5.13% increase per epoch at sustained maximum positive cosine.
+
+**Per-epoch maximum decrease** (when smoothed cosine approaches −1):
+$$\lambda_{e+1} / \lambda_e = e^{-0.05} \approx 0.9512$$
+i.e., ~4.88% decrease per epoch at sustained maximum negative cosine.
+
+**Maximum reachable λ over typical runs:**
+
+| Epochs | Sustained max positive cosine | λ reachable from init 1e-4 |
+|--------|-------------------------------|---------------------------|
+| 55 (typical plateau) | +1.0 | ≈ 1.56e-3 |
+| 200 (max epochs) | +1.0 | ≈ 2.20 |
+| 250 | +1.0 | ≈ 5.75 (approaching λ_max) |
+| 280 | +1.0 | ≈ 10.0 (clips at λ_max) |
+
+**Maximum reachable λ from typical negative conflict:**
+
+| Epochs | Sustained max negative cosine | λ reachable from init 1e-4 |
+|--------|-------------------------------|---------------------------|
+| 55 | −1.0 | ≈ 6.4e-6 |
+| 100 | −1.0 | ≈ 6.7e-7 |
+| 168 | −1.0 | ≈ 1e-5 (clips at λ_min) |
+
+**Conclusion:** In a normal-length Phase 4B training run (55-200 epochs),
+the λ_min/λ_max bounds are **safeguards, not expected operating values**.
+The controller's practical range is bounded by the run length, not by the
+clip events. Actual λ trajectory will be recorded in P4-C and P4-D training
+logs and analyzed in Step 4B.5.
+
+**Verification:** test T5 (extended to 500 epochs) confirms that clip events
+do fire when sustained max cosine is held long enough to reach λ_max.
+
+### Test Suite Update
+
+The original 10 tests remain. Two new tests were added:
+
+- **T11** — 20-epoch look-back correctness (Clarification A)
+- **T12** — cosine clipping to [-1, 1] (Clarification B)
+
+**Final: 12/12 unit tests pass.**
+
+### Frozen Configuration Preserved
+
+- α = 0.05: unchanged
+- λ_min = 1e-5: unchanged
+- λ_max = 10.0: unchanged
+- λ_init = 1e-4: unchanged
+- β (ema_alpha_cosine) = 0.1: unchanged
+- **ema_reference_window = 20: now used as diagnostic look-back (was previously frozen but unused)**
+- update_freq = per_epoch: unchanged
+- clip_method = log-clip-exp: unchanged
+
+### PCGrad Interaction Preserved
+
+The critical ordering remains:
+1. Compute data + physics gradients
+2. Compute raw cosine on common valid subset
+3. AdaptiveLambda.update(epoch, raw_cosine) ← uses raw cosine, NOT post-projection
+4. Apply asymmetric PCGrad projection (P4-A, P4-D only)
+5. Combine gradients with updated λ_phys
+
+The cosine clipping happens **inside AdaptiveLambda.update()** — before EMA
+smoothing — so it applies to the raw cosine regardless of whether PCGrad
+is enabled. In P4-D, PCGrad runs AFTER AdaptiveLambda.update() in the
+combined training loop.
+
+### Commit `b412f20` Preserved
+
+The corrections are additive documentation + small implementation
+enhancements + 2 new tests. The original commit remains valid; this addendum
+(`4B.2.R`) documents the qualifications.

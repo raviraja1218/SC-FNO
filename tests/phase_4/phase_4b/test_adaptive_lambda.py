@@ -71,10 +71,16 @@ def test_t4_lambda_min_clip():
 # ============================================================
 def test_t5_lambda_max_clip():
     al = AdaptiveLambda()
-    for i in range(200):
+    # raw_cosine=100.0 is clipped to 1.0. Starting from 1e-4, need ~230 epochs
+    # of sustained max cosine to reach lambda_max=10.0 (log-space: 11.51 / 0.05).
+    # Use 500 epochs to ensure clip fires.
+    for i in range(500):
         al.update(epoch=i, raw_cosine=100.0)
-    assert abs(al.current() - 10.0) < 1e-8
-    assert al.history[-1]["clip_applied"] == "max"
+    assert abs(al.current() - 10.0) < 1e-6, \
+        f"Expected lambda at max bound, got {al.current()}"
+    # Somewhere in history, clip_applied='max' must appear
+    clip_max_epochs = [h["epoch"] for h in al.history if h["clip_applied"] == "max"]
+    assert len(clip_max_epochs) > 0, "No max clip recorded in 500 epochs"
     assert al.get_summary()["n_clip_max"] > 0
 
 
@@ -118,17 +124,20 @@ def test_t8_log_history():
         al.update(epoch=i, raw_cosine=0.1 * (i - 2))
     hist = al.get_history()
     assert len(hist) == N
+    required_fields = [
+        "epoch", "raw_cosine_input", "raw_cosine_used", "cosine_clipped",
+        "smoothed_cosine", "smoothed_cosine_20_epochs_ago", "delta_smoothed_cosine",
+        "log_lambda_prev", "log_lambda_raw_update", "log_lambda_after_clip",
+        "lambda", "clip_applied", "alpha",
+    ]
     for i, h in enumerate(hist):
         assert h["epoch"] == i
-        assert "raw_cosine" in h
-        assert "smoothed_cosine" in h
-        assert "log_lambda_prev" in h
-        assert "log_lambda_raw_update" in h
-        assert "log_lambda_after_clip" in h
-        assert "lambda" in h
-        assert "clip_applied" in h
+        for field in required_fields:
+            assert field in h, f"epoch {i}: missing field '{field}'"
         # lambda should equal exp(log_lambda_after_clip)
         assert abs(h["lambda"] - math.exp(h["log_lambda_after_clip"])) < 1e-10
+        # raw_cosine_used should equal raw_cosine_input for values in [-1, 1]
+        assert h["raw_cosine_used"] == h["raw_cosine_input"]
 
 
 # ============================================================
@@ -169,3 +178,60 @@ def test_t10_frozen_config_defaults():
         AdaptiveLambda(alpha=-0.1)
     with pytest.raises(ValueError):
         AdaptiveLambda(ema_beta=1.5)
+
+
+# ============================================================
+# T11 — 20-epoch look-back of smoothed cosine
+# ============================================================
+def test_t11_ema_reference_window_lookback():
+    """After 20 epochs, smoothed_cosine_20_epochs_ago should be recorded."""
+    al = AdaptiveLambda()
+    # Run 25 epochs with varying cosine
+    for i in range(25):
+        al.update(epoch=i, raw_cosine=0.5 * math.sin(i * 0.3))
+    hist = al.get_history()
+    assert len(hist) == 25
+    # Epochs 0-19: smoothed_cosine_20_epochs_ago should be None
+    for i in range(20):
+        assert hist[i]["smoothed_cosine_20_epochs_ago"] is None, \
+            f"epoch {i}: expected None, got {hist[i]['smoothed_cosine_20_epochs_ago']}"
+        assert hist[i]["delta_smoothed_cosine"] is None
+    # Epochs 20-24: smoothed_cosine_20_epochs_ago should be the smoothed value 20 epochs back
+    for i in range(20, 25):
+        assert hist[i]["smoothed_cosine_20_epochs_ago"] is not None
+        assert hist[i]["delta_smoothed_cosine"] is not None
+        expected_20_ago = hist[i - 20]["smoothed_cosine"]
+        assert abs(hist[i]["smoothed_cosine_20_epochs_ago"] - expected_20_ago) < 1e-12
+
+
+# ============================================================
+# T12 — Cosine clipping to [-1, 1]
+# ============================================================
+def test_t12_cosine_clipping():
+    """raw_cosine outside [-1, 1] is clipped; original preserved in history."""
+    al = AdaptiveLambda()
+    # Extreme positive (beyond mathematically valid range)
+    al.update(epoch=0, raw_cosine=1.5)
+    h0 = al.get_history()[0]
+    assert h0["raw_cosine_input"] == 1.5
+    assert h0["raw_cosine_used"] == 1.0
+    assert h0["cosine_clipped"] is True
+
+    # Extreme negative
+    al.update(epoch=1, raw_cosine=-2.3)
+    h1 = al.get_history()[1]
+    assert h1["raw_cosine_input"] == -2.3
+    assert h1["raw_cosine_used"] == -1.0
+    assert h1["cosine_clipped"] is True
+
+    # Valid range — no clipping
+    al.update(epoch=2, raw_cosine=0.5)
+    h2 = al.get_history()[2]
+    assert h2["raw_cosine_input"] == 0.5
+    assert h2["raw_cosine_used"] == 0.5
+    assert h2["cosine_clipped"] is False
+
+    # Summary records clip count
+    summary = al.get_summary()
+    assert summary["n_cosine_clipped"] == 2
+    assert abs(summary["cosine_clip_fraction"] - 2/3) < 1e-9

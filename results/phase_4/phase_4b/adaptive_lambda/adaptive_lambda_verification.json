@@ -3,9 +3,9 @@
   "timestamp": "2026-11-02",
   "predecessor": "3fd0af0",
   "implementation_file": "src/training/adaptive_lambda.py",
-  "implementation_sha256": "9996e1d5296c379a54fceb9e85029764afc007222dc6f036dc31ed73e78d9cbb",
+  "implementation_sha256": "64084f28c8b0a48b893e40577d74c4d8f6be8248d3abdc6444c99647c99eb326",
   "test_file": "tests/phase_4/phase_4b/test_adaptive_lambda.py",
-  "test_file_sha256": "b62c651a5f0fa5b9efe7a899facccbfba2250430d7c1ec983a8a87676b083a56",
+  "test_file_sha256": "7b48d80a0cc3a26ed7cd5b006ac6b53ae65c895c6079a018022643615eb64407",
   "frozen_config": {
     "alpha": 0.05,
     "lambda_min": 1e-05,
@@ -16,11 +16,15 @@
     "clip_method": "log-clip-exp"
   },
   "unit_tests": {
-    "total": 10,
-    "passed": 10,
+    "total": 12,
+    "passed": 12,
     "failed": 0,
     "skipped": 0,
-    "result": "10 passed"
+    "result": "12 passed",
+    "additional_tests": [
+      "T11 (20-epoch look-back)",
+      "T12 (cosine clipping)"
+    ]
   },
   "gate_4b_2_checks": {
     "implementation_exists": true,
@@ -38,7 +42,17 @@
     "pre_registration_unchanged": true,
     "experimental_matrix_unchanged": true,
     "no_training_performed": true,
-    "no_locked_paths_modified": true
+    "no_locked_paths_modified": true,
+    "ema_reference_window_used": true,
+    "cosine_clipping_implemented": true,
+    "adaptation_rate_documented": true,
+    "additional_tests_t11_t12_pass": true
   },
-  "all_checks_pass": true
+  "all_checks_pass": true,
+  "reviewer_qualifications": {
+    "applied": "2026-11-02",
+    "clarification_A_ema_reference_window": "20-epoch look-back now logged as smoothed_cosine_20_epochs_ago + delta_smoothed_cosine (diagnostic only; update formula unchanged)",
+    "clarification_B_cosine_clipping": "raw cosine clipped to [-1,1] before EMA; original preserved as raw_cosine_input, flag cosine_clipped",
+    "clarification_C_adaptation_rate": "\u03b1=0.05 \u2192 5.13% max multiplicative change per epoch; bounds are safeguards for normal runs; actual trajectory recorded in P4-C/P4-D training"
+  }
 }
