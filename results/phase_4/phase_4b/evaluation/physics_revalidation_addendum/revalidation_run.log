@@ -1,0 +1,39 @@
+[OK] Test set verified
+[OK] Loaded 200 scenarios
+[OK] Loss + params loaded
+
+=== Physics revalidation (per-channel derivative + actual forcing) ===
+
+--- P3-PI-FNO ---
+  physics_loss_mean: 125890099.35178006
+  ic_loss_mean: 3.2577619429048354e-05
+  time: 1.58s
+
+--- Phase4A.1 ---
+  physics_loss_mean: 125904841.34646598
+  ic_loss_mean: 0.00012295913165871752
+  time: 0.86s
+
+--- P4-A ---
+  physics_loss_mean: 122913714.49552794
+  ic_loss_mean: 0.05043829956062837
+  time: 0.86s
+
+--- P4-B ---
+  physics_loss_mean: 121658263.72859743
+  ic_loss_mean: 0.0177004089197726
+  time: 0.86s
+
+--- P4-C ---
+  physics_loss_mean: 122811908.34227623
+  ic_loss_mean: 0.008749986795301083
+  time: 0.85s
+
+--- P4-D ---
+  physics_loss_mean: 122817052.87604943
+  ic_loss_mean: 0.001883937579891608
+  time: 0.86s
+
+[OK] Results: results/phase_4/phase_4b/evaluation/physics_revalidation_addendum/physics_revalidation_results.json
+[OK] Comparison: results/phase_4/phase_4b/evaluation/physics_revalidation_addendum/comparison_table.csv
+[OK] Report: results/phase_4/phase_4b/evaluation/physics_revalidation_addendum/revalidation_report.md
