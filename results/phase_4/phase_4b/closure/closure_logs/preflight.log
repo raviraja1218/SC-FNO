@@ -1,0 +1,6 @@
+=== Step 4B.6 Preflight: 2026-11-02T11:08:36+00:00 ===
+/home/raviraja/projects/SC-FNO
+75dce8f Step 4B.5 correction v4: additive corrected figures/tables (F4b dual-protocol physics loss, F4c per-state Phase4A.1 vs P3, T1b original-vs-corrected table). Original F1-F10 and T1-T5 from d226447 preserved unchanged. All 10 primary figures + 5 tables remain valid under both protocols (rel L2, boundary, endpoint, bootstrap unaffected by derivative correction). Jacobian audit log force-added.
+109cdfc Step 4B.5 correction v3: Jacobian validation CLOSED. CoordinateDecoder is query-independent (attention over latent, not queries). Per-channel derivative with grad_outputs=ones is mathematically valid. Bug A attribution scoped to training protocol failure (not intervention failure). Reviewer conditions 1-5 all addressed.
+e96d94f Step 4B.5 correction v2: addendum updated with corrected per-channel zero-forcing physics losses (Phase4A.1=0.23, P3=3.51, P4=609-7364). Ordering preserved. Ratio claims corrected: Phase4A.1 vs P3 = 15.3x (was 828x); P4 vs Phase4A.1 = 173-2100x (was 100k). True-physics deferred to Phase 5.
+Python 3.10.22

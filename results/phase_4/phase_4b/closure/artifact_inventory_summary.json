@@ -1,0 +1,45 @@
+{
+  "total": 104,
+  "by_category": {
+    "4B.2_adaptive_lambda": {
+      "count": 4,
+      "total_bytes": 17019
+    },
+    "4B.3_boundary": {
+      "count": 5,
+      "total_bytes": 43263
+    },
+    "4B.6_closure": {
+      "count": 3,
+      "total_bytes": 3619
+    },
+    "4B.0_preflight": {
+      "count": 9,
+      "total_bytes": 14482
+    },
+    "4B.4_training": {
+      "count": 23,
+      "total_bytes": 61273
+    },
+    "4B.5_evaluation": {
+      "count": 24,
+      "total_bytes": 75019578
+    },
+    "4B.5_correction": {
+      "count": 9,
+      "total_bytes": 75888
+    },
+    "4B.1_pcgrad": {
+      "count": 5,
+      "total_bytes": 11704
+    },
+    "4B.5_figures_tables": {
+      "count": 18,
+      "total_bytes": 522591
+    },
+    "4B.4_models": {
+      "count": 4,
+      "total_bytes": 1743520
+    }
+  }
+}

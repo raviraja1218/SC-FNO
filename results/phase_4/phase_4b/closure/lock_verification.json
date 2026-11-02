@@ -1,0 +1,117 @@
+{
+  "checks": {
+    "Phase 1 (1d9b320)": {
+      "pass": true,
+      "detail": "ancestor of HEAD"
+    },
+    "Phase 2 (0c9dfd7)": {
+      "pass": true,
+      "detail": "ancestor of HEAD"
+    },
+    "Phase 3 (bc80727)": {
+      "pass": true,
+      "detail": "ancestor of HEAD"
+    },
+    "Phase 4A (dea218a)": {
+      "pass": true,
+      "detail": "ancestor of HEAD"
+    },
+    "commit bec0f63": {
+      "pass": true,
+      "detail": "present"
+    },
+    "commit b8ae156": {
+      "pass": true,
+      "detail": "present"
+    },
+    "commit 3fd0af0": {
+      "pass": true,
+      "detail": "present"
+    },
+    "commit b412f20": {
+      "pass": true,
+      "detail": "present"
+    },
+    "commit 10a7e6d": {
+      "pass": true,
+      "detail": "present"
+    },
+    "commit 9d0e0da": {
+      "pass": true,
+      "detail": "present"
+    },
+    "commit 836ddf7": {
+      "pass": true,
+      "detail": "present"
+    },
+    "commit 3dd0ed4": {
+      "pass": true,
+      "detail": "present"
+    },
+    "commit 7e456aa": {
+      "pass": true,
+      "detail": "present"
+    },
+    "commit 985c0a9": {
+      "pass": true,
+      "detail": "present"
+    },
+    "commit d226447": {
+      "pass": true,
+      "detail": "present"
+    },
+    "commit b5f94a0": {
+      "pass": true,
+      "detail": "present"
+    },
+    "commit e96d94f": {
+      "pass": true,
+      "detail": "present"
+    },
+    "commit 109cdfc": {
+      "pass": true,
+      "detail": "present"
+    },
+    "commit 75dce8f": {
+      "pass": true,
+      "detail": "present"
+    },
+    "P2-FNO ckpt SHA": {
+      "pass": true,
+      "detail": "24fce0bad8ec9c66"
+    },
+    "P3-PI-FNO ckpt SHA": {
+      "pass": true,
+      "detail": "a0522e57f0b43c8a"
+    },
+    "Phase4A.1 ckpt SHA": {
+      "pass": true,
+      "detail": "681fe6789dd2911a"
+    },
+    "P4-A ckpt SHA": {
+      "pass": true,
+      "detail": "e79664126f4317a2"
+    },
+    "P4-B ckpt SHA": {
+      "pass": true,
+      "detail": "1e1e2768b5cb9e7a"
+    },
+    "P4-C ckpt SHA": {
+      "pass": true,
+      "detail": "d6a3de6d3de434f3"
+    },
+    "P4-D ckpt SHA": {
+      "pass": true,
+      "detail": "9f0f4a506d659b56"
+    },
+    "Test set": {
+      "pass": true,
+      "detail": "a71514eacaee3d09"
+    },
+    "locked paths clean": {
+      "pass": true,
+      "detail": "empty"
+    }
+  },
+  "all_pass": true
+}

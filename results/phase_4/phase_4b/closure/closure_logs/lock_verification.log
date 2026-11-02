@@ -1,0 +1,41 @@
+=== Ancestor locks ===
+  [PASS] Phase 1 (1d9b320): ancestor of HEAD
+  [PASS] Phase 2 (0c9dfd7): ancestor of HEAD
+  [PASS] Phase 3 (bc80727): ancestor of HEAD
+  [PASS] Phase 4A (dea218a): ancestor of HEAD
+
+=== Phase 4B.0–4B.5 commit chain present ===
+  [PASS] commit bec0f63: present
+  [PASS] commit b8ae156: present
+  [PASS] commit 3fd0af0: present
+  [PASS] commit b412f20: present
+  [PASS] commit 10a7e6d: present
+  [PASS] commit 9d0e0da: present
+  [PASS] commit 836ddf7: present
+  [PASS] commit 3dd0ed4: present
+  [PASS] commit 7e456aa: present
+  [PASS] commit 985c0a9: present
+  [PASS] commit d226447: present
+  [PASS] commit b5f94a0: present
+  [PASS] commit e96d94f: present
+  [PASS] commit 109cdfc: present
+  [PASS] commit 75dce8f: present
+
+=== Model checkpoint SHAs ===
+  [PASS] P2-FNO ckpt SHA: 24fce0bad8ec9c66
+  [PASS] P3-PI-FNO ckpt SHA: a0522e57f0b43c8a
+  [PASS] Phase4A.1 ckpt SHA: 681fe6789dd2911a
+
+=== Phase 4B variant ckpts (prefix check) ===
+  [PASS] P4-A ckpt SHA: e79664126f4317a2
+  [PASS] P4-B ckpt SHA: 1e1e2768b5cb9e7a
+  [PASS] P4-C ckpt SHA: d6a3de6d3de434f3
+  [PASS] P4-D ckpt SHA: 9f0f4a506d659b56
+
+=== Test set SHA ===
+  [PASS] Test set: a71514eacaee3d09
+
+=== Working tree clean for locked paths ===
+  [PASS] locked paths clean: empty
+
+=== Lock verification: 28/28 PASS ===

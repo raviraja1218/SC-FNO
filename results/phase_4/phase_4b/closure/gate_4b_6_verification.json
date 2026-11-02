@@ -1,0 +1,83 @@
+{
+  "gate": "4B.6",
+  "n_checks": 15,
+  "n_pass": 15,
+  "all_pass": true,
+  "checks": [
+    {
+      "name": "Artifact inventory",
+      "pass": true,
+      "detail": "15301 bytes"
+    },
+    {
+      "name": "Phase 4B commit chain",
+      "pass": true,
+      "detail": "all present"
+    },
+    {
+      "name": "Lock verification",
+      "pass": true,
+      "detail": "28/28"
+    },
+    {
+      "name": "Original d226447 artifacts unchanged",
+      "pass": true,
+      "detail": "corrections additive"
+    },
+    {
+      "name": "Correction commits",
+      "pass": true,
+      "detail": "4 corrections present"
+    },
+    {
+      "name": "Completion report 6 sections",
+      "pass": true,
+      "detail": "reports/phase_reports/phase_4b_completion_report.md"
+    },
+    {
+      "name": "Reviewer exact wording present",
+      "pass": true,
+      "detail": "verbatim match"
+    },
+    {
+      "name": "Physics dual protocol",
+      "pass": true,
+      "detail": "both present"
+    },
+    {
+      "name": "Bug A scoped",
+      "pass": true,
+      "detail": "'Not Established' section"
+    },
+    {
+      "name": "Zero-forcing scope",
+      "pass": true,
+      "detail": "explicit"
+    },
+    {
+      "name": "Boundary limitation",
+      "pass": true,
+      "detail": "ratios preserved"
+    },
+    {
+      "name": "No intervention-failure language",
+      "pass": true,
+      "detail": "audit clean"
+    },
+    {
+      "name": "Master manifest",
+      "pass": true,
+      "detail": "104 artifacts"
+    },
+    {
+      "name": "No locked paths modified",
+      "pass": true,
+      "detail": "clean"
+    },
+    {
+      "name": "No retraining after 75dce8f",
+      "pass": true,
+      "detail": "latest ckpt 2026-11-02T08:23:54"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+Total artifacts: 104
+  4B.0_preflight: 9 files, 0.01 MB
+  4B.1_pcgrad: 5 files, 0.01 MB
+  4B.2_adaptive_lambda: 4 files, 0.02 MB
+  4B.3_boundary: 5 files, 0.04 MB
+  4B.4_models: 4 files, 1.74 MB
+  4B.4_training: 23 files, 0.06 MB
+  4B.5_correction: 9 files, 0.08 MB
+  4B.5_evaluation: 24 files, 75.02 MB
+  4B.5_figures_tables: 18 files, 0.52 MB
+  4B.6_closure: 3 files, 0.00 MB
+
+[OK] Inventory: results/phase_4/phase_4b/closure/phase_4b_artifact_inventory.csv
