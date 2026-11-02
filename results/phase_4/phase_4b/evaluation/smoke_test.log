@@ -1,0 +1,24 @@
+Device: cuda
+Test scenarios: 200
+X_test: torch.Size([200, 1, 200]) Y_test: torch.Size([200, 9, 200])
+Families: {'step': np.int64(50), 'ramp': np.int64(50), 'sinusoidal': np.int64(50), 'grf': np.int64(50)}
+
+=== Loading 7 models ===
+  [P2-FNO] loaded in 0.01s
+  [P3-PI-FNO] loaded in 0.02s
+  [Phase4A.1] loaded in 0.02s
+  [P4-A] loaded in 0.02s
+  [P4-B] loaded in 0.02s
+  [P4-C] loaded in 0.02s
+  [P4-D] loaded in 0.02s
+
+=== Smoke test: forward pass on 2 test samples ===
+  [P2-FNO] forward OK
+  [P3-PI-FNO] forward OK
+  [Phase4A.1] forward OK
+  [P4-A] forward OK
+  [P4-B] forward OK
+  [P4-C] forward OK
+  [P4-D] forward OK
+
+=== ALL MODELS LOADED AND SMOKE-TESTED ===

@@ -1,0 +1,10 @@
+{
+  "scenario": "scenario_0458",
+  "fresh_pred_std": 0.24546131491661072,
+  "saved_pred_norm_std": 0.24554485082626343,
+  "max_diff_fresh_vs_saved_pred": 0.0006372928619384766,
+  "saved_true_norm_std": 0.8336749076843262,
+  "fresh_rel_l2_normalized": 0.31152233481407166,
+  "verdict": "MATCH",
+  "conclusion": "Fresh prediction matches Phase 2 saved prediction. The 17x discrepancy was a metric-convention mismatch (normalized vs physical units), not a model or pipeline bug."
+}

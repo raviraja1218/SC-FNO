@@ -1,0 +1,10 @@
+{
+  "test_ids_path": "results/phase_1/splitting/test_ids.csv",
+  "test_ids_sha256": "a71514eacaee3d09f8c00b34b6070c61ae919a59e8208d6164903d5fed44ffb2",
+  "test_ids_expected": "a71514eacaee3d09f8c00b34b6070c61ae919a59e8208d6164903d5fed44ffb2",
+  "test_ids_match": true,
+  "phase1_aggregate_sha256": "9049c7b42996fee7c08202703086bf0aebd513dbd1f77b1265ae546d6f241bf6",
+  "phase1_aggregate_match": true,
+  "n_test_scenarios": 200,
+  "all_verified": true
+}

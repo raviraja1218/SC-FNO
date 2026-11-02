@@ -1,0 +1,78 @@
+/home/raviraja/miniconda3/envs/sc_fno/lib/python3.10/site-packages/torch/autograd/graph.py:825: UserWarning: Attempting to run cuBLAS, but there was no current CUDA context! Attempting to set the primary context... (Triggered internally at ../aten/src/ATen/cuda/CublasHandlePool.cpp:135.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+Device: cuda
+
+=== Loading 7 models ===
+  [P2-FNO] loaded
+  [P3-PI-FNO] loaded
+  [Phase4A.1] loaded
+  [P4-A] loaded
+  [P4-B] loaded
+  [P4-C] loaded
+  [P4-D] loaded
+
+======================================================================
+RUNNING FULL EVALUATION
+======================================================================
+
+=== Evaluating P2-FNO ===
+  rel L2 median: 2.236529e-01
+  rel L2 mean:   2.007513e-01
+  eval time: 0.7s
+
+=== Evaluating P3-PI-FNO ===
+  rel L2 median: 2.330981e-01
+  rel L2 mean:   2.049896e-01
+  physics loss:  1.7037e-03
+  IC loss:       5.1628e-07
+  eval time: 0.6s
+
+=== Evaluating Phase4A.1 ===
+  rel L2 median: 2.287032e-01
+  rel L2 mean:   1.984529e-01
+  physics loss:  1.9659e-06
+  IC loss:       1.2724e-08
+  eval time: 0.4s
+
+=== Evaluating P4-A ===
+  rel L2 median: 2.299990e-01
+  rel L2 mean:   2.098651e-01
+  physics loss:  1.7318e+02
+  IC loss:       6.8901e-05
+  eval time: 0.4s
+
+=== Evaluating P4-B ===
+  rel L2 median: 2.349846e-01
+  rel L2 mean:   2.225581e-01
+  physics loss:  2.0234e+02
+  IC loss:       3.8330e-05
+  eval time: 0.5s
+
+=== Evaluating P4-C ===
+  rel L2 median: 2.338822e-01
+  rel L2 mean:   2.005266e-01
+  physics loss:  1.8128e+02
+  IC loss:       2.3788e-05
+  eval time: 0.4s
+
+=== Evaluating P4-D ===
+  rel L2 median: 2.310548e-01
+  rel L2 mean:   1.958472e-01
+  physics loss:  2.2402e+02
+  IC loss:       8.8351e-06
+  eval time: 0.4s
+
+======================================================================
+EVALUATION SUMMARY
+======================================================================
+    model  rel_l2_median  rel_l2_mean  physics_loss      ic_loss
+   P2-FNO       0.223653     0.200751           NaN          NaN
+P3-PI-FNO       0.233098     0.204990      0.001704 5.162764e-07
+Phase4A.1       0.228703     0.198453      0.000002 1.272353e-08
+     P4-A       0.229999     0.209865    173.179363 6.890059e-05
+     P4-B       0.234985     0.222558    202.343486 3.832950e-05
+     P4-C       0.233882     0.200527    181.277692 2.378790e-05
+     P4-D       0.231055     0.195847    224.021941 8.835066e-06
+
+=== ALL EVALUATION COMPLETE ===
+Saved: all_models_metrics.json, all_models_summary.csv
