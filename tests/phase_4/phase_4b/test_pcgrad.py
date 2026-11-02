@@ -324,3 +324,63 @@ def test_t9_reproducibility():
 
     for g1, g2 in zip(results[0], results[1]):
         assert torch.allclose(g1, g2, atol=1e-10), "Non-deterministic output"
+
+
+# ============================================================
+# T10 — All gradients missing for a parameter
+# ============================================================
+def test_t10_all_gradients_missing():
+    """If a parameter has no data, physics, or IC gradient, its .grad is None (not zero)."""
+    model = make_simple_model()
+    base_opt = torch.optim.SGD(model.parameters(), lr=0.01)
+    pcgrad = PCGradOptimizer(base_opt, eps=1e-8)
+
+    params = list(model.parameters())
+    grad_data = [torch.ones_like(p) * 0.1 for p in params]
+    grad_physics = [torch.ones_like(p) * 0.1 for p in params]
+    grad_ic = [torch.zeros_like(p) for p in params]
+
+    # Set first parameter to None in ALL gradient sources
+    grad_data[0] = None
+    grad_physics[0] = None
+    grad_ic[0] = None
+
+    pcgrad.set_loss_values(1.0, 1.0, 0.0, 1.0, 1.0)
+    pcgrad.set_gradients(grad_data, grad_physics, grad_ic)
+    pcgrad.step()
+
+    # First param's .grad should be None (not zeros)
+    assert params[0].grad is None, f"Expected .grad=None for all-missing param, got {params[0].grad}"
+
+
+# ============================================================
+# T11 — Raw and post-projection cosine on same subset
+# ============================================================
+def test_t11_raw_and_post_cosine_same_subset():
+    """When some params are missing gradients, both cosines must use the same valid subset."""
+    model = make_simple_model()
+    base_opt = torch.optim.SGD(model.parameters(), lr=0.01)
+    pcgrad = PCGradOptimizer(base_opt, eps=1e-8)
+
+    params = list(model.parameters())
+
+    # Physics has None for first param (not in common subset)
+    grad_data = [torch.randn_like(p) for p in params]
+    grad_physics = [None] + [torch.randn_like(p) for p in params[1:]]
+    grad_ic = [torch.zeros_like(p) for p in params]
+
+    # Make physics gradient for one valid param anti-aligned to trigger projection
+    grad_physics[1] = -grad_data[1] + 0.1 * torch.randn_like(grad_data[1])
+
+    pcgrad.set_loss_values(1.0, 1.0, 0.0, 1.0, 0.0)
+    pcgrad.set_gradients(grad_data, grad_physics, grad_ic)
+    pcgrad.step()
+
+    metrics = pcgrad.get_logged_metrics()[0]
+    # Both cosines should be finite and well-defined (no NaN from mismatched sizes)
+    import math
+    assert math.isfinite(metrics.raw_cos_data_physics), "raw_cos is not finite"
+    assert math.isfinite(metrics.post_cos_data_physics_projected), "post_cos is not finite"
+    # If projection happened, post_cos should be near zero
+    if metrics.projection_applied:
+        assert abs(metrics.post_cos_data_physics_projected) < 1e-5

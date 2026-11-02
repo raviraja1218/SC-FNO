@@ -1,0 +1,21 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.22, pytest-9.2.0, pluggy-1.7.0 -- /home/raviraja/miniconda3/envs/sc_fno/bin/python3.10
+cachedir: .pytest_cache
+rootdir: /home/raviraja/projects/SC-FNO
+configfile: pytest.ini
+plugins: platformdirs-4.12.4, mock-3.17.0, anyio-4.15.1, cov-7.1.0
+collecting ... collected 11 items
+
+tests/phase_4/phase_4b/test_pcgrad.py::test_t1_no_conflict_no_projection PASSED [  9%]
+tests/phase_4/phase_4b/test_pcgrad.py::test_t2_conflict_triggers_projection PASSED [ 18%]
+tests/phase_4/phase_4b/test_pcgrad.py::test_t3_post_projection_cosine_zero PASSED [ 27%]
+tests/phase_4/phase_4b/test_pcgrad.py::test_t4_combined_update_correct PASSED [ 36%]
+tests/phase_4/phase_4b/test_pcgrad.py::test_t5_missing_gradient PASSED   [ 45%]
+tests/phase_4/phase_4b/test_pcgrad.py::test_t6_zero_norm_gradient PASSED [ 54%]
+tests/phase_4/phase_4b/test_pcgrad.py::test_t7_memory PASSED             [ 63%]
+tests/phase_4/phase_4b/test_pcgrad.py::test_t8_reference_agreement PASSED [ 72%]
+tests/phase_4/phase_4b/test_pcgrad.py::test_t9_reproducibility PASSED    [ 81%]
+tests/phase_4/phase_4b/test_pcgrad.py::test_t10_all_gradients_missing PASSED [ 90%]
+tests/phase_4/phase_4b/test_pcgrad.py::test_t11_raw_and_post_cosine_same_subset PASSED [100%]
+
+============================== 11 passed in 7.71s ==============================

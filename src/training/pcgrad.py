@@ -174,13 +174,17 @@ class PCGradOptimizer:
                     gp = grad_physics_proj[idx] if idx < len(grad_physics_proj) else None
                     gi = grad_ic[idx] if idx < len(grad_ic) else None
                     total = torch.zeros_like(p)
+                    has_any = False
                     if gd is not None:
                         total = total + gd
+                        has_any = True
                     if gp is not None:
                         total = total + lambda_phys * gp
+                        has_any = True
                     if gi is not None:
                         total = total + lambda_ic * gi
-                    p.grad = total
+                        has_any = True
+                    p.grad = total if has_any else None
 
         self.base_optimizer.step()
 

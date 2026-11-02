@@ -3,24 +3,29 @@
   "timestamp": "2026-11-02",
   "predecessor": "bec0f63",
   "implementation_file": "src/training/pcgrad.py",
-  "implementation_sha256": "012cd418d588bed849cdd039d533300226fe738304336969824b581151fbad13",
+  "implementation_sha256": "252c6f655f1f21035d93f34980c2c1cc2837cea2484d73ceb1cfa36c8216a70d",
   "test_file": "tests/phase_4/phase_4b/test_pcgrad.py",
-  "test_file_sha256": "94e33ad1330296a08dc596a1acf2076e217a8fb07be3c533f625d0e1b16a399b",
+  "test_file_sha256": "4c0d2f151b8d3eb0ff7ac7c9f984e5d0ae77403a9083ace2bb6232677d9b5b71",
   "frozen_config": {
     "eps": 1e-08,
     "conflict_trigger": "cos < 0",
     "log_raw_and_post_projection_cosine": true
   },
   "unit_tests": {
-    "total": 9,
-    "passed": 9,
+    "total": 11,
+    "passed": 11,
     "failed": 0,
     "skipped": 0,
-    "result": "9 passed"
+    "result": "11 passed",
+    "additional_tests": [
+      "T10 (all-missing)",
+      "T11 (same-subset cosine)"
+    ]
   },
   "memory_measurement": {
     "peak_vram_MB": 17.843712,
-    "under_3GB": true
+    "under_3GB": true,
+    "scope_note": "Synthetic-gradient unit test (T7). Does NOT establish total training-stage VRAM. Actual training VRAM will be measured in Step 4B.4."
   },
   "gate_4b_1_checks": {
     "implementation_exists": true,
@@ -36,7 +41,16 @@
     "pre_registration_unchanged": true,
     "experimental_matrix_unchanged": true,
     "no_training_performed": true,
-    "no_locked_paths_modified": true
+    "no_locked_paths_modified": true,
+    "additional_tests_t10_t11_pass": true
   },
-  "all_checks_pass": true
+  "all_checks_pass": true,
+  "reviewer_qualifications": {
+    "applied": "2026-11-02",
+    "asymmetric_pcgrad": true,
+    "asymmetric_pcgrad_note": "Physics gradient projected against data only; NOT symmetric multi-task PCGrad",
+    "memory_evidence_scope": "synthetic test only; training VRAM deferred to 4B.4",
+    "mixed_gradient_behavior_documented": true,
+    "same_subset_cosine_verified_by_T11": true
+  }
 }
