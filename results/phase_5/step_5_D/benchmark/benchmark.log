@@ -1,0 +1,23 @@
+Model loaded on cuda
+  [1/30] BDF=31.7ms, SCFNO=3.15ms, E2E=3.60ms
+  [6/30] BDF=28.8ms, SCFNO=2.91ms, E2E=3.13ms
+  [11/30] BDF=28.1ms, SCFNO=2.97ms, E2E=3.18ms
+  [16/30] BDF=28.3ms, SCFNO=3.09ms, E2E=3.30ms
+  [21/30] BDF=26.2ms, SCFNO=3.12ms, E2E=3.63ms
+  [26/30] BDF=18.2ms, SCFNO=3.00ms, E2E=3.21ms
+
+=== Batch throughput (B=200) ===
+  Batch: 2.88 ms for 30 scenarios
+  Throughput: 10406 scen/sec
+
+======================================================================
+Benchmark summary
+======================================================================
+  BDF median:           27.73 ms
+  SC-FNO model-only:    3.02 ms
+  SC-FNO end-to-end:    3.22 ms
+  Speedup (model-only): 9.2×
+  Speedup (end-to-end): 8.6×
+  Batch throughput:     10406 scen/s
+  Peak VRAM:            15.1 MB
+======================================================================

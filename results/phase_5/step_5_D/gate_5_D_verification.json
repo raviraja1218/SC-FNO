@@ -1,0 +1,93 @@
+{
+  "gate": "5.D",
+  "n_checks": 17,
+  "n_pass": 17,
+  "all_pass": true,
+  "checks": [
+    {
+      "name": "Preflight 5.D",
+      "pass": true,
+      "detail": "9 checks"
+    },
+    {
+      "name": "100 unseen scenarios generated",
+      "pass": true,
+      "detail": "100/100"
+    },
+    {
+      "name": "50 in-dist + 50 OOD",
+      "pass": true,
+      "detail": "in-dist=50, OOD=50"
+    },
+    {
+      "name": "5.B test evaluation complete",
+      "pass": true,
+      "detail": "present"
+    },
+    {
+      "name": "5.C test evaluation complete",
+      "pass": true,
+      "detail": "present"
+    },
+    {
+      "name": "Unseen inference complete",
+      "pass": true,
+      "detail": "both models on 100 unseen"
+    },
+    {
+      "name": "No NaN/Inf in metrics",
+      "pass": true,
+      "detail": "finite"
+    },
+    {
+      "name": "Resolution transfer at 5 densities",
+      "pass": true,
+      "detail": "tested N = ['200', '500', '1000', '5000', '10000']"
+    },
+    {
+      "name": "BDF benchmark complete",
+      "pass": true,
+      "detail": "BDF median 27.73 ms"
+    },
+    {
+      "name": "SC-FNO benchmark complete",
+      "pass": true,
+      "detail": "SC-FNO 3.02 ms"
+    },
+    {
+      "name": "Speedup measured",
+      "pass": true,
+      "detail": "8.6\u00d7 end-to-end"
+    },
+    {
+      "name": "VRAM < 3 GB",
+      "pass": true,
+      "detail": "15.1 MB"
+    },
+    {
+      "name": "Locked paths clean",
+      "pass": true,
+      "detail": "empty"
+    },
+    {
+      "name": "Phase 4 lock intact",
+      "pass": true,
+      "detail": "2f0b53f15f69"
+    },
+    {
+      "name": "Phase 5.A ancestor",
+      "pass": true,
+      "detail": "ec9029e"
+    },
+    {
+      "name": "Phase 5.B ancestor",
+      "pass": true,
+      "detail": "68c1ce1"
+    },
+    {
+      "name": "Phase 5.C ancestor",
+      "pass": true,
+      "detail": "6bb3d12"
+    }
+  ]
+}

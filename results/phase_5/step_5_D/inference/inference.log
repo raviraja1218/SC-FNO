@@ -1,0 +1,16 @@
+[OK] Loaded 5.B seed 42
+[OK] Loaded 5.C seed 456
+
+=== 5B_noncausal_s42 ===
+  test 200: median = 2.4232e-03, B_n = 4.34×
+  unseen 100: median = 6.5866e-03, B_n = 2.20×
+  in-dist (50): median = 2.3331e-03
+  OOD (50):     median = 2.2225e-02
+
+=== 5C_causal_s456 ===
+  test 200: median = 2.7183e-03, B_n = 4.24×
+  unseen 100: median = 6.6061e-03, B_n = 2.14×
+  in-dist (50): median = 2.3436e-03
+  OOD (50):     median = 2.3266e-02
+
+Saved: results/phase_5/step_5_D/inference/inference_results.json

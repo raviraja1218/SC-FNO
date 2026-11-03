@@ -1,0 +1,6 @@
+  N=   200: median = 1.1498e-02, mean = 1.1972e-02
+  N=   500: median = 1.1153e-02, mean = 1.1615e-02
+  N=  1000: median = 1.1085e-02, mean = 1.1543e-02
+  N=  5000: median = 1.1023e-02, mean = 1.1479e-02
+  N= 10000: median = 1.1016e-02, mean = 1.1472e-02
+Saved: results/phase_5/step_5_D/resolution/resolution_transfer.json

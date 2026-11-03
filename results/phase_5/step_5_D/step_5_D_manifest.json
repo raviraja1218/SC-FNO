@@ -1,0 +1,13 @@
+{
+  "step": "5.D",
+  "timestamp": "2026-11-03",
+  "n_artifacts": 6,
+  "artifacts": {
+    "results/phase_5/step_5_D/gate_5_D_verification.json": "c9fcf372976e2e33a9c0fc5dc172c43637bce0882f4a494f58ba18bbcc521b76",
+    "results/phase_5/step_5_D/resolution/resolution_transfer.json": "b3b5612797ac0f1a4c654fe434e4988ccb55f6103daa997d451f67d89b447217",
+    "results/phase_5/step_5_D/unseen_generation/unseen_manifest.csv": "ee996c769b22b5c0159ea3548311af222c668b7ee89ed16e52caaa585f4b8520",
+    "results/phase_5/step_5_D/preflight/preflight_checks.json": "d4d79954196d7d30f83d43cbdf6d7d2b7d94696c83b968d7ecc394489cc94845",
+    "results/phase_5/step_5_D/benchmark/benchmark_results.json": "b61c3ecb241a56aaf55977725055be38e6570ed7ce8163e267363820ea43473b",
+    "results/phase_5/step_5_D/inference/inference_results.json": "c2a6b137aa4b6b6503072f56bc77c12c931f8cecf591a7c6966055590a3902f3"
+  }
+}
