@@ -1,0 +1,22 @@
+{
+  "n_seeds_completed": 5,
+  "seeds_completed": [
+    42,
+    123,
+    456,
+    789,
+    1012
+  ],
+  "best_val_data_loss_mean": 0.06646812611621913,
+  "best_val_data_loss_std": 0.0002720354786666213,
+  "best_val_data_loss_min": 0.06617960177558976,
+  "best_val_data_loss_max": 0.06678,
+  "best_val_data_loss_cv": 0.004092720745443746,
+  "phase3_baseline": 0.066331,
+  "phase4a1_validation": 0.065438,
+  "delta_vs_phase3_pct": 0.2067300601817142,
+  "delta_vs_phase4a1_pct": 1.5742017118786298,
+  "decoder_health_all_pass": true,
+  "peak_vram_max_MB": 137.0,
+  "wall_time_total_min": 83.0
+}

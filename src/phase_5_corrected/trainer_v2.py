@@ -23,7 +23,7 @@ def phase5_default_ramp(epoch, init=1e-4, target=1.0, ramp_epochs=100):
 
 def train_epoch_phase5_corrected(
     model, optimizer, scheduler, X_tr, Y_tr, kin, th, loss_fn, epoch,
-    batch_size=16, t_q_length=50, lambda_phys=None, device="cuda",
+    norm_rho, batch_size=16, t_q_length=50, lambda_phys=None, device="cuda",
     log_dict=None,
 ):
     """Train one epoch with supervised decoder data loss."""
@@ -49,8 +49,11 @@ def train_epoch_phase5_corrected(
         B = xb.shape[0]
         tq = T_QUERY.unsqueeze(0).expand(B, -1).to(device)  # [B, Nq]
 
-        # Build per-batch rho_ext_fn
-        rho_fn = make_rho_ext_fn(xb[:, 0, :])              # normalize is already in xb
+        # Build per-batch rho_ext_fn (denormalizes to physical units)
+        rho_fn = make_rho_ext_fn(
+            xb[:, 0, :],
+            norm_rho["mean"], norm_rho["std"],  # BUG K FIX
+        )
 
         optimizer.zero_grad()
         losses = compute_composite_loss_v2(

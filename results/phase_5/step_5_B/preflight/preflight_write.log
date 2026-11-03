@@ -1,0 +1,17 @@
+  [PASS] p1_ancestor: 1d9b320
+  [PASS] p2_ancestor: 0c9dfd7
+  [PASS] p3_ancestor: bc80727
+  [PASS] p4a_ancestor: dea218a
+  [PASS] p4b_ancestor: dd392bb
+  [PASS] p4_ancestor: 3b622f7
+  [PASS] 5A_ancestor: ec9029e
+  [PASS] phase4_tag: 2f0b53f15f69
+  [PASS] phase3_ckpt: a0522e57...
+  [PASS] test_ids: a71514ea...
+  [PASS] locked_clean: empty
+  [PASS] 5A_gate: exists
+  [PASS] SCFNOModelV2: exists
+  [PASS] SCFNOModelV2_decoder_v2: exists
+
+=== Preflight: PASS ===
+Written: results/phase_5/step_5_B/preflight/preflight_checks.json

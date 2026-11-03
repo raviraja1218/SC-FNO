@@ -1,0 +1,23 @@
+
+======================================================================
+MULTI-SEED SUMMARY (5 seeds)
+======================================================================
+ seed  best_val_data_loss  best_epoch  final_epoch  wall_time_min  peak_vram_MB  post_du_dt_std  post_u_hat_variance
+   42            0.066180          22           22            0.0           NaN          0.3863               1.0678
+  123            0.066238          13           13            0.0           NaN          0.3960               1.0609
+  456            0.066780          32           32           27.4         137.0          0.3929               1.0703
+  789            0.066715          25           25           28.0         137.0          0.4052               0.8512
+ 1012            0.066428           1            1           27.6         137.0          0.4158               1.0695
+
+======================================================================
+Mean best_val:  0.066468
+Std:            0.000272
+CV:             0.41%  (target < 5%)
+Delta vs Phase 3 (0.066331):  +0.21%
+Delta vs Phase 4A.1 (0.065438): +1.57%
+Decoder health: ALL PASS
+Peak VRAM:      137 MB
+Total wall:     83.0 min
+======================================================================
+
+Written: results/phase_5/step_5_B/multi_seed/multi_seed_aggregate.json

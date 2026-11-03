@@ -1,0 +1,16 @@
+{
+  "seed": 1012,
+  "best_val_data_loss": 0.06642783212457569,
+  "best_epoch": 1,
+  "final_epoch": 199,
+  "stop_reason": "patience=100 after epoch 100",
+  "final_lambda": 1.0,
+  "wall_time_s": 1654.2276213169098,
+  "peak_vram_MB": 136.909312,
+  "post_train_du_dt_std": 0.4157911539077759,
+  "post_train_u_hat_var": 1.069461703300476,
+  "final_train_data_loss": 0.06697363707702607,
+  "final_train_phys_loss": 2.2626377914100884,
+  "final_train_dec_loss": 0.24027646839618683,
+  "final_val_data_loss": 0.07139563751227868
+}

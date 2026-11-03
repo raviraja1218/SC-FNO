@@ -1,0 +1,19 @@
+{
+  "seed": 42,
+  "best_val_data_loss": 0.06617960177558976,
+  "best_epoch": 22,
+  "final_epoch": 189,
+  "stop_reason": "patience=100 after epoch 100",
+  "wall_time_s": null,
+  "peak_vram_MB": null,
+  "post_training_decoder_health": {
+    "du_dt_std": 0.3863,
+    "u_hat_variance": 1.0678
+  },
+  "checkpoint_best": "models/sc_fno/phase_5/step_5_B/seed_42_best.pt",
+  "checkpoint_final": "models/sc_fno/phase_5/step_5_B/seed_42_final.pt",
+  "source": "checkpoint_only",
+  "health_source": "training_time_console_log",
+  "health_note": "Values recorded during training run before checkpoint save. Backfill re-verification was invalid due to incomplete state_dict load (Unexpected keys fno.fno.* \u2014 SCFNOModelV2 wraps differently than training checkpoint structure). Training-time measurement is authoritative.",
+  "final_epoch_note": "Actual training stop epoch. best_epoch=22. \u03bb_phys ramp completed at epoch 100; patience-counted from epoch 100."
+}

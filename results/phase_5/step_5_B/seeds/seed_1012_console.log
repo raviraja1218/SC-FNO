@@ -1,0 +1,29 @@
+
+======================================================================
+SEED 1012
+======================================================================
+  ep  0: data=0.06257 phys=222.3860 dec=0.51132 lam=0.0001 val=0.07105 vram=137MB
+  ep 10: data=0.06174 phys=48.4027 dec=0.10808 lam=0.0003 val=0.06789 vram=137MB
+  ep 20: data=0.06176 phys=35.8332 dec=0.09389 lam=0.0006 val=0.06668 vram=137MB
+  ep 30: data=0.06209 phys=27.4638 dec=0.08828 lam=0.0016 val=0.06717 vram=137MB
+  ep 40: data=0.06295 phys=21.7058 dec=0.08943 lam=0.0040 val=0.06864 vram=137MB
+  ep 50: data=0.06341 phys=16.9554 dec=0.09260 lam=0.0100 val=0.06834 vram=137MB
+  ep 60: data=0.06401 phys=12.7794 dec=0.09939 lam=0.0251 val=0.06831 vram=137MB
+  ep 70: data=0.06453 phys=10.7692 dec=0.11634 lam=0.0631 val=0.06830 vram=137MB
+  ep 80: data=0.06559 phys=9.6650 dec=0.14703 lam=0.1585 val=0.06980 vram=137MB
+  ep 90: data=0.06608 phys=7.7704 dec=0.19380 lam=0.3981 val=0.06957 vram=137MB
+  ep100: data=0.06676 phys=6.8245 dec=0.24912 lam=1.0000 val=0.06988 vram=137MB
+  ep110: data=0.06711 phys=5.9505 dec=0.25881 lam=1.0000 val=0.07038 vram=137MB
+  ep120: data=0.06725 phys=5.2957 dec=0.25743 lam=1.0000 val=0.07058 vram=137MB
+  ep130: data=0.06719 phys=4.7288 dec=0.25734 lam=1.0000 val=0.07039 vram=137MB
+  ep140: data=0.06717 phys=4.1005 dec=0.25488 lam=1.0000 val=0.07059 vram=137MB
+  ep150: data=0.06729 phys=3.7040 dec=0.25316 lam=1.0000 val=0.07069 vram=137MB
+  ep160: data=0.06724 phys=3.3016 dec=0.24918 lam=1.0000 val=0.07163 vram=137MB
+  ep170: data=0.06708 phys=2.9651 dec=0.24796 lam=1.0000 val=0.07128 vram=137MB
+  ep180: data=0.06706 phys=2.7062 dec=0.24464 lam=1.0000 val=0.07147 vram=137MB
+  ep190: data=0.06699 phys=2.4354 dec=0.24261 lam=1.0000 val=0.07139 vram=137MB
+  EARLY STOP: patience=100 after epoch 100
+  Post-training decoder health check...
+  du_dt std: 0.4158 | u_hat var: 1.0695
+
+  SEED 1012 COMPLETE: best_val=0.066428 @ ep1, du_dt_std=0.416, wall=27.6min, vram=137MB

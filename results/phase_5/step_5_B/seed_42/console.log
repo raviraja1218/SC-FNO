@@ -1,0 +1,29 @@
+
+======================================================================
+SEED 42
+======================================================================
+  ep  0: data=0.23343 phys=47550971.7772 dec=13.58245 lam=0.0001 val=0.17395 vram=137MB
+  ep 10: data=0.11847 phys=132744.1965 dec=16.58369 lam=0.0003 val=0.11403 vram=137MB
+  ep 20: data=0.11600 phys=52127.9381 dec=16.85228 lam=0.0006 val=0.10796 vram=137MB
+  ep 30: data=0.11909 phys=9941.7305 dec=17.45853 lam=0.0016 val=0.11025 vram=137MB
+  ep 40: data=0.11103 phys=11157.6904 dec=17.78377 lam=0.0040 val=0.10809 vram=137MB
+  ep 50: data=0.13689 phys=5875.4594 dec=20.05168 lam=0.0100 val=0.11612 vram=137MB
+  ep 60: data=0.12845 phys=11204.6032 dec=28.01338 lam=0.0251 val=0.11952 vram=137MB
+  ep 70: data=0.12440 phys=2118.7314 dec=60.23321 lam=0.0631 val=0.11915 vram=137MB
+  ep 80: data=0.12805 phys=1164.8388 dec=125.87253 lam=0.1585 val=0.12431 vram=137MB
+  ep 90: data=0.13747 phys=1358.5645 dec=206.55695 lam=0.3981 val=0.13367 vram=137MB
+  ep100: data=0.15928 phys=900.2396 dec=304.01153 lam=1.0000 val=0.15545 vram=137MB
+  ep110: data=0.17925 phys=2107.2750 dec=332.95675 lam=1.0000 val=0.17322 vram=137MB
+  ep120: data=0.17110 phys=1011.3065 dec=342.10353 lam=1.0000 val=0.17523 vram=137MB
+  ep130: data=0.22442 phys=1700.3785 dec=350.25532 lam=1.0000 val=0.18930 vram=137MB
+  ep140: data=0.20757 phys=957.2043 dec=357.63330 lam=1.0000 val=0.17942 vram=137MB
+  ep150: data=0.63705 phys=2239.6123 dec=377.18130 lam=1.0000 val=0.23223 vram=137MB
+  ep160: data=0.24034 phys=1043.8250 dec=348.94879 lam=1.0000 val=0.20394 vram=137MB
+  ep170: data=0.21327 phys=177.7485 dec=350.73924 lam=1.0000 val=0.20500 vram=137MB
+  ep180: data=0.21474 phys=134.6486 dec=349.95724 lam=1.0000 val=0.21161 vram=137MB
+  ep190: data=0.21853 phys=96.6152 dec=349.61091 lam=1.0000 val=0.21411 vram=137MB
+  EARLY STOP: patience=100 after epoch 100
+  Post-training decoder health check...
+  du_dt std: 8.7090 | u_hat var: 0.2072
+
+  SEED 42 COMPLETE: best_val=0.105799 @ ep33, du_dt_std=8.709, wall=29.4min, vram=137MB

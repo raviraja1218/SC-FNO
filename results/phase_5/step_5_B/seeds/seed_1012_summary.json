@@ -1,0 +1,17 @@
+{
+  "seed": 1012,
+  "best_val_data_loss": 0.066428,
+  "best_epoch": 1,
+  "final_epoch": 199,
+  "stop_reason": "patience=100 after epoch 100",
+  "wall_time_s": 1656.0,
+  "peak_vram_MB": 137.0,
+  "post_training_decoder_health": {
+    "du_dt_std": 0.4158,
+    "u_hat_variance": 1.0695
+  },
+  "checkpoint_best": "models/sc_fno/phase_5/step_5_B/seed_1012_best.pt",
+  "checkpoint_final": "models/sc_fno/phase_5/step_5_B/seed_1012_final.pt",
+  "source": "console_log_authoritative",
+  "final_epoch_note": "Actual training stop epoch. best_epoch=1. \u03bb_phys ramp completed at epoch 100; patience-counted from epoch 100."
+}

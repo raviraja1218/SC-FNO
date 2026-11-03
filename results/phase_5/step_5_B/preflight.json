@@ -1,0 +1,49 @@
+{
+  "checks": {
+    "p1_ancestor": {
+      "pass": true,
+      "detail": "1d9b320"
+    },
+    "p2_ancestor": {
+      "pass": true,
+      "detail": "0c9dfd7"
+    },
+    "p3_ancestor": {
+      "pass": true,
+      "detail": "bc80727"
+    },
+    "p4a_ancestor": {
+      "pass": true,
+      "detail": "dea218a"
+    },
+    "p4b_ancestor": {
+      "pass": true,
+      "detail": "dd392bb"
+    },
+    "p4_ancestor": {
+      "pass": true,
+      "detail": "3b622f7"
+    },
+    "step_5a_ancestor": {
+      "pass": true,
+      "detail": "ec9029e"
+    },
+    "test_sha": {
+      "pass": true,
+      "detail": "test set"
+    },
+    "phase3_ckpt": {
+      "pass": true,
+      "detail": "phase 3 ckpt"
+    },
+    "locked_clean": {
+      "pass": true,
+      "detail": "empty"
+    },
+    "phase_5_corrected_exists": {
+      "pass": true,
+      "detail": ""
+    }
+  },
+  "all_pass": true
+}

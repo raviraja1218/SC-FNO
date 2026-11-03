@@ -1,0 +1,48 @@
+step: 5.B
+date: 2026-11-02
+objective: >
+  Train corrected SCFNOModelV2 on real Phase 1 data with all 4 loss terms
+  (L_data, L_phys, L_ic, L_data_decoder). Verify physics is meaningful and
+  result is robust across 5 seeds.
+
+starting_checkpoint: models/sc_fno/phase_3/pi_fno/best_val.pt
+starting_checkpoint_sha: a0522e57f0b43c8a96f2ad06a0d6fda15f8f47b0281ce02e9b5612dd8b02ee50
+
+training:
+  seeds: [42, 123, 456, 789, 1012]
+  batch_size: 16
+  lr: 1.0e-3
+  optimizer: Adam
+  scheduler: CosineAnnealingLR
+  T_max: 300
+  max_epochs: 300
+  patience_after_ramp: 100
+  min_epochs_before_stop: 100
+  grad_clip: 1.0
+
+composite_loss:
+  lambda_data: 1.0
+  lambda_dec: 1.0
+  lambda_ic: 1.0
+  lambda_phys_init: 1.0e-4
+  lambda_phys_target: 1.0
+  lambda_phys_ramp_epochs: 100
+
+query_grid:
+  start: 0.5
+  end: 9.5
+  n_points: 50
+
+interventions: none   # no PCGrad, no AdaptiveLambda, no UnifiedPadding
+
+data:
+  train: 1600
+  val: 200
+  test: 200  # LOCKED — untouched in 5.B
+
+verification:
+  du_dt_std_threshold: 0.05   # Bug J prevention on real data
+  physics_loss_meaningful: true   # not degenerate
+  multi_seed_std_ratio_max: 0.05   # std/mean < 5% for data loss
+
+gate_5_B_criteria: 12

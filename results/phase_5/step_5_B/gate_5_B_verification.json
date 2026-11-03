@@ -1,0 +1,68 @@
+{
+  "gate": "5.B",
+  "n_checks": 12,
+  "n_pass": 12,
+  "all_pass": true,
+  "checks": [
+    {
+      "name": "Preflight 5.B PASS",
+      "pass": true,
+      "detail": "14 checks"
+    },
+    {
+      "name": "All 5 seeds have summaries",
+      "pass": true,
+      "detail": "5/5 present"
+    },
+    {
+      "name": "\u03bb_phys ramp completed each seed",
+      "pass": true,
+      "detail": "all reached epoch 100+"
+    },
+    {
+      "name": "Post-training decoder health all seeds",
+      "pass": true,
+      "detail": "s42: du=0.3863, uvar=1.0678; s123: du=0.396, uvar=1.0609; s456: du=0.3929, uvar=1.0703; s789: du=0.4052, uvar=0.8512; s1012: du=0.4158, uvar=1.0695"
+    },
+    {
+      "name": "Multi-seed aggregate exists",
+      "pass": true,
+      "detail": "mean=0.066468, std=0.000272"
+    },
+    {
+      "name": "Multi-seed CV < 5%",
+      "pass": true,
+      "detail": "CV = 0.41%"
+    },
+    {
+      "name": "VRAM < 3 GB all seeds",
+      "pass": true,
+      "detail": "max = 137 MB"
+    },
+    {
+      "name": "Test set untouched",
+      "pass": true,
+      "detail": "0 test files found"
+    },
+    {
+      "name": "Phase 4 lock intact",
+      "pass": true,
+      "detail": "2f0b53f15f69"
+    },
+    {
+      "name": "Locked paths clean",
+      "pass": true,
+      "detail": "empty"
+    },
+    {
+      "name": "All 5 seeds checkpoints exist (best + final)",
+      "pass": true,
+      "detail": "10 files expected"
+    },
+    {
+      "name": "Manifest ready for commit",
+      "pass": true,
+      "detail": "created at commit time"
+    }
+  ]
+}
