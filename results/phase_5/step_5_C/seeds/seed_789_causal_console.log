@@ -1,0 +1,42 @@
+
+======================================================================
+Step 5.C — Causal Mask, Seed 789
+======================================================================
+Train: 1600 | Val: 200
+Model: 63,634 params
+  ep   0: data=0.06407 phys=2.263e+02 dec=0.5201 lam=0.0001 val=0.07015
+  ep   1: data=0.06335 phys=8.361e+01 dec=0.1592 lam=0.0001 val=0.06852
+  ep   2: data=0.06231 phys=5.539e+01 dec=0.1290 lam=0.0001 val=0.06778
+  ep   3: data=0.06210 phys=4.567e+01 dec=0.1078 lam=0.0001 val=0.06865
+  ep   4: data=0.06258 phys=4.080e+01 dec=0.0979 lam=0.0001 val=0.06917
+  ep  10: data=0.06243 phys=3.267e+01 dec=0.0751 lam=0.0003 val=0.06823
+  ep  20: data=0.06257 phys=2.723e+01 dec=0.0500 lam=0.0006 val=0.06753
+  ep  30: data=0.06226 phys=1.937e+01 dec=0.0358 lam=0.0016 val=0.06755
+  ep  40: data=0.06352 phys=1.309e+01 dec=0.0434 lam=0.0040 val=0.06856
+  ep  50: data=0.06441 phys=1.297e+01 dec=0.0507 lam=0.0100 val=0.07049
+  ep  60: data=0.06725 phys=1.739e+01 dec=0.0776 lam=0.0251 val=0.07171
+  ep  70: data=0.06753 phys=8.453e+00 dec=0.0907 lam=0.0631 val=0.07228
+  ep  80: data=0.06649 phys=4.118e+00 dec=0.1038 lam=0.1585 val=0.07072
+  ep  90: data=0.06953 phys=8.712e+00 dec=0.1581 lam=0.3981 val=0.07366
+  ep 100: data=0.07093 phys=5.939e+00 dec=0.2296 lam=1.0000 val=0.07503
+  ep 110: data=0.06930 phys=4.236e+00 dec=0.2267 lam=1.0000 val=0.07255
+  ep 120: data=0.06928 phys=3.923e+00 dec=0.2191 lam=1.0000 val=0.07390
+  ep 130: data=0.07100 phys=7.906e+00 dec=0.2349 lam=1.0000 val=0.07557
+  ep 140: data=0.07106 phys=4.632e+00 dec=0.2338 lam=1.0000 val=0.07481
+  ep 150: data=0.07053 phys=3.361e+00 dec=0.2254 lam=1.0000 val=0.07537
+  ep 160: data=0.06994 phys=3.899e+00 dec=0.2208 lam=1.0000 val=0.07419
+  ep 170: data=0.06986 phys=9.067e+00 dec=0.2158 lam=1.0000 val=0.07453
+  ep 180: data=0.07011 phys=6.049e+00 dec=0.2191 lam=1.0000 val=0.07408
+  ep 190: data=0.06936 phys=4.585e+00 dec=0.2077 lam=1.0000 val=0.07471
+  EARLY STOP at ep 199: patience=100 after epoch 100
+
+======================================================================
+SEED 789 CAUSAL COMPLETE:
+  best_val = 0.066918 @ ep 32
+  final_ep = 199, wall = 28.7 min
+  peak VRAM = 148 MB
+  decoder health: du_dt_std=0.238, uvar=0.328
+  boundary n:  start/interior = 3.85x, end/interior = 0.96x
+  boundary Tc: start/interior = 4.21x
+  ⚠ target B_n < 4.0x: PASS
+======================================================================

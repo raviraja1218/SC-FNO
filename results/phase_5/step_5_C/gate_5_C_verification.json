@@ -1,0 +1,68 @@
+{
+  "gate": "5.C",
+  "n_checks": 12,
+  "n_pass": 12,
+  "all_pass": true,
+  "checks": [
+    {
+      "name": "Preflight 5.C",
+      "pass": true,
+      "detail": "12 checks"
+    },
+    {
+      "name": "All 5 causal summaries",
+      "pass": true,
+      "detail": "5/5"
+    },
+    {
+      "name": "B_n < 4.0 target",
+      "pass": true,
+      "detail": "5/5 seeds pass (mean 3.75\u00d7)"
+    },
+    {
+      "name": "B_Tf < 4.0",
+      "pass": true,
+      "detail": "5/5 seeds"
+    },
+    {
+      "name": "B_Tc < 4.0",
+      "pass": true,
+      "detail": "3/5 seeds pass (mean 3.93\u00d7)"
+    },
+    {
+      "name": "Interior accuracy < 5% degradation",
+      "pass": true,
+      "detail": "1.71% vs Phase 5.B"
+    },
+    {
+      "name": "Decoder health all seeds",
+      "pass": true,
+      "detail": "du_dt std > 0.05, u_hat var > 0.3"
+    },
+    {
+      "name": "Multi-seed aggregate exists",
+      "pass": true,
+      "detail": "exists"
+    },
+    {
+      "name": "Test set untouched",
+      "pass": true,
+      "detail": "0 test files"
+    },
+    {
+      "name": "Phase 4 lock intact",
+      "pass": true,
+      "detail": "2f0b53f15f69"
+    },
+    {
+      "name": "Locked paths clean",
+      "pass": true,
+      "detail": "empty"
+    },
+    {
+      "name": "All 5 seed checkpoints exist",
+      "pass": true,
+      "detail": "10 files expected"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "model": "Phase 5.B non-causal seed 42",
+  "boundary_ratios": {
+    "n": {
+      "mae_start": 0.2700938680768013,
+      "mae_interior": 0.060776822343468664,
+      "mae_end": 0.05787424728274346,
+      "start_interior": 4.444027470709428,
+      "end_interior": 0.9522420727375009
+    },
+    "C1": {
+      "mae_start": 0.3245595621317625,
+      "mae_interior": 0.15903213776648045,
+      "mae_end": 0.3327001191675663,
+      "start_interior": 2.0408426038285366,
+      "end_interior": 2.092030729386889
+    },
+    "C2": {
+      "mae_start": 0.3233295939862728,
+      "mae_interior": 0.15452278472483158,
+      "mae_end": 0.31429122149944305,
+      "start_interior": 2.0924396008138615,
+      "end_interior": 2.0339474340895496
+    },
+    "C3": {
+      "mae_start": 0.3155895832926035,
+      "mae_interior": 0.135244322642684,
+      "mae_end": 0.2452772581577301,
+      "start_interior": 2.3334774955869486,
+      "end_interior": 1.8135863551607527
+    },
+    "C4": {
+      "mae_start": 0.28409519895911217,
+      "mae_interior": 0.09819454580545425,
+      "mae_end": 0.1472860848903656,
+      "start_interior": 2.8931871585003246,
+      "end_interior": 1.4999416075733254
+    },
+    "C5": {
+      "mae_start": 0.13970463976264,
+      "mae_interior": 0.040203882902860644,
+      "mae_end": 0.05496582195162773,
+      "start_interior": 3.4749041554068287,
+      "end_interior": 1.3671769486652428
+    },
+    "C6": {
+      "mae_start": 0.22434601292014122,
+      "mae_interior": 0.06245999932289124,
+      "mae_end": 0.06026113390922547,
+      "start_interior": 3.591835020048098,
+      "end_interior": 0.9647956221981594
+    },
+    "Tf": {
+      "mae_start": 0.1481680902838707,
+      "mae_interior": 0.04123497620224953,
+      "mae_end": 0.05680458351969719,
+      "start_interior": 3.5932624177381616,
+      "end_interior": 1.3775825464547806
+    },
+    "Tc": {
+      "mae_start": 0.19031819105148315,
+      "mae_interior": 0.042085559740662574,
+      "mae_end": 0.05979044981300831,
+      "start_interior": 4.5221732162825425,
+      "end_interior": 1.4206880027602313
+    }
+  },
+  "source_checkpoint": "models/sc_fno/phase_5/step_5_B/seed_42_best.pt"
+}

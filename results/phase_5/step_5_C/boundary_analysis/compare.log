@@ -1,0 +1,15 @@
+======================================================================
+Step 5.C — Causal vs Non-causal comparison
+======================================================================
+
+Causal mask (seed 42):
+  best_val = 0.067500
+  decoder health: du=0.237, uvar=0.340
+  B_n = 3.90x
+  B_Tc = 4.03x
+  B_Tf = 3.25x
+
+Phase 4A.1 reported: B_n = 4.98x  (target < 4.0)
+Phase 2 audit:       B_n = 8.05x
+
+Verdict: B_n < 4.0 = PASS

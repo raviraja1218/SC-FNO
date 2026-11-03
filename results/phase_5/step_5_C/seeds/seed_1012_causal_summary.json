@@ -1,0 +1,79 @@
+{
+  "seed": 1012,
+  "variant": "causal_mask",
+  "best_val_data_loss": 0.06750535115022033,
+  "best_epoch": 40,
+  "final_epoch": 199,
+  "stop_reason": "patience=100 after epoch 100",
+  "wall_time_s": 1728.109794139862,
+  "peak_vram_MB": 147.725312,
+  "post_training_decoder_health": {
+    "du_dt_std": 0.23608294315636158,
+    "u_hat_variance": 0.3614035577047616
+  },
+  "boundary_ratios": {
+    "n": {
+      "mae_start": 0.29601112425327303,
+      "mae_interior": 0.0870529468357563,
+      "mae_end": 0.09629329860210419,
+      "start_interior": 3.4003573114160086,
+      "end_interior": 1.1061463408445178
+    },
+    "C1": {
+      "mae_start": 0.33807150840759276,
+      "mae_interior": 0.1831929886341095,
+      "mae_end": 0.37431841731071475,
+      "start_interior": 1.8454391236709469,
+      "end_interior": 2.0433010024108467
+    },
+    "C2": {
+      "mae_start": 0.3360787984728813,
+      "mae_interior": 0.17835293844342232,
+      "mae_end": 0.3555234470963478,
+      "start_interior": 1.884346854086137,
+      "end_interior": 1.9933702814160703
+    },
+    "C3": {
+      "mae_start": 0.3254037544131279,
+      "mae_interior": 0.15794228568673133,
+      "mae_end": 0.28486855775117875,
+      "start_interior": 2.0602700093789066,
+      "end_interior": 1.8036243841386326
+    },
+    "C4": {
+      "mae_start": 0.2921008262038231,
+      "mae_interior": 0.11825609773397446,
+      "mae_end": 0.180301254093647,
+      "start_interior": 2.4700698890041575,
+      "end_interior": 1.5246677131123298
+    },
+    "C5": {
+      "mae_start": 0.1558561396598816,
+      "mae_interior": 0.05090272568166256,
+      "mae_end": 0.07097799673676491,
+      "start_interior": 3.061842712207216,
+      "end_interior": 1.3943849918892333
+    },
+    "C6": {
+      "mae_start": 0.22985728114843368,
+      "mae_interior": 0.09208484813570976,
+      "mae_end": 0.09872940592467785,
+      "start_interior": 2.496146606113551,
+      "end_interior": 1.0721569066300212
+    },
+    "Tf": {
+      "mae_start": 0.163586253374815,
+      "mae_interior": 0.05192834012210369,
+      "mae_end": 0.07222879692912101,
+      "start_interior": 3.150230740866359,
+      "end_interior": 1.3909321337690184
+    },
+    "Tc": {
+      "mae_start": 0.20705312982201576,
+      "mae_interior": 0.05732644110918045,
+      "mae_end": 0.08096310451626777,
+      "start_interior": 3.6118259884243464,
+      "end_interior": 1.4123169509523603
+    }
+  }
+}

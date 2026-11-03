@@ -1,0 +1,65 @@
+{
+  "checks": [
+    {
+      "name": "p1_ancestor",
+      "pass": true,
+      "detail": "1d9b320"
+    },
+    {
+      "name": "p2_ancestor",
+      "pass": true,
+      "detail": "0c9dfd7"
+    },
+    {
+      "name": "p3_ancestor",
+      "pass": true,
+      "detail": "bc80727"
+    },
+    {
+      "name": "p4_ancestor",
+      "pass": true,
+      "detail": "3b622f7"
+    },
+    {
+      "name": "5A_ancestor",
+      "pass": true,
+      "detail": "ec9029e"
+    },
+    {
+      "name": "5B_ancestor",
+      "pass": true,
+      "detail": "68c1ce1"
+    },
+    {
+      "name": "phase4_tag",
+      "pass": true,
+      "detail": "2f0b53f15f69"
+    },
+    {
+      "name": "phase3_ckpt",
+      "pass": true,
+      "detail": "a0522e57..."
+    },
+    {
+      "name": "test_ids",
+      "pass": true,
+      "detail": "a71514ea..."
+    },
+    {
+      "name": "5B_gate",
+      "pass": true,
+      "detail": "exists"
+    },
+    {
+      "name": "5B_seed_42",
+      "pass": true,
+      "detail": "exists"
+    },
+    {
+      "name": "locked_clean",
+      "pass": true,
+      "detail": "empty"
+    }
+  ],
+  "all_pass": true
+}
