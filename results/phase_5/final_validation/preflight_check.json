@@ -1,0 +1,60 @@
+{
+  "checks": [
+    {
+      "name": "5_5.A_ancestor",
+      "pass": true,
+      "detail": "ec9029e"
+    },
+    {
+      "name": "5_5.B_ancestor",
+      "pass": true,
+      "detail": "68c1ce1"
+    },
+    {
+      "name": "5_5.C_ancestor",
+      "pass": true,
+      "detail": "6bb3d12"
+    },
+    {
+      "name": "5_5.D_ancestor",
+      "pass": true,
+      "detail": "093e5c0"
+    },
+    {
+      "name": "phase4_tag",
+      "pass": true,
+      "detail": "2f0b53f15f69"
+    },
+    {
+      "name": "gate_5_A",
+      "pass": true,
+      "detail": "PASS"
+    },
+    {
+      "name": "gate_5_B",
+      "pass": true,
+      "detail": "PASS"
+    },
+    {
+      "name": "gate_5_C",
+      "pass": true,
+      "detail": "PASS"
+    },
+    {
+      "name": "gate_5_D",
+      "pass": true,
+      "detail": "PASS"
+    },
+    {
+      "name": "locked_clean",
+      "pass": true,
+      "detail": "empty"
+    },
+    {
+      "name": "selected_model",
+      "pass": true,
+      "detail": "models/sc_fno/phase_5/step_5_B/seed_42_best.pt"
+    }
+  ],
+  "all_pass": true
+}

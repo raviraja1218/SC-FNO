@@ -1,0 +1,20 @@
+  [PASS] Preflight 5.E: 11 checks
+  [PASS] gate_5.A: PASS
+  [PASS] gate_5.B: PASS
+  [PASS] gate_5.C: PASS
+  [PASS] gate_5.D: PASS
+  [PASS] selected_model_exists: models/sc_fno/final_sc_fno.pt
+  [PASS] selected_model_sha: 746431709cc7a4be...
+  [PASS] completion_report: 10844 bytes
+  [PASS] phase4_lock: 2f0b53f15f69
+  [PASS] ancestor_5.A: ec9029e
+  [PASS] ancestor_5.B: 68c1ce1
+  [PASS] ancestor_5.C: 6bb3d12
+  [PASS] ancestor_5.D: 093e5c0
+  [PASS] locked_paths_clean: empty
+  [PASS] multi_seed_5B: 5 seeds
+  [PASS] multi_seed_5C: 5 seeds
+  [PASS] benchmark: present
+  [PASS] manifest_ready: to be written in commit block
+
+=== Gate 5: 18/18 PASS ===

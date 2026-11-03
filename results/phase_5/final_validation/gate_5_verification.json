@@ -1,0 +1,98 @@
+{
+  "gate": "5",
+  "n_checks": 18,
+  "n_pass": 18,
+  "all_pass": true,
+  "checks": [
+    {
+      "name": "Preflight 5.E",
+      "pass": true,
+      "detail": "11 checks"
+    },
+    {
+      "name": "gate_5.A",
+      "pass": true,
+      "detail": "PASS"
+    },
+    {
+      "name": "gate_5.B",
+      "pass": true,
+      "detail": "PASS"
+    },
+    {
+      "name": "gate_5.C",
+      "pass": true,
+      "detail": "PASS"
+    },
+    {
+      "name": "gate_5.D",
+      "pass": true,
+      "detail": "PASS"
+    },
+    {
+      "name": "selected_model_exists",
+      "pass": true,
+      "detail": "models/sc_fno/final_sc_fno.pt"
+    },
+    {
+      "name": "selected_model_sha",
+      "pass": true,
+      "detail": "746431709cc7a4be..."
+    },
+    {
+      "name": "completion_report",
+      "pass": true,
+      "detail": "10844 bytes"
+    },
+    {
+      "name": "phase4_lock",
+      "pass": true,
+      "detail": "2f0b53f15f69"
+    },
+    {
+      "name": "ancestor_5.A",
+      "pass": true,
+      "detail": "ec9029e"
+    },
+    {
+      "name": "ancestor_5.B",
+      "pass": true,
+      "detail": "68c1ce1"
+    },
+    {
+      "name": "ancestor_5.C",
+      "pass": true,
+      "detail": "6bb3d12"
+    },
+    {
+      "name": "ancestor_5.D",
+      "pass": true,
+      "detail": "093e5c0"
+    },
+    {
+      "name": "locked_paths_clean",
+      "pass": true,
+      "detail": "empty"
+    },
+    {
+      "name": "multi_seed_5B",
+      "pass": true,
+      "detail": "5 seeds"
+    },
+    {
+      "name": "multi_seed_5C",
+      "pass": true,
+      "detail": "5 seeds"
+    },
+    {
+      "name": "benchmark",
+      "pass": true,
+      "detail": "present"
+    },
+    {
+      "name": "manifest_ready",
+      "pass": true,
+      "detail": "to be written in commit block"
+    }
+  ]
+}
