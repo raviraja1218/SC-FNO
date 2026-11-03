@@ -1,0 +1,20 @@
+{
+  "package": "SC-FNO Reproducibility",
+  "version": "1.0",
+  "created": "2026-11-03",
+  "phase_5_lock": "03a7402",
+  "phase_5_tag": "phase-5-locked",
+  "selected_model": "models/sc_fno/final_sc_fno.pt",
+  "selected_model_sha256_prefix": "746431709cc7a4be",
+  "n_artifacts": 8,
+  "artifacts": {
+    "reproducibility/install.sh": "33de5251d5f373be98751681cd063f34986cb15eb01fb5553c1a1aad9d409381",
+    "reproducibility/reproduce_phase.sh": "bd2b04d366b962ee22e28a10290f4687c7445bd2ee21d94f09beb3bb6cd6954e",
+    "reproducibility/manifest.json": "662aa2049d48d4aa27b56cbbc3267f8aaf82214b0ff1914c8cd138d74d2ba513",
+    "reproducibility/verify_locks.sh": "975c68a2716e320b946b7dea7493a5f568a3d4c93fadad8d286a05b8c3c98047",
+    "reproducibility/README.md": "89318d9516c170f69d2e80acfa9dc68ec9052e1b8e66d476fa55902c218c2fb4",
+    "reproducibility/docs/verify_locks_test.log": "6dae866a7b2c60acc394dbaa1980fb18d7da6405d691d6240fe47c0b872e60e7",
+    "reproducibility/docs/WORKFLOW.md": "f6a2ee7d6c46ebc6741950c6e02dc343ca2552fa1bb82fff8e07925813ef13f7",
+    "reproducibility/docs/PHASES_SUMMARY.md": "d59fce919897ad3f4efb5f0f07eb90b59a9a0fc812eef4786759d046c552cc75"
+  }
+}

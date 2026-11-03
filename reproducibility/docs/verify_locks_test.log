@@ -1,0 +1,33 @@
+=== SC-FNO Phase Lock Verification ===
+Repo: /home/raviraja/projects/SC-FNO
+HEAD: 03a7402
+
+--- Phase Tags (existence + ancestry) ---
+  [PASS] phase-3-closed: tag at 97f5cc6, descends from bc80727
+  [PASS] phase-4b-locked: tag at fbb36c9, descends from dd392bb
+  [PASS] phase-5-locked: tag at 4d2d68f, descends from 03a7402
+  [PASS] phase-4a-locked: tag at 2c8443e, descends from dea218a
+  [PASS] phase-4-locked: tag at 2f0b53f, descends from 3b622f7
+  [PASS] phase-2-lock: tag at 0c9dfd7, descends from 0c9dfd7
+
+--- Untagged Phase Commits (ancestors of HEAD) ---
+  [PASS] phase-1: 1d9b320
+  [PASS] phase-0: e7e70c0
+  [PASS] phase-5A: ec9029e
+  [PASS] phase-5B: 68c1ce1
+  [PASS] phase-5C: 6bb3d12
+  [PASS] phase-5D: 093e5c0
+
+--- Selected Model ---
+  [PASS] selected model SHA: 746431709cc7a4be
+
+--- Phase 1 Dataset ---
+  [PASS] Phase 1 aggregate SHA: 9049c7b4...
+  [PASS] test set SHA: a71514eacaee3d09
+
+--- Locked Paths (must be clean) ---
+  [PASS] locked paths clean: empty
+
+==========================================
+=== ALL 16 CHECKS PASSED ===
+Phase 0-5 locks intact. Project reproducible.
